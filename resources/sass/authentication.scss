@@ -1,0 +1,152 @@
+.body {
+	background-color: #FAFBFE !important;
+}
+
+.btn-primary {
+    color: #FFF;
+    background-color: #6e00ff;
+    border-color: #6e00ff;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.btn-sm, .btn-group-sm > .btn {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}
+.rounded-pill {
+    border-radius: 50rem !important;
+}
+
+.form-control-label {
+	color: #3C4858;
+	font-size: 0.875rem;
+	font-weight: 600;
+}
+
+.input-group {
+	position: relative;
+	display: -webkit-box;
+	display: flex;
+	flex-wrap: wrap;
+	-webkit-box-align: stretch;
+	align-items: stretch;
+	width: 100%;
+}
+
+.input-group>.input-group-prepend>.btn,
+.input-group>.input-group-prepend>.input-group-text,
+.input-group>.input-group-append:not(:last-child)>.btn,
+.input-group>.input-group-append:not(:last-child)>.input-group-text,
+.input-group>.input-group-append:last-child>.btn:not(:last-child):not(.dropdown-toggle),
+.input-group>.input-group-append:last-child>.input-group-text:not(:last-child) {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.input-group-merge .input-group-text {
+	color: #C0CCDA;
+	background-color: #FFF;
+	border: 1px solid #E0E6ED;
+}
+
+.input-group-text {
+	transition: all 0.2s ease;
+}
+
+.input-group-prepend {
+	margin-right: -1px;
+}
+
+.input-group-text {
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 0;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	text-align: center;
+	white-space: nowrap;
+	border-radius: 0.25rem;
+}
+
+.input-group-merge .form-control:not(:first-child):not(.is-valid):not(.is-invalid) {
+	border-left: 0;
+	padding-left: 0;
+}
+
+.input-group>.form-control:not(:first-child),
+.input-group>.custom-select:not(:first-child) {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.input-group-merge .form-control {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.input-group>.form-control,
+.input-group>.form-control-plaintext,
+.input-group>.custom-select,
+.input-group>.custom-file {
+	position: relative;
+	-webkit-box-flex: 1;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	width: 1%;
+	margin-bottom: 0;
+}
+
+.form-control {
+	display: block;
+	width: 100%;
+	height: calc(1.5em + 1.5rem + 2px);
+	padding: 0.75rem 1.25rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #8492A6;
+	background-color: #FFF;
+	background-clip: padding-box;
+	border: 1px solid #E0E6ED;
+	border-radius: 0.25rem;
+	-webkit-box-shadow: inset 0 1px 1px rgba(31, 45, 61, 0.075);
+	box-shadow: inset 0 1px 1px rgba(31, 45, 61, 0.075);
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+.form-control:focus {
+	border: 1px solid #E0E6ED;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	margin-bottom: 0.5rem;
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.3;
+	color: #3C4858;
+}
+
+.form-control-label {
+	color: #3C4858;
+	font-size: 0.875rem;
+	font-weight: 600;
+}

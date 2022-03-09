@@ -1,0 +1,118 @@
+/* ============================== */
+/* 
+	Title: Eduland Landing Page
+	Autor: Demo
+*/
+/* ============================== */
+
+@media screen and (min-width: 768px){
+footer {
+	text-align: none;
+}	
+.cta a.btn-default {
+	float: right;
+}
+.cta h2{
+	text-align: left;
+}
+.features .item {
+	margin-bottom: 0px;
+}
+.navbar-nav {
+	margin: 10px;
+}
+.footer_left, .footer_center, .footer_right{
+	display: inline-block;
+	vertical-align: top;
+}
+.footer_center {
+	padding: 5px;
+}
+.footer_left{
+	float: left;
+}
+.footer_right{
+	float: right;
+}
+.teachers .item {
+	margin: 0;
+}
+.testimonials .container_item {
+	border-left: solid 1px #e0e0e0;
+}
+.testimonials .item-testimonial:after,
+.testimonials .item-testimonial:before{
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.testimonials .item-testimonial:after{
+	border-color: rgba(136, 183, 213, 0);
+	border-right-color: #fff;
+	border-width: 15px;
+	margin-top: -35px;
+}
+.testimonials .item-testimonial:before{
+	border-color: rgba(194, 225, 245, 0);
+	border-right-color: #e9eef2;
+	border-width: 16px;
+	margin-top: -36px;
+}
+.top-bar .social-media{
+	text-align: left;
+}
+.top-bar p{
+	display: inline-block;
+	margin: 0;
+}
+.top-bar .data-info {
+	text-align: right;
+}
+.scrollup {
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	bottom: 80px;
+	right: 30px;
+	display: none;
+	background: transparent url("../img/to-top.png") center center no-repeat;
+}
+.scrollup i {
+	color: #fff;
+	text-align: center;
+	display: block;
+	line-height: 48px;
+	font-size: 20px;
+}
+.scrollup:hover { 
+	opacity: 0.7;
+}
+.video_fullscreen {
+	display: block;
+	height: 400px;
+	z-index: 999;
+}
+
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width : 900px){ 
+.navbar-default .navbar-nav>li>a {
+	margin-right: 5px;
+	margin-left: 5px;
+	padding-right: 0;
+	padding-left: 0;
+}
+.btn-default {
+	display: block;
+	font-size: 14px;
+	padding: 10px 0px;
+}
+
+}

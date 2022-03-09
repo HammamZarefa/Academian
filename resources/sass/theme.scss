@@ -1,0 +1,69 @@
+$font-family-sans-serif : 'Nunito', sans-serif;
+$link-color: #8808dd; //red
+$link-hover-color: #8808dd;
+$enable-responsive-font-sizes: true;
+
+@import '~bootstrap/scss/bootstrap';
+@import '~select2/dist/css/select2.min';
+@import '~@ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.min';
+@import '~bootstrap-daterangepicker/daterangepicker.css';
+@import 'website/animate.css';
+@import 'website/slicknav.css';
+@import 'website/style.css';
+@import 'website/cookiealert';
+body {
+	font-family: $font-family-sans-serif;
+}
+
+.btn:focus {
+	outline: none;
+}
+
+.public-page-container {
+	padding-bottom: 160px;
+	padding-top: 30px;
+}
+
+.how-it-works {
+	.step1-text {
+		color: rgb(255, 65, 77);
+	}
+	.step2-text {
+		color: rgb(26, 166, 183);
+	}
+	.step3-text {
+		color: rgb(255, 65, 77);
+	}
+	.step4-text {
+		color: rgb(26, 166, 183);
+	}
+}
+
+.font-14 {
+	font-size: 14px;
+}
+
+.font-24 {
+	font-size: 24px;
+}
+
+.about_area {
+	ol li {
+    	display: list-item !important;
+	}
+}
+
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+}
