@@ -1,11 +1,11 @@
 <table id="table" class="table table-striped nowrap w-100">
     <thead>
         <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Type</th>
-            <th scope="col">Description</th>
-            <th scope="col">Reference</th>
-            <th scope="col">Amount</th>
+            <th scope="col">@lang('Date')</th>
+            <th scope="col">@lang('Type')</th>
+            <th scope="col">@lang('Description')</th>
+            <th scope="col">@lang('Reference')</th>
+            <th scope="col">@lang('Amount')</th>
         </tr>
     </thead>
 </table>

@@ -4,7 +4,7 @@
 <div class="container page-container">
    <div class="row mb-4">
       <div class="col-md-6">
-         <h4>Job Applicants</h4>
+         <h4>@lang('Job Applicants')</h4>
       </div>
       <div class="col-md-6 text-right">
       </div>
@@ -49,13 +49,13 @@
                     "data": function(d) {
                         d.general_text_search = $("input[name=general_text_search]").val();
                         d.applicant_status_id = $('select[name=applicant_status_id]').val();
-                        d.referral_source_id = $('select[name=referral_source_id]').val();                        
+                        d.referral_source_id = $('select[name=referral_source_id]').val();
                     }
                 },
                 columns: [{
                         data: 'applicant_html',
                         name: 'applicant_html'
-                    }                    
+                    }
                 ]
             });
 

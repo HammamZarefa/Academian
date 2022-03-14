@@ -16,7 +16,7 @@
     @endif
 
     <div class="form-group">
-        <label>Name <span class="required">*</span></label>
+        <label>@lang('Name') <span class="required">*</span></label>
         <input type="text"
             class="form-control form-control-sm {{ showErrorClass($errors, 'name') }}"
             name="name" value="{{ old_set('name', NULL, $method) }}">
@@ -25,7 +25,7 @@
 
 
     <div class="form-group">
-        <label>Description <span class="required">*</span></label>
+        <label>@lang('Description') <span class="required">*</span></label>
         <input type="text"
             class="form-control form-control-sm {{ showErrorClass($errors, 'description') }}"
             name="description" value="{{ old_set('description', NULL, $method) }}">
@@ -34,7 +34,7 @@
 
 
     <div class="form-group">
-        <label>Message to display after submitting the payment request <span class="required">*</span></label>
+        <label>@lang('Message to display after submitting the payment request') <span class="required">*</span></label>
         <input type="text"
             class="form-control form-control-sm {{ showErrorClass($errors, 'success_message') }}"
             name="success_message" value="{{ old_set('success_message', NULL, $method) }}">
@@ -42,7 +42,7 @@
     </div>
 
     <div class="form-group">
-        <label>Instruction to customer <small class="text-muted">(e.g bank name, account number, swift code etc. )</small></label>
+        <label>@lang('Instruction to customer') <small class="text-muted">(@lang('e.g bank name, account number, swift code etc'). )</small></label>
         <textarea
             class="form-control form-control-sm {{ showErrorClass($errors, 'instruction') }}"
             name="instruction">{{ old_set('instruction', NULL, $method) }}</textarea>
@@ -54,14 +54,13 @@
             <input type="checkbox" class="custom-control-input" id="requires_transaction_number"
                 name="requires_transaction_number" value="1"
                 {{ old_set('requires_transaction_number', NULL, $method->settings) ? 'checked="checked"' : '' }}>
-            <label class="custom-control-label" for="requires_transaction_number">Requires Evidence / Transaction
-                number</label>
+            <label class="custom-control-label" for="requires_transaction_number">@lang('Requires Evidence') / @lang('Transaction number')</label>
         </div>
     </div>
 
     <div class="form-group reference_field_label"
         style="{{ hideElementIfApplicable('requires_transaction_number', $method->settings) }}">
-        <label>Field name to display for entering transaction number <span class="required">*</span></label>
+        <label>@lang('Field name to display for entering transaction number') <span class="required">*</span></label>
         <input type="text"
             class="form-control form-control-sm {{ showErrorClass($errors, 'reference_field_label') }}"
             name="reference_field_label"
@@ -75,14 +74,13 @@
             <input type="checkbox" class="custom-control-input" id="requires_uploading_attachment"
                 name="requires_uploading_attachment" value="1"
                 {{ old_set('requires_uploading_attachment', NULL, $method->settings) ? 'checked="checked"' : '' }}>
-            <label class="custom-control-label" for="requires_uploading_attachment">Requires Uploading
-                attachment</label>
+            <label class="custom-control-label" for="requires_uploading_attachment">@lang('Requires Uploading attachment')</label>
         </div>
     </div>
 
     <div class="form-group attachment_field_label"
         style="{{ hideElementIfApplicable('requires_uploading_attachment', $method->settings) }}">
-        <label>Field name to display for attachment uploading <span class="required">*</span></label>
+        <label>@lang('Field name to display for attachment uploading') <span class="required">*</span></label>
         <input type="text"
             class="form-control form-control-sm {{ showErrorClass($errors, 'attachment_field_label') }}"
             name="attachment_field_label"
@@ -97,7 +95,7 @@
         <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="inactive" name="inactive" value="1"
                 {{ old_set('inactive', NULL, $method) ? 'checked="checked"' : '' }}>
-            <label class="custom-control-label" for="inactive">Inactive</label>
+            <label class="custom-control-label" for="inactive">@lang('Inactive')</label>
         </div>
     </div>
     <input type="submit" name="submit" class="btn btn-success" value="Submit" />

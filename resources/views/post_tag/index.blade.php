@@ -17,11 +17,11 @@
 <table id="table" class="table table-striped">
   <thead>
      <tr>
-        <th scope="col" >Name</th>
-        <th scope="col" >Slug</th>
-        <th scope="col">Keywords</th>
-         <th scope="col">Meta Desc</th>
-        <th scope="col" class="text-right">Action</th>
+        <th scope="col" >@lang('Name')</th>
+        <th scope="col" >@lang('Slug')</th>
+        <th scope="col">@lang('Keywords')</th>
+         <th scope="col">@lang('Meta Desc')</th>
+        <th scope="col" class="text-right">@lang('Action')</th>
      </tr>
   </thead>
 
@@ -123,7 +123,7 @@
 
         <td>
 
-            <a href="{{route('post_tag.edit', [$tag->id])}}" class="btn btn-info btn-sm"> Edit </a>
+            <a href="{{route('post_tag.edit', [$tag->id])}}" class="btn btn-info btn-sm">@lang('Edit')  </a>
 
             <form method="POST" action="{{route('post_tag.destroy', [$tag->id])}}" class="d-inline" onsubmit="return confirm('Delete this tag permanently?')">
 

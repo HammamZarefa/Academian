@@ -89,7 +89,7 @@
                             @enderror
                         </div>
                         <div class="form-group @error('about') is-invalid @enderror">
-                            <label>Brief summary about you <span class="text-muted">(optional)</span></label>
+                            <label>@lang('Brief summary about you') <span class="text-muted">(@lang('optional'))</span></label>
                             <textarea rows="4" class="form-control"
                                 name="about">{{ old('about') }}</textarea>
                             @error('about')
@@ -98,10 +98,10 @@
                             @enderror
                         </div>
                         <div class="form-group @error('resume') is-invalid @enderror">
-                            <label>Resume (PDF file) <span class="required">*</span> </label>
+                            <label>@lang('Resume (PDF file)') <span class="required">*</span> </label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="resume" name="resume" />
-                                <label class="custom-file-label" for="resume">Choose file</label>
+                                <label class="custom-file-label" for="resume">@lang('Choose file')</label>
                             </div>
                             @error('resume')
                                 <span class="invalid-feedback d-block" role="alert">

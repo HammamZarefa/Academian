@@ -7,8 +7,8 @@
    @include('setup.partials.action_toolbar', ['title' => 'Homepage Contents'])
    <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-         <li class="breadcrumb-item active">Website Frontend</li>
-         <li class="breadcrumb-item" aria-current="page">Homepage</li>
+         <li class="breadcrumb-item active">@lang('Website Frontend')</li>
+         <li class="breadcrumb-item" aria-current="page">@lang('Homepage')</li>
       </ol>
    </nav>
    <div class="container">

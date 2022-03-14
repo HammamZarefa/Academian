@@ -23,11 +23,8 @@ Route::get('writer/apply', 'ApplicantController@create')
 Route::post('writer/apply', 'ApplicantController@store')
     ->name('store_writer_application');
 
-Route::get('language/{locale}', function ($locale) {
-    app()->setLocale($locale);
-    session()->put('locale', $locale);
-    return redirect()->back();
-});
+Route::get('/change/{lang?}', 'SiteController@changeLanguage')->name('lang');
+Auth::routes(['verify' => true]);
 
 // Authenticated Users
 Route::group(['middleware' => ['auth', 'verified']], function () {
@@ -59,10 +56,13 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     });
     // End of Admin and staff
-
-
     Route::get('/clear', function(){
         \Illuminate\Support\Facades\Artisan::call('optimize:clear');
     });
 
+    Route::get('language/{locale}', function ($locale) {
+        app()->setLocale($locale);
+        session()->put('locale', $locale);
+        return redirect()->back();
+    });
 });

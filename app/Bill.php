@@ -4,15 +4,17 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
+use Spatie\Translatable\HasTranslations;
 
 class Bill extends Model
 {
     use SoftDeletes;
+    use HasTranslations;
 
     protected $casts = [
         'paid' => 'date'
     ];
-    
+
     protected $fillable = [
         'number',
         'staff_invoice_number',
@@ -22,6 +24,8 @@ class Bill extends Model
         'address',
         'note'
     ];
+
+    public $translatable = ['name', 'address','note'];
 
     function items()
     {

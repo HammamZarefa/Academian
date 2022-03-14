@@ -17,11 +17,11 @@
 <table id="table" class="table table-striped">
   <thead>
      <tr>
-        <th scope="col" >Name</th>
-        <th scope="col" >Slug</th>
-        <th scope="col">Keywords</th>
-         <th scope="col">Meta Desc</th>
-        <th scope="col" class="text-right">Action</th>
+        <th scope="col" >@lang('Name')</th>
+        <th scope="col" >@lang('Slug')</th>
+        <th scope="col">@lang('Keywords')</th>
+         <th scope="col">@lang('Meta Desc')</th>
+        <th scope="col" class="text-right">@lang('Action')</th>
      </tr>
   </thead>
 

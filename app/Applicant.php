@@ -5,10 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Country;
 use App\ReferralSource;
+use Spatie\Translatable\HasTranslations;
 
 class Applicant extends Model
 {
-    protected $fillable = [        
+    use HasTranslations;
+
+    protected $fillable = [
         'number',
         'first_name',
         'last_name',
@@ -21,18 +24,20 @@ class Applicant extends Model
         'attachment',
     ];
 
+    public $translatable = ['first_name', 'last_name','note'];
+
     public function getFullNameAttribute()
     {
         return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
     }
-    
+
     public function status()
     {
         return $this->belongsTo('App\ApplicantStatus', 'applicant_status_id');
     }
 
     public function referral_source()
-    {        
+    {
         return $this->belongsTo('App\ReferralSource');
     }
 

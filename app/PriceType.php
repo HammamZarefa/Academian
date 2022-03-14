@@ -3,11 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class PriceType extends Model
 {
+    use HasTranslations;
+
     protected $fillable = [
         'id',
-        'name',        
+        'name',
     ];
+
+    public $translatable = ['name'];
 }

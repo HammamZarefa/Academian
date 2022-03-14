@@ -1,7 +1,7 @@
 <div class="document-parent-container">
 <div class="document-container">
    <!-- Badge overlay DIV -->
-   <div class="badge-overlay">              
+   <div class="badge-overlay">
       <span class="top-left badge {{ ($bill->paid) ? 'green' : 'red' }}">
       {{ ($bill->paid) ? 'Paid' : 'Unpaid' }}
       </span>
@@ -19,12 +19,12 @@
          </address>
          </div>
          <div class="col-md-6 text-right">
-            <div><b>Bill To:</b></div>
+            <div><b>@lang('Bill To'):</b></div>
             <span class="bold">{{ settings('company_name') }}:</span>
             <address>{{ settings('company_address') }}</address>
             <p class="no-mbot">
                <span class="bold">
-               Date:  {{ sql2date($bill->created_at) }}
+               @lang('Date'):  {{ sql2date($bill->created_at) }}
                </span>
             </p>
          </div>
@@ -36,14 +36,14 @@
                   <thead>
                      <tr>
                         <th>#</th>
-                        <th class="description text-left" width="50%">Item</th>
-                        <th class="text-right">Quantity</th>
-                        <th class="text-right">Rate</th>
-                        <th class="text-right">Sub Total</th>
+                        <th class="description text-left" width="50%">@lang('Item')</th>
+                        <th class="text-right">@lang('Quantity')</th>
+                        <th class="text-right">@lang('Rate')</th>
+                        <th class="text-right">@lang('Sub Total')</th>
                      </tr>
                   </thead>
                   <tbody>
-                     @foreach($bill->items as $key=>$item) 
+                     @foreach($bill->items as $key=>$item)
                      <tr>
                         <td>{{ $key + 1 }}</td>
                         <td class="description text-left">
@@ -63,7 +63,7 @@
             <table class="table text-right">
                <tbody>
                   <tr>
-                     <td><span class="bold">Total</span>
+                     <td><span class="bold">@lang('Total')</span>
                      </td>
                      <td class="subtotal">{{ format_money($bill->total) }}</td>
                   </tr>
@@ -75,7 +75,7 @@
       @if($bill->note)
       <div class="row">
          <div class="col-md-12">
-            <div><b>Note</b></div>
+            <div><b>@lang('Note')</b></div>
             {{ $bill->note }}
          </div>
       </div>

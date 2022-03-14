@@ -4,7 +4,7 @@
 <div class="container page-container">
    <div class="row">
       <div class="col-md-12">
-         <h4>Dashboard</h4>
+         <h4>@lang('Dashboard')</h4>
          <hr>
       </div>
    </div>
@@ -12,48 +12,48 @@
       <div class="col-md-3">
          <div class="card card-bg-indigo">
             <div class="card-body">
-               <h5 class="card-title">New Customers </h5>               
+               <h5 class="card-title">@lang('New Customers') </h5>
                <h5 class="float-right">
-                  <i class="fas fa-spinner fa-spin"></i> 
+                  <i class="fas fa-spinner fa-spin"></i>
                   <span id="users_count"></span>
                </h5>
-               <p>Last 7 days</p>
+               <p>@lang('Last 7 days')</p>
             </div>
          </div>
       </div>
       <div class="col-md-3">
          <div class="card card-bg-indigo-light">
             <div class="card-body">
-               <h5 class="card-title">Orders </h5>               
+               <h5 class="card-title">@lang('Orders') </h5>
                <h5 class="float-right">
-                  <i class="fas fa-spinner fa-spin"></i> 
+                  <i class="fas fa-spinner fa-spin"></i>
                   <span id="orders_count"></span>
                </h5>
-               <p>In progress</p>
+               <p>@lang('In progress')</p>
             </div>
          </div>
       </div>
       <div class="col-md-3">
          <div class="card card-bg-red-light">
             <div class="card-body">
-               <h5 class="card-title">Bill Paid</h5>
+               <h5 class="card-title">@lang('Bill Paid')</h5>
                <h5 class="float-right">
-                  <i class="fas fa-spinner fa-spin"></i> 
+                  <i class="fas fa-spinner fa-spin"></i>
                   <span id="paid_bills_amount"></span>
                </h5>
-               <p>Last 30 days</p>
+               <p>@lang('Last 30 days')</p>
             </div>
          </div>
       </div>
       <div class="col-md-3">
          <div class="card card-bg-green">
             <div class="card-body">
-               <h5 class="card-title">Profit</h5>
+               <h5 class="card-title">@lang('Profit')</h5>
                <h5 class="float-right">
-                  <i class="fas fa-spinner fa-spin"></i> 
+                  <i class="fas fa-spinner fa-spin"></i>
                   <span id="profit_amount"></span>
                </h5>
-               <p>Last 30 days</p>
+               <p>@lang('Last 30 days')</p>
             </div>
          </div>
       </div>
@@ -65,14 +65,14 @@
       <div class="col-md-4">
          <div class="">
             <div class="">
-               <h5 class="card-title">Activity Log</h5>
-               <small>Most recent 5 activities <a href="{{ route('activity_log') }}">See All</a></small>
+               <h5 class="card-title">@lang('Activity Log')</h5>
+               <small>@lang('Most recent 5 activities') <a href="{{ route('activity_log') }}">@lang('See All')</a></small>
                @if($data['activities']->count() > 0)
                 @foreach($data['activities'] as $activity)
                     @isset($activity->causer->id)
                     <p class="media">
                         <div class="media-body">
-                        <a href="{{ route('user_profile', $activity->causer->id) }}">{{ $activity->causer->full_name }}</a> has
+                        <a href="{{ route('user_profile', $activity->causer->id) }}">{{ $activity->causer->full_name }}</a> @lang('has')
                         {!! $activity->description !!}
                         </div>
                         <small class="text-muted">
@@ -82,7 +82,7 @@
                     @endisset
                 @endforeach
                @else
-                No activity
+                    @lang('No activity')
                @endif
             </div>
          </div>
@@ -109,7 +109,7 @@
       return Math.floor(Math.random() * 100) + 20;
    };
       var formatted_values = [];
-     
+
       var config = {
          type: 'line',
          data: {
@@ -174,7 +174,7 @@
 
                  if (label) {
                    label += ': '
-                 }    
+                 }
                  label += accounting.formatMoney(tooltipItem.yLabel, currencyConfig.currency);
                  return label
                },
@@ -183,23 +183,23 @@
          }
       };
 
-      window.onload = function() {         
+      window.onload = function() {
 
          $.post( "{{ route('income_graph') }}", {
-              '_token': $('meta[name=csrf-token]').attr('content'),              
+              '_token': $('meta[name=csrf-token]').attr('content'),
           })
          .done(function(response) {
             config.data.labels = response.labels;
             config.data.datasets[0]['data'] = response.values;
-            formatted_values = response.formatted_values; 
-          
+            formatted_values = response.formatted_values;
+
             var ctx = document.getElementById('canvas').getContext('2d');
-            window.myLine = new Chart(ctx, config);         
+            window.myLine = new Chart(ctx, config);
          })
          .fail(function() {
              console.log( "error loading the chart" );
-         });   
-         
+         });
+
       };
 
 
@@ -216,15 +216,15 @@
       function fetch(query)
       {
         $.post( "{{ route('dashboard_statistics') }}", {
-              '_token': "{{ csrf_token() }}",              
+              '_token': "{{ csrf_token() }}",
               'name': query.name
           })
-         .done(function(response) {            
-            $('#' + query.elementId).html(response).prev('.fa-spinner').hide();         
+         .done(function(response) {
+            $('#' + query.elementId).html(response).prev('.fa-spinner').hide();
          })
          .fail(function() {
-     
-         });   
+
+         });
       }
 
    </script>

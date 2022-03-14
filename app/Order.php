@@ -12,18 +12,22 @@ use Carbon\Carbon;
 use App\OrderStatus;
 use App\User;
 use App\Traits\Wallet\Transactionable;
+use Spatie\Translatable\HasTranslations;
 
 class Order extends Model
 {
     use SoftDeletes;
     use \App\Traits\TagOperation;
     use Transactionable;
+    use HasTranslations;
 
     protected $dates = [
         'deleted_at',
         'created_at',
         'dead_line'
     ];
+
+    public $translatable = ['title', 'instruction'];
 
     protected $fillable = [
         'number',

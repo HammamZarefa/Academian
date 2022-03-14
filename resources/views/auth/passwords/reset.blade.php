@@ -9,7 +9,7 @@
 
         <div class="col-md-7">
             <div class="">
-                <h3>Change Password</h3>
+                <h3>@lang('Change Password')</h3>
 
                 <div class="">
                     <form method="POST" action="{{ route('password.update') }}">

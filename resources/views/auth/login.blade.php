@@ -14,8 +14,8 @@
          <div class="card shadow zindex-100 mb-0">
             <div class="card-body" id="authentication">
                <div class="mb-5">
-                  <h6 class="h3">Sign In</h6>
-                  <p class="text-muted mb-0">Sign in to your account to continue.</p>
+                  <h6 class="h3">@lang('Sign In')</h6>
+                  <p class="text-muted mb-0">@lang('Sign in to your account to continue').</p>
                </div>
                <form method="POST" action="{{ route('login') }}">
                   @csrf
@@ -50,7 +50,7 @@
                         <div class="input-group-prepend">
                            <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">   
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
                      </div>
                      @error('password')
                      <span class="invalid-feedback" role="alert">
@@ -66,7 +66,7 @@
                   </div>
                </form>
                <hr>
-               <div>Don't have an account? <a href="{{ route('register') }}">Sign up</a></div>
+               <div>@lang('Don\'t have an account?') <a href="{{ route('register') }}">@lang('Sign up')</a></div>
             </div>
          </div>
       </div>

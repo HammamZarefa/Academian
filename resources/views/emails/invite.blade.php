@@ -1,13 +1,13 @@
 @component('mail::message')
 
-Hi, 
+    @lang('Hi'),
 
-Congratulation! You have been invited to join {{ settings('company_name') }} as {{ $role_name }} ! Please click the button below to confirm your joining.
+    @lang('Congratulation! You have been invited to join') {{ settings('company_name') }} as {{ $role_name }} ! @lang('Please click the button below to confirm your joining').
 
 @component('mail::button', ['url' => route('register', ['c' => $ref_code ])])
-Join Now
+    @lang('Join Now')
 @endcomponent
 
-Thanks,<br>
+    @lang('Thanks'),<br>
 {{ config('app.name') }}
 @endcomponent
