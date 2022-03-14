@@ -5,31 +5,31 @@
          <div class="card">
             <div class="card-body">
                <div class="h2 text-center">
-                  Financial
+                   @lang('Financial')
                </div>
                <table class="table table-sm">
                   @if(auth()->user()->hasRole('admin'))
                      <tr style="border:0px;">
-                        <td colspan="3"><b>Service Item</b></td>
+                        <td colspan="3"><b>@lang('Service Item') </b></td>
                      </tr>
                      <tr>
                         <td>
                            <div>
-                              <span style="font-size: 22px;">{{ $order->service->name }}</span>  -  
+                              <span style="font-size: 22px;">{{ $order->service->name }}</span>  -
                               {{ format_money($order->base_price) }}
-                              <span style="font-size: 12px;" class="text-muted">(Base Price)</span> 
+                              <span style="font-size: 12px;" class="text-muted">(@lang('Base Price'))</span>
                            </div>
-                           <div style="font-size: 14px;">                           
-                              {{ $order->work_level->name }} <i>(Work level)</i> - 
+                           <div style="font-size: 14px;">
+                              {{ $order->work_level->name }} <i>(Work level)</i> -
                               {{ format_money($order->work_level_price) }}
-                              <span style="font-size: 12px;" class="text-muted">  
-                              {{ $order->work_level_percentage }}% of Base Price
+                              <span style="font-size: 12px;" class="text-muted">
+                              {{ $order->work_level_percentage }}@lang('% of Base Price')
                               </span>
                            </div>
-                           <div style="font-size: 14px;">      
+                           <div style="font-size: 14px;">
                               Urgency - {{ format_money($order->urgency_price) }}
-                              <span style="font-size: 12px;" class="text-muted">     
-                              {{ $order->urgency_percentage }}% of Base Price
+                              <span style="font-size: 12px;" class="text-muted">
+                              {{ $order->urgency_percentage }}@lang('% of Base Price')
                               </span>
                            </div>
                         </td>
@@ -40,9 +40,9 @@
                      </tr>
                      @if($order->added_services()->exists())
                      <tr style="border:0px;">
-                        <td colspan="3"><b>Additional Services</b></td>
+                        <td colspan="3"><b>@lang('Additional Services')</b></td>
                      </tr>
-                     @foreach($order->added_services as $added_service)                   
+                     @foreach($order->added_services as $added_service)
                      <tr>
                         <td>{{ $added_service->name }}</td>
                         <td></td>
@@ -52,18 +52,18 @@
                      @endif
                   @endif
                      <tr>
-                        <th>Total</th>
+                        <th>@lang('Total')</th>
                         <td></td>
                         <th class="text-right">{{ format_money($order->total) }}</th>
                      </tr>
                      @role('admin')
                      <tr>
-                        <td>(-) Staff Payment</td>
+                        <td>(-) @lang('Staff Payment')</td>
                         <td></td>
                         <td class="text-right">{{ ($order->staff_payment_amount) ? format_money($order->staff_payment_amount) : 'Not set' }}</td>
                      </tr>
                      <tr>
-                        <th>Profit</th>
+                        <th>@lang('Profit')</th>
                         <td></td>
                         <th class="text-right">{{ ($order->staff_payment_amount) ? format_money($order->total - $order->staff_payment_amount) : 'Staff payment is not set' }}</th>
                      </tr>
@@ -72,18 +72,18 @@
                <table class="table table-sm">
                   <thead>
                      <tr>
-                        <th>Wallet payment</th>                        
+                        <th>@lang('Wallet payment')</th>
                      </tr>
                   </thead>
-                  <tbody>                    
+                  <tbody>
                      <tr>
                         @if($walletPayment = $order->walletPayment())
-                           <td>{{ $walletPayment->number }}</td>                        
+                           <td>{{ $walletPayment->number }}</td>
                         @else
-                           <td class="text-danger">No payment has been made</td>                        
+                           <td class="text-danger">@lang('No payment has been made')</td>
                         @endif
                      </tr>
-                     
+
                   </tbody>
                </table>
             </div>

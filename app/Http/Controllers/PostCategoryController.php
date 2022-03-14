@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\PostCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use function MongoDB\BSON\toJSON;
 
 class PostCategoryController extends Controller
 {
@@ -37,15 +38,16 @@ class PostCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         Validator::make($request->all(), [
-            "name" => "required",
-            "keyword" => "required",
-            "meta_desc" => "required"
+            'name.en' => "required|string|distinct|min:3",
+            "keyword.en" => "required",
+            "meta_desc.en" => "required"
         ])->validate();
 //        dd($request);
         $category = new PostCategory();
         $category->name = $request->name;
-        $category->slug = \Str::slug($request->name);
+        $category->slug = \Str::slug($request->name["en"]);
         $category->keyword = $request->keyword;
         $category->meta_desc = $request->meta_desc;
 
@@ -80,7 +82,7 @@ class PostCategoryController extends Controller
     public function edit( $postCategory)
     {
         $postCategory = PostCategory::findOrFail($postCategory);
-        return view('post_category.create',compact('postCategory'));
+        return view('post_category.edit',compact('postCategory'));
     }
 
     /**
@@ -92,6 +94,7 @@ class PostCategoryController extends Controller
      */
     public function update(Request $request,$postCategory)
     {
+        dd($request);
         Validator::make($request->all(), [
             "name" => "required",
             "keyword" => "required",
@@ -100,7 +103,7 @@ class PostCategoryController extends Controller
 
         $category = PostCategory::findOrFail($postCategory);
         $category->name = $request->name;
-        $category->slug = \Str::slug($request->name);
+        $category->slug = \Str::slug($request->name["en"]);
         $category->keyword = $request->keyword;
         $category->meta_desc = $request->meta_desc;
 

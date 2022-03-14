@@ -2,9 +2,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class WorkLevel extends Model
 {
+    use HasTranslations;
 
     protected $fillable = [
         'id',
@@ -12,6 +14,8 @@ class WorkLevel extends Model
         'percentage_to_add',
         'inactive'
     ];
+
+    public $translatable = ['name'];
 
     protected $casts = [
         'inactive' => 'boolean'

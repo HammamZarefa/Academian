@@ -26,7 +26,7 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">@lang('Toggle navigation')</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -88,20 +88,20 @@
                             {{--</div>--}}
                         {{--</div>--}}
                     {{--</li>--}}
-                    <li><a href="#menu-contact">Contact US</a></li>
-                    <li><a href="#menu-testimonials">Reviews</a></li>
-                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#menu-contact">@lang('Contact US')</a></li>
+                    <li><a href="#menu-testimonials">@lang('Reviews')</a></li>
+                    <li><a href="#blog">@lang('Blog')</a></li>
                     <li>
                                 @auth
                                     <a href="{{ route(get_default_route_by_user(auth()->user())) }}" class="login">
                                         <i class="flaticon-user"></i>
-                                        <span>My Account</span>
+                                        <span>@lang('My Account')</span>
                                     </a>
                                 @endauth
                                 @guest
                                     <a href="{{ route('login') }}" class="login">
                                         <i class="flaticon-user"></i>
-                                        <span>log in</span>
+                                        <span>@lang('log in')</span>
                                     </a>
                                 @endguest
                                 {{--<div class="live_chat_btn">--}}
@@ -114,7 +114,7 @@
                         </li>
                 </ul>
                 <div class="help">
-                    <button class="" style="background-color: #026bc3"><a href="{{ route('instant_quote')}}">Reqeust Help</a></button>
+                    <button class="" style="background-color: #026bc3"><a href="{{ route('instant_quote')}}">@lang('Reqeust Help')</a></button>
                 </div>
             <!--/.nav-collapse -->
             </div>

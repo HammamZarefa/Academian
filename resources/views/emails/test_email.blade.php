@@ -1,10 +1,10 @@
 @component('mail::message')
 
-Hi, 
+    @lang('Hi'),
 
-Congratulation! Your email is configured correctly.
+    @lang('Congratulation! Your email is configured correctly').
 
 
-Thanks,<br>
+    @lang('Thanks'),<br>
 {{ config('app.name') }}
 @endcomponent

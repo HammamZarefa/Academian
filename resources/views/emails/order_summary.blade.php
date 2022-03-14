@@ -3,7 +3,7 @@
    <head>
       <meta name="viewport" content="width=device-width" />
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <title>Order Summary</title>      
+      <title>@lang('Order Summary')</title>
       <style type="text/css">
          /* -------------------------------------
     GLOBAL
@@ -298,7 +298,7 @@ a {
                            <table width="100%" cellpadding="0" cellspacing="0">
                               <tr>
                                  <td class="content-block">
-                                    <h2>{{ $order->number }}</h2>                             
+                                    <h2>{{ $order->number }}</h2>
                                     <div>{{ $order->created_at->format("d M Y") }}</div>
                                     <h4>Thank you for your order!</h4>
                                  </td>
@@ -308,40 +308,40 @@ a {
                                     <table class="invoice">
                                        <tr>
                                           <td>
-                                             <div style="font-style: italic;">Service Item</div>
+                                             <div style="font-style: italic;">@lang('Service Item')</div>
                                              <div style="font-size: 22px;">
                                                 {{ $order->service->name }}
                                              </div>
                                              <div>
-                                                {{ $order->work_level->name }} (Work level)
+                                                {{ $order->work_level->name }} (@lang('Work level'))
                                              </div>
                                              <div style="margin-top: 20px;">
-                                                <b>Urgency</b>:
+                                                <b>@lang('Urgency')</b>:
                                                 {{ $order->dead_line->format('l, M d, Y') }}
                                              </div>
                                              @if($order->service->price_type_id == PriceType::PerPage)
                                              <div>
-                                                <b>Spacing Type</b>:
+                                                <b>@lang('Spacing Type')</b>:
                                                 {{ ucfirst($order->spacing_type) }}
                                              </div>
                                              @endif
                                              <div>
-                                                <b>Quantity</b>:
+                                                <b>@lang('Quantity')</b>:
                                                 {{ $order->quantity }} {{ $order->unit_name }}
                                              </div>
                                           </td>
-                                       </tr>                                   
+                                       </tr>
                                        <tr>
                                           <td>
                                              <table class="invoice-items" cellpadding="0" cellspacing="0">
                                                 <tr>
-                                                   <td>Price</td>
+                                                   <td>@lang('Price')</td>
                                                 <td class="alignright">{{ format_money($order->amount) }}</td>
-                                                </tr>                                                
+                                                </tr>
                                                 @if($order->added_services()->exists())
                                                  <tr>
                                                   <td colspan="2">
-                                                     <div style="font-weight: bold;">Additional Services</div>
+                                                     <div style="font-weight: bold;">@lang('Additional Services')</div>
                                                   </td>
                                                  </tr>
                                                   @foreach($order->added_services as $added_service)
@@ -352,24 +352,24 @@ a {
                                                   @endforeach
                                                 @endif
                                                 <tr>
-                                                   <td><b>Subtotal</b></td>
+                                                   <td><b>@lang('Subtotal')</b></td>
                                                    <td class="alignright">
                                                       <b>{{ format_money($order->sub_total) }}</b>
                                                    </td>
                                                 </tr>
                                                 <tr class="total">
-                                                   <td class="alignright" width="80%">Total</td>
+                                                   <td class="alignright" width="80%">@lang('Total')</td>
                                                    <td class="alignright">{{ format_money($order->total) }}</td>
                                                 </tr>
                                                 <tr class="total">
-                                                   <td style="border-top: 0px;" colspan="2" class="alignright">Paid</td>
+                                                   <td style="border-top: 0px;" colspan="2" class="alignright">@lang('Paid')</td>
                                                 </tr>
                                              </table>
                                           </td>
                                        </tr>
                                     </table>
                                  </td>
-                              </tr>                          
+                              </tr>
                               <tr>
                                  <td class="content-block">
                                     {{ settings('company_address') }}

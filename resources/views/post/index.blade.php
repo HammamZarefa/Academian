@@ -17,11 +17,11 @@
 <table id="table" class="table table-striped nowrap">
   <thead>
      <tr>
-        <th scope="col" style="width: 40%;">Title</th>
-        <th scope="col">Keyword</th>
-         <th scope="col">Category</th>
-        <th scope="col">Status</th>                 
-        <th scope="col" class="text-right">Action</th>
+        <th scope="col" style="width: 40%;">@lang('Title')</th>
+        <th scope="col">@lang('Keyword')</th>
+         <th scope="col">@lang('Category')</th>
+        <th scope="col">@lang('Status')</th>
+        <th scope="col" class="text-right">@lang('Action')</th>
      </tr>
   </thead>
     <tbody>
@@ -32,7 +32,7 @@
             <td>{{ $post->category->name }}</td>
             <td>{{ $post->status }}</td>
             <td>
-                <a href="{{route('post.edit', [$post->id])}}" class="btn btn-info btn-sm"> Edit </a>
+                <a href="{{route('post.edit', [$post->id])}}" class="btn btn-info btn-sm">@lang('Edit')  </a>
                 <form method="POST" class="d-inline" onsubmit="return confirm('Move post to trash ?')" action="{{route('post.destroy', $post->id)}}">
                     @csrf
                     <input type="hidden" value="DELETE" name="_method">

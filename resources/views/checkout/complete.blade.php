@@ -4,10 +4,10 @@
 <div class="container page-container">
    <div class="row">
       <div class="col-md-12">
-         <h3>Successfully completed!</h3>        
+         <h3>@lang('Successfully completed!')</h3>
          <hr>
          {{ $data['message']  }}
       </div>
-   </div>  
+   </div>
 </div>
 @endsection

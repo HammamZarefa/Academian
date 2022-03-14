@@ -11,7 +11,7 @@
                         <ul class="list-inline row justify-content-lg-end mb-0">
                             <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
                                 <span class="badge badge-dot text-white">
-                                    <i class="fas fa-wallet"></i> Wallet Balance
+                                    <i class="fas fa-wallet"></i>@lang('Wallet Balance')
                                 </span>
                                 <a class="d-sm-block h5 text-white font-weight-bold pl-2" href="#">
                                     {{ format_money($user->wallet()->balance()) }}
@@ -25,32 +25,31 @@
                     <a href="{{ route('users_edit', $user->id) }}"
                         class="btn btn-icon btn-group-nav shadow btn-neutral">
                         <span class="btn-inner--icon"><i class="far fa-user"></i></span>
-                        <span class="btn-inner--text d-none d-md-inline-block">Edit Profile</span>
+                        <span class="btn-inner--text d-none d-md-inline-block">@lang('Edit Profile')</span>
                     </a>
                     <div class="btn-group btn-group-nav shadow ml-auto" role="group" aria-label="Basic example">
                         <div class="btn-group" role="group">
                             <a class="btn btn-neutral btn-icon"
                                 href="{{ route('user_profile', $user->id) }}">
-                                <i class="far fa-address-card"></i> Profile
+                                <i class="far fa-address-card"></i> @lang('Profile')
                             </a>
 
                             <div class="btn-group" role="group">
                                 <button id="btn-group-settings" type="button" class="btn btn-neutral btn-icon"
                                     data-toggle="dropdown" data-offset="0,8" aria-haspopup="true" aria-expanded="false">
                                     <span class="btn-inner--icon"><i class="fas fa-ellipsis-v"></i></span>
-                                    <span class="btn-inner--text d-none d-sm-inline-block">Activites</span>
+                                    <span class="btn-inner--text d-none d-sm-inline-block">@lang('Activites')</span>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
                                     aria-labelledby="btn-group-settings">
                                     <a class="dropdown-item"
-                                        href="{{ route('user_profile', $user->id) }}?group=payments">Payments</a>
+                                        href="{{ route('user_profile', $user->id) }}?group=payments">@lang('Payments')</a>
                                     <a class="dropdown-item"
-                                        href="{{ route('user_profile', $user->id) }}?group=wallet-transactions">Wallet
-                                        Transactions</a>
+                                        href="{{ route('user_profile', $user->id) }}?group=wallet-transactions">@lang('Wallet Transactions')</a>
                                     <a class="dropdown-item"
-                                        href="{{ route('user_profile', $user->id) }}?group=orders">Orders</a>
+                                        href="{{ route('user_profile', $user->id) }}?group=orders">@lang('Orders')</a>
                                     <a class="dropdown-item"
-                                        href="{{ route('user_profile', $user->id) }}?group=tasks">Tasks</a>
+                                        href="{{ route('user_profile', $user->id) }}?group=tasks">@lang('Tasks')</a>
                                 </div>
                             </div>
 

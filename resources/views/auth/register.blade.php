@@ -13,7 +13,7 @@
          <div class="card shadow zindex-100 p-4">
             <div class="card-body" id="authentication">
                <div class="mb-5">
-                  <h6 class="h3">Create Account
+                  <h6 class="h3">@lang('Create Account')
                      @if(isset($data['user_role']))
                      {{ $data['user_role'] }}
                      @endif
@@ -45,7 +45,7 @@
                         <div class="input-group-prepend">
                            <span class="input-group-text"><i class="far fa-user"></i></span>
                         </div>
-                        <input placeholder="name@example.com" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ session()->get( 'email' ) ?? '' }}" {{ session()->get( 'readonly' ) ?? ''}} required autocomplete="email"> 
+                        <input placeholder="name@example.com" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ session()->get( 'email' ) ?? '' }}" {{ session()->get( 'readonly' ) ?? ''}} required autocomplete="email">
                         @error('email')
                         <span class="invalid-feedback d-block" role="alert">
                         <strong>{{ $message }}</strong>

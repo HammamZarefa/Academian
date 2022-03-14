@@ -9,7 +9,7 @@
 
 </style>
  @include('setup.partials.action_toolbar', [
- 'title' => 'Services', 
+ 'title' => 'Services',
  'hide_save_button' => TRUE,
  'create_link' => ['title' => 'Create Service', 'url' => route("services_create")]
 
@@ -17,18 +17,18 @@
 <table id="table" class="table table-striped nowrap">
   <thead>
      <tr>
-        <th scope="col" style="width: 40%;">Name</th>
-        <th scope="col">Price Type</th>
-         <th scope="col">Service Category</th>
-        <th scope="col">Status</th>                 
-        <th scope="col" class="text-right">Action</th>
+        <th scope="col" style="width: 40%;">@lang('Name')</th>
+        <th scope="col">@lang('Price Type')</th>
+         <th scope="col">@lang('Service Category<')/th>
+        <th scope="col">@lang('Status')</th>
+        <th scope="col" class="text-right">@lang('Action')</th>
      </tr>
   </thead>
 </table>
 @endsection
 @section('innerPageJS')
 <script>
-    $(function(){       
+    $(function(){
 
         var oTable = $('#table').DataTable({
           responsive: true,
@@ -36,7 +36,7 @@
             "dom": '<"toolbar">frtip',
             "bSort" : false,
             processing: true,
-            serverSide: true,                           
+            serverSide: true,
             "ajax": {
                     "url": "{!! route('datatable_services') !!}",
                     "type": "POST",
@@ -44,19 +44,19 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     },
                     "data": function ( d ) {
-                        if ($("#showInactive").is(":checked")) 
-                        {  
+                        if ($("#showInactive").is(":checked"))
+                        {
                           d.include_inactive_items = 1;
-                        }               
+                        }
                     }
             },
-            columns: [                              
-                {data: 'name', name: 'name'},  
+            columns: [
+                {data: 'name', name: 'name'},
                 {data: 'price_type', name: 'price_type'},
                 {data:'category',name:'service_category'},
-                {data: 'status', name: 'status'},      
-                {data: 'action', name: 'action', className: "text-right"},                
-                
+                {data: 'status', name: 'status'},
+                {data: 'action', name: 'action', className: "text-right"},
+
             ]
         });
 
@@ -71,11 +71,11 @@
 
         var toolbar = '<div class="d-flex flex-row">' + checkbox  + '</div>';
 
-        $("div.toolbar").html(toolbar);    
+        $("div.toolbar").html(toolbar);
 
-      
+
         $('#table').on('click', '.delete-item', function (e) {
-               
+
             e.preventDefault();
             runSwal($(this).attr("href"));
 
@@ -85,7 +85,7 @@
             oTable.draw();
         });
 
-    });   
+    });
 
     function runSwal($link_to_delete)
     {
@@ -103,6 +103,6 @@
         }
       });
 
-    }   
+    }
 </script>
 @endsection

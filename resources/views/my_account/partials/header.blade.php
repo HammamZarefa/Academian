@@ -10,7 +10,7 @@
                         <ul class="list-inline row justify-content-lg-end mb-0">
                             <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
                                 <span class="badge badge-dot text-white">
-                                    <i class="fas fa-wallet"></i> Wallet Balance
+                                    <i class="fas fa-wallet"></i> @lang('Wallet Balance')
                                 </span>
                                 <a class="d-sm-block h5 text-white font-weight-bold pl-2" href="#">
                                     {{ format_money(auth()->user()->wallet()->balance()) }}
@@ -27,17 +27,16 @@
                             <button id="btn-group-settings" type="button" class="btn btn-neutral btn-icon"
                                 data-toggle="dropdown" data-offset="0,8" aria-haspopup="true" aria-expanded="false">
                                 <span class="btn-inner--icon"><i class="fas fa-wallet"></i></span>
-                                <span class="btn-inner--text d-none d-sm-inline-block">My Wallet</span>
+                                <span class="btn-inner--text d-none d-sm-inline-block">@lang('My Wallet')</span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
                                 aria-labelledby="btn-group-settings">
                                 <a class="dropdown-item"
-                                    href="{{ route('my_account', ['group' => 'wallet']) }}">Wallet
-                                    Topup</a>
+                                    href="{{ route('my_account', ['group' => 'wallet']) }}">@lang('Wallet Topup')</a>
                                 <a class="dropdown-item"
-                                    href="{{ route('my_account', ['group' => 'payments']) }}">Payments</a>
+                                    href="{{ route('my_account', ['group' => 'payments']) }}">@lang('Payments')</a>
                                 <a class="dropdown-item"
-                                    href="{{ route('my_account', ['group' => 'wallet-transactions']) }}">Transactions</a>
+                                    href="{{ route('my_account', ['group' => 'wallet-transactions']) }}">@lang('Transactions')</a>
                             </div>
                         </div>
 
@@ -45,16 +44,14 @@
                             <button id="btn-group-settings" type="button" class="btn btn-neutral btn-icon"
                                 data-toggle="dropdown" data-offset="0,8" aria-haspopup="true" aria-expanded="false">
                                 <span class="btn-inner--icon"><i class="far fa-address-card"></i></span>
-                                <span class="btn-inner--text d-none d-sm-inline-block">Account</span>
+                                <span class="btn-inner--text d-none d-sm-inline-block">@lang('Account')</span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
                                 aria-labelledby="btn-group-settings">
                                 <a class="dropdown-item"
-                                    href="{{ route('my_account') }}?group=edit-profile">Edit
-                                    Profile</a>
+                                    href="{{ route('my_account') }}?group=edit-profile">@lang('Edit Profile')</a>
                                 <a class="dropdown-item"
-                                    href="{{ route('my_account') }}?group=change-password">Change
-                                    Password</a>
+                                    href="{{ route('my_account') }}?group=change-password">@lang('Change Password')</a>
                             </div>
                         </div>
 

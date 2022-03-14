@@ -4,7 +4,7 @@
 <div class="container page-container">
     <div class="row">
         <div class="col-md-6">
-            <h4>Payments</h4>
+            <h4>@lang('Payments')</h4>
         </div>
         <div class="col-md-6 text-right">
 
@@ -13,13 +13,13 @@
             <table id="orders_table" class="table table-striped nowrap w-100">
                 <thead>
                     <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">Number</th>
-                        <th scope="col">From</th>
-                        <th scope="col">Method</th>
-                        <th scope="col">Reference</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Attachment</th>
+                        <th scope="col">@lang('Date')</th>
+                        <th scope="col">@lang('Number')</th>
+                        <th scope="col">@lang('From')</th>
+                        <th scope="col">@lang('Method')</th>
+                        <th scope="col">@lang('Reference')</th>
+                        <th scope="col">@lang('Amount')</th>
+                        <th scope="col">@lang('Attachment')</th>
                     </tr>
                 </thead>
             </table>

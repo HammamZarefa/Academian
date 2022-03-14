@@ -17,12 +17,12 @@
    {{ method_field('PATCH') }}
    @endif
    <div class="form-group">
-      <label>Name <span class="required">*</span></label>
+      <label>@lang('Name') <span class="required">*</span></label>
       <input type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'name') }}" name="name" value="{{ old_set('name', NULL, $serviceCategory ?? '') }}">
       <div class="invalid-feedback d-block">{{ showError($errors, 'name') }}</div>
    </div>
    <div class="form-group">
-      <label>Desc <span class="required">*</span></label>
+      <label>@lang('Desc') <span class="required">*</span></label>
       <textarea type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'desc') }}" name="desc">{{ old_set('desc', NULL, $serviceCategory ?? '') }}</textarea>
       <div class="invalid-feedback d-block">{{ showError($errors, 'desc') }}</div>
    </div>
@@ -32,7 +32,7 @@
       <div class="invalid-feedback">{{ showError($errors, 'image') }}</div>
    </div>
      <div class="form-group">
-         <label>Need Work Level</label>
+         <label>@lang('Need Work Level')</label>
          <input type="checkbox" class="form-control form-control-sm {{ showErrorClass($errors, 'worklevel') }}" name="worklevel" value=1 checked>
      </div>
    {{--<div class="form-group">--}}

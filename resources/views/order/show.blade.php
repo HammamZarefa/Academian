@@ -13,7 +13,7 @@
                 <div class="d-flex justify-content-between">
                     <div><span class="h2 mb-0 text-white d-block">{{ $order->number }}</span></div>
                     <div>
-                        <h5>Status: <span
+                        <h5>@lang('Status'): <span
                                 class="badge {{ $order->status->badge }}">{{ $order->status->name }}</span></h5>
                     </div>
                 </div>

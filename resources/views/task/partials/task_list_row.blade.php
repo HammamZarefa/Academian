@@ -4,7 +4,7 @@
    </a>
    <div class="row">
       <div class="col-md-6">
-         {{ $order->number }} 
+         {{ $order->number }}
       </div>
       <div class="col-md-6  text-right">
          <div><span class="badge {{ $order->status->badge }}">{{ $order->status->name }}</span></div>
@@ -12,7 +12,7 @@
    </div>
    <div class="row mt-4">
       <div class="col-md-8">
-         Client : 
+          @lang('Client') :
          @if(auth()->user()->hasRole('admin'))
             <a href="{{ route('user_profile', $order->customer_id) }}">
                {{ $order->customer->full_name }}
@@ -22,32 +22,32 @@
          @endif
       </div>
       <div class="col-md-4 text-right">
-         Budget {{ format_money($order->staff_payment_amount) }}
+          @lang('Budget') {{ format_money($order->staff_payment_amount) }}
       </div>
    </div>
    <p class="order-instruction">
-      <?php echo Str::words($order->instruction, 20, ' ...'); ?>         
+      <?php echo Str::words($order->instruction, 20, ' ...'); ?>
    </p>
    <div class="row order-overview">
-      <div class="col-md-6"><span class="font-weight-bold">Service Type</span>
+      <div class="col-md-6"><span class="font-weight-bold">@lang('Service Type')</span>
          <br>
          {{ $order->service->name }}
       </div>
-      <div class="col-md-6"><span class="font-weight-bold">Assigned To</span>
-         <br>      
+      <div class="col-md-6"><span class="font-weight-bold">@lang('Assigned To')</span>
+         <br>
             @if(isset($order->assignee))
                {{ $order->assignee->full_name }}
             @else
-               None
+              @lang('None')
             @endif
       </div>
    </div>
    <div class="row order-overview">
-      <div class="col-md-6"><span class="font-weight-bold">Posted</span>
+      <div class="col-md-6"><span class="font-weight-bold">@lang('Posted')</span>
          <br>
          {{ $order->created_at->format('d-M-Y')}}
       </div>
-      <div class="col-md-6"><span class="font-weight-bold">Deadline</span>
+      <div class="col-md-6"><span class="font-weight-bold">@lang('Deadline')</span>
          <br>
          {{ $order->dead_line->format('d-M-Y')}}
       </div>

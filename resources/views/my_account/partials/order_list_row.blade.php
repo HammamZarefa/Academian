@@ -4,11 +4,11 @@
    </a>
    <div class="row">
       <div class="col-md-6">
-         {{ $order->number }} 
+         {{ $order->number }}
       </div>
       <div class="col-md-6  text-right">
          @if($order->archived)
-            <span class="badge badge-secondary">Archived</span>       
+            <span class="badge badge-secondary">@lang('Archived')</span>
          @endif
          <span class="badge badge-brilliant-rose">
             {{ $order->service->price_type->name }}
@@ -18,39 +18,39 @@
    </div>
 
    <p class="order-instruction">
-      <?php echo Str::words($order->instruction, 20, ' ...'); ?>         
+      <?php echo Str::words($order->instruction, 20, ' ...'); ?>
    </p>
    <div class="row order-overview">
-      <div class="col-md-6"><span class="font-weight-bold">Service Type</span>
+      <div class="col-md-6"><span class="font-weight-bold">@lang('Service Type')</span>
          <br>
          {{ $order->service->name }}
       </div>
-      <div class="col-md-6"><span class="font-weight-bold">Assigned To</span>
+      <div class="col-md-6"><span class="font-weight-bold">@lang('Assigned To')</span>
          <br>
-         <?php 
+         <?php
             if(isset($order->assignee))
             {
-                  echo '<a href="'.route('user_profile', $order->staff_id).'">'.$order->assignee->full_name.'</a>';                   
+                  echo '<a href="'.route('user_profile', $order->staff_id).'">'.$order->assignee->{{@lang('full_name')}}.'</a>';
             }
             ?>
       </div>
    </div>
    <div class="row order-overview">
-      <div class="col-md-6"><span class="font-weight-bold">Posted</span>
+      <div class="col-md-6"><span class="font-weight-bold">@lang('Posted')</span>
          <br>
-         {{ convertToLocalTime($order->created_at) }}         
+         {{ convertToLocalTime($order->created_at) }}
       </div>
-      <div class="col-md-6"><span class="font-weight-bold">Deadline</span>
+      <div class="col-md-6"><span class="font-weight-bold">@lang('Deadline')</span>
          <br>
          @if($order->order_status_id != ORDER_STATUS_PENDING_PAYMENT)
-         {{ convertToLocalTime($order->dead_line) }}  
-         @else    
-            <small class="text-danger">Applicable after payment</small>
+         {{ convertToLocalTime($order->dead_line) }}
+         @else
+            <small class="text-danger">@lang('Applicable after payment')</small>
          @endif
          <span class="font-12 text-info"><i>
-            (Urgency: {{ $order->urgency->value }} {{ $order->urgency->type }})
+            (@lang('Urgency'): {{ $order->urgency->value }} {{ $order->urgency->type }})
             </i>
-         </span>              
+         </span>
       </div>
    </div>
 </div>

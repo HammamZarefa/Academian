@@ -6,7 +6,7 @@
       <div class="col-md-6 text-right">
          @if(!isset($hide_save_button))
          <button type="submit" name="submit" class="btn btn-sm btn-success" id="submitForm">
-         <i class="fas fa-save"></i> Save record
+         <i class="fas fa-save"></i> @lang('Save record')
          </button>
          @endif
          @if(isset($create_link))

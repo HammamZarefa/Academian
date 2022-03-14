@@ -14,20 +14,20 @@
    {{ method_field('PATCH') }}
    @endif
    <div class="form-group">
-      <label>Price Type<span class="required">*</span></label>
+      <label>@lang('Price Type')<span class="required">*</span></label>
       <?php echo form_dropdown("price_type_id", $data['price_type_list'], old_set('price_type_id', NULL,$service), "class='form-control form-control-sm  selectPickerWithoutSearch'") ?>
       <div class="invalid-feedback d-block">{{ showError($errors,'price_type_id') }}</div>
    </div>
 
     <div class="form-group">
-        <label>Service Category<span class="required">*</span></label>
+        <label>@lang('Service Category')<span class="required">*</span></label>
         <?php echo form_dropdown("service_category_id", $data['service_category_list'], old_set('service_category_id', NULL,$service), "class='form-control form-control-sm  selectPickerWithoutSearch'") ?>
         <div class="invalid-feedback d-block">{{ showError($errors,'service_category_id') }}</div>
     </div>
 
 
    <div class="form-group">
-      <label>Name <span class="required">*</span></label>
+      <label>@lang('Name') <span class="required">*</span></label>
       <input type="text"
          class="form-control form-control-sm {{ showErrorClass($errors, 'name') }}"
          name="name" value="{{ old_set('name', NULL, $service) }}">
@@ -36,7 +36,7 @@
    <div class="form-group"
       style="{{ (old_set('price_type_id', NULL, $service) == PriceType::PerPage) ? 'display:none;' : '' }}"
       id="regularPrice">
-      <label>Price / Rate <span class="required">*</span></label>
+      <label>@lang('Price') / @lang('Rate') <span class="required">*</span></label>
       <input type="text"
          class="form-control form-control-sm {{ showErrorClass($errors, 'price') }}"
          name="price" value="{{ old_set('price', NULL, $service) }}">
@@ -46,7 +46,7 @@
       style="{{ (old_set('price_type_id', NULL, $service) == PriceType::PerPage) ? '' : 'display:none;' }}"
       id="spacing_types">
       <div class="form-group col-md-6">
-         <label>Single Spacing Price <span class="required">*</span></label>
+         <label>@lang('Single Spacing Price') <span class="required">*</span></label>
          <input type="text"
             class="form-control form-control-sm {{ showErrorClass($errors, 'single_spacing_price') }}"
             name="single_spacing_price"
@@ -54,7 +54,7 @@
          <div class="invalid-feedback">{{ showError($errors, 'single_spacing_price') }}</div>
       </div>
       <div class="form-group col-md-6">
-         <label>Double Spacing Price <span class="required">*</span></label>
+         <label>@lang('Double Spacing Price') <span class="required">*</span></label>
          <input type="text"
             class="form-control form-control-sm {{ showErrorClass($errors, 'double_spacing_price') }}"
             name="double_spacing_price"
@@ -65,14 +65,14 @@
    <div class="form-group"
       style="{{ (old_set('price_type_id', NULL, $service) == PriceType::Fixed) ? 'display:none;' : '' }}"
       id="minimumOrderQuantity">
-      <label>Minimum Order Quantity <span class="required">*</span></label>
+      <label>@lang('Minimum Order Quantity') <span class="required">*</span></label>
       <input type="text"
          class="form-control form-control-sm {{ showErrorClass($errors, 'minimum_order_quantity') }}"
          name="minimum_order_quantity" value="{{ old_set('minimum_order_quantity', NULL, $service) }}">
       <div class="invalid-feedback">{{ showError($errors, 'minimum_order_quantity') }}</div>
    </div>
    <div class="form-group">
-      <label>Additional Services</label>
+      <label>@lang('Additional Services')</label>
       <small class="text-muted"><a href="{{ route('additional_services_create') }}">Create Additional Service</a></small>
       <?php echo form_dropdown("additional_services[]", $data['additional_services_list'], old_set('additional_services', NULL,$service), "class='form-control form-control-sm  multiSelect' multiple='multiple'") ?>
       <div class="invalid-feedback d-block">{{ showError($errors,'additional_services') }}</div>
@@ -81,7 +81,7 @@
       <div class="custom-control custom-checkbox">
          <input type="checkbox" class="custom-control-input" id="inactive" name="inactive" value="1"
          {{ old_set('inactive', NULL, $service) ? 'checked="checked"' : '' }}>
-         <label class="custom-control-label" for="inactive">Inactive</label>
+         <label class="custom-control-label" for="inactive">@lang('Inactive')</label>
       </div>
    </div>
    <input type="submit" name="submit" class="btn btn-success" value="Submit" />
@@ -97,7 +97,7 @@
         });
 
         $('.multiSelect').select2({
-            theme: 'bootstrap4'            
+            theme: 'bootstrap4'
         });
 
 
@@ -112,10 +112,10 @@
             }
 
             if (this.value == <?php echo PriceType::Fixed; ?>) {
-                $('#minimumOrderQuantity').hide();         
-            } else {               
+                $('#minimumOrderQuantity').hide();
+            } else {
                 $("#minimumOrderQuantity").show();
-            }           
+            }
 
         });
 

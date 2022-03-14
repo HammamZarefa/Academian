@@ -1,12 +1,12 @@
-<h4>My Payments</h4>
+<h4>@lang('My Payments')</h4>
 <table id="table" class="table table-striped nowrap w-100">
     <thead>
         <tr>
-            <th scope="col" data-priority="1">Date</th>
-            <th scope="col">Number</th>
-            <th scope="col" data-priority="2">Method</th>
-            <th scope="col">Reference</th>
-            <th scope="col" data-priority="3">Amount</th>
+            <th scope="col" data-priority="1">@lang('Date')</th>
+            <th scope="col">@lang('Number')</th>
+            <th scope="col" data-priority="2">@lang('Method')</th>
+            <th scope="col">@lang('Reference')</th>
+            <th scope="col" data-priority="3">@lang('Amount')</th>
         </tr>
     </thead>
 </table>

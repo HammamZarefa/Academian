@@ -4,23 +4,23 @@
 <div class="container page-container">
     <div class="row">
         <div class="col-md-6">
-            <h4>Payments pending for approval</h4>
+            <h4>@lang('Payments pending for approval')</h4>
         </div>
         <div class="col-md-6 text-right">
 
         </div>
-        <div class="col-md-12">    
+        <div class="col-md-12">
             <table id="orders_table" class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">From</th>
-                        <th scope="col">Method</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Reference</th>
-                        <th scope="col">Reason</th>
-                        <th scope="col">Attachment</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">@lang('Date')</th>
+                        <th scope="col">@lang('From')</th>
+                        <th scope="col">@lang('Method')</th>
+                        <th scope="col">@lang('Amount')</th>
+                        <th scope="col">@lang('Reference')</th>
+                        <th scope="col">@lang('Reason')</th>
+                        <th scope="col">@lang('Attachment')</th>
+                        <th scope="col">@lang('Action')</th>
                     </tr>
                 </thead>
             </table>
@@ -87,7 +87,7 @@
                         className: "text-right"
                     }
                 ]
-            });       
+            });
 
         });
 

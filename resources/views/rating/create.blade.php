@@ -4,7 +4,7 @@
 <div class="container page-container">
    <div class="row">
       <div class="col-md-8">
-         <h4>{{ $order->number }} - Tell us about your experience</h4>
+         <h4>{{ $order->number }} - @lang('Tell us about your experience')</h4>
       </div>
       <div class="col-md-4">
          <div class="text-right">
@@ -16,12 +16,12 @@
       </div>
       <div class="offset-md-2 col-md-8">
          <p class="bg-light text-dark p-2">
-            We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better.
+             @lang('We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better') .
          </p>
          <form action="{{ route('ratings_store', $order->id) }}" method="POST">
             {{ csrf_field()  }}
             <div class="form-group">
-               <label>Your rating</label>
+               <label>@lang('Your rating')</label>
                <div class="rating">
                   <input id="rating-5" type="radio" name="number" value="5"/>
                   <label for="rating-5"><i class="fas fa-3x fa-star"></i></label>
@@ -38,13 +38,13 @@
                <div class="invalid-feedback d-block">{{ showError($errors, 'number') }}</div>
             </div>
             <div class="form-group">
-               <label>Your comment</label>
+               <label>@lang('Your comment')</label>
                <textarea class="form-control {{ showErrorClass($errors, 'comment') }}" name="comment"></textarea>
 
                <div class="invalid-feedback d-block">{{ showError($errors, 'comment') }}</div>
             </div>
             <button type="submit" class="btn btn-success">
-            <i class="fas fa-check-circle"></i> Submit
+            <i class="fas fa-check-circle"></i> @lang('Submit')
             </button>
          </form>
       </div>
