@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f90031a6-c8c2-493f-b4c7-7290ca86c358" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/prowriters.iml" afterPath="$PROJECT_DIR$/.idea/prowriters.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_7.blade.php" afterPath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_7.blade.php" />
-      <change beforePath="$PROJECT_DIR$/routes/splitted/admin.php" afterPath="$PROJECT_DIR$/routes/splitted/admin.php" />
-    </list>
+    <list default="true" id="f90031a6-c8c2-493f-b4c7-7290ca86c358" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/spatie/laravel-translatable/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -274,12 +267,20 @@
       <workItem from="1646913613498" duration="41000" />
       <workItem from="1646913981484" duration="922000" />
       <workItem from="1647094781096" duration="19504000" />
-      <workItem from="1647256136618" duration="62000" />
+      <workItem from="1647256136618" duration="98000" />
     </task>
+    <task id="LOCAL-00001" summary="teacg=her section">
+      <created>1647256220663</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1647256220663</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62000" />
+    <option name="totallyTimeSpent" value="98000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -328,6 +329,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="teacg=her section" />
+    <option name="LAST_COMMIT_MESSAGE" value="teacg=her section" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2056" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1646899072591">
