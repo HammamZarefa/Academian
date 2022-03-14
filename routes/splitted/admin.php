@@ -467,6 +467,7 @@ Route::get('post/trash',[PostController::class, 'trash'])->name('post.trash');
 Route::post('post/{id}/restore',[PostController::class, 'restore'])->name('post.restore');
 Route::delete('post/trash/{id}',[PostController::class, 'destroy'])->name('post.destroy');
 Route::delete('post/destroy/{id}',[PostController::class, 'deletePermanent'])->name('post.deletePermanent');
+Route::delete('post/destroy/{id}',[PostController::class, 'deletePermanent'])->name('post.deletePermanent');
 Route::post('post/datatable', [PostController::class, 'datatable'])
     ->name('post.datatable');
 

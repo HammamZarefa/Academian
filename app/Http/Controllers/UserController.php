@@ -46,6 +46,7 @@ class UserController extends Controller
 
         $data['type'] = $request->type;
 
+
         if ($request->type == 'staff') {
             $data['entity'] = 'Writers';
             $data['entity_singular'] = 'Writer';
@@ -130,8 +131,8 @@ class UserController extends Controller
         $data = User::adminDropdown();
 
         $roles = $user->getRoleNames()->toArray();
-
         $data['attached_roles'] = array_combine($roles, $roles);
+
 
         return view('user.show', compact('user', 'data'));
     }
@@ -276,5 +277,21 @@ class UserController extends Controller
         $data['attached_roles'] = array_combine($roles, $roles);
 
         return view('user.show', compact('user', 'data'));
+    }
+
+    public function getWriters()
+    {
+
+        $users=User::all();
+        foreach ($users as $user)
+        {
+            if($user->hasRole('staff'))
+            {
+                $user->setMetaData();
+                $user['bio']=$user->meta('bio');
+                $writers[]=$user;
+            }
+        }
+        return $writers;
     }
 }
