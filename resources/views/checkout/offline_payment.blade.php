@@ -4,7 +4,7 @@
 <div class="container page-container">
     <div class="row">
         <div class="col-md-12">
-            <h3>Pay with {{ $data['gateway_name'] }}</h3>
+            <h3>@lang('Pay with') {{ $data['gateway_name'] }}</h3>
             <hr>
         </div>
         <div class="col-md-6 d-none d-lg-block">
@@ -17,13 +17,13 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
-                        <h4 class="h4">Total</h4>
+                        <h4 class="h4">@lang('Total')</h4>
                         <div class="h4">{{ format_money($data['total']) }}</div>
                     </div>
                     <hr>
                     @if($paymentMethod->instruction)
                     <div class="text-muted">
-                        <div><b>Instructions</b></div>
+                        <div><b>@lang('Instructions')</b></div>
                         {!! nl2br($paymentMethod->instruction) !!}
                     </div>
                     <br>
@@ -46,18 +46,18 @@
                         @if($paymentMethod->settings->requires_uploading_attachment)
                             <div class="form-group">
                                 <label>{{ $paymentMethod->settings->attachment_field_label }} <span
-                                        class="required">*</span></label>                                     
+                                        class="required">*</span></label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="customFile" name="attachment">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                    <label class="custom-file-label" for="customFile">@lang('Choose file')</label>
                                 </div>
                                 <div class="invalid-feedback d-block">
                                     {{ showError($errors,'attachment') }}</div>
-                                    <div><small class="text-muted">Allowed file types: pdf,jpeg,png,zip, Maximum file size:10 MB</small></div>                                       
+                                    <div><small class="text-muted">@lang('Allowed file types'): pdf,jpeg,png,zip, @lang('Maximum file size:10 MB')</small></div>
                             </div>
                         @endif
                         <button type="submit" class="btn btn-success btn-lg btn-block confirm-button"><i
-                                class="fas fa-shopping-cart"></i> Confirm Payment</button>
+                                class="fas fa-shopping-cart"></i>@lang('Confirm Payment') </button>
                     </form>
                 </div>
             </div>

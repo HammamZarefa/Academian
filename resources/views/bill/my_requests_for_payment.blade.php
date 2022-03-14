@@ -4,10 +4,10 @@
 <div class="container page-container">
    <div class="row">
       <div class="col-md-6">
-         <h4>My payment requests</h4>
+         <h4>@lang('My payment requests')</h4>
       </div>
       <div class="col-md-6">
-         <h5 class="text-right">Balance Due: {{ format_money($data['uncleared_payment_total']) }}</h5>
+         <h5 class="text-right">@lang('Balance Due'): {{ format_money($data['uncleared_payment_total']) }}</h5>
       </div>
       <div class="col-md-12">
          <hr>
@@ -30,14 +30,14 @@
 
 @push('scripts')
 <script>
-$(function(){   
+$(function(){
 
       $('.selectpicker').select2({
         theme: 'bootstrap4',
         escapeMarkup: function(markup) {
             return markup;
          },
-         templateResult: function (data, container) {               
+         templateResult: function (data, container) {
             return '<span class="select2-option">'+data.text+'</span>';
          }
       });
@@ -46,9 +46,9 @@ $(function(){
           "bLengthChange": false,
            searching: false,
             processing: true,
-            serverSide: true, 
-            sorting: false, 
-            ordering : false,                              
+            serverSide: true,
+            sorting: false,
+            ordering : false,
             "ajax": {
                     "url": "{!! route('datatable_my_requests_for_payment') !!}",
                     "type": "POST",
@@ -59,23 +59,23 @@ $(function(){
                       d.status = $("select[name=status]").val();
                       d.number = $("input[name=number]").val();
 
-                       
-                     
-                  }                 
+
+
+                  }
 
             },
-            columns: [    
-                {data: 'bill_html', name: 'bill_html'}     
-             
-                
+            columns: [
+                {data: 'bill_html', name: 'bill_html'}
+
+
             ]
         });
 
     $('#search-form').on('submit', function(e) {
       oTable.draw();
       e.preventDefault();
-    });   
+    });
 
-});      
+});
 </script>
 @endpush

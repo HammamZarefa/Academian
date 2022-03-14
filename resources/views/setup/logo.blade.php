@@ -1,21 +1,21 @@
 @extends('setup.index')
 @section('title', 'Upload Logo')
-@section('setting_page') 
+@section('setting_page')
    @include('setup.partials.action_toolbar', ['title' => 'Upload Logo', 'hide_save_button' => TRUE])
    <div class="row">
       <div class="col-md-6">
          <div class="form-group">
             <div class="custom-file">
                <input type="file" class="custom-file-input" id="file" name="company_logo">
-               <label class="custom-file-label" for="file">Choose file</label>
+               <label class="custom-file-label" for="file">@lang('Choose file')</label>
             </div>
             <div class="invalid-feedback d-block">{{ showError($errors, 'company_logo')}}</div>
          </div>
-        
+
       </div>
       <div class="col-md-6 text-right">
          <small class="form-text text-muted">
-         <br> Suggested image dimension: 154x36 pixel</small>
+         <br> @lang('Suggested image dimension: 154x36 pixel')</small>
       </div>
    </div>
 
@@ -24,7 +24,7 @@
    <div class="modal-dialog modal-lg">
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Upload & Crop Logo</h5>
+            <h5 class="modal-title" id="exampleModalLabel">@lang('Upload & Crop Logo')</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -36,15 +36,15 @@
                </div>
                <div class="col-md-4">
                   <br />
-                  <div class="uploading_spinner text-center form-text text-muted" style="display: none;">Uploading ...</div>
+                  <div class="uploading_spinner text-center form-text text-muted" style="display: none;">@lang('Uploading') ...</div>
                   <br />
                   <br/>
-                  <button class="btn btn-success crop_image">Crop & Upload Logo</button>
+                  <button class="btn btn-success crop_image">@lang('Crop & Upload Logo')</button>
                </div>
             </div>
          </div>
          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">@lang('Close')</button>
          </div>
       </div>
    </div>
@@ -54,7 +54,7 @@
 
 @section('innerPageJS')
 <script>
-   $(function() {    
+   $(function() {
 
     $('.upload_photo').on("click", function(e) {
         e.preventDefault();
@@ -64,7 +64,7 @@
 
     $image_crop = $('#image_demo').croppie({
         enableExif: true,
-    
+
         viewport: {
             width: 154,
             height: 36,
@@ -83,7 +83,7 @@
         var file = this.files[0]; // Get your file here
         var fileExt = file.type.split('/')[1]; // Get the file extension
 
-        if (fileTypes.indexOf(fileExt) !== -1) 
+        if (fileTypes.indexOf(fileExt) !== -1)
         {
 
           reader.onload = function(event) {
@@ -95,9 +95,9 @@
           }
           reader.readAsDataURL(this.files[0]);
           $('#uploadimageModal').modal('show');
-        
-        } 
-        else 
+
+        }
+        else
         {
           alert('File not supported');
         }
@@ -137,7 +137,7 @@
                 $('.uploading_spinner').hide();
                 $('#uploadimageModal').modal('hide');
                 $('.logo').attr("src", response.file_url);
-                
+
 
             })
             .fail(function($xhr) {

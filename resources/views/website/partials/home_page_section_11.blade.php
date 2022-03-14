@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <h6 class="footer_left">Payment System</h6>
+                <h6 class="footer_left">@lang('Payment System')</h6>
                 <ul class="footer_center">
                     <li>
                         <a href="#">
@@ -64,7 +64,7 @@
                 </ul>
             </div>
             <div class="col-sm-8">
-                <h6 class="footer_right">© 2021 Yes Soft.</h6>
+                <h6 class="footer_right">© 2021 @lang('Yes Soft').</h6>
             </div>
         </div>
     </div>

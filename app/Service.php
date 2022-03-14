@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use App\PriceType;
 use App\AdditionalService;
 use App\ServiceCategory;
+use Spatie\Translatable\HasTranslations;
 
 class Service extends Model
 {
+    use HasTranslations;
+
     protected $fillable = [
         'id',
         'name',
@@ -20,6 +23,8 @@ class Service extends Model
         'inactive',
         'service_category_id'
     ];
+
+    public $translatable = ['name'];
 
     /**
      * The additionalServices that belong to the Service.

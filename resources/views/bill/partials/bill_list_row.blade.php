@@ -4,19 +4,19 @@
          <div class="col-md-8">
             <a href="{{ route('my_requests_bills_show', $bill->id) }}">
               {{ $bill->staff_invoice_number}}
-            </a>            
+            </a>
          </div>
          <div class="col-md-4 text-right">
             @if($bill->paid)
-              <span class="badge badge-success">Paid</span>
+              <span class="badge badge-success">@lang('Paid')</span>
             @else
-              <span class="badge badge-warning">Unpaid</span>
+              <span class="badge badge-warning">@lang('Unpaid')</span>
             @endif
          </div>
       </div>
       <div class="row">
          <div class="col-md-8">
-          {{ $bill->created_at->format('d-M-y') }}      
+          {{ $bill->created_at->format('d-M-y') }}
          </div>
          <div class="col-md-4 text-right">
             {{ format_money($bill->total) }}

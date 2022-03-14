@@ -6,34 +6,34 @@
    .toolbar {
     float: left;
 }
- 
+
 </style>
 @include('setup.partials.action_toolbar', [
- 'title' => 'Work levels', 
+ 'title' => 'Work levels',
  'hide_save_button' => TRUE,
  'create_link' => ['title' => 'Create Work level', 'url' => route("work_levels_create")]
 
  ])
 <table id="table" class="table table-striped">
   <thead>
-     <tr>                  
-        <th scope="col">Name</th>
-        <th scope="col" class="text-right">Percentage of base price of a service</th><th scope="col">Status</th>                    
-        <th scope="col" class="text-right">Action</th>
+     <tr>
+        <th scope="col">@lang('Name')</th>
+        <th scope="col" class="text-right">@lang('Percentage of base price of a service')</th><th scope="col">Status</th>
+        <th scope="col" class="text-right">@lang('Action')</th>
      </tr>
   </thead>
 </table>
 @endsection
 @push('scripts')
 <script>
-    $(function(){       
+    $(function(){
 
         var oTable = $('#table').DataTable({
           "bLengthChange": false,
             "dom": '<"toolbar">frtip',
             "bSort" : false,
             processing: true,
-            serverSide: true,                           
+            serverSide: true,
             "ajax": {
                     "url": "{!! route('datatable_work_levels') !!}",
                     "type": "POST",
@@ -41,18 +41,18 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     },
                     "data": function ( d ) {
-                        if ($("#showInactive").is(":checked")) 
-                        {  
+                        if ($("#showInactive").is(":checked"))
+                        {
                           d.include_inactive_items = 1;
-                        }               
+                        }
                     }
             },
-            columns: [                              
-                {data: 'name', name: 'name'},  
+            columns: [
+                {data: 'name', name: 'name'},
                 {data: 'percentage_to_add', name: 'percentage_to_add', className: "text-right"},
                 {data: 'status', name: 'status'},
-                {data: 'action', name: 'action', className: "text-right"},                
-                
+                {data: 'action', name: 'action', className: "text-right"},
+
             ]
         });
 
@@ -68,9 +68,9 @@
         var toolbar = '<div class="d-flex flex-row">' + checkbox  + '</div>';
 
         $("div.toolbar").html(toolbar);
-      
+
         $('#table').on('click', '.delete-item', function (e) {
-               
+
             e.preventDefault();
             runSwal($(this).attr("href"));
 
@@ -78,9 +78,9 @@
 
         $('#showInactive').change(function () {
             oTable.draw();
-        });        
+        });
 
-    });   
+    });
 
     function runSwal($link_to_delete)
     {
@@ -98,6 +98,6 @@
         }
       });
 
-    }   
+    }
 </script>
 @endpush

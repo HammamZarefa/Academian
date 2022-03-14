@@ -7,7 +7,7 @@
       <div class="col-md-10">
          <div class="card-body">
             <a href="{{ route('user_profile', $user->id) }}" ><h5>{{ $user->full_name }}</h5></a>
-            <p class="card-text text-sm text-muted mb-0">Email: {{ $user->email }}</p>
+            <p class="card-text text-sm text-muted mb-0">@lang('Email'): {{ $user->email }}</p>
          </div>
       </div>
    </div>

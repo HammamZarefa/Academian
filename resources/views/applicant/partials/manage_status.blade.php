@@ -4,18 +4,18 @@
             autocomplete="off">
             {{ csrf_field() }}
             <div class="form-group">
-                <label>Status</label>
+                <label>@lang('Status')</label>
                 <?php echo form_dropdown("applicant_status_id", $data['statuses'], old('applicant_status_id', $applicant->applicant_status_id), "class='form-control form-control-sm  selectpicker'") ?>
                 <div class="invalid-feedback d-block">
                     {{ showError($errors, 'applicant_status_id') }}</div>
             </div>
             <div class="form-group">
-                <label>Note</label>
+                <label>@lang('Note')</label>
                 <textarea class="form-control form-control-sm" rows="3" name="note">{{ $applicant->note }}</textarea>
                 <div class="invalid-feedback d-block">
                     {{ showError($errors, 'applicant_status_id') }}</div>
             </div>
-            <button type="submit" class="btn btn-secondary btn-sm btn-block">Change</button>
+            <button type="submit" class="btn btn-secondary btn-sm btn-block">@lang('Change')</button>
         </form>
     </div>
 </div>

@@ -21,11 +21,11 @@
                     <div class="col-md-10">
                         <label>@lang('Name') <span class="required">*</span></label>
                         @foreach(Config::get('app.available_locales') as $lang)
-                            <input id="name_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'name.*') }}"
+                            <input id="name_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'name') }}"
                                    name="name[{{$lang}}]"
-                                   value="{{ old_set('name['.$lang.']', NULL, $postCategory ?? '') }}" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}"  >
+                                   value="{{ $postCategory->getTranslation('name',$lang) }}" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}"  >
                         @endforeach
-                        <div class="invalid-feedback d-block">{{ showError($errors, 'name.*') }}</div>
+                        <div class="invalid-feedback d-block">{{ showError($errors, 'name[]') }}</div>
                     </div>
                     <div class="col-md-2">
                         <label style="visibility: hidden">@lang('lang')  <span></span></label>
@@ -58,13 +58,14 @@
                     <div class="col-md-10">
                         <label>@lang('Meta Desc') <span class="required">*</span></label>
                         @foreach(Config::get('app.available_locales') as $lang)
-                            <textarea id="meta_desc_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'meta_desc.*') }}"
-                                      name="meta_desc[{{$lang}}]" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">{{ old_set('meta_desc['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
+                            <textarea id="meta_desc_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'meta_desc[]') }}"
+                                      name="meta_desc[{{$lang}}]" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">{{ $postCategory->getTranslation('meta_desc',$lang) }}</textarea>
+                            {{--                                {{ old_set('meta_desc['.$lang.']', NULL, $postCategory ?? '') }}--}}
                              @endforeach
-                        <div class="invalid-feedback d-block">{{ showError($errors, 'meta_desc.*') }}</div>
+                        <div class="invalid-feedback d-block">{{ showError($errors, 'name[]') }}</div>
                     </div>
                     <div class="col-md-2">
-                        <label style="visibility: hidden"> @lang('lang') <span></span></label>
+                        <label style="visibility: hidden">@lang('lang')  <span></span></label>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle navbarDarkDropdownMenuLink" href="#" id="navbarDarkDropdownMenuLink"
@@ -100,11 +101,11 @@
                     <div class="col-md-10">
                         <label>@lang('keywords')<span class="required">*</span></label>
                         @foreach(Config::get('app.available_locales') as $lang)
-                            <input id="keyword_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'keyword.*') }}"
+                            <input id="keyword_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'keyword') }}"
                                    name="keyword[{{$lang}}]"
-                                   value="{{ old_set('keyword['.$lang.']', NULL, $postCategory ?? '') }}" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}"  >
+                                   value="{{ $postCategory->getTranslation('keyword',$lang) }}" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}"  >
                         @endforeach
-                        <div class="invalid-feedback d-block">{{ showError($errors, 'keyword.*') }}</div>
+                        <div class="invalid-feedback d-block">{{ showError($errors, 'keyword[]') }}</div>
                     </div>
                     <div class="col-md-2">
                         <label style="visibility: hidden">@lang('lang')  <span></span></label>

@@ -9,32 +9,32 @@
 
 </style>
 @include('setup.partials.action_toolbar', [
- 'title' => 'Offline Payment Methods', 
+ 'title' => 'Offline Payment Methods',
  'hide_save_button' => TRUE,
  'create_link' => ['title' => 'Create New Method', 'url' => route("offline_payment_method_create")]
  ])
-<small>*** After your client submits payment request via offline methods, you have to manually approve the payment from <a href="{{ route('pending_payment_approvals') }}">Pending Approval</a> List</small>
+<small>*** @lang('After your client submits payment request via offline methods, you have to manually approve the payment from') <a href="{{ route('pending_payment_approvals') }}">@lang('Pending Approval')</a> @lang('List')</small>
 <br><br>
 <table id="table" class="table table-striped">
 <thead>
-   <tr>                  
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>     
-      <th scope="col" class="text-right">Action</th>
+   <tr>
+      <th scope="col">@lang('Name')</th>
+      <th scope="col">@lang('Description')</th>
+      <th scope="col" class="text-right">@lang('Action')</th>
    </tr>
 </thead>
 </table>
 @endsection
 @push('scripts')
 <script>
-    $(function(){       
+    $(function(){
 
         var oTable = $('#table').DataTable({
           "bLengthChange": false,
             "dom": '<"toolbar">frtip',
             "bSort" : false,
             processing: true,
-            serverSide: true,                           
+            serverSide: true,
             "ajax": {
                     "url": "{!! route('datatable_offline_payment_methods') !!}",
                     "type": "POST",
@@ -42,17 +42,17 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     },
                     "data": function ( d ) {
-                        if ($("#showInactive").is(":checked")) 
-                        {  
+                        if ($("#showInactive").is(":checked"))
+                        {
                           d.include_inactive_items = 1;
-                        }               
+                        }
                     }
             },
-            columns: [                              
-                {data: 'name', name: 'name'},  
-                {data: 'description', name: 'description'},                          
-                {data: 'action', name: 'action', className: "text-right"},                
-                
+            columns: [
+                {data: 'name', name: 'name'},
+                {data: 'description', name: 'description'},
+                {data: 'action', name: 'action', className: "text-right"},
+
             ]
         });
 
@@ -68,9 +68,9 @@
         var toolbar = '<div class="d-flex flex-row">' + checkbox + '</div>';
 
         $("div.toolbar").html(toolbar);
-      
+
         $('#table').on('click', '.delete-item', function (e) {
-               
+
             e.preventDefault();
             runSwal($(this).attr("href"));
 
@@ -80,12 +80,12 @@
             oTable.draw();
         });
 
-       
 
 
-        
 
-    });   
+
+
+    });
 
     function runSwal($link_to_delete)
     {
@@ -103,6 +103,6 @@
         }
       });
 
-    }   
+    }
 </script>
 @endpush

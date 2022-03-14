@@ -2,9 +2,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class SubmittedWork extends Model
 {
+    use HasTranslations;
 
     public $table = 'submitted_works';
 
@@ -15,6 +17,8 @@ class SubmittedWork extends Model
         'user_id',
         'order_id'
     ];
+
+    public $translatable = ['display_name', 'message'];
 
     public function user()
     {

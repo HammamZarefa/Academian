@@ -22,21 +22,21 @@
                {{ $errors->first('logo') }}</div>
 
          </div>
-         <h6>Upload Cover</h6>
+         <h6>@lang('Upload Cover')</h6>
       </div>
    </div>
    <div class="form-group">
-      <label>Name <span class="required">*</span></label>
+      <label>@lang('Name') <span class="required">*</span></label>
       <input type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'name') }}" name="name" value="{{ old_set('name', NULL, $post ?? '') }}">
       <div class="invalid-feedback d-block">{{ showError($errors, 'name') }}</div>
    </div>
    <div class="form-group">
-      <label>Meta Desc <span class="required">*</span></label>
+      <label>@lang('Meta Desc') <span class="required">*</span></label>
       <textarea type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'meta_desc') }}" name="meta_desc">{{ old_set('meta_desc', NULL, $post ?? '') }}</textarea>
       <div class="invalid-feedback d-block">{{ showError($errors, 'desc') }}</div>
    </div>
    <div class="form-group">
-      <label>keywords<span class="required">*</span></label>
+      <label>@lang('keywords')<span class="required">*</span></label>
       <input type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'keyword') }}" name="keyword" value="{{ old_set('keyword', NULL, $post ?? '') }}">
       <div class="invalid-feedback">{{ showError($errors, 'image') }}</div>
    </div>
@@ -46,6 +46,6 @@
          {{--<label class="custom-control-label" for="inactive">Inactive</label>--}}
       {{--</div>--}}
    {{--</div>--}}
-   <input type="submit" name="submit" class="btn btn-success" value="Submit"/>
+   <input type="submit" name="submit" class="btn btn-success" value="@lang('Submit')"/>
 </form>
 @endsection

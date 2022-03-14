@@ -4,30 +4,30 @@
 <div class="container page-container">
    <div class="row">
       <div class="col-md-12">
-         <h4>Income Statement</h4>
+         <h4>@lang('Income Statement')</h4>
          <hr>
          <form class="form-inline" action="" method="GET" autocomplete="off">
-            <label class="my-1 mr-2" for="date">Date Range</label>
-            <input type="text" class="form-control form-control-sm" id="reportrange" name="date" >                  
-            &nbsp &nbsp 
-            <button class="btn btn-success " type="submit" name="type" value="requested">&nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp</button>
+            <label class="my-1 mr-2" for="date">@lang('Date Range')</label>
+            <input type="text" class="form-control form-control-sm" id="reportrange" name="date" >
+             @lang('&nbsp &nbsp ')
+            <button class="btn btn-success " type="submit" name="type" value="requested">@lang('&nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp')</button>
          </form>
       </div>
    </div>
    <br>     <br>
    @if(isset($data['record']) && $data['record'])
    <small class="form-text text-muted text-center">
-   Report generated based on all the orders that are marked with status "Complete".
+       @lang('Report generated based on all the orders that are marked with status "Complete"').
    </small>
    <div class="row">
       <div class="offset-md-2 col-md-8" style="background-color: #eee; padding: 10px;">
          <div style="background-color: #fff; padding: 10px;">
-            <h5 class="text-center">Income Statement</h5>
-            <div class="text-center">From {{ $data['from_date'] }} to {{ $data['to_date'] }}</div>
+            <h5 class="text-center">@lang('Income Statement')</h5>
+            <div class="text-center">@lang('From') {{ $data['from_date'] }} @lang('to') {{ $data['to_date'] }}</div>
             <table id="data" class="table table-sm">
                <thead>
                   <tr>
-                     <th scope="col" style="width: 40%;">Sales Revenue</th>
+                     <th scope="col" style="width: 40%;">@lang('Sales Revenue')</th>
                      <th scope="col" class="text-right"></th>
                   </tr>
                </thead>
@@ -39,7 +39,7 @@
                   </tr>
                   @endforeach
                   <tr>
-                     <th>Total</th>
+                     <th>@lang('Total')</th>
                      <th class="text-right">{{ format_money($data['total_revenue']) }}</th>
                   </tr>
                </tbody>
@@ -47,19 +47,19 @@
             <table id="data" class="table table-sm">
                <thead>
                   <tr>
-                     <th scope="col" style="width: 40%;">(-) Expenses</th>
+                     <th scope="col" style="width: 40%;">(-) @lang('Expenses')</th>
                      <th scope="col" class="text-right"></th>
                   </tr>
                </thead>
                <tbody>
                   <tr>
-                     <td>Payments to staffs</th>                  
+                     <td>@lang('Payments to staffs')</td>
                      <td class="text-right">
                         {{ format_money($data['total_expense']) }}
                      </td>
                   </tr>
                   <tr>
-                     <th>Total</th>
+                     <th>@lang('Total')</th>
                      <th class="text-right">{{ format_money($data['total_expense']) }}</th>
                   </tr>
                </tbody>
@@ -67,7 +67,7 @@
             <table id="data" class="table table-sm">
                <thead>
                   <tr>
-                     <th scope="col" style="width: 40%;">Net Income</th>
+                     <th scope="col" style="width: 40%;">@lang('Net Income')</th>
                      <th scope="col" class="text-right">{{ format_money($data['income']) }}</th>
                   </tr>
                </thead>
@@ -77,7 +77,7 @@
    </div>
    @endif
    @if((!isset($data['record'])) && request('type') == 'requested')
-   <div class="text-center">No record found</div>
+   <div class="text-center">@lang('No record found')</div>
    @endif
 </div>
 @endsection
@@ -116,5 +116,5 @@
     cb(start, end);
 });
 
-</script> 
+</script>
 @endpush

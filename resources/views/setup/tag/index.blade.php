@@ -6,10 +6,10 @@
    .toolbar {
     float: left;
 }
-  
+
 </style>
 @include('setup.partials.action_toolbar', [
- 'title' => 'Tags', 
+ 'title' => 'Tags',
  'hide_save_button' => TRUE,
  'create_link' => ['title' => 'Create tag', 'url' => route("tags_create")]
 
@@ -17,23 +17,23 @@
 
 <table id="table" class="table table-striped">
   <thead>
-     <tr>       
-        <th scope="col" style="width: 40%;">Name</th>                             
-        <th scope="col" class="text-right">Action</th>
+     <tr>
+        <th scope="col" style="width: 40%;">@lang('Name')</th>
+        <th scope="col" class="text-right">@lang('Action')</th>
      </tr>
   </thead>
 </table>
 @endsection
 @section('innerPageJS')
 <script>
-    $(function(){       
+    $(function(){
 
         var oTable = $('#table').DataTable({
           "bLengthChange": false,
             "dom": '<"toolbar">frtip',
             "bSort" : false,
             processing: true,
-            serverSide: true,                           
+            serverSide: true,
             "ajax": {
                     "url": "{!! route('datatables_tags') !!}",
                     "type": "POST",
@@ -41,31 +41,31 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     },
                     "data": function ( d ) {
-                        if ($("#showInactive").is(":checked")) 
-                        {  
+                        if ($("#showInactive").is(":checked"))
+                        {
                           d.include_inactive_items = 1;
-                        }               
+                        }
                     }
             },
-            columns: [      
-                // { data: 'DT_RowIndex', name: 'DT_RowIndex' },                        
-                {data: 'name', name: 'name'},                       
-                {data: 'action', name: 'action', className: "text-right"},                
-                
+            columns: [
+                // { data: 'DT_RowIndex', name: 'DT_RowIndex' },
+                {data: 'name', name: 'name'},
+                {data: 'action', name: 'action', className: "text-right"},
+
             ]
         });
 
-   
+
 
         // var createButton = '<a class="btn btn-sm btn-primary" href="{{ route("tags_create") }}">New Tag</a>';
 
         // var toolbar = '<div class="d-flex flex-row">' + createButton + '</div>';
 
-        // $("div.toolbar").html(toolbar);    
+        // $("div.toolbar").html(toolbar);
 
-      
+
         $('#table').on('click', '.delete-item', function (e) {
-               
+
             e.preventDefault();
             runSwal($(this).attr("href"));
 
@@ -75,7 +75,7 @@
             oTable.draw();
         });
 
-    });   
+    });
 
     function runSwal($link_to_delete)
     {
@@ -93,6 +93,6 @@
         }
       });
 
-    }   
+    }
 </script>
 @endsection

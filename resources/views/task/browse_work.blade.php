@@ -4,18 +4,18 @@
 <div class="container page-container">
    <div class="row">
       <div class="col-md-12">
-         <h4>Browse Work</h4>        
+         <h4>@lang('Browse Work')</h4>
           <hr>
       </div>
       <div class="col-md-8">
         <table id="tasks_table" class="w-100">
             <tr>
-              <th scope="col">Item</th>             
+              <th scope="col">@lang('Item')</th>
            </tr>
          </table>
       </div>
        <div class="col-md-4">
-        @include('task.partials.browse_work_search')     
+        @include('task.partials.browse_work_search')
       </div>
    </div>
 </div>
@@ -23,14 +23,14 @@
 
 @push('scripts')
 <script>
-    $(function(){  
+    $(function(){
 
         $('.selectpicker').select2({
               theme: 'bootstrap4',
               escapeMarkup: function(markup) {
                 return markup;
               },
-              templateResult: function (data, container) {               
+              templateResult: function (data, container) {
                   return '<span class="select2-option">'+data.text+'</span>';
               }
         });
@@ -39,24 +39,24 @@
           "bLengthChange": false,
            searching: false,
             processing: true,
-            serverSide: true,  
-            sorting: false, 
-            ordering : false,                           
+            serverSide: true,
+            sorting: false,
+            ordering : false,
             "ajax": {
                     "url": "{!! route('browse_work_datatable') !!}",
                     "type": "POST",
                     'headers': {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },                   
+                    },
                     "data": function ( d ) {
-                        
-                        d.service_id      = $("select[name=service_id]").val();             
-                      
+
+                        d.service_id      = $("select[name=service_id]").val();
+
                     }
             },
-            columns: [                              
-                {data: 'task_html', name: 'task_html'}            
-                
+            columns: [
+                {data: 'task_html', name: 'task_html'}
+
             ]
         }).on('page.dt', function() {
           $('html, body').animate({
@@ -70,6 +70,6 @@
           e.preventDefault();
         });
 
-    });      
+    });
 </script>
 @endpush

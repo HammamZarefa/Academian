@@ -1,8 +1,8 @@
 <div class="card">
    <div class="card-body">
-      <h5 class="card-title">About</h5>
+      <h5 class="card-title">@lang('About')</h5>
       <p>{{ optional($user->meta)->bio }}</p>
-      @if($user->hasRole(['staff']))  
+      @if($user->hasRole(['staff']))
       <!-- Badges -->
       <div class="d-lg-flex mt-4">
          <a href="#" class="d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
@@ -11,9 +11,9 @@
                   <i class="fas fa-user-ninja"></i>
                </div>
             </div>
-            <div class="pl-3"> 
+            <div class="pl-3">
                <span class="h6">
-               {{ $tag_count = $user->tags()->count() }} 
+               {{ $tag_count = $user->tags()->count() }}
                {{ Str::plural('Skill', $tag_count) }}
                </span>
             </div>
@@ -26,13 +26,13 @@
             </div>
             <div class="pl-3">
                <a href="{{ route('my_account') }}?group=ratings">
-                  <span class="h6">{{ $user->ratings_received()->get()->count()}} feedback from clients</span></a>
+                  <span class="h6">{{ $user->ratings_received()->get()->count()}}@lang('feedback from clients') </span></a>
             </div>
          </div>
       </div>
       <div class="pt-5 mt-5 delimiter-top">
          <!-- Title -->
-         <h6>Skills</h6>
+         <h6>@lang('Skills')</h6>
          <!-- Skil badges -->
          <div>
             @foreach($user->tags()->get() as $tag)
@@ -42,14 +42,14 @@
       </div>
       <div class="pt-5 mt-5 delimiter-top">
          <!-- Title -->
-         <h6>Roles</h6>
+         <h6>@lang('Roles')</h6>
          <!-- Skil badges -->
          <div>
             @foreach($user->getRoleNames()->toArray() as $role)
             <a href="#" class="badge badge-soft-info mr-2 mb-2">{{ ucfirst($role) }}</a>
             @endforeach
          </div>
-      </div>  
+      </div>
       @endif
    </div>
 </div>

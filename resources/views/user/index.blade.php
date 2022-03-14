@@ -4,7 +4,7 @@
 <div class="container page-container">
    <div class="row">
       <div class="col-md-6">
-         <h4>List of {{ $data['entity'] }}</h4>
+         <h4>@lang('List of') {{ $data['entity'] }}</h4>
          <br>
       </div>
       <div class="col-md-6">
@@ -15,7 +15,7 @@
          {{--</a>--}}
          @endif
       </div>
-      <div class="clearfix"></div>  
+      <div class="clearfix"></div>
       <div class="col-md-4">
          @include('user.partials.search')
       </div>
@@ -39,26 +39,26 @@
       $('.multSelectpicker').select2({
         theme: 'bootstrap4',
       });
-   
-        
+
+
       var oTable = $('#table').DataTable({
         "bLengthChange": false,
           searching: false,
           processing: true,
-          serverSide: true,    
-          "ordering": false,            
+          serverSide: true,
+          "ordering": false,
           "ajax": {
                   "url": "{!! route('datatable_users', ['type' => $data['type'] ]) !!}",
                   "type": "POST",
                   'headers': {
                       'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                  },                   
+                  },
                   "data": function ( d ) {
                       d.search = $("input[name=search]").val();
 
                       if($("#inactive").prop("checked"))
                       {
-                        d.inactive = 1;  
+                        d.inactive = 1;
                       }
 
                       var tags = $("#tag_id").val();
@@ -66,12 +66,12 @@
                       if(tags)
                       {
                         d.tags = tags;
-                      }              
-                     
+                      }
+
                   }
           },
           columns: [
-              {data: 'user_html', name: 'user_html'}         
+              {data: 'user_html', name: 'user_html'}
           ]
       }).
       on('page.dt', function() {
@@ -85,7 +85,7 @@
       e.preventDefault();
     });
 
-    });      
+    });
 </script>
 @endpush
-   
+
