@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h2>@lang('Our Services')</h2>
-                <p>@lang('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse').</p>
+                <p>@lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse').</p>
             </div>
             <article class="item col-sm-3">
                 <a ><i class="icon-monitor"></i></a>
