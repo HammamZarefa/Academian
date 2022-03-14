@@ -16,10 +16,12 @@ use App\Mail\CustomerQuery;
 class HomeController extends Controller
 {
     private $seoService;
+    private $userController;
     
-    function __construct(SeoService $seoService)
+    function __construct(SeoService $seoService,UserController $userController)
     {
         $this->seoService = $seoService;
+        $this->userController=$userController;
     }
 
     public function index()
@@ -32,8 +34,9 @@ class HomeController extends Controller
         $this->seoService->load('home');
         $services = Service::all();
         $service_categories=ServiceCategory::all();
-//        $wrtiers=User::where()->get
-        return view('website.index', compact('services','service_categories'));
+        $writers= $this->userController->getWriters();
+//        dd($writers);
+        return view('website.index', compact('services','service_categories','writers'));
     }
 
     function pricing(CalculatorService $calculator)
