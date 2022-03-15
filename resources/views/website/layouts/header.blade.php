@@ -5,7 +5,7 @@
     <section class="top-bar">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 social-media">
+                <div class="col-sm-4 social-media">
                     <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Facebook"><i class="icon-facebook"></i></a>
                     <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Twitter"><i class="icon-twitter"></i></a>
                     <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Linkedin"><i class="icon-linkedin"></i></a>
@@ -17,9 +17,22 @@
                     <p><i class="icon-mail"></i> {{ settings('company_email')}}</p>
                     <p><i class="icon-mail"></i> support@academian.com</p>
                 </div>
+                <div class="col-sm-2 sm-lang">
+                @include('website.partials/language_switcher')
+                </div>
+                <style>
+                /* Small devices (landscape phones, 576px and up) */
+                @media (max-width: 767.98px) {
+                    .sm-lang{
+                        position: absolute;
+                        right: 10px;
+                        top: 10px;
+                    }
+                }
+                </style>
             </div>
         </div>
-        @include('website.partials/language_switcher')
+       
     </section>
     <!-- end Topbar -->
     <div class="navbar navbar-default" role="navigation">
@@ -114,7 +127,7 @@
                         </li>
                 </ul>
                 <div class="help">
-                    <button class="" style="background-color: #026bc3"><a href="{{ route('instant_quote')}}">@lang('Reqeust Help')</a></button>
+                    <button class=""><a href="{{ route('instant_quote')}}">@lang('Reqeust Help')</a></button>
                 </div>
             <!--/.nav-collapse -->
             </div>

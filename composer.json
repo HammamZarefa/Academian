@@ -26,6 +26,7 @@
         "spatie/laravel-cookie-consent": "^2.12",
         "spatie/laravel-permission": "^3.11",
         "spatie/laravel-translatable": "^4.6",
+        "spatie/laravel-translation-loader": "^2.7",
         "stripe/stripe-php": "^7.37",
         "yajra/laravel-datatables-oracle": "^9.9"
     },
