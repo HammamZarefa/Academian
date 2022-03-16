@@ -1371,6 +1371,7 @@ svg .un_text{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	width: 100%;
 }
 .slider .contain a{
 	width: 49%;
