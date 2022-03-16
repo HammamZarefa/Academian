@@ -8,10 +8,11 @@
 @endif
 {{--<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">--}}
 {{--<link href="{{ asset('css/theme.min.css') }}" rel="stylesheet">--}}
-{{--<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">--}}
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link href="{{ asset('front/font/fontello.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('front/css/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/media-queries.css') }}" rel="stylesheet">
 {!! settings('website_header_script') !!}
 @include('website.google_analytics')
@@ -26,6 +27,7 @@
 </div>
 @include('cookieConsent::index')
 @include('website.layouts.footer') 
+
 <script src="{{ asset('js/theme.min.js') }}"></script>
 {!! settings('website_footer_script') !!}
 </body>

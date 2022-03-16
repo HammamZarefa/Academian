@@ -3377,10 +3377,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3465,6 +3461,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       hasError: false,
+      show_worklevel: true,
+      active_services: 0,
       errors: {},
       additional_services: [],
       form: {
@@ -3496,6 +3494,17 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     setServices: function setServices() {
       this.form.service_model = this.filteredServices[0];
+    },
+    setServices3: function setServices3(itm, ind, wolvl) {
+      this.form.service_categories_model = itm;
+      this.form.service_model = this.filteredServices[0];
+      this.active_services = ind;
+
+      if (wolvl == 0) {
+        this.show_worklevel = false;
+      } else {
+        this.show_worklevel = true;
+      }
     },
     checkError: function checkError() {
       var errorList = JSON.parse(JSON.stringify(this.errors));
@@ -13436,7 +13445,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".option-group[data-v-5fbbe9ba] {\n  width: 100%;\n  height: 90px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 0.25em;\n  font-size: 30px;\n  margin: 0.2em auto;\n  transform: translateZ(0);\n}\n.option-container[data-v-5fbbe9ba] {\n  display: flex;\n  justify-content: space-between;\n  align-items: stretch;\n  width: 100%;\n  height: 100%;\n}\n.option[data-v-5fbbe9ba] {\n  overflow: hidden;\n  display: block;\n  padding: 0.5em;\n  background: #FFF;\n  position: relative;\n  margin: 0em;\n  margin-right: 0.2em;\n  border-radius: 0.25em;\n  display: flex;\n  justify-content: flex-end;\n  align-items: flex-start;\n  flex-direction: column;\n  cursor: pointer;\n  opacity: 0.5;\n  transition-duration: 0.8s, 0.6s;\n  transition-property: transform, opacity;\n  transition-timing-function: cubic-bezier(0.98, 0, 0.22, 0.98), linear;\n  will-change: transform, opacity;\n}\n.option[data-v-5fbbe9ba]:last-child {\n  margin-right: 0;\n}\n.option:last-child .option__label[data-v-5fbbe9ba] {\n  transform: translateX(0%) scale(0.7);\n}\n.option:last-child .option__indicator[data-v-5fbbe9ba] {\n  transform: translateX(-20%);\n}\n.option__indicator[data-v-5fbbe9ba] {\n  display: block;\n  transform-origin: left bottom;\n  transition: inherit;\n  will-change: transform;\n  position: absolute;\n  top: 0.5em;\n  right: 0.5em;\n  left: 0.5em;\n}\n.option__indicator[data-v-5fbbe9ba]:after {\n  background: #6174e1;\n  transform: scale(0);\n  transition: inherit;\n  will-change: transform;\n}\n.option__indicator[data-v-5fbbe9ba]:before,\n.option__indicator[data-v-5fbbe9ba]:after {\n  content: \"\";\n  display: block;\n  border: solid 2px #6174e1;\n  border-radius: 50%;\n  width: 15px;\n  height: 15px;\n  position: absolute;\n  top: 0;\n  right: 0;\n}\n.option-input[data-v-5fbbe9ba] {\n  position: absolute;\n  top: 0;\n  z-index: -1;\n  visibility: hidden;\n}\n.option-input:checked ~ .option[data-v-5fbbe9ba] {\n  transform: translateX(-20%) translateX(0.2em);\n}\n.option-input:checked ~ .option .option__indicator[data-v-5fbbe9ba] {\n  transform: translateX(0%);\n}\n.option-input:checked ~ .option .option__label[data-v-5fbbe9ba] {\n  transform: translateX(40%) scale(0.7);\n}\n.option-input:first-child:checked ~ .option[data-v-5fbbe9ba] {\n  transform: translateX(20%) translateX(-0.2em);\n}\n.option-input:first-child:checked ~ .option .option__indicator[data-v-5fbbe9ba] {\n  transform: translateX(-40%);\n}\n.option-input:first-child:checked ~ .option .option__label[data-v-5fbbe9ba] {\n  transform: translateX(0%) scale(0.7);\n}\n.option__label[data-v-5fbbe9ba] {\n  display: block;\n  width: 100%;\n  text-transform: uppercase;\n  font-size: 1.5em;\n  font-weight: bold;\n  transform-origin: left bottom;\n  transform: translateX(20%) scale(0.7);\n  transition: inherit;\n  will-change: transform;\n}\n.option__label sub[data-v-5fbbe9ba] {\n  margin-left: 0.25em;\n  font-size: 0.4em;\n  display: inline-block;\n  vertical-align: 0.3em;\n}\n.option__label[data-v-5fbbe9ba]:after {\n  content: \"\";\n  display: block;\n  border: solid 2px #6174e1;\n  width: 100%;\n  transform-origin: 0 0;\n  transform: scaleX(0.2);\n  transition: inherit;\n  will-change: transform;\n}\n.option-input:nth-child(1):checked ~ .option[data-v-5fbbe9ba]:nth-of-type(1),\n.option-input:nth-child(2):checked ~ .option[data-v-5fbbe9ba]:nth-of-type(2),\n.option-input:nth-child(3):checked ~ .option[data-v-5fbbe9ba]:nth-of-type(3) {\n  opacity: 1;\n}\n.option-input:nth-child(1):checked ~ .option:nth-of-type(1) .option__indicator[data-v-5fbbe9ba],\n.option-input:nth-child(2):checked ~ .option:nth-of-type(2) .option__indicator[data-v-5fbbe9ba],\n.option-input:nth-child(3):checked ~ .option:nth-of-type(3) .option__indicator[data-v-5fbbe9ba] {\n  transform: translateX(0);\n}\n.option-input:nth-child(1):checked ~ .option:nth-of-type(1) .option__indicator[data-v-5fbbe9ba]::after,\n.option-input:nth-child(2):checked ~ .option:nth-of-type(2) .option__indicator[data-v-5fbbe9ba]::after,\n.option-input:nth-child(3):checked ~ .option:nth-of-type(3) .option__indicator[data-v-5fbbe9ba]::after {\n  transform: scale(1);\n}\n.option-input:nth-child(1):checked ~ .option:nth-of-type(1) .option__label[data-v-5fbbe9ba],\n.option-input:nth-child(1):checked ~ .option:nth-of-type(1) .option__label[data-v-5fbbe9ba]::after,\n.option-input:nth-child(2):checked ~ .option:nth-of-type(2) .option__label[data-v-5fbbe9ba],\n.option-input:nth-child(2):checked ~ .option:nth-of-type(2) .option__label[data-v-5fbbe9ba]::after,\n.option-input:nth-child(3):checked ~ .option:nth-of-type(3) .option__label[data-v-5fbbe9ba],\n.option-input:nth-child(3):checked ~ .option:nth-of-type(3) .option__label[data-v-5fbbe9ba]::after {\n  transform: scale(1);\n}", ""]);
+exports.push([module.i, ".service_category[data-v-5fbbe9ba] {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}\n.service_category .base[data-v-5fbbe9ba] {\n  position: relative;\n  display: grid;\n  grid-template-columns: repeat(30, 1fr);\n  grid-template-rows: repeat(10, 1fr);\n  width: 150px;\n  height: 50px;\n  border-radius: 0.3rem;\n  margin-bottom: 15px;\n  color: #fff;\n  background: #a9afb0;\n  cursor: pointer;\n  transition: 0.3s;\n  font: 700 18px sans-serif;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);\n}\n.service_category .base[data-v-5fbbe9ba]:hover {\n  background: #5e72e4;\n}\n.service_category .base.active[data-v-5fbbe9ba] {\n  background: #5e72e4;\n  box-shadow: 0 8px 16px #5e72e4;\n}\n.service_category .bg[data-v-5fbbe9ba] {\n  position: absolute;\n  z-index: 10;\n  left: 0;\n  top: 0;\n  display: grid;\n  place-content: center;\n  width: 100%;\n  height: 100%;\n  grid-column: 1/span 30;\n  grid-row: 1/span 10;\n  transition: opacity 0.3s;\n  pointer-events: none;\n  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);\n}", ""]);
 
 // exports
 
@@ -93491,13 +93500,24 @@ var render = function() {
     _c("div", { staticClass: "form-group" }, [
       _c("label", [_vm._v("Service Category")]),
       _vm._v(" "),
-      _c("div", { staticClass: "option-group" }, [
-        _c(
-          "div",
-          { staticClass: "option-container" },
-          [
-            _vm._l(_vm.service_categories, function(item, index) {
-              return _c("input", {
+      _c(
+        "div",
+        { staticClass: "service_category" },
+        _vm._l(_vm.service_categories, function(item, index) {
+          return _c(
+            "div",
+            {
+              key: index,
+              staticClass: "base",
+              class: [_vm.active_services == index ? "active" : ""],
+              on: {
+                click: function($event) {
+                  return _vm.setServices3(item, index, item.worklevel)
+                }
+              }
+            },
+            [
+              _c("input", {
                 directives: [
                   {
                     name: "model",
@@ -93506,8 +93526,8 @@ var render = function() {
                     expression: "form.service_categories_model"
                   }
                 ],
-                key: index,
                 staticClass: "option-input",
+                staticStyle: { opacity: "0" },
                 attrs: { id: "d" + item.id, type: "radio", name: "options" },
                 domProps: {
                   value: item,
@@ -93525,15 +93545,12 @@ var render = function() {
                     _vm.setServices
                   ]
                 }
-              })
-            }),
-            _vm._v(" "),
-            _vm._l(_vm.service_categories, function(item, index) {
-              return _c(
+              }),
+              _vm._v(" "),
+              _c(
                 "label",
                 {
-                  key: index,
-                  staticClass: "option",
+                  staticClass: "bg",
                   attrs: {
                     for: "d" + item.id,
                     label: item.name,
@@ -93541,19 +93558,13 @@ var render = function() {
                     name: "service_categories"
                   }
                 },
-                [
-                  _c("span", { staticClass: "option__indicator" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "option__label" }, [
-                    _c("sub", [_vm._v(_vm._s(item.name))])
-                  ])
-                ]
+                [_vm._v("\n          " + _vm._s(item.name) + "\n        ")]
               )
-            })
-          ],
-          2
-        )
-      ])
+            ]
+          )
+        }),
+        0
+      )
     ]),
     _vm._v(" "),
     _c(
@@ -93585,64 +93596,66 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v("Work Level")]),
-      _vm._v(" "),
-      _c("div", [
-        _c(
-          "div",
-          {
-            staticClass: "btn-group btn-group-toggle flex-wrap",
-            attrs: { "data-toggle": "buttons" }
-          },
-          _vm._l(_vm.levels, function(row, index) {
-            return _c(
-              "label",
+    _vm.show_worklevel
+      ? _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Work Level")]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "div",
               {
-                key: index,
-                staticClass: "btn btn-outline-primary",
-                class:
-                  _vm.form.work_level_id === Number(row.id) ? "active" : "",
-                on: {
-                  click: function($event) {
-                    return _vm.workLevelChanged(row.id, index)
-                  }
-                }
+                staticClass: "btn-group btn-group-toggle flex-wrap",
+                attrs: { "data-toggle": "buttons" }
               },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.work_level_id,
-                      expression: "form.work_level_id"
+              _vm._l(_vm.levels, function(row, index) {
+                return _c(
+                  "label",
+                  {
+                    key: index,
+                    staticClass: "btn btn-outline-primary",
+                    class:
+                      _vm.form.work_level_id === Number(row.id) ? "active" : "",
+                    on: {
+                      click: function($event) {
+                        return _vm.workLevelChanged(row.id, index)
+                      }
                     }
-                  ],
-                  staticClass: "btn-group-toggle",
-                  attrs: {
-                    type: "radio",
-                    id: "workLevel_" + index,
-                    autocomplete: "off"
                   },
-                  domProps: {
-                    value: row.id,
-                    checked: _vm._q(_vm.form.work_level_id, row.id)
-                  },
-                  on: {
-                    change: function($event) {
-                      return _vm.$set(_vm.form, "work_level_id", row.id)
-                    }
-                  }
-                }),
-                _vm._v("\n          " + _vm._s(row.name) + "\n        ")
-              ]
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.work_level_id,
+                          expression: "form.work_level_id"
+                        }
+                      ],
+                      staticClass: "btn-group-toggle",
+                      attrs: {
+                        type: "radio",
+                        id: "workLevel_" + index,
+                        autocomplete: "off"
+                      },
+                      domProps: {
+                        value: row.id,
+                        checked: _vm._q(_vm.form.work_level_id, row.id)
+                      },
+                      on: {
+                        change: function($event) {
+                          return _vm.$set(_vm.form, "work_level_id", row.id)
+                        }
+                      }
+                    }),
+                    _vm._v("\n          " + _vm._s(row.name) + "\n        ")
+                  ]
+                )
+              }),
+              0
             )
-          }),
-          0
-        )
-      ])
-    ]),
+          ])
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _vm.form.service_model.price_type_id == _vm.pricingTypes.perPage
       ? _c("div", { staticClass: "form-row" }, [
@@ -106423,15 +106436,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************!*\
   !*** ./resources/js/components/Order.vue ***!
   \*******************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Order_vue_vue_type_template_id_8a00ae1a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Order.vue?vue&type=template&id=8a00ae1a& */ "./resources/js/components/Order.vue?vue&type=template&id=8a00ae1a&");
 /* harmony import */ var _Order_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Order.vue?vue&type=script&lang=js& */ "./resources/js/components/Order.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Order_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Order_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -106461,7 +106473,7 @@ component.options.__file = "resources/js/components/Order.vue"
 /*!********************************************************************!*\
   !*** ./resources/js/components/Order.vue?vue&type=script&lang=js& ***!
   \********************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -107502,11 +107514,11 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\theme.scss */"./resources/sass/theme.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
-module.exports = __webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
+__webpack_require__(/*! E:\Academian\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\Academian\resources\sass\theme.scss */"./resources/sass/theme.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
+module.exports = __webpack_require__(/*! E:\Academian\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
 
 
 /***/ })

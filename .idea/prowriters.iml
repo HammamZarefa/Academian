@@ -228,6 +228,7 @@
           <root url="file://$MODULE_DIR$/vendor/spatie/laravel-activitylog" />
           <root url="file://$MODULE_DIR$/vendor/spatie/laravel-cookie-consent" />
           <root url="file://$MODULE_DIR$/vendor/spatie/laravel-permission" />
+          <root url="file://$MODULE_DIR$/vendor/spatie/laravel-translatable" />
           <root url="file://$MODULE_DIR$/vendor/stripe/stripe-php" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/console" />
@@ -349,6 +350,7 @@
           <root url="file://$MODULE_DIR$/vendor/spatie/laravel-activitylog" />
           <root url="file://$MODULE_DIR$/vendor/spatie/laravel-cookie-consent" />
           <root url="file://$MODULE_DIR$/vendor/spatie/laravel-permission" />
+          <root url="file://$MODULE_DIR$/vendor/spatie/laravel-translatable" />
           <root url="file://$MODULE_DIR$/vendor/stripe/stripe-php" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/console" />

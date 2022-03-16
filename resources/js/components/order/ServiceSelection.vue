@@ -8,21 +8,17 @@
     <hr />
     <div class="form-group">
       <label>Service Category</label>
-      <div class="option-group">
-        <div class="option-container">
-          <input class="option-input" :id="`d${item.id}`" type="radio" name="options" 
-          v-for="(item,index) in service_categories" :key="index" :value="item"
-          v-model="form.service_categories_model"  @change="setServices" />
-          <label class="option" :for="`d${item.id}`"
-          v-for="(item,index) in service_categories" :key="index"
+              <div class="service_category">
+       <div class="base"  v-for="(item,index) in service_categories" :key="index"
+        @click="setServices3(item,index,item.worklevel)" :class="[active_services == index? 'active':'']">
+         <input class="option-input" :id="`d${item.id}`" type="radio" name="options" style="opacity:0" 
+          :value="item" v-model="form.service_categories_model"  @change="setServices" />
+          <label class="bg" :for="`d${item.id}`"
           :label="item.name" type="radio" name="service_categories" >
-            <span class="option__indicator"></span>
-            <span class="option__label">
-              <sub>{{item.name}}</sub>
-            </span>
+            {{item.name}}
           </label>
-        </div>
-    </div>
+      </div>
+      </div>
     </div>
     <div class="form-group" >
       <label>Service Type</label>
@@ -34,7 +30,7 @@
         @input="getAdditionalServices(form.service_model)"
       ></multiselect>
     </div>
-    <div class="form-group">
+    <div class="form-group" v-if="show_worklevel">
       <label>Work Level</label>
       <div>
         <div class="btn-group btn-group-toggle flex-wrap" data-toggle="buttons">
@@ -309,6 +305,8 @@ export default {
   data() {
     return {
       hasError:false,
+      show_worklevel:true,
+      active_services:0,
       errors: {},      
       additional_services: [],
       form: {
@@ -337,7 +335,18 @@ export default {
   },
   methods: {
     setServices(){
-     this.form.service_model = this.filteredServices[0]
+      this.form.service_model = this.filteredServices[0];
+    },
+    setServices3(itm,ind,wolvl){
+      this.form.service_categories_model = itm;
+      this.form.service_model = this.filteredServices[0];
+      this.active_services = ind;
+      if(wolvl == 0){
+        this.show_worklevel = false;
+      }
+      else{
+         this.show_worklevel = true;
+      }
     },
     checkError(){
       var errorList = JSON.parse(JSON.stringify(this.errors));       
@@ -486,161 +495,60 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.option-group {
-	width: 100%;
-	height: 90px;
+
+.service_category{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+.base {
 	position: relative;
-	overflow: hidden;
-	border-radius: 0.25em;
-	font-size: 30px;
-	margin: 0.2em auto;
-	transform: translateZ(0);
+	display: grid;
+	grid-template-columns: repeat(30, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  width: 150px;
+  height: 50px;
+	border-radius: 0.3rem;
+  margin-bottom: 15px;
+	color: #fff;
+	background: #a9afb0;
+  cursor: pointer;
+  transition: .3s;
+	font: 700 18px sans-serif;
+	box-shadow:
+		0 1px 2px rgba(0,0,0,0.07), 
+		0 2px 4px rgba(0,0,0,0.07), 
+		0 4px 8px rgba(0,0,0,0.07), 
+		0 8px 16px rgba(0,0,0,0.07),
+		0 16px 32px rgba(0,0,0,0.07), 
+		0 32px 64px rgba(0,0,0,0.07);
+    &:hover{
+      background: #5e72e4; 
+    }
+    &.active{
+      background: #5e72e4;
+      box-shadow:
+		0 8px 16px #5e72e4;
+
+    }
+    
 }
-.option-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: stretch;
-	width: 100%;
-	height: 100%;
-}
-.option {
-	overflow: hidden;
-	display: block;
-	padding: 0.5em;
-	background: #FFF;
-	position: relative;
-	margin: 0em;
-	margin-right: 0.2em;
-	border-radius: 0.25em;
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-start;
-	flex-direction: column;
-	cursor: pointer;
-	opacity: 0.5;
-	transition-duration: 0.8s, 0.6s;
-	transition-property: transform, opacity;
-	transition-timing-function: cubic-bezier(.98,0,.22,.98), linear;
-	will-change: transform, opacity;
-	&:last-child {
-		margin-right: 0;
-		.option__label {
-			transform: translateX(0%) scale(0.7);
-		}
-		.option__indicator {
-			transform: translateX(-20%);
-		}
-	}
-}
-.option__indicator {
-	display: block;
-	transform-origin: left bottom;
-	transition: inherit;
-	will-change: transform;
+.bg {
 	position: absolute;
-	top: 0.5em;
-	right: 0.5em;
-	left: 0.5em;
-	&:after {
-		background: #6174e1;
-		transform: scale(0);
-		transition: inherit;
-		will-change: transform;
-	}
-}
-.option__indicator:before,
-.option__indicator:after {
-	content: '';
-	display: block;
-	border: solid 2px #6174e1;
-	border-radius: 50%;
-  width: 15px;
-  height: 15px;
-	position: absolute;
+	z-index: 10;
+	left: 0;
 	top: 0;
-	right: 0;
-}
-.option-input {
-	position: absolute;
-	top: 0;
-	z-index: -1;
-	visibility: hidden;
-	&:checked {
-		& ~ .option {
-			transform: translateX(-20%) translateX(0.2em);
-			.option__indicator {
-				transform: translateX(0%);
-			}
-			.option__label {
-				transform: translateX(40%) scale(0.7);
-			}
-		}
-	}
-	&:first-child {
-		&:checked {
-			& ~ .option {
-				transform: translateX(20%) translateX(-0.2em);
-				.option__indicator {
-					transform: translateX(-40%);
-				}
-				.option__label {
-					transform: translateX(0%) scale(0.7);
-				}
-			}
-		}
-	}
-}
-.option__label {
-	display: block;
-	width: 100%;
-	text-transform: uppercase;
-	font-size: 1.5em;
-	font-weight: bold;
-	transform-origin: left bottom;
-	transform: translateX(20%) scale(0.7);
-	transition: inherit;
-	will-change: transform;
-	sub {
-		margin-left: 0.25em;
-		font-size: 0.4em;
-		display: inline-block;
-		vertical-align: 0.3em;
-	}
-	&:after {
-		content: '';
-		display: block;
-		border: solid 2px #6174e1;
-		width: 100%;
-		transform-origin: 0 0;
-		transform: scaleX(0.2);
-		transition: inherit;
-		will-change: transform;
-	}
-}
-.option-input:nth-child(1):checked ~ .option:nth-of-type(1),
-.option-input:nth-child(2):checked ~ .option:nth-of-type(2),
-.option-input:nth-child(3):checked ~ .option:nth-of-type(3) {
-	opacity: 1;
-}
-.option-input:nth-child(1):checked ~ .option:nth-of-type(1) .option__indicator,
-.option-input:nth-child(2):checked ~ .option:nth-of-type(2) .option__indicator,
-.option-input:nth-child(3):checked ~ .option:nth-of-type(3) .option__indicator {
-	transform: translateX(0);
-}
-.option-input:nth-child(1):checked ~ .option:nth-of-type(1) .option__indicator::after,
-.option-input:nth-child(2):checked ~ .option:nth-of-type(2) .option__indicator::after,
-.option-input:nth-child(3):checked ~ .option:nth-of-type(3) .option__indicator::after  {
-	transform: scale(1);
-}
-.option-input:nth-child(1):checked ~ .option:nth-of-type(1) .option__label,
-.option-input:nth-child(1):checked ~ .option:nth-of-type(1) .option__label::after,
-.option-input:nth-child(2):checked ~ .option:nth-of-type(2) .option__label,
-.option-input:nth-child(2):checked ~ .option:nth-of-type(2) .option__label::after,
-.option-input:nth-child(3):checked ~ .option:nth-of-type(3) .option__label,
-.option-input:nth-child(3):checked ~ .option:nth-of-type(3) .option__label::after {
-	transform: scale(1);
+	display: grid;
+	place-content: center;
+  width: 100%;
+  height: 100%;
+	grid-column: 1 / span 30;
+  grid-row: 1 / span 10;
+	transition: opacity .3s;
+	pointer-events: none;
+	text-shadow: 0px 2px 5px rgba(0,0,0,.1);
 }
 
+}
 </style>
 <style lang="scss" scoped>
 @import "~vue-multiselect/dist/vue-multiselect.min.css";
