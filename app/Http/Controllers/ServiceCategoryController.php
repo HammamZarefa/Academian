@@ -73,9 +73,10 @@ class ServiceCategoryController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request);
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:additional_services',
-            'desc' => 'required',
+                'name.en' => 'required|string|distinct|min:3',
+            'desc.en' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -108,7 +109,7 @@ class ServiceCategoryController extends Controller
      */
     public function edit(ServiceCategory $serviceCategory)
     {
-        return view('setup.service_category.create', compact('serviceCategory'));
+        return view('setup.service_category.edit', compact('serviceCategory'));
     }
 
     /**

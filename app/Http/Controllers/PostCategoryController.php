@@ -38,7 +38,7 @@ class PostCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+//        dd($request);
         Validator::make($request->all(), [
             'name.en' => "required|string|distinct|min:3",
             "keyword.en" => "required",
@@ -94,7 +94,7 @@ class PostCategoryController extends Controller
      */
     public function update(Request $request,$postCategory)
     {
-        dd($request);
+//        dd($request);
         Validator::make($request->all(), [
             "name" => "required",
             "keyword" => "required",

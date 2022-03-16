@@ -18,11 +18,11 @@
                 <div class="col-md-10">
                     <label>@lang('Name') <span class="required">*</span></label>
                     @foreach(Config::get('app.available_locales') as $lang)
-                        <input id="name_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'name.*') }}"
+                        <input id="name_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'name') }}"
                                name="name[{{$lang}}]"
-                               value="{{ old_set('name['.$lang.']', NULL, old('name['.$lang.']') ?? '') }}" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}"  >
+                               value="{{ $work_level->getTranslation('name',$lang) }}" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}"  >
                     @endforeach
-                    <div class="invalid-feedback d-block">{{ showError($errors, 'name.*') }}</div>
+                    <div class="invalid-feedback d-block">{{ showError($errors, 'name[]') }}</div>
                 </div>
                 <div class="col-md-2">
                     <label style="visibility: hidden">@lang('lang')  <span></span></label>

@@ -34,8 +34,8 @@ class OfflinePaymentMethodController extends Controller
 
                 return '<a href="' . route('offline_payment_method_edit', $offlinePaymentMethod->slug) . '">' . $offlinePaymentMethod->name . '</a>';
             })
-            ->addColumn('status', function ($offlinePaymentMethod) {
-                return ($offlinePaymentMethod->inactive) ? 'Inactive' : 'Active';
+            ->addColumn('description', function ($offlinePaymentMethod) {
+                return ($offlinePaymentMethod->description);
             })
             ->addColumn('action', function ($offlinePaymentMethod) {
 
@@ -43,7 +43,7 @@ class OfflinePaymentMethodController extends Controller
             })
             ->rawColumns([
                 'name',
-                'status',
+                'description',
                 'action'
             ])
             ->make(true);
@@ -90,7 +90,7 @@ class OfflinePaymentMethodController extends Controller
                 ->withInput();
         }
 
-        $request['slug'] = Str::slug($request->name, '-');
+        $request['slug'] = Str::slug($request->name['en'], '-');
         $request['settings'] = [
             'requires_transaction_number' => $request->requires_transaction_number,
             'requires_uploading_attachment' => $request->requires_uploading_attachment,
@@ -102,8 +102,8 @@ class OfflinePaymentMethodController extends Controller
 
         $paymentMethod = OfflinePaymentMethod::create($request->all());
 
-        // Log user's activity        
-        logActivity($paymentMethod, 'created a new offline payment method - ' . $request->name);
+        // Log user's activity
+        logActivity($paymentMethod, 'created a new offline payment method - ' . $request->name['en']);
 
         return redirect()->back()->withSuccess('Created a new payment method');
     }
@@ -116,7 +116,7 @@ class OfflinePaymentMethodController extends Controller
      */
     public function edit(OfflinePaymentMethod $method)
     {
-        return view('setup.payment.offline.create', compact('method'));
+        return view('setup.payment.offline.edit', compact('method'));
     }
 
     /**
@@ -150,7 +150,7 @@ class OfflinePaymentMethodController extends Controller
                 ->withInput();
         }
 
-        $request['slug'] = Str::slug($request->name, '-');
+        $request['slug'] = Str::slug($request->name['en'], '-');
         $request['settings'] = [
             'requires_transaction_number' => $request->requires_transaction_number,
             'requires_uploading_attachment' => $request->requires_uploading_attachment,
@@ -164,7 +164,7 @@ class OfflinePaymentMethodController extends Controller
         $paymentMethod->fill($request->all());
         $paymentMethod->update();
 
-        // Log user's activity        
+        // Log user's activity
         logActivity($paymentMethod, 'updated offline payment method' . $paymentMethod->name);
 
         return redirect()->route('offline_payment_method_edit', $paymentMethod->slug)->withSuccess('Updated the work level');

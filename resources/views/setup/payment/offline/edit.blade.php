@@ -21,11 +21,11 @@
                 <div class="col-md-10">
                     <label>@lang('Name') <span class="required">*</span></label>
                     @foreach(Config::get('app.available_locales') as $lang)
-                        <input id="name_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'name.*') }}"
+                        <input id="name_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'name') }}"
                                name="name[{{$lang}}]"
-                               value="{{ old_set('name['.$lang.']', NULL, $method ?? '') }}" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}"  >
+                               value="{{ $method->getTranslation('name',$lang) }}" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}"  >
                     @endforeach
-                    <div class="invalid-feedback d-block">{{ showError($errors, 'name.*') }}</div>
+                    <div class="invalid-feedback d-block">{{ showError($errors, 'name[]') }}</div>
                 </div>
                 <div class="col-md-2">
                     <label style="visibility: hidden">@lang('lang')  <span></span></label>
@@ -52,20 +52,20 @@
             </div>
         </div>
     </div>
-
     <div class="form-group">
         <div class="container">
             <div class="row">
                 <div class="col-md-10">
                     <label>@lang('Description') <span class="required">*</span></label>
                     @foreach(Config::get('app.available_locales') as $lang)
-                        <textarea id="description_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'description.*') }}"
-                                  name="description[{{$lang}}]" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">{{ old_set('description['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
+                        <textarea id="description_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'description[]') }}"
+                                  name="description[{{$lang}}]" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">{{ $method->getTranslation('description',$lang) }}</textarea>
+                        {{--                                {{ old_set('description['.$lang.']', NULL, $method ?? '') }}--}}
                     @endforeach
-                    <div class="invalid-feedback d-block">{{ showError($errors, 'description.*') }}</div>
+                    <div class="invalid-feedback d-block">{{ showError($errors, 'name[]') }}</div>
                 </div>
                 <div class="col-md-2">
-                    <label style="visibility: hidden"> @lang('lang') <span></span></label>
+                    <label style="visibility: hidden">@lang('lang')  <span></span></label>
                     <ul class="navbar-nav" style="background-color: #343a40;">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle navbarDarkDropdownMenuLink" href="#" id="navbarDarkDropdownMenuLink"
@@ -76,7 +76,7 @@
                                 aria-labelledby="navbarDarkDropdownMenuLink" style="min-width: 3rem;">
                                 @foreach(Config::get('app.available_locales') as $lang)
                                     <li aria-haspopup="true">
-                                        <a href="#" data-value="{{$lang}}" onclick="test(this)" class="dropdown-item locals"
+                                        <a href="#" data-value="{{$lang}}" onclick="test(this)" class="dropdown-item translate-form"
                                            style="text-align-last: center;">
                                             {{$lang}}<br>
                                         </a>

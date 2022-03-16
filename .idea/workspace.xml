@@ -19,6 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="f90031a6-c8c2-493f-b4c7-7290ca86c358" name="Default" comment="" />
+=======
     <list default="true" id="f90031a6-c8c2-493f-b4c7-7290ca86c358" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -26,6 +29,7 @@
     <ignored path="$PROJECT_DIR$/vendor/spatie/laravel-translatable/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
+>>>>>>> 27123b8d23b2afb8f43e8a9a29ed3f2b4ce76ccd
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +37,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
   </component>
   <component name="FileEditorManager">
     <leaf>
@@ -51,18 +56,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/package.json" />
-  </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
+  <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
@@ -194,6 +191,8 @@
     <option name="height" value="1318" />
   </component>
   <component name="ProjectId" id="269LDY4Ua8L2TtsKqfgI2cHbKGZ" />
+<<<<<<< HEAD
+=======
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -295,6 +294,7 @@
       </pane>
     </panes>
   </component>
+>>>>>>> 27123b8d23b2afb8f43e8a9a29ed3f2b4ce76ccd
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -302,7 +302,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/post_category" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/setup/payment/offline" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
@@ -313,32 +313,18 @@
       <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\public" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\projects\Academian\resources\views\post_category" />
-      <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\lang" />
-      <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views\website\partials" />
-      <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views\post" />
-      <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views\post_tag" />
+      <recent name="D:\projects\Academian\resources\views\setup\payment\offline" />
+      <recent name="D:\projects\Academian\resources\views\setup\tag" />
+      <recent name="D:\projects\Academian\resources\views\setup\additional_service" />
+      <recent name="D:\projects\Academian\resources\views\setup\work_level" />
+      <recent name="D:\projects\Academian\resources\views\setup\service" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
+      <method v="2" />
     </configuration>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -366,6 +352,9 @@
       <workItem from="1646913981484" duration="922000" />
       <workItem from="1647094781096" duration="19504000" />
       <workItem from="1647256136618" duration="98000" />
+      <workItem from="1647343561097" duration="9370000" />
+      <workItem from="1647416757790" duration="25000" />
+      <workItem from="1647427309098" duration="2761000" />
     </task>
     <task id="LOCAL-00001" summary="teacg=her section">
       <created>1647256220663</created>
@@ -391,6 +380,8 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+<<<<<<< HEAD
+=======
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="238000" />
   </component>
@@ -420,29 +411,21 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+>>>>>>> 27123b8d23b2afb8f43e8a9a29ed3f2b4ce76ccd
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="teacg=her section" />
@@ -481,7 +464,6 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostController.php">
