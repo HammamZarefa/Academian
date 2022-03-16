@@ -19,42 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f90031a6-c8c2-493f-b4c7-7290ca86c358" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/prowriters.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prowriters.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Applicant.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Applicant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ApplicantStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ApplicantStatus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Attachment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Attachment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Bill.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Bill.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Content.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Content.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdditionalServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdditionalServiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Payments/OfflinePaymentMethodController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Payments/OfflinePaymentMethodController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiceCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TagController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WorkLevelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WorkLevelController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreServicesRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreServicesRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/OfflinePaymentMethod.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/OfflinePaymentMethod.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PaymentGateway.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PaymentGateway.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PendingForApprovalPayment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PendingForApprovalPayment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PriceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PriceType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post_category/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post_category/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post_category/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post_category/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/setup/additional_service/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/setup/additional_service/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/setup/payment/offline/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/setup/payment/offline/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/setup/service/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/setup/service/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/setup/service_category/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/setup/service_category/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/setup/tag/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/setup/tag/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/setup/work_level/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/setup/work_level/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_7.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_7.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="f90031a6-c8c2-493f-b4c7-7290ca86c358" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -260,7 +225,7 @@
       <workItem from="1647256136618" duration="98000" />
       <workItem from="1647343561097" duration="9370000" />
       <workItem from="1647416757790" duration="25000" />
-      <workItem from="1647427309098" duration="2040000" />
+      <workItem from="1647427309098" duration="2761000" />
     </task>
     <task id="LOCAL-00001" summary="teacg=her section">
       <created>1647256220663</created>
