@@ -65,19 +65,19 @@
 
     <div id="gallery-images" class="owl-carousel">
       <div class="item">
-            <video loop><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
+            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
       </div>
       <div class="item">
-            <video loop><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
+            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
       </div>
       <div class="item">
-            <video loop><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
+            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
       </div>
       <div class="item">
-            <video loop><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
+            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
       </div>
       <div class="item">
-            <video loop><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
+            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
       </div>
     </div> 
         <div class="overlay" id="overlay"></div>
