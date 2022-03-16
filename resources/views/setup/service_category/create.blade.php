@@ -1,5 +1,4 @@
 @extends('setup.index')
-@extends('setup.index')
 @section('title', 'Service & Pricing')
 @section('setting_page')
 
