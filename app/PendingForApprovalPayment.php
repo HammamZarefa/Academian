@@ -4,12 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Wallet\Transactionable;
-use Spatie\Translatable\HasTranslations;
 
 class PendingForApprovalPayment extends Model
 {
     use Transactionable;
-    use HasTranslations;
 
     protected $fillable = [
         'user_id',
@@ -23,7 +21,6 @@ class PendingForApprovalPayment extends Model
         'payment_reasonable_id'
     ];
 
-    public $translatable = ['method'];
 
     protected $casts = [
         'cart' => 'object',

@@ -9,7 +9,6 @@ use Spatie\Translatable\HasTranslations;
 
 class Applicant extends Model
 {
-    use HasTranslations;
 
     protected $fillable = [
         'number',
@@ -24,7 +23,6 @@ class Applicant extends Model
         'attachment',
     ];
 
-    public $translatable = ['first_name', 'last_name','note'];
 
     public function getFullNameAttribute()
     {

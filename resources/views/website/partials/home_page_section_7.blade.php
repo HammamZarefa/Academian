@@ -8,6 +8,7 @@
             </div>
         </div>
         <div class="row">
+            @foreach($writers as $writer)
             <div class="item col-sm-3 item">
                 <a href="#teacher01" data-toggle="modal">
                     <div class="class_title">

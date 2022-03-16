@@ -4,12 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Wallet\Transactionable;
-use Spatie\Translatable\HasTranslations;
 
 class Payment extends Model
 {
 	use Transactionable;
-    use HasTranslations;
 
     protected $fillable = [
         'number',
@@ -20,7 +18,6 @@ class Payment extends Model
         'attachment'
     ];
 
-    public $translatable = ['method'];
 
 
     function from()

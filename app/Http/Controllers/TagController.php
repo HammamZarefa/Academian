@@ -86,7 +86,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        return view('setup.tag.create', compact('tag'));
+        return view('setup.tag.edit', compact('tag'));
     }
 
     /**

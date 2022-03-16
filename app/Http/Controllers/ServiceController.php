@@ -75,6 +75,7 @@ class ServiceController extends Controller
      */
     public function store(StoreServicesRequest $request)
     {
+//        dd($request);
         $request['inactive'] = (isset($request->inactive)) ? TRUE : NULL;
 
         if ($request->price_type_id == PriceType::Fixed) {
@@ -112,7 +113,7 @@ class ServiceController extends Controller
         $data = Service::dropdown();
         $service->additional_services = $service->additionalServices()->pluck('additional_service_id')->toArray();
 
-        return view('setup.service.create', compact('service', 'data'));
+        return view('setup.service.edit', compact('service', 'data'));
     }
 
     /**
@@ -125,7 +126,7 @@ class ServiceController extends Controller
     public function update(StoreServicesRequest $request, $id)
     {
         $request['inactive'] = (isset($request->inactive)) ? TRUE : NULL;
-        
+
         if ($request->price_type_id == PriceType::Fixed) {
             $request['minimum_order_quantity'] =   1;
         }

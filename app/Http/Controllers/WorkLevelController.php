@@ -107,7 +107,7 @@ class WorkLevelController extends Controller
      */
     public function edit(WorkLevel $work_level)
     {
-        return view('setup.work_level.create', compact('work_level'));
+        return view('setup.work_level.edit', compact('work_level'));
     }
 
     /**

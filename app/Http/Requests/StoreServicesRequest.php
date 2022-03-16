@@ -27,20 +27,20 @@ class StoreServicesRequest extends FormRequest
 
         switch ($this->method()) {
             case 'PATCH':
-                $nameRule = 'required|unique:services,id,' . $this->id;
+                $nameRule = 'required';
                 break;
             default:
-                $nameRule = "required|unique:services";
+                $nameRule = "required";
                 break;
         }
 
         $rules = [
-            'name' => $nameRule,
+            'name.en' => $nameRule,
             'price_type_id' => 'required',
         ];
 
         if (in_array($this->price_type_id, [PriceType::PerPage, PriceType::PerWord])) {
-            $rules['minimum_order_quantity'] = 'required|numeric|min:1';            
+            $rules['minimum_order_quantity'] = 'required|numeric|min:1';
         }
 
         if ($this->price_type_id == PriceType::PerPage) {
