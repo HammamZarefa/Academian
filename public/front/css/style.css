@@ -979,57 +979,96 @@ height: 25%}
 	background-color: #fff;
 	padding: 50px 0;
 }
-.blog ul{
-	list-style: none;
-	padding: 0;
-}
-.blog .main-heading {
-	margin-bottom: 90px;
-}
 .blog .Blog-container {
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	flex-wrap: wrap;
-}
-.blog .Blog-container a{
-	color: #888;
-}
-.blog .Blog-container  .Blog-item {
-	width: 320px;
-	box-shadow: 1px 10px 20px #a2a1a1;
-	margin: 25px 50px 60px;
-	height: auto;
-	cursor: pointer;
-}
-.blog .Blog-container .Blog-item h3{
-	color:#0472ce;
-	font-weight: bold;
-}
-.blog .Blog-container .Blog-item .blog-img {
-	width: 100%;
-	height: 200px;
+	padding: 50px 0;
+  }
+  
+  .blog .blog_post {
 	position: relative;
-}
-.blog .Blog-container .Blog-item .blog-img img {
-	width: 100%;
+	padding: 20px;
+	background: #fff;
+	max-width: 400px;
+	border-radius: 10px;
+	box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+	margin: 30px 0;
+  }
+
+  .blog .img_pod {
+	height: 110px;
+	width: 110px;
+	background: linear-gradient(90deg, #027bef, #46627e);
+	z-index: 1;
+	box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+	border-radius: 100%;
+	position: absolute;
+	left: 0;
+	top: 10px;
+	transform: translateY(-50%);
+  }
+  
+  .blog img {
 	height: 100%;
+	width: 100%;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 100%;
+	box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+  }
+  
+  .blog h3 {
+	margin: 0 0 0.5rem 0;
+	color: #999;
+	font-size: 1.25rem;
+  }
+    /* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+	.blog .blog_post {
+		width:90%;	
+	  }
+	  .blog .img_pod {
+		left: 50%;
+		transform: translate(-50%,-50%);
+	  }
+	  
+	  .blog h3 {
+		margin: 50px 0 0.5rem 0;
+	  }
 }
-.blog .Blog-container .Blog-item .Blog-body {
-	padding: 10px;
-}
-.blog .Blog-container .Blog-item .Blog-body .utility-list {
-	display: flex;
-	flex-wrap: wrap;
-}
-.blog .Blog-container .Blog-item .Blog-body .utility-list li{
-	font-size: 12px;
-}
-.blog .Blog-container .Blog-item .Blog-body .utility-list li span {
-	color: #1daad2 !important;
-}
-.blog .Blog-container .Blog-item .Blog-body .utility-list li span {
-	padding: 5px;
-}
+  .blog h1 {
+	margin: 0 0 1rem 0;
+	font-size: 2.5rem;
+	letter-spacing: 0.5px;
+	color: #333;
+  }
+  
+  .blog p {
+	margin: 0 0 4.5rem 0;
+	font-size: 1.5rem;
+	color: #333;
+  }
+  
+  .blog .btn_primary {
+	border: none;
+	outline: none;
+	background: linear-gradient(90deg, #027bef, #46627e);
+	padding: 1.5rem 2rem;
+	border-radius: 50px;
+	color: white;
+	font-size: 1.2rem;
+	box-shadow: 1px 10px 2rem #c6c8ca;
+	transition: all .2s ease-in;
+	text-decoration: none;
+  }
+  
+  .blog .btn_primary:hover {
+	box-shadow: 0px 5px 1rem #6e7073;
+  }
+  
 .blog a.btn{
 	padding: 12px 20px;
 	border: 2px solid #026bc3;
