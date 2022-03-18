@@ -1446,6 +1446,7 @@ svg .un_text{
 /* Slider Button Styling // Gallery */
 .gallery {
 	position: relative;
+	padding: 50px 0;
 }
 .gallery .item{
 	cursor: pointer;
