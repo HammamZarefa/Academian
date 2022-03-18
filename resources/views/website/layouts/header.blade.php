@@ -44,9 +44,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route('homepage') }}"><img src="{{ get_company_logo() }}" height="50px"
-                                                                            width="50px"
-                                                                            alt="{{ settings('company_name') }}"></a>
+                <a class="navbar-brand" href="{{ route('homepage') }}" style="padding:5px;margin:0">
+                    <img src="{{ get_company_logo() }}" height="50px"
+                     width="50px" alt="{{ settings('company_name') }}">
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">

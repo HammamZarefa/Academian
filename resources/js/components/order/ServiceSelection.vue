@@ -9,8 +9,8 @@
     <div class="form-group">
       <label>Service Category</label>
               <div class="service_category">
-       <div class="base"  v-for="(item,index) in service_categories" :key="index"
-        @click="setServices3(item,index,item.worklevel)" :class="[active_services == index? 'active':'']">
+       <div class="base"  v-for="item in service_categories" :key="item"
+        @click="setServices3(item,item.id,item.worklevel)" :class="[active_services == item.id? 'active':'']">
          <input class="option-input" :id="`d${item.id}`" type="radio" name="options" style="opacity:0" 
           :value="item" v-model="form.service_categories_model"  @change="setServices" />
           <label class="bg" :for="`d${item.id}`"
@@ -304,9 +304,11 @@ export default {
   },
   data() {
     return {
+      passParam:false,
+      params : {},
       hasError:false,
       show_worklevel:true,
-      active_services:0,
+      active_services: this.passParam == true ?  this.filteredServices_categories[0].id : this.service_categories[0].id,
       errors: {},      
       additional_services: [],
       form: {
@@ -323,6 +325,13 @@ export default {
     };
   },
   computed: {
+      filteredServices_categories() {
+      if (this.passParam == true) {
+        return this.service_categories.filter((el) => {
+          return el.id == this.params.Service_Category;
+        });
+      } 
+    },
       filteredServices() {
       if (this.form.service_categories_model.length != 0) {
         return this.services.filter((el) => {
@@ -333,7 +342,34 @@ export default {
       }
     },
   },
+  mounted(){
+      window.location.search.slice(1).split('&').forEach(elm => {
+      if (elm === '') return;
+      let spl = elm.split('=');
+      const d = decodeURIComponent;
+      this.params[d(spl[0])] = (spl.length >= 2 ? d(spl[1]) : true);
+    });
+    
+    if(this.params == {}){
+     this.passParam = false;
+      this.active_services = this.service_categories[0].id;
+    }
+    else{
+       this.passParam = true;
+       this.form.service_categories_model =  this.filteredServices_categories[0];
+       this.active_services = this.filteredServices_categories[0].id;
+    }
+    console.log('params:',this.params);
+    console.log('passParam:',this.passParam);
+    console.log('service_categories:',this.service_categories);
+    console.log('services:',this.services);
+    console.log('service_categories_model:',this.form.service_categories_model);
+    console.log('service_model:',this.form.service_model);
+    console.log('filteredServices_categories:',this.filteredServices_categories);
+    console.log('filteredServices:',this.filteredServices);
+  },
   methods: {
+  
     setServices(){
       this.form.service_model = this.filteredServices[0];
     },
@@ -343,6 +379,7 @@ export default {
       this.active_services = ind;
       if(wolvl == 0){
         this.show_worklevel = false;
+        
       }
       else{
          this.show_worklevel = true;

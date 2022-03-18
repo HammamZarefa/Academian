@@ -3460,9 +3460,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      passParam: false,
+      params: {},
       hasError: false,
       show_worklevel: true,
-      active_services: 0,
+      active_services: this.passParam == true ? this.filteredServices_categories[0].id : this.service_categories[0].id,
       errors: {},
       additional_services: [],
       form: {
@@ -3479,17 +3481,54 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {
-    filteredServices: function filteredServices() {
+    filteredServices_categories: function filteredServices_categories() {
       var _this = this;
+
+      if (this.passParam == true) {
+        return this.service_categories.filter(function (el) {
+          return el.id == _this.params.Service_Category;
+        });
+      }
+    },
+    filteredServices: function filteredServices() {
+      var _this2 = this;
 
       if (this.form.service_categories_model.length != 0) {
         return this.services.filter(function (el) {
-          return el.service_category_id == _this.form.service_categories_model.id;
+          return el.service_category_id == _this2.form.service_categories_model.id;
         });
       } else {
         return this.services;
       }
     }
+  },
+  mounted: function mounted() {
+    var _this3 = this;
+
+    window.location.search.slice(1).split('&').forEach(function (elm) {
+      if (elm === '') return;
+      var spl = elm.split('=');
+      var d = decodeURIComponent;
+      _this3.params[d(spl[0])] = spl.length >= 2 ? d(spl[1]) : true;
+    });
+
+    if (this.params == {}) {
+      this.passParam = false;
+      this.active_services = this.service_categories[0].id;
+    } else {
+      this.passParam = true;
+      this.form.service_categories_model = this.filteredServices_categories[0];
+      this.active_services = this.filteredServices_categories[0].id;
+    }
+
+    console.log('params:', this.params);
+    console.log('passParam:', this.passParam);
+    console.log('service_categories:', this.service_categories);
+    console.log('services:', this.services);
+    console.log('service_categories_model:', this.form.service_categories_model);
+    console.log('service_model:', this.form.service_model);
+    console.log('filteredServices_categories:', this.filteredServices_categories);
+    console.log('filteredServices:', this.filteredServices);
   },
   methods: {
     setServices: function setServices() {
@@ -93503,16 +93542,16 @@ var render = function() {
       _c(
         "div",
         { staticClass: "service_category" },
-        _vm._l(_vm.service_categories, function(item, index) {
+        _vm._l(_vm.service_categories, function(item) {
           return _c(
             "div",
             {
-              key: index,
+              key: item,
               staticClass: "base",
-              class: [_vm.active_services == index ? "active" : ""],
+              class: [_vm.active_services == item.id ? "active" : ""],
               on: {
                 click: function($event) {
-                  return _vm.setServices3(item, index, item.worklevel)
+                  return _vm.setServices3(item, item.id, item.worklevel)
                 }
               }
             },
@@ -107514,11 +107553,11 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\project\Academian-\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! E:\project\Academian-\resources\sass\theme.scss */"./resources/sass/theme.scss");
-__webpack_require__(/*! E:\project\Academian-\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! E:\project\Academian-\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
-module.exports = __webpack_require__(/*! E:\project\Academian-\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
+__webpack_require__(/*! E:\Academian\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\Academian\resources\sass\theme.scss */"./resources/sass/theme.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
+module.exports = __webpack_require__(/*! E:\Academian\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
 
 
 /***/ })
