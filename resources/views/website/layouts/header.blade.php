@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route('homepage') }}" style="padding:5px;margin:0">
+                <a class="navbar-brand" href="{{ route('homepage') }}" style="margin-left:0">
                     <img src="{{ get_company_logo() }}" height="50px"
                      width="50px" alt="{{ settings('company_name') }}">
                 </a>
