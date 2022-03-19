@@ -146,6 +146,7 @@
 	 padding-bottom: 5px;
 	 transition: width 0.3s ease, border-radius 0.3s ease, padding-bottom 0.3s ease;
      top: 0;
+	 background-color: white;
 }
  /* .btn-pluss-wrapper:hover .btn-pluss::after {
 	 transition: all 0.3s ease;
