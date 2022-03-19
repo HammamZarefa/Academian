@@ -4,7 +4,7 @@
     </div>
     <section class="top-bar">
         <div class="container">
-            <div class="row">
+            <div class="row ar-row">
                 <div class="col-sm-4 social-media">
                     <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Facebook"><i class="icon-facebook"></i></a>
                     <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Twitter"><i class="icon-twitter"></i></a>
@@ -36,7 +36,7 @@
     </section>
     <!-- end Topbar -->
     <div class="navbar navbar-default" role="navigation">
-        <div class="container">
+        <div class="container ar-con">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">@lang('Toggle navigation')</span>

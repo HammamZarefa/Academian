@@ -13,7 +13,7 @@ footer {
 	float: right;
 }
 .cta h2{
-	text-align: left;
+	text-align: start;
 }
 .features .item {
 	margin-bottom: 0px;
@@ -64,14 +64,14 @@ footer {
 	margin-top: -36px;
 }
 .top-bar .social-media{
-	text-align: left;
+	text-align: start;
 }
 .top-bar p{
 	display: inline-block;
 	margin: 0;
 }
 .top-bar .data-info {
-	text-align: right;
+	text-align: center;
 }
 .scrollup {
 	width: 50px;
