@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -11,13 +12,13 @@
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link href="{{ asset('front/font/fontello.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/bootstrap.min.css') }}" rel="stylesheet">
-   <!-- @if(session()->get('locale_name')==='ar')
+   @if(session()->get('locale')==='Arabic')
      <link href="{{ asset('front/css/style-ar.css') }}" rel="stylesheet">
       @else
       <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
     @endif -->
 
-    <link href="{{ asset('front/css/style-ar.css') }}" rel="stylesheet">
+    {{--<link href="{{ asset('front/css/style-ar.css') }}" rel="stylesheet">--}}
 
     <!-- <link href="{{ asset('front/css/style.css') }}" rel="stylesheet"> -->
 

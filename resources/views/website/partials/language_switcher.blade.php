@@ -6,9 +6,9 @@
             <ul>
                 @foreach($available_locales as $locale_name => $available_locale)
                 @if($available_locale === $current_locale)
-                <li class="active`"><a href="#about"> {{ $locale_name }}</a></li>
+                <li class="active`"><a href="language/{{$locale_name}}"> {{ $locale_name }}</a></li>
                 @else
-                <li><a href="#blog"> {{ $locale_name }}</a></li>
+                <li><a href="language/{{$locale_name}}"> {{ $locale_name }}</a></li>
                 @endif
                 @endforeach
             </ul>
