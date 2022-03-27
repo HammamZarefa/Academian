@@ -23,7 +23,7 @@ class OfflinePaymentMethod extends Model
         'inactive'
     ];
 
-    public $translatable = ['name', 'description','instruction','settings','success_message'];
+    public $translatable = ['name', 'description'];
 
     public function getRouteKeyName()
     {

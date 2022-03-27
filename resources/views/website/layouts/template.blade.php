@@ -11,7 +11,16 @@
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link href="{{ asset('front/font/fontello.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
+   <!-- @if(session()->get('locale_name')==='ar')
+     <link href="{{ asset('front/css/style-ar.css') }}" rel="stylesheet">
+      @else
+      <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
+    @endif -->
+
+    <link href="{{ asset('front/css/style-ar.css') }}" rel="stylesheet">
+
+    <!-- <link href="{{ asset('front/css/style.css') }}" rel="stylesheet"> -->
+
     <link href="{{ asset('front/css/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/media-queries.css') }}" rel="stylesheet">
 {!! settings('website_header_script') !!}

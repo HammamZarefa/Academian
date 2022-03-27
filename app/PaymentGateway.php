@@ -3,11 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations;
 
 class PaymentGateway extends Model
 {
-    use HasTranslations;
+
     protected $casts = [
         'keys' => 'object',
         'inactive'=> 'boolean'
@@ -21,7 +20,6 @@ class PaymentGateway extends Model
         'inactive'
     ];
 
-    public $translatable = ['name'];
 
     static function getByUniqueName($unique_name)
     {

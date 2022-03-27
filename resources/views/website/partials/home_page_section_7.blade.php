@@ -3,9 +3,8 @@
     <div class="container">
         <div class="row title">
             <div class="col-sm-12">
-                <h2>Meet the Teachers</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi
-                    dolore numquam dolor quis ex velit esse.</p>
+                <h2>@lang('Meet the Teachers')</h2>
+                <p>@lang('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse').</p>
             </div>
         </div>
         <div class="row">

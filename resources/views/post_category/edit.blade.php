@@ -29,14 +29,14 @@
                     </div>
                     <div class="col-md-2">
                         <label style="visibility: hidden">@lang('lang')  <span></span></label>
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav" style="background-color: #343a40;">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle navbarDarkDropdownMenuLink" href="#" id="navbarDarkDropdownMenuLink"
-                                   role="button" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0">
+                                   role="button" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0;color: #FFFFFF">
                                     {{Config::get('app.locale')}}
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark"
-                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    aria-labelledby="navbarDarkDropdownMenuLink" style="min-width: 3rem;">
                                     @foreach(Config::get('app.available_locales') as $lang)
                                         <li aria-haspopup="true">
                                             <a href="#" data-value="{{$lang}}" onclick="test(this)" class="dropdown-item translate-form"
@@ -66,17 +66,17 @@
                     </div>
                     <div class="col-md-2">
                         <label style="visibility: hidden">@lang('lang')  <span></span></label>
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav" style="background-color: #343a40;">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle navbarDarkDropdownMenuLink" href="#" id="navbarDarkDropdownMenuLink"
-                                   role="button" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0">
+                                   role="button" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0;color: #FFFFFF">
                                     {{Config::get('app.locale')}}
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark"
-                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    aria-labelledby="navbarDarkDropdownMenuLink" style="min-width: 3rem;">
                                     @foreach(Config::get('app.available_locales') as $lang)
                                         <li aria-haspopup="true">
-                                            <a href="#" data-value="{{$lang}}" onclick="test(this)" class="dropdown-item locals"
+                                            <a href="#" data-value="{{$lang}}" onclick="test(this)" class="dropdown-item translate-form"
                                                style="text-align-last: center;">
                                                 {{$lang}}<br>
                                             </a>
@@ -109,14 +109,14 @@
                     </div>
                     <div class="col-md-2">
                         <label style="visibility: hidden">@lang('lang')  <span></span></label>
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav" style="background-color: #343a40;">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle navbarDarkDropdownMenuLink" href="#" id="navbarDarkDropdownMenuLink"
-                                   role="button" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0">
+                                   role="button" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0;color: #FFFFFF">
                                     {{Config::get('app.locale')}}
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark"
-                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    aria-labelledby="navbarDarkDropdownMenuLink" style="min-width: 3rem;">
                                     @foreach(Config::get('app.available_locales') as $lang)
                                         <li aria-haspopup="true">
                                             <a href="#" data-value="{{$lang}}" onclick="test(this)" class="dropdown-item translate-form"
@@ -160,12 +160,15 @@
             document.getElementById('name_'+local).setAttribute('style','display:block')
             document.getElementById('name_en').setAttribute('style','display:none')
             document.getElementById('name_fr').setAttribute('style','display:none')
+            document.getElementById('name_de').setAttribute('style','display:none')
             document.getElementById('keyword_'+local).setAttribute('style','display:block')
             document.getElementById('keyword_en').setAttribute('style','display:none')
             document.getElementById('keyword_fr').setAttribute('style','display:none')
+            document.getElementById('keyword_de').setAttribute('style','display:none')
             document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
             document.getElementById('meta_desc_en').setAttribute('style','display:none')
             document.getElementById('meta_desc_fr').setAttribute('style','display:none')
+            document.getElementById('meta_desc_de').setAttribute('style','display:none')
             var x = $('.navbarDarkDropdownMenuLink')
             for (i=0 ; i < x.length ;i++){
                 x[i].innerHTML = local
@@ -175,12 +178,15 @@
             document.getElementById('name_'+local).setAttribute('style','display:block')
             document.getElementById('name_ar').setAttribute('style','display:none')
             document.getElementById('name_fr').setAttribute('style','display:none')
+            document.getElementById('name_de').setAttribute('style','display:none')
             document.getElementById('keyword_'+local).setAttribute('style','display:block')
             document.getElementById('keyword_ar').setAttribute('style','display:none')
             document.getElementById('keyword_fr').setAttribute('style','display:none')
+            document.getElementById('keyword_de').setAttribute('style','display:none')
             document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
             document.getElementById('meta_desc_ar').setAttribute('style','display:none')
             document.getElementById('meta_desc_fr').setAttribute('style','display:none')
+            document.getElementById('meta_desc_de').setAttribute('style','display:none')
             var x = $('.navbarDarkDropdownMenuLink')
             for (i=0 ; i < x.length ;i++){
                 x[i].innerHTML = local
@@ -189,12 +195,32 @@
             document.getElementById('name_'+local).setAttribute('style','display:block')
             document.getElementById('name_en').setAttribute('style','display:none')
             document.getElementById('name_ar').setAttribute('style','display:none')
+            document.getElementById('name_de').setAttribute('style','display:none')
             document.getElementById('keyword_'+local).setAttribute('style','display:block')
             document.getElementById('keyword_en').setAttribute('style','display:none')
             document.getElementById('keyword_ar').setAttribute('style','display:none')
+            document.getElementById('keyword_de').setAttribute('style','display:none')
             document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
             document.getElementById('meta_desc_en').setAttribute('style','display:none')
             document.getElementById('meta_desc_ar').setAttribute('style','display:none')
+            document.getElementById('meta_desc_de').setAttribute('style','display:none')
+            var x = $('.navbarDarkDropdownMenuLink')
+            for (i=0 ; i < x.length ;i++){
+                x[i].innerHTML = local
+            }
+        }else if (local == "de"){
+            document.getElementById('name_'+local).setAttribute('style','display:block')
+            document.getElementById('name_en').setAttribute('style','display:none')
+            document.getElementById('name_ar').setAttribute('style','display:none')
+            document.getElementById('name_fr').setAttribute('style','display:none')
+            document.getElementById('keyword_'+local).setAttribute('style','display:block')
+            document.getElementById('keyword_en').setAttribute('style','display:none')
+            document.getElementById('keyword_ar').setAttribute('style','display:none')
+            document.getElementById('keyword_fr').setAttribute('style','display:none')
+            document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
+            document.getElementById('meta_desc_en').setAttribute('style','display:none')
+            document.getElementById('meta_desc_ar').setAttribute('style','display:none')
+            document.getElementById('meta_desc_fr').setAttribute('style','display:none')
             var x = $('.navbarDarkDropdownMenuLink')
             for (i=0 ; i < x.length ;i++){
                 x[i].innerHTML = local

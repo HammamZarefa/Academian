@@ -1,5 +1,7 @@
-<div class="flex justify-center pt-8 sm:justify-start sm:pt-0">     
+<div class="flex justify-center pt-8 sm:justify-start sm:pt-0">  
+	  
         <nav class="btn-pluss-wrapper">
+		<div class="icon"></div>
             <div href="#" class="btn-pluss">
             <ul>
                 @foreach($available_locales as $locale_name => $available_locale)
@@ -14,6 +16,41 @@
         </nav>
 </div>
 <style>
+.btn-pluss-wrapper{
+	display: flex;
+	justify-content: end;
+}
+	.icon{
+		position: relative;
+		width:20px;
+		height:20px;
+		cursor: pointer;
+	}
+	.icon:after {
+	 content: '\f0ac';
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 display: block;
+	 height: 20px;
+	 width: 20px;
+	 border-radius: 100%;
+	 line-height: 20px;
+	 text-align: center;
+	 font-size: 1.1rem;
+	 background-color: #026bc3;
+     font-size: 18px;
+	 color: white;
+	 transform: translateY(-50%) translateX(-50%);
+	 transition: all 0.3s 0.5s ease;
+	 cursor: pointer;
+	 cursor: hand;
+     font-family: "Font Awesome 5 Free";
+     vertical-align: middle;
+     font-weight: 900;
+  
+}
+
     .current_locale{
         color:#fff
     }
@@ -56,7 +93,7 @@
 	 background-color: #026bc3;
 	 transition: background-color 0.5s ease;
 }
- .btn-pluss:after {
+ /* .btn-pluss:after {
 	 content: '\f0ac';
 	 position: absolute;
 	 top: 50%;
@@ -79,7 +116,7 @@
      vertical-align: middle;
      font-weight: 900;
   
-}
+} */
  .btn-pluss ul {
 	 opacity: 0;
      padding: 0;
@@ -109,13 +146,14 @@
 	 padding-bottom: 5px;
 	 transition: width 0.3s ease, border-radius 0.3s ease, padding-bottom 0.3s ease;
      top: 0;
+	 background-color: white;
 }
- .btn-pluss-wrapper:hover .btn-pluss::after {
+ /* .btn-pluss-wrapper:hover .btn-pluss::after {
 	 transition: all 0.3s ease;
 	 left: 50%;
 	 top: 10px;
 	 transform: translateY(-5px) translateX(-50%);
-}
+} */
  .btn-pluss-wrapper:hover .btn-pluss ul {
 	 opacity: 1;
 	 margin-top: 30px;

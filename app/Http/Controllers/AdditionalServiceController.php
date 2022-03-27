@@ -111,7 +111,7 @@ class AdditionalServiceController extends Controller
      */
     public function edit(AdditionalService $additional_service)
     {
-        return view('setup.additional_service.create', compact('additional_service'));
+        return view('setup.additional_service.edit', compact('additional_service'));
     }
 
     /**

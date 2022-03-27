@@ -21,7 +21,7 @@ class SettingsController extends Controller
 {
     use SystemUpgrade;
     use RecruitmentSettings;
-    
+
     function __destruct()
     {
         \Artisan::call("cache:clear");
@@ -36,7 +36,7 @@ class SettingsController extends Controller
             'company_phone',
             'company_email',
             'company_address',
-            'company_notification_email',           
+            'company_notification_email',
             'number_of_revision_allowed',
             'hide_website'
         ]);
@@ -46,12 +46,13 @@ class SettingsController extends Controller
 
     public function update_general_information(Request $request)
     {
+        dd($request);
         $validator = Validator::make($request->all(), [
             'company_name' => 'required',
             'company_phone' => 'required',
             'company_email' => 'required|email',
             'company_address' => 'required',
-            'company_notification_email' => 'required|email',            
+            'company_notification_email' => 'required|email',
             'number_of_revision_allowed' => 'required|integer',
         ]);
 
@@ -61,7 +62,7 @@ class SettingsController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-      
+
         $request['hide_website'] = (isset($request->hide_website)) ? TRUE: NULL;
 
         $this->updateEnvKeys([
@@ -513,7 +514,7 @@ class SettingsController extends Controller
     {
         Cache::flush();
         return redirect()->back()->withSuccess('Cache cleared');
-    }    
+    }
 
     private function get_records($keys)
     {

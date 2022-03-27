@@ -2,12 +2,13 @@
 <section class="features generic" id="menu-features">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12"  >
                 <h2>@lang('Our Services')</h2>
                 <p>@lang('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse').</p>
             </div>
             <article class="item col-sm-3">
-                <a ><i class="icon-monitor"></i></a>
+                <a href="/orders/create?service=20&&Service_Category=6"><i class="icon-monitor"></i></a>
+                <!-- ?service=20&&Service_Category=3 -->
                 <h2>@lang('Assignment')</h2>
                 <p>@lang('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse'). </p>
             </article>
@@ -48,5 +49,6 @@
             </article>
         </div>
     </div>
+  
 </section>
 <!-- end Features -->
