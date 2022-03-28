@@ -201,11 +201,7 @@ class Order extends Model
         $data['service_id_list'] = Service::orderBy('name', 'ASC')->whereNull('inactive')->get();
         $data['work_level_id_list'] = WorkLevel::orderBy('id', 'ASC')->whereNull('inactive')->get();
         $data['service_category_id_list']=ServiceCategory::orderBy('id','ASC')->get();
-        foreach ($data['service_id_list'] as $test){
-            $test->name = $test->getTranslation('name','en');
-//            dd($test->getTranslation('name','en'));
-        }
-//dd($data['service_id_list']);
+
         $urgencies = Urgency::whereNull('inactive')
             ->orderBy('percentage_to_add', 'ASC')->get();
 

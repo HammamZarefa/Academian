@@ -97,8 +97,9 @@ $('.gotowizrd').on('click', function() {
 });
 
  function goto(i) {
-	localStorage.setItem('selected', `${i}`);
-	window.location.replace(`wizard.html`,'index.html')
+	 console.log(i);
+	// localStorage.setItem('selected', `${i}`);
+	// window.location.replace(`wizard.html`,'index.html')
   }
   function gotoProjects() {
 	window.location.replace(`email.html`,'index.html')
