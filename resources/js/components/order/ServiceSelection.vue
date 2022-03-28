@@ -11,11 +11,11 @@
               <div class="service_category">
        <div class="base"  v-for="(item,index) in service_categories" :key="index"
         @click="setServices3(item,index,item.worklevel)" :class="[active_services == index? 'active':'']">
-         <input class="option-input" :id="`d${item.id}`" type="radio" name="options" style="opacity:0" 
+         <input class="option-input" :id="`d${item.id}`" type="radio" name="options" style="opacity:0"
           :value="item" v-model="form.service_categories_model"  @change="setServices" />
           <label class="bg" :for="`d${item.id}`"
           :label="item.name" type="radio" name="service_categories" >
-            {{item.name}}
+            {{item.name.en}}
           </label>
       </div>
       </div>
@@ -49,11 +49,11 @@
               autocomplete="off"
               v-model="form.work_level_id"
             />
-            {{ row.name }}
+            {{ row.name.en }}
           </label>
         </div>
       </div>
-    </div>  
+    </div>
 
     <div class="form-row" v-if="form.service_model.price_type_id == pricingTypes.perPage">
       <div class="form-group col-md-4">
@@ -150,7 +150,7 @@
               >+</button>
             </div>
           </div>
-        </div>       
+        </div>
         <div class="invalid-feedback d-block" v-if="errors.number_of_words">{{ errors.number_of_words[0] }}</div>
       </div>
 
@@ -192,9 +192,9 @@
       </div>
     </div>
 
-    <div v-if="user_id">  
+    <div v-if="user_id">
       <button
-        :disabled="hasError"   
+        :disabled="hasError"
         type="button"
         class="btn btn-success btn-lg btn-block"
         v-on:click.prevent="changeTab(2)"
@@ -203,7 +203,7 @@
       </button>
     </div>
     <div v-else>
-      <button          
+      <button
         type="button"
         class="btn btn-success btn-lg btn-block"
         v-on:click.prevent="changeTab(2)"
@@ -225,7 +225,7 @@ export default {
   components: {
     Multiselect
   },
-  props: {    
+  props: {
     pricingTypes: {
       default: {}
     },
@@ -294,20 +294,20 @@ export default {
         this.triggerChange(val);
       },
       deep: true
-    },  
+    },
     errors: {
       handler(val) {
         this.checkError(val);
       },
       deep: true
-    }   
+    }
   },
   data() {
     return {
       hasError:false,
       show_worklevel:true,
       active_services:0,
-      errors: {},      
+      errors: {},
       additional_services: [],
       form: {
         service_model:this.services? this.services[0]: {},
@@ -349,7 +349,7 @@ export default {
       }
     },
     checkError(){
-      var errorList = JSON.parse(JSON.stringify(this.errors));       
+      var errorList = JSON.parse(JSON.stringify(this.errors));
       this.hasError = (Object.keys(errorList).length > 0) ? true : false ;
     },
     triggerChange(form) {
@@ -386,14 +386,14 @@ export default {
       if (number_of_words == 0 && changeByValue < 1) {
         return false;
       }
-      this.form.number_of_words = number_of_words + changeByValue;  
-      this.validateNumberOfWords();    
+      this.form.number_of_words = number_of_words + changeByValue;
+      this.validateNumberOfWords();
     },
     validateNumberOfWords(){
       if(this.form.number_of_words < this.form.service_model.minimum_order_quantity)
       {
         var minimum_order_quantity = this.form.service_model.minimum_order_quantity;
-        this.$set(this.errors, "number_of_words", ['Minium order quantity is ' + minimum_order_quantity]);         
+        this.$set(this.errors, "number_of_words", ['Minium order quantity is ' + minimum_order_quantity]);
       }
       else
       {
@@ -405,7 +405,7 @@ export default {
       if(this.form.number_of_pages < this.form.service_model.minimum_order_quantity)
       {
         var minimum_order_quantity = this.form.service_model.minimum_order_quantity;
-        this.$set(this.errors, "number_of_pages", ['Minium order quantity is ' + minimum_order_quantity]);         
+        this.$set(this.errors, "number_of_pages", ['Minium order quantity is ' + minimum_order_quantity]);
       }
       else
       {
@@ -416,7 +416,7 @@ export default {
     getAdditionalServices(service_model) {
 
       // Clear the errors
-      this.errors = {};     
+      this.errors = {};
       // Clear the added services
       this.$set(this.form,'added_services', []);
 
@@ -440,7 +440,7 @@ export default {
       {
         this.form.number_of_words = 500;
       }
-      
+
       var $scope = this;
       axios.post(this.additional_services_by_service_id_url, {
           service_id: service_id
@@ -515,14 +515,14 @@ export default {
   transition: .3s;
 	font: 700 18px sans-serif;
 	box-shadow:
-		0 1px 2px rgba(0,0,0,0.07), 
-		0 2px 4px rgba(0,0,0,0.07), 
-		0 4px 8px rgba(0,0,0,0.07), 
+		0 1px 2px rgba(0,0,0,0.07),
+		0 2px 4px rgba(0,0,0,0.07),
+		0 4px 8px rgba(0,0,0,0.07),
 		0 8px 16px rgba(0,0,0,0.07),
-		0 16px 32px rgba(0,0,0,0.07), 
+		0 16px 32px rgba(0,0,0,0.07),
 		0 32px 64px rgba(0,0,0,0.07);
     &:hover{
-      background: #5e72e4; 
+      background: #5e72e4;
     }
     &.active{
       background: #5e72e4;
@@ -530,7 +530,7 @@ export default {
 		0 8px 16px #5e72e4;
 
     }
-    
+
 }
 .bg {
 	position: absolute;
