@@ -3,7 +3,7 @@
         <h5 class="card-title">
             Step
             <b>1</b>/
-            <span class="small">3</span> TYPE OF WORK AND DEADLINE ggg
+            <span class="small">3</span> TYPE OF WORK AND DEADLINE
         </h5>
         <hr />
         <div class="form-group">
@@ -15,7 +15,7 @@
                            :value="item" v-model="form.service_categories_model"  @change="setServices" />
                     <label class="bg" :for="`d${item.id}`"
                            :label="item.name" type="radio" name="service_categories" >
-                        {{item.name}}
+                        {{item.name.en}}
                     </label>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                             autocomplete="off"
                             v-model="form.work_level_id"
                         />
-                        {{ row.name }}
+                        {{ row.name.en }}
                     </label>
                 </div>
             </div>
@@ -169,8 +169,8 @@
                 <div class="row no-gutters">
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">{{ row.name }}</h5>
-                            <p class="card-text">{{ row.description }}</p>
+                            <h5 class="card-title">{{ row.name.en }}</h5>
+                            <p class="card-text">{{ row.description.en }}</p>
                         </div>
                     </div>
                     <div class="col-md-4">

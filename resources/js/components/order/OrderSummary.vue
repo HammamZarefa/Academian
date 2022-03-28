@@ -7,7 +7,7 @@
           <p>
             <b>Service</b>
             <br />
-            {{ form.service_model.name }}
+            {{ form.service_model.name.en }}
             <br />
             <!--<small class="form-text text-muted">{{ form.work_level_model.name }} (Work level)</small>-->
           </p>
@@ -77,7 +77,7 @@
                   <div style="font-weight: bold;">Additional Services</div>
                   <div class="row" v-for="row in form.added_services" v-bind:key="row.id">
                     <div class="col-md-6">
-                      <div style="padding-left: 10px;">{{ row.name }}</div>
+                      <div style="padding-left: 10px;">{{ row.name.en }}</div>
                     </div>
                     <div class="col-md-6 text-right">{{ row.rate | formatMoney }}</div>
                   </div>
