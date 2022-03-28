@@ -7,7 +7,7 @@
           <p>
             <b>Service</b>
             <br />
-            {{ form.service_model.name }}
+                       {{ form.service_model.name }}
             <br />
             <!--<small class="form-text text-muted">{{ form.work_level_model.name }} (Work level)</small>-->
           </p>

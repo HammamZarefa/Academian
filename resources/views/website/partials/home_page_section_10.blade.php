@@ -51,7 +51,7 @@
     <!-- Section Gallery ********************************** -->
 <section class="gallery">
     <div class="title">
-      <h2>Some video previews for you. <b>Click to zoom</b></h2>
+      <h2 style="padding: 0 20px;">Some video previews for you. <b>Click to zoom</b></h2>
     </div><!-- Title -->
 
     <div id="gallery-images" class="owl-carousel">
