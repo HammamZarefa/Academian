@@ -1204,6 +1204,17 @@ height: 25%}
 	border-radius: 5px;
 	transition: .3s;
 }
+/* Extra small devices (portrait phones, less than 576px) */
+@media (min-width: 575.98px) {
+	.patterns.big{
+		height: 410px;
+	}
+	.patterns.big svg{
+		height: 60%;
+	}
+
+}
+
 svg text {
 	font-family: Lora;
 	letter-spacing: 2px;
@@ -1214,13 +1225,19 @@ svg text {
 	animation: textAnimate 5s infinite alternate ;
 	
 }
+svg .translate{
+	animation: textTranslate 4s infinite alternate  ;
+}
+svg .Writing{
+	animation: textWriting 4.5s infinite alternate  ;
+}
 svg .un_text{
 	font-size: 30px;
 }
 /* Small devices (landscape phones, 576px and up) */
 @media  (max-width: 767.98px) {
 	svg text {
-		font-size: 35px;
+		font-size: 27px;
 	}
 }
 
@@ -1236,6 +1253,36 @@ svg .un_text{
 		stroke-dasharray: 50% 0;
 		stroke-dashoffstet: -20%;
 		fill: hsla(189, 68%, 75%,0%)
+	}
+
+}
+@keyframes textTranslate {
+	0% {
+		stroke-dasharray: 0 50%;
+		stroke-dashoffset:  20%;
+		fill:#027bef;
+
+	}
+
+	100% {
+		stroke-dasharray: 50% 0;
+		stroke-dashoffstet: -20%;
+		fill: #027cef25
+	}
+
+}
+@keyframes textWriting {
+	0% {
+		stroke-dasharray: 0 50%;
+		stroke-dashoffset:  20%;
+		fill:#9ec5ec;
+
+	}
+
+	100% {
+		stroke-dasharray: 50% 0;
+		stroke-dashoffstet: -20%;
+		fill: #6f73743a
 	}
 
 }
@@ -1262,6 +1309,9 @@ svg .un_text{
 	position: absolute;
 	animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
 	display: flex;
+}
+.patterns .box .title .translat{
+	animation-delay: 1.6s;
 }
 .patterns .box .title h1 {
 	font-family: 'Poppins';

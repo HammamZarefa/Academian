@@ -3377,6 +3377,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3519,16 +3527,15 @@ __webpack_require__.r(__webpack_exports__);
       this.passParam = true;
       this.form.service_categories_model = this.filteredServices_categories[0];
       this.active_services = this.filteredServices_categories[0].id;
-    }
+    } // console.log('params:',this.params);
+    // console.log('passParam:',this.passParam);
+    // console.log('service_categories:',this.service_categories);
+    // console.log('services:',this.services);
+    // console.log('service_categories_model:',this.form.service_categories_model);
+    // console.log('service_model:',this.form.service_model);
+    // console.log('filteredServices_categories:',this.filteredServices_categories);
+    // console.log('filteredServices:',this.filteredServices);
 
-    console.log('params:', this.params);
-    console.log('passParam:', this.passParam);
-    console.log('service_categories:', this.service_categories);
-    console.log('services:', this.services);
-    console.log('service_categories_model:', this.form.service_categories_model);
-    console.log('service_model:', this.form.service_model);
-    console.log('filteredServices_categories:', this.filteredServices_categories);
-    console.log('filteredServices:', this.filteredServices);
   },
   methods: {
     setServices: function setServices() {
@@ -93334,7 +93341,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(
-                  "\n          " +
+                  "\n                     " +
                     _vm._s(_vm.form.service_model.name) +
                     "\n          "
                 ),
@@ -93536,6 +93543,8 @@ var render = function() {
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
+    _c("div"),
+    _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
       _c("label", [_vm._v("Service Category")]),
       _vm._v(" "),
@@ -93586,19 +93595,27 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "bg",
-                  attrs: {
-                    for: "d" + item.id,
-                    label: item.name,
-                    type: "radio",
-                    name: "service_categories"
-                  }
-                },
-                [_vm._v("\n          " + _vm._s(item.name) + "\n        ")]
-              )
+              _c("div", [
+                _c(
+                  "label",
+                  {
+                    staticClass: "bg",
+                    attrs: {
+                      for: "d" + item.id,
+                      label: item.name,
+                      type: "radio",
+                      name: "service_categories"
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(item.name) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ])
             ]
           )
         }),
@@ -107553,11 +107570,11 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\theme.scss */"./resources/sass/theme.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
-module.exports = __webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
+__webpack_require__(/*! E:\Academian\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\Academian\resources\sass\theme.scss */"./resources/sass/theme.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
+module.exports = __webpack_require__(/*! E:\Academian\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
 
 
 /***/ })

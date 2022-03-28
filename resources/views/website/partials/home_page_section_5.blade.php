@@ -2,8 +2,8 @@
 <section class="slider" id="menu-slider">
     <div class="contain">
         <a href="{{ route('instant_quote')}}" >
-            <div class="patterns">
-                <svg width="100%" height="100%">
+            <div class="patterns big">
+                <svg width="100%">
                     <text x="50%" y="60%" text-anchor="middle">
                         @lang('writing Service')
                         <div class="box">
@@ -24,14 +24,14 @@
             <a href="{{ route('instant_quote')}}">
                 <div class="patterns">
                 <svg width="100%" height="100%">
-                    <text x="50%" y="60%" text-anchor="middle" >
+                    <text x="50%" y="60%" text-anchor="middle" class="translate" >
                     @lang('Translation Service')
                     </text>
                 </svg>
                     <div class="box">
                         <div class="title">
-                            <span class="block"></span>
-                            <h1>@lang('between 4 languges')<span></span></h1>
+                            <span class="block translat" ></span>
+                            <h1 >@lang('between 4 languges')<span></span></h1>
                         </div>
                                 
                     </div>
@@ -40,7 +40,7 @@
             <div class="botto">
                 <div><a href="{{ route('instant_quote')}}">
                     <svg width="100%" height="100%">
-                        <text x="50%" y="60%" text-anchor="middle" class="un_text">
+                        <text x="50%" y="60%" text-anchor="middle" class="un_text Writing">
                         @lang('CV Writing')
                         </text>
                     </svg>
