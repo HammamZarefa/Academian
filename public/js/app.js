@@ -3377,6 +3377,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -93597,7 +93598,11 @@ var render = function() {
                     name: "service_categories"
                   }
                 },
-                [_vm._v("\n          " + _vm._s(item.name) + "\n        ")]
+                [
+                  _vm._v(
+                    "\n          " + _vm._s(item.name.locale) + "\n        "
+                  )
+                ]
               )
             ]
           )

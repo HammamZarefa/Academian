@@ -5,6 +5,7 @@
       <b>1</b>/
       <span class="small">3</span> TYPE OF WORK AND DEADLINE ggg
     </h5>
+
     <hr />
     <div class="form-group">
       <label>Service Category</label>
@@ -15,7 +16,7 @@
           :value="item" v-model="form.service_categories_model"  @change="setServices" />
           <label class="bg" :for="`d${item.id}`"
           :label="item.name" type="radio" name="service_categories" >
-            {{item.name}}
+            {{item.name.locale}}
           </label>
       </div>
       </div>
