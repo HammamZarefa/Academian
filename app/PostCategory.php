@@ -8,7 +8,7 @@ use Spatie\Translatable\HasTranslations;
 class PostCategory extends Model
 {
     use HasTranslations;
-
+    protected $table = 'post_categories';
     protected $fillable = [
     'slug', 'name', 'keyword', 'meta_desc'
 ];
@@ -17,6 +17,6 @@ class PostCategory extends Model
 
     public function posts()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class,'category_id','id');
     }
 }

@@ -16,8 +16,7 @@
      <link href="{{ asset('front/css/style-ar.css') }}" rel="stylesheet">
       @else
       <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
-    @endif 
-
+    @endif
     {{--<link href="{{ asset('front/css/style-ar.css') }}" rel="stylesheet">--}}
 
     <!-- <link href="{{ asset('front/css/style.css') }}" rel="stylesheet"> -->

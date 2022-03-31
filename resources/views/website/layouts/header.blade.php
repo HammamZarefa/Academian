@@ -69,6 +69,7 @@
                     <li class="dropdown">
                         <a class="dropbtn">Services</a>
                         <div class="dropdown-content">
+                            @if(isset($service_categories))
                             @foreach($service_categories as $service_category)
                             <a href="{{ route('instant_quote')}}">
                                 {{$service_category->name}}
@@ -79,6 +80,7 @@
                                 </div>
                             </a>
                             @endforeach
+                                @endif
                         </div>
                     </li>
                     {{--<li class="sec-center">--}}
@@ -104,7 +106,7 @@
                     {{--</li>--}}
                     <li><a href="#menu-contact">@lang('Contact US')</a></li>
                     <li><a href="#menu-testimonials">@lang('Reviews')</a></li>
-                    <li><a href="#blog">@lang('Blog')</a></li>
+                    <li><a href="{{route('blog')}}">@lang('Blog')</a></li>
                     <li>
                                 @auth
                                     <a href="{{ route(get_default_route_by_user(auth()->user())) }}" class="login">

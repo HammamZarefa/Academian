@@ -4,48 +4,22 @@
         <h2> @lang('Blog') </h2>
     </div>
     <div class="Blog-container">
-       
+       @foreach($posts as $post)
         <div class="blog_post">
             <div class="img_pod">
-            <img  src="{{ asset('front/img/classes-modal/02.jpg') }}" alt="">
+            <img  src="{{asset(Storage::url($post->cover))}}" alt="">
             </div>
             <div class="container_copy">
-            <h3>12 January 2019</h3>
-            <h1>CSS Positioning</h1>
-            <p>The position property specifies the type of positioning method used for an element (static, relative, absolute, fixed, or sticky).</p>
+            <h3>{{$post->created_at->format('Y-m-d')}}</h3>
+            <h1>{{$post->title}}</h1>
+            <p>{{$post->body}}</p>
             </div>
-            <a class="btn_primary" href='#'>Read More</a>
+            <a class="btn_primary" href="{{route('blogshow',$post->slug)}}">Read More</a>
         </div>
-        
-        
-        <div class="blog_post">
-            <div class="img_pod">
-            <img  src="{{ asset('front/img/classes-modal/02.jpg') }}" alt="">
-            </div>
-            <div class="container_copy">
-            <h3>12 January 2019</h3>
-            <h1>CSS Positioning</h1>
-            <p>The position property specifies the type of positioning method used for an element (static, relative, absolute, fixed, or sticky).</p>
-            </div>
-            <a class="btn_primary" href='#'>Read More</a>
-        </div>
-        
-      
-        <div class="blog_post">
-            <div class="img_pod">
-            <img  src="{{ asset('front/img/classes-modal/02.jpg') }}" alt="">
-            </div>
-            <div class="container_copy">
-            <h3>12 January 2019</h3>
-            <h1>CSS Positioning</h1>
-            <p>The position property specifies the type of positioning method used for an element (static, relative, absolute, fixed, or sticky).</p>
-            </div>
-            <a class="btn_primary" href='#'>Read More</a>
-        </div>
-        
+        @endforeach
     </div>
     <div class="text-center mb-100">
-        <a href="" class="btn">Read More</a>
+        <a href="{{route('blog')}}" class="btn">Read More</a>
     </div>
 
     <!-- Section Gallery ********************************** -->

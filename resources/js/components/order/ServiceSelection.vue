@@ -5,6 +5,7 @@
       <b>1</b>/
       <span class="small">3</span> TYPE OF WORK AND DEADLINE ggg
     </h5>
+
     <hr />
     <div>
       
@@ -16,15 +17,10 @@
         @click="setServices3(item,item.id,item.worklevel)" :class="[active_services == item.id? 'active':'']">
          <input class="option-input" :id="`d${item.id}`" type="radio" name="options" style="opacity:0" 
           :value="item" v-model="form.service_categories_model"  @change="setServices" />
-            
-            <div >
-              <label  class="bg" :for="`d${item.id}`" 
-                    :label="item.name" type="radio" name="service_categories" >
-                      {{item.name}}
-              </label>
-            </div>
-              
-             
+          <label class="bg" :for="`d${item.id}`"
+          :label="item.name" type="radio" name="service_categories" >
+            {{item.name}}
+          </label>
       </div>
       </div>
     </div>
