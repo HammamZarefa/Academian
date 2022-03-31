@@ -18,7 +18,7 @@
 :additional_services_by_service_id_url= "'{{ route('additional_services_by_service_id') }}'"
 :term_and_condition_url="'{{ route('terms_and_conditions') }}'"
 :privacy_policy_url= "'{{ route('privacy_policy') }}'"
-         :locale={{session()->get('locale')}}
+         {{--:locale={{session()->get('locale')}}--}}
  ></order>
 </div>
 @endsection

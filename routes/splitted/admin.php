@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostTagController;
+use App\Http\Controllers\TestimonialController;
 
 Route::post('dashboard/statistics', 'DashboardController@statistics')
 	->name('dashboard_statistics');
@@ -471,3 +472,10 @@ Route::delete('post/destroy/{id}',[PostController::class, 'deletePermanent'])->n
 Route::post('post/datatable', [PostController::class, 'datatable'])
     ->name('post.datatable');
 
+// Manage Testimonials
+Route::get('testimonials', [TestimonialController::class, 'index'])->name('admin.testi');
+Route::get('testimonials/create', [TestimonialController::class, 'create'])->name('admin.testi.create');
+Route::post('testimonials/create', [TestimonialController::class, 'store'])->name('admin.testi.store');
+Route::get('testimonials/edit/{id}', [TestimonialController::class, 'edit'])->name('admin.testi.edit');
+Route::post('testimonials/edit/{id}', [TestimonialController::class, 'update'])->name('admin.testi.update');
+Route::delete('testimonials/destroy/{id}',[TestimonialController::class, 'destroy'])->name('admin.testi.destroy');

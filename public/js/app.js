@@ -3378,6 +3378,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3520,16 +3523,15 @@ __webpack_require__.r(__webpack_exports__);
       this.passParam = true;
       this.form.service_categories_model = this.filteredServices_categories[0];
       this.active_services = this.filteredServices_categories[0].id;
-    }
+    } // console.log('params:',this.params);
+    // console.log('passParam:',this.passParam);
+    // console.log('service_categories:',this.service_categories);
+    // console.log('services:',this.services);
+    // console.log('service_categories_model:',this.form.service_categories_model);
+    // console.log('service_model:',this.form.service_model);
+    // console.log('filteredServices_categories:',this.filteredServices_categories);
+    // console.log('filteredServices:',this.filteredServices);
 
-    console.log('params:', this.params);
-    console.log('passParam:', this.passParam);
-    console.log('service_categories:', this.service_categories);
-    console.log('services:', this.services);
-    console.log('service_categories_model:', this.form.service_categories_model);
-    console.log('service_model:', this.form.service_model);
-    console.log('filteredServices_categories:', this.filteredServices_categories);
-    console.log('filteredServices:', this.filteredServices);
   },
   methods: {
     setServices: function setServices() {
@@ -93335,7 +93337,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(
-                  "\n          " +
+                  "\n                     " +
                     _vm._s(_vm.form.service_model.name) +
                     "\n          "
                 ),
@@ -93537,6 +93539,8 @@ var render = function() {
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
+    _c("div"),
+    _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
       _c("label", [_vm._v("Service Category")]),
       _vm._v(" "),
@@ -93598,11 +93602,7 @@ var render = function() {
                     name: "service_categories"
                   }
                 },
-                [
-                  _vm._v(
-                    "\n          " + _vm._s(item.name.locale) + "\n        "
-                  )
-                ]
+                [_vm._v("\n          " + _vm._s(item.name) + "\n        ")]
               )
             ]
           )
