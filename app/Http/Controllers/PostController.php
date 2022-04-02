@@ -21,6 +21,7 @@ class PostController extends Controller
         return view('post.index', compact('posts'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -178,4 +179,24 @@ class PostController extends Controller
             return redirect()->route('post.trash')->with('success', 'Data deleted successfully');
         }
     }
+    public function videos()
+    {
+        $videoCategory=PostCategory::where('slug','video')->first()->id;
+        $posts = Post::where('category_id',$videoCategory)->orderBy('id', 'desc')->get();
+        return view('video.index', compact('posts'));
+    }
+
+    public function createVideo()
+    {
+        $tags = PostTag::get();
+        return view('video.create', compact( 'tags'));
+    }
+
+    public function editVideo(Post $post)
+    {
+        $post = Post::findOrFail($post);
+        $tags = PostTag::get();
+        return view('video.create', compact('post' , 'tags'));
+    }
+
 }

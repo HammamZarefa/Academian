@@ -29,21 +29,12 @@
     </div><!-- Title -->
 
     <div id="gallery-images" class="owl-carousel">
+        @foreach ($videos as $video)
       <div class="item">
-            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
+            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{$video->body}}" /></video>
       </div>
-      <div class="item">
-            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
-      </div>
-      <div class="item">
-            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
-      </div>
-      <div class="item">
-            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
-      </div>
-      <div class="item">
-            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
-      </div>
+            {{--<iframe width="900" height="506" src="{{ $video->desc}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
+            @endforeach
     </div> 
         <div class="overlay" id="overlay"></div>
         <!-- type="video/mp4" -->
