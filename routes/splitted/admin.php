@@ -479,3 +479,8 @@ Route::post('testimonials/create', [TestimonialController::class, 'store'])->nam
 Route::get('testimonials/edit/{id}', [TestimonialController::class, 'edit'])->name('admin.testi.edit');
 Route::post('testimonials/edit/{id}', [TestimonialController::class, 'update'])->name('admin.testi.update');
 Route::delete('testimonials/destroy/{id}',[TestimonialController::class, 'destroy'])->name('admin.testi.destroy');
+
+//video
+Route::get('videos',[PostController::class, 'videos'])->name('videos');
+Route::get('video/create',[PostController::class, 'createVideo'])->name('video.create');
+Route::get('video/edit/{id}',[PostController::class, 'editVideo'])->name('video.edit');
