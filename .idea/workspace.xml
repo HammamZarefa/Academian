@@ -2,48 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="845b89e3-a634-48a9-a427-aba4eb9c247b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TestimonialController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Testimonial.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2022_03_31_105231_create_testimonials_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/setup/testi/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/setup/testi/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/setup/testi/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/video/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/video/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/website/blog.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/website/blogshow.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostCategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PostCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PostCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PostTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PostTag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/front/css/style-ar.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/front/css/style-ar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/front/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/front/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Order.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/order/OrderSummary.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/order/OrderSummary.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/order/ServiceSelection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/order/ServiceSelection.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/post/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post_tag/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post_tag/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/setup/partials/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/setup/partials/menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/layouts/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/layouts/template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/layouts/template.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_10.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_10.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_5.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_5.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_9.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_9.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/splitted/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/splitted/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/splitted/website.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/splitted/website.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/video/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/video/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/video/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/video/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -185,7 +155,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/post" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/video" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -213,7 +183,9 @@
       <updated>1648368379174</updated>
       <workItem from="1648368380392" duration="20809000" />
       <workItem from="1648664950471" duration="18363000" />
-      <workItem from="1648969050219" duration="402000" />
+      <workItem from="1648969050219" duration="922000" />
+      <workItem from="1648970001033" duration="4000" />
+      <workItem from="1648977707345" duration="1011000" />
     </task>
     <servers />
   </component>

@@ -64,11 +64,20 @@ class PostController extends Controller
         }
         $post = Post::create($data);
         $post->tags()->attach(request('tag'));
-        if ($post) {
-            return redirect()->route('posts')->with('success', 'Post added successfully');
-        } else {
-            return redirect()->route('posts')->with('error', 'Post failed to add');
+        if($request->category != 25){
+            if ($post) {
+                return redirect()->route('posts')->with('success', 'Post added successfully');
+            } else {
+                return redirect()->route('posts')->with('error', 'Post failed to add');
+            }
+        }else{
+            if ($post) {
+                return redirect()->route('videos')->with('success', 'Post added successfully');
+            } else {
+                return redirect()->route('video.create')->with('error', 'Post failed to add');
+            }
         }
+
     }
 
     /**
@@ -136,11 +145,20 @@ class PostController extends Controller
 
         $update = $post->update($data);
         $post->tags()->sync(request('tag'));
-        if ($update) {
-            return redirect()->route('posts')->with('success', 'Data added successfully');
-        } else {
-            return redirect()->route('post.create')->with('error', 'Data failed to add');
+        if($request->category != 25){
+            if ($update) {
+                return redirect()->route('posts')->with('success', 'Data added successfully');
+            } else {
+                return redirect()->route('post.edit')->with('error', 'Data failed to add');
+            }
+        }else{
+            if ($update) {
+                return redirect()->route('videos')->with('success', 'Post added successfully');
+            } else {
+                return redirect()->route('video.edit')->with('error', 'Post failed to add');
+            }
         }
+
     }
 
     /**
@@ -197,14 +215,16 @@ class PostController extends Controller
     public function createVideo()
     {
         $tags = PostTag::get();
-        return view('video.create', compact( 'tags'));
+        $video = PostCategory::where('slug','video')->first();
+        return view('video.create', compact( 'tags','video'));
     }
 
-    public function editVideo(Post $post)
+    public function editVideo( $post)
     {
         $post = Post::findOrFail($post);
         $tags = PostTag::get();
-        return view('video.create', compact('post' , 'tags'));
+        $video = PostCategory::where('slug','video')->first();
+        return view('video.edit', compact('post' , 'tags','video'));
     }
 
 }
