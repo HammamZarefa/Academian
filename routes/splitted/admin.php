@@ -4,6 +4,7 @@ use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostTagController;
 use App\Http\Controllers\TestimonialController;
+use Illuminate\Support\Facades\Route;
 
 Route::post('dashboard/statistics', 'DashboardController@statistics')
 	->name('dashboard_statistics');

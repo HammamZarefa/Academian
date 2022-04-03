@@ -53,7 +53,7 @@ class PostController extends Controller
             "meta_desc" => "required"
         ])->validate();
         $data = $request->all();
-        $data['slug'] = \Str::slug(request('title'));
+        $data['slug'] = \Str::slug(request('title_en'));
         $data['category_id'] = request('category');
         $data['status'] = 'PUBLISH';
         $data['author_id'] = Auth::user()->id;
@@ -88,12 +88,12 @@ class PostController extends Controller
      * @param  \App\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($post)
     {
         $post = Post::findOrFail($post);
         $categories = PostCategory::get();
         $tags = PostTag::get();
-        return view('post.create', compact('post', 'categories', 'tags'));
+        return view('post.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -103,9 +103,9 @@ class PostController extends Controller
      * @param  \App\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request,$post)
     {
-        dd($request);
+//        dd($request);
         \Validator::make($request->all(), [
             "title" => "required",
             "body" => "required",
@@ -116,7 +116,7 @@ class PostController extends Controller
         ])->validate();
         $post = Post::findOrFail($post);
         $data = $request->all();
-        $data['slug'] = \Str::slug(request('title'));
+        $data['slug'] = \Str::slug(request('title_en'));
         $data['category_id'] = request('category');
         $cover = $request->file('cover');
         if ($cover) {
@@ -125,9 +125,17 @@ class PostController extends Controller
             }
             $cover_path = $cover->store('images/blog', 'public');
             $data['cover'] = $cover_path;
+//            $post->cover = $cover_path;
         }
+//        $post->title = $request->title;
+//        $post->body = $request->body;
+//        $post->keyword = $request->keyword;
+//        $post->category = $request->category;
+//        $post->meta_desc = $request->meta_desc;
+
+
         $update = $post->update($data);
-        $post->tags()->sync(request('tags'));
+        $post->tags()->sync(request('tag'));
         if ($update) {
             return redirect()->route('posts')->with('success', 'Data added successfully');
         } else {
@@ -145,7 +153,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
-        return redirect()->route('blog.index')->with('success', 'Post moved to trash');
+        return redirect()->route('posts')->with('success', 'Post moved to trash');
     }
 
     public function trash()
