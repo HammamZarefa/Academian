@@ -199,117 +199,117 @@
         <input type="submit" name="submit" class="btn btn-success" value="@lang('Submit')"/>
     </form>
 @endsection
-{{--@section('innerPageJS')--}}
-{{--    <script>--}}
-{{--        $("#wizard-picture").change(function(){--}}
-{{--            readURL(this);--}}
+@section('innerPageJS')
+    <script>
+        $("#wizard-picture").change(function(){
+            readURL(this);
 
-{{--        });--}}
-{{--        //Function to show image before upload--}}
-{{--        function readURL(input) {--}}
-{{--            if (input.files && input.files[0]) {--}}
-{{--                var reader = new FileReader();--}}
-{{--                reader.onload = function (e) {--}}
-{{--                    $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');--}}
-{{--                }--}}
-{{--                reader.readAsDataURL(input.files[0]);--}}
-{{--            }--}}
-{{--        }--}}
-{{--    </script>--}}
-{{--    <script>--}}
-{{--        function test($this){--}}
-{{--            var local = $this.getAttribute("data-value");--}}
-{{--            // var locals = $('.locals')--}}
-{{--            // for (j=0 ; j < locals.length ; j++){--}}
-{{--            //--}}
-{{--            // }--}}
-{{--            // console.log(locals[0])--}}
-{{--            if (local == "ar"){--}}
-{{--                document.getElementById('title_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('title_en').setAttribute('style','display:none')--}}
-{{--                document.getElementById('title_fr').setAttribute('style','display:none')--}}
-{{--                document.getElementById('title_de').setAttribute('style','display:none')--}}
-{{--                document.getElementById('keyword_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('keyword_en').setAttribute('style','display:none')--}}
-{{--                document.getElementById('keyword_fr').setAttribute('style','display:none')--}}
-{{--                document.getElementById('keyword_de').setAttribute('style','display:none')--}}
-{{--                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('meta_desc_en').setAttribute('style','display:none')--}}
-{{--                document.getElementById('meta_desc_fr').setAttribute('style','display:none')--}}
-{{--                document.getElementById('meta_desc_de').setAttribute('style','display:none')--}}
-{{--                document.getElementById('body_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('body_en').setAttribute('style','display:none')--}}
-{{--                document.getElementById('body_fr').setAttribute('style','display:none')--}}
-{{--                document.getElementById('body_de').setAttribute('style','display:none')--}}
-{{--                var x = $('.navbarDarkDropdownMenuLink')--}}
-{{--                for (i=0 ; i < x.length ;i++){--}}
-{{--                    x[i].innerHTML = local--}}
-{{--                }--}}
-{{--                console.log($('.navbarDarkDropdownMenuLink')[0].innerHTML )--}}
-{{--            }else if (local =="en"){--}}
-{{--                document.getElementById('title_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('title_ar').setAttribute('style','display:none')--}}
-{{--                document.getElementById('title_fr').setAttribute('style','display:none')--}}
-{{--                document.getElementById('title_de').setAttribute('style','display:none')--}}
-{{--                document.getElementById('keyword_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('keyword_ar').setAttribute('style','display:none')--}}
-{{--                document.getElementById('keyword_fr').setAttribute('style','display:none')--}}
-{{--                document.getElementById('keyword_de').setAttribute('style','display:none')--}}
-{{--                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('meta_desc_ar').setAttribute('style','display:none')--}}
-{{--                document.getElementById('meta_desc_fr').setAttribute('style','display:none')--}}
-{{--                document.getElementById('meta_desc_de').setAttribute('style','display:none')--}}
-{{--                document.getElementById('body_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('body_ar').setAttribute('style','display:none')--}}
-{{--                document.getElementById('body_fr').setAttribute('style','display:none')--}}
-{{--                document.getElementById('body_de').setAttribute('style','display:none')--}}
-{{--                var x = $('.navbarDarkDropdownMenuLink')--}}
-{{--                for (i=0 ; i < x.length ;i++){--}}
-{{--                    x[i].innerHTML = local--}}
-{{--                }--}}
-{{--            }else if (local == "fr"){--}}
-{{--                document.getElementById('title_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('title_en').setAttribute('style','display:none')--}}
-{{--                document.getElementById('title_ar').setAttribute('style','display:none')--}}
-{{--                document.getElementById('title_de').setAttribute('style','display:none')--}}
-{{--                document.getElementById('keyword_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('keyword_en').setAttribute('style','display:none')--}}
-{{--                document.getElementById('keyword_ar').setAttribute('style','display:none')--}}
-{{--                document.getElementById('keyword_de').setAttribute('style','display:none')--}}
-{{--                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('meta_desc_en').setAttribute('style','display:none')--}}
-{{--                document.getElementById('meta_desc_ar').setAttribute('style','display:none')--}}
-{{--                document.getElementById('meta_desc_de').setAttribute('style','display:none')--}}
-{{--                document.getElementById('body_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('body_en').setAttribute('style','display:none')--}}
-{{--                document.getElementById('body_ar').setAttribute('style','display:none')--}}
-{{--                document.getElementById('body_de').setAttribute('style','display:none')--}}
-{{--                var x = $('.navbarDarkDropdownMenuLink')--}}
-{{--                for (i=0 ; i < x.length ;i++){--}}
-{{--                    x[i].innerHTML = local--}}
-{{--                }--}}
-{{--            }else if (local == "de"){--}}
-{{--                document.getElementById('title_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('title_en').setAttribute('style','display:none')--}}
-{{--                document.getElementById('title_ar').setAttribute('style','display:none')--}}
-{{--                document.getElementById('title_fr').setAttribute('style','display:none')--}}
-{{--                document.getElementById('keyword_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('keyword_en').setAttribute('style','display:none')--}}
-{{--                document.getElementById('keyword_ar').setAttribute('style','display:none')--}}
-{{--                document.getElementById('keyword_fr').setAttribute('style','display:none')--}}
-{{--                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('meta_desc_en').setAttribute('style','display:none')--}}
-{{--                document.getElementById('meta_desc_ar').setAttribute('style','display:none')--}}
-{{--                document.getElementById('meta_desc_fr').setAttribute('style','display:none')--}}
-{{--                document.getElementById('body_'+local).setAttribute('style','display:block')--}}
-{{--                document.getElementById('body_en').setAttribute('style','display:none')--}}
-{{--                document.getElementById('body_ar').setAttribute('style','display:none')--}}
-{{--                document.getElementById('body_fr').setAttribute('style','display:none')--}}
-{{--                var x = $('.navbarDarkDropdownMenuLink')--}}
-{{--                for (i=0 ; i < x.length ;i++){--}}
-{{--                    x[i].innerHTML = local--}}
-{{--                }--}}
-{{--            }--}}
-{{--        }--}}
-{{--    </script>--}}
-{{--@endsection--}}
+        });
+        //Function to show image before upload
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+    <script>
+        function test($this){
+            var local = $this.getAttribute("data-value");
+            // var locals = $('.locals')
+            // for (j=0 ; j < locals.length ; j++){
+            //
+            // }
+            // console.log(locals[0])
+            if (local == "ar"){
+                document.getElementById('title_'+local).setAttribute('style','display:block')
+                document.getElementById('title_en').setAttribute('style','display:none')
+                document.getElementById('title_fr').setAttribute('style','display:none')
+                document.getElementById('title_de').setAttribute('style','display:none')
+                document.getElementById('keyword_'+local).setAttribute('style','display:block')
+                document.getElementById('keyword_en').setAttribute('style','display:none')
+                document.getElementById('keyword_fr').setAttribute('style','display:none')
+                document.getElementById('keyword_de').setAttribute('style','display:none')
+                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
+                document.getElementById('meta_desc_en').setAttribute('style','display:none')
+                document.getElementById('meta_desc_fr').setAttribute('style','display:none')
+                document.getElementById('meta_desc_de').setAttribute('style','display:none')
+                document.getElementById('body_'+local).setAttribute('style','display:block')
+                document.getElementById('body_en').setAttribute('style','display:none')
+                document.getElementById('body_fr').setAttribute('style','display:none')
+                document.getElementById('body_de').setAttribute('style','display:none')
+                var x = $('.navbarDarkDropdownMenuLink')
+                for (i=0 ; i < x.length ;i++){
+                    x[i].innerHTML = local
+                }
+                console.log($('.navbarDarkDropdownMenuLink')[0].innerHTML )
+            }else if (local =="en"){
+                document.getElementById('title_'+local).setAttribute('style','display:block')
+                document.getElementById('title_ar').setAttribute('style','display:none')
+                document.getElementById('title_fr').setAttribute('style','display:none')
+                document.getElementById('title_de').setAttribute('style','display:none')
+                document.getElementById('keyword_'+local).setAttribute('style','display:block')
+                document.getElementById('keyword_ar').setAttribute('style','display:none')
+                document.getElementById('keyword_fr').setAttribute('style','display:none')
+                document.getElementById('keyword_de').setAttribute('style','display:none')
+                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
+                document.getElementById('meta_desc_ar').setAttribute('style','display:none')
+                document.getElementById('meta_desc_fr').setAttribute('style','display:none')
+                document.getElementById('meta_desc_de').setAttribute('style','display:none')
+                document.getElementById('body_'+local).setAttribute('style','display:block')
+                document.getElementById('body_ar').setAttribute('style','display:none')
+                document.getElementById('body_fr').setAttribute('style','display:none')
+                document.getElementById('body_de').setAttribute('style','display:none')
+                var x = $('.navbarDarkDropdownMenuLink')
+                for (i=0 ; i < x.length ;i++){
+                    x[i].innerHTML = local
+                }
+            }else if (local == "fr"){
+                document.getElementById('title_'+local).setAttribute('style','display:block')
+                document.getElementById('title_en').setAttribute('style','display:none')
+                document.getElementById('title_ar').setAttribute('style','display:none')
+                document.getElementById('title_de').setAttribute('style','display:none')
+                document.getElementById('keyword_'+local).setAttribute('style','display:block')
+                document.getElementById('keyword_en').setAttribute('style','display:none')
+                document.getElementById('keyword_ar').setAttribute('style','display:none')
+                document.getElementById('keyword_de').setAttribute('style','display:none')
+                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
+                document.getElementById('meta_desc_en').setAttribute('style','display:none')
+                document.getElementById('meta_desc_ar').setAttribute('style','display:none')
+                document.getElementById('meta_desc_de').setAttribute('style','display:none')
+                document.getElementById('body_'+local).setAttribute('style','display:block')
+                document.getElementById('body_en').setAttribute('style','display:none')
+                document.getElementById('body_ar').setAttribute('style','display:none')
+                document.getElementById('body_de').setAttribute('style','display:none')
+                var x = $('.navbarDarkDropdownMenuLink')
+                for (i=0 ; i < x.length ;i++){
+                    x[i].innerHTML = local
+                }
+            }else if (local == "de"){
+                document.getElementById('title_'+local).setAttribute('style','display:block')
+                document.getElementById('title_en').setAttribute('style','display:none')
+                document.getElementById('title_ar').setAttribute('style','display:none')
+                document.getElementById('title_fr').setAttribute('style','display:none')
+                document.getElementById('keyword_'+local).setAttribute('style','display:block')
+                document.getElementById('keyword_en').setAttribute('style','display:none')
+                document.getElementById('keyword_ar').setAttribute('style','display:none')
+                document.getElementById('keyword_fr').setAttribute('style','display:none')
+                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
+                document.getElementById('meta_desc_en').setAttribute('style','display:none')
+                document.getElementById('meta_desc_ar').setAttribute('style','display:none')
+                document.getElementById('meta_desc_fr').setAttribute('style','display:none')
+                document.getElementById('body_'+local).setAttribute('style','display:block')
+                document.getElementById('body_en').setAttribute('style','display:none')
+                document.getElementById('body_ar').setAttribute('style','display:none')
+                document.getElementById('body_fr').setAttribute('style','display:none')
+                var x = $('.navbarDarkDropdownMenuLink')
+                for (i=0 ; i < x.length ;i++){
+                    x[i].innerHTML = local
+                }
+            }
+        }
+    </script>
+@endsection

@@ -29,7 +29,7 @@
         <tr>
             <td>{{ $post->title }}</td>
             <td>{{$post->keyword}}</td>
-            <td>{{ $post->desc }}</td>
+            <td>{{ $post->body }}</td>
             <td>{{ $post->status }}</td>
             <td>
                 <a href="{{route('video.edit', [$post->id])}}" class="btn btn-info btn-sm">@lang('Edit')  </a>
