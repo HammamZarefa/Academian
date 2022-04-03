@@ -22,6 +22,9 @@
       </div>
    </div>
 
+   <a class="nav-link" href="{{ route('admin.testi') }}">@lang('Reviews')</a>
+
+
       <div class="dropdown dropright">
       <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           @lang('Email')

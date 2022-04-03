@@ -3,9 +3,13 @@
         <h5 class="card-title">
             Step
             <b>1</b>/
-            <span class="small">3</span> TYPE OF WORK AND DEADLINE
+            <span class="small">3</span> TYPE OF WORK AND DEADLINE ggg
         </h5>
+
         <hr />
+        <div>
+
+        </div>
         <div class="form-group">
             <label>Service Category</label>
             <div class="service_category">
@@ -15,7 +19,7 @@
                            :value="item" v-model="form.service_categories_model"  @change="setServices" />
                     <label class="bg" :for="`d${item.id}`"
                            :label="item.name" type="radio" name="service_categories" >
-                        {{item.name.en}}
+                        {{item.name}}
                     </label>
                 </div>
             </div>
@@ -49,7 +53,7 @@
                             autocomplete="off"
                             v-model="form.work_level_id"
                         />
-                        {{ row.name.en }}
+                        {{ row.name }}
                     </label>
                 </div>
             </div>
@@ -169,8 +173,8 @@
                 <div class="row no-gutters">
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">{{ row.name.en }}</h5>
-                            <p class="card-text">{{ row.description.en }}</p>
+                            <h5 class="card-title">{{ row.name }}</h5>
+                            <p class="card-text">{{ row.description }}</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -357,17 +361,16 @@ export default {
             this.form.service_categories_model =  this.filteredServices_categories[0];
             this.active_services = this.filteredServices_categories[0].id;
         }
-        console.log('params:',this.params);
-        console.log('passParam:',this.passParam);
-        console.log('service_categories:',this.service_categories);
-        console.log('services:',this.services);
-        console.log('service_categories_model:',this.form.service_categories_model);
-        console.log('service_model:',this.form.service_model);
-        console.log('filteredServices_categories:',this.filteredServices_categories);
-        console.log('filteredServices:',this.filteredServices);
+        // console.log('params:',this.params);
+        // console.log('passParam:',this.passParam);
+        // console.log('service_categories:',this.service_categories);
+        // console.log('services:',this.services);
+        // console.log('service_categories_model:',this.form.service_categories_model);
+        // console.log('service_model:',this.form.service_model);
+        // console.log('filteredServices_categories:',this.filteredServices_categories);
+        // console.log('filteredServices:',this.filteredServices);
     },
     methods: {
-
         setServices(){
             this.form.service_model = this.filteredServices[0];
         },

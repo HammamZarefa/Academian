@@ -150,13 +150,13 @@ class Order extends Model
     static function admin_dropdown()
     {
         $data['staff_list'] = [
-            '' => 'Select'
-        ] + User::role([
-            'staff'
-        ])->orderBy('first_name', 'ASC')
-            ->select(DB::raw('CONCAT(first_name, " ", last_name) AS name'), 'id')
-            ->pluck('name', 'id')
-            ->toArray();
+                '' => 'Select'
+            ] + User::role([
+                'staff'
+            ])->orderBy('first_name', 'ASC')
+                ->select(DB::raw('CONCAT(first_name, " ", last_name) AS name'), 'id')
+                ->pluck('name', 'id')
+                ->toArray();
 
         $data['order_status_list'] = OrderStatus::where('id', '<>', ORDER_STATUS_PENDING_PAYMENT)->orderBy('id', 'ASC')->pluck('name', 'id')->toArray();
 
@@ -166,9 +166,9 @@ class Order extends Model
     static function task_dropdown()
     {
         $data['order_status_list'] = [
-            '' => 'All'
-        ] + OrderStatus::orderBy('id', 'ASC')
-            ->whereIn('id', self::orderStatusAllowedForStaff())->pluck('name', 'id')->toArray();
+                '' => 'All'
+            ] + OrderStatus::orderBy('id', 'ASC')
+                ->whereIn('id', self::orderStatusAllowedForStaff())->pluck('name', 'id')->toArray();
 
         $data['dead_line_list'] = [
             '' => 'N/A',
@@ -183,8 +183,8 @@ class Order extends Model
     static function customer_dropdown()
     {
         $data['order_status_list'] = [
-            '' => 'All'
-        ] + OrderStatus::orderBy('id', 'ASC')->pluck('name', 'id')->toArray();
+                '' => 'All'
+            ] + OrderStatus::orderBy('id', 'ASC')->pluck('name', 'id')->toArray();
 
         $data['dead_line_list'] = [
             '' => 'N/A',
@@ -201,7 +201,8 @@ class Order extends Model
         $data['service_id_list'] = Service::orderBy('name', 'ASC')->whereNull('inactive')->get();
         $data['work_level_id_list'] = WorkLevel::orderBy('id', 'ASC')->whereNull('inactive')->get();
         $data['service_category_id_list']=ServiceCategory::orderBy('id','ASC')->get();
-
+//        $data['service_category_id_list']=$data['service_category_id_list'];
+//        dd($data['service_category_id_list']);
         $urgencies = Urgency::whereNull('inactive')
             ->orderBy('percentage_to_add', 'ASC')->get();
 

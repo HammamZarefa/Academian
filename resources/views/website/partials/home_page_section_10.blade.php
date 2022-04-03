@@ -4,72 +4,37 @@
         <h2> @lang('Blog') </h2>
     </div>
     <div class="Blog-container">
-       
+       @foreach($posts as $post)
         <div class="blog_post">
             <div class="img_pod">
-            <img  src="{{ asset('front/img/classes-modal/02.jpg') }}" alt="">
+            <img  src="{{asset(Storage::url($post->cover))}}" alt="">
             </div>
             <div class="container_copy">
-            <h3>12 January 2019</h3>
-            <h1>CSS Positioning</h1>
-            <p>The position property specifies the type of positioning method used for an element (static, relative, absolute, fixed, or sticky).</p>
+            <h3>{{$post->created_at->format('Y-m-d')}}</h3>
+            <h1>{{$post->title}}</h1>
+            <p>{{$post->body}}</p>
             </div>
-            <a class="btn_primary" href='#'>Read More</a>
+            <a class="btn_primary" href="{{route('blogshow',$post->slug)}}">Read More</a>
         </div>
-        
-        
-        <div class="blog_post">
-            <div class="img_pod">
-            <img  src="{{ asset('front/img/classes-modal/02.jpg') }}" alt="">
-            </div>
-            <div class="container_copy">
-            <h3>12 January 2019</h3>
-            <h1>CSS Positioning</h1>
-            <p>The position property specifies the type of positioning method used for an element (static, relative, absolute, fixed, or sticky).</p>
-            </div>
-            <a class="btn_primary" href='#'>Read More</a>
-        </div>
-        
-      
-        <div class="blog_post">
-            <div class="img_pod">
-            <img  src="{{ asset('front/img/classes-modal/02.jpg') }}" alt="">
-            </div>
-            <div class="container_copy">
-            <h3>12 January 2019</h3>
-            <h1>CSS Positioning</h1>
-            <p>The position property specifies the type of positioning method used for an element (static, relative, absolute, fixed, or sticky).</p>
-            </div>
-            <a class="btn_primary" href='#'>Read More</a>
-        </div>
-        
+        @endforeach
     </div>
     <div class="text-center mb-100">
-        <a href="" class="btn">Read More</a>
+        <a href="{{route('blog')}}" class="btn">Read More</a>
     </div>
 
     <!-- Section Gallery ********************************** -->
 <section class="gallery">
     <div class="title">
-      <h2>Some video previews for you. <b>Click to zoom</b></h2>
+      <h2 style="padding: 0 20px;">Some video previews for you. <b>Click to zoom</b></h2>
     </div><!-- Title -->
 
     <div id="gallery-images" class="owl-carousel">
+        @foreach ($videos as $video)
       <div class="item">
-            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
+            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{$video->body}}" /></video>
       </div>
-      <div class="item">
-            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
-      </div>
-      <div class="item">
-            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
-      </div>
-      <div class="item">
-            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
-      </div>
-      <div class="item">
-            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{ asset('front/img/awesome-video2.mp4') }}"  /></video>
-      </div>
+            {{--<iframe width="900" height="506" src="{{ $video->desc}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
+            @endforeach
     </div> 
         <div class="overlay" id="overlay"></div>
         <!-- type="video/mp4" -->

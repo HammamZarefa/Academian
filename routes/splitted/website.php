@@ -21,4 +21,11 @@ Route::get('terms-and-conditions', 'HomeController@content')->name('terms_and_co
 Route::get('money-back-guarantee', 'HomeController@content')->name('money_back_guarantee');
 Route::get('sitemap.xml', 'SitemapController@index')->name('sitemap.xml');
 Route::get('page-sitemap.xml', 'SitemapController@page')->name('page-sitemap.xml');
+Route::get('blog', 'HomeController@blog')->name('blog');
+Route::get('blog/search', 'HomeController@search')->name('search');
+Route::get('blog/{slug}', 'HomeController@blogshow')->name('blogshow');
+Route::get('categories/{category:slug}', 'HomeController@category')->name('category');
+Route::get('tags/{tag:slug}', 'HomeController@tag')->name('tag');
+
+
 
