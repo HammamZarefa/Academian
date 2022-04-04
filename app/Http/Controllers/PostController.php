@@ -53,7 +53,7 @@ class PostController extends Controller
             "meta_desc" => "required"
         ])->validate();
         $data = $request->all();
-        $data['slug'] = \Str::slug(request('title'));
+        $data['slug'] = \Str::slug(request('title_en'));
         $data['category_id'] = request('category');
         $data['status'] = 'PUBLISH';
         $data['author_id'] = Auth::user()->id;
@@ -64,11 +64,20 @@ class PostController extends Controller
         }
         $post = Post::create($data);
         $post->tags()->attach(request('tag'));
-        if ($post) {
-            return redirect()->route('posts')->with('success', 'Post added successfully');
-        } else {
-            return redirect()->route('posts')->with('error', 'Post failed to add');
+        if($request->category != 25){
+            if ($post) {
+                return redirect()->route('posts')->with('success', 'Post added successfully');
+            } else {
+                return redirect()->route('posts')->with('error', 'Post failed to add');
+            }
+        }else{
+            if ($post) {
+                return redirect()->route('videos')->with('success', 'Post added successfully');
+            } else {
+                return redirect()->route('video.create')->with('error', 'Post failed to add');
+            }
         }
+
     }
 
     /**
@@ -88,12 +97,12 @@ class PostController extends Controller
      * @param  \App\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($post)
     {
         $post = Post::findOrFail($post);
         $categories = PostCategory::get();
         $tags = PostTag::get();
-        return view('post.create', compact('post', 'categories', 'tags'));
+        return view('post.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -103,9 +112,9 @@ class PostController extends Controller
      * @param  \App\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request,$post)
     {
-        dd($request);
+//        dd($request);
         \Validator::make($request->all(), [
             "title" => "required",
             "body" => "required",
@@ -116,7 +125,7 @@ class PostController extends Controller
         ])->validate();
         $post = Post::findOrFail($post);
         $data = $request->all();
-        $data['slug'] = \Str::slug(request('title'));
+        $data['slug'] = \Str::slug(request('title_en'));
         $data['category_id'] = request('category');
         $cover = $request->file('cover');
         if ($cover) {
@@ -125,14 +134,31 @@ class PostController extends Controller
             }
             $cover_path = $cover->store('images/blog', 'public');
             $data['cover'] = $cover_path;
+//            $post->cover = $cover_path;
         }
+//        $post->title = $request->title;
+//        $post->body = $request->body;
+//        $post->keyword = $request->keyword;
+//        $post->category = $request->category;
+//        $post->meta_desc = $request->meta_desc;
+
+
         $update = $post->update($data);
-        $post->tags()->sync(request('tags'));
-        if ($update) {
-            return redirect()->route('posts')->with('success', 'Data added successfully');
-        } else {
-            return redirect()->route('post.create')->with('error', 'Data failed to add');
+        $post->tags()->sync(request('tag'));
+        if($request->category != 25){
+            if ($update) {
+                return redirect()->route('posts')->with('success', 'Data added successfully');
+            } else {
+                return redirect()->route('post.edit')->with('error', 'Data failed to add');
+            }
+        }else{
+            if ($update) {
+                return redirect()->route('videos')->with('success', 'Post added successfully');
+            } else {
+                return redirect()->route('video.edit')->with('error', 'Post failed to add');
+            }
         }
+
     }
 
     /**
@@ -145,7 +171,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
-        return redirect()->route('blog.index')->with('success', 'Post moved to trash');
+        return redirect()->route('posts')->with('success', 'Post moved to trash');
     }
 
     public function trash()
@@ -189,14 +215,16 @@ class PostController extends Controller
     public function createVideo()
     {
         $tags = PostTag::get();
-        return view('video.create', compact( 'tags'));
+        $video = PostCategory::where('slug','video')->first();
+        return view('video.create', compact( 'tags','video'));
     }
 
-    public function editVideo(Post $post)
+    public function editVideo( $post)
     {
         $post = Post::findOrFail($post);
         $tags = PostTag::get();
-        return view('video.create', compact('post' , 'tags'));
+        $video = PostCategory::where('slug','video')->first();
+        return view('video.edit', compact('post' , 'tags','video'));
     }
 
 }

@@ -1,5 +1,4 @@
 @extends('setup.index')
-@extends('setup.index')
 @section('title', 'Post Tag')
 @section('setting_page')
 
