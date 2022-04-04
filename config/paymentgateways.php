@@ -35,9 +35,12 @@ return [
         ],
         'payu' => [
             'name' => 'PayU',
-            'route' => 'payu',                    
+            'route' => 'payu',
         ],
-        
+        'blockchain' => [
+            'name' => 'Blockchain',
+            'route' => 'blockchain',
+        ],
         // 'two_checkout' => [
         //     'name' => '2Checkout',
         //     'route' => 'two_checkout',                  

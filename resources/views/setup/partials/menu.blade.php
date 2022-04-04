@@ -67,3 +67,5 @@
    <a class="nav-link" href="{{ route('offline_payment_methods') }}">@lang('Offline Payment Methods')</a>
    <a class="nav-link" href="{{ route('update_system_page') }}">@lang('System Update')</a>
 </div>
+
+<a class="nav-link" href="{{ route('language.manage') }}">@lang('language')</a>
