@@ -67,7 +67,7 @@
                     <li class="active"><a href="#menu-slider">@lang('Home')</a></li>
 
                     <li class="dropdown">
-                        <a class="dropbtn">Services</a>
+                        <a class="dropbtn">@lang('Services')</a>
                         <div class="dropdown-content">
                             @if(isset($service_categories))
                             @foreach($service_categories as $service_category)

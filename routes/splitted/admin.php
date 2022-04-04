@@ -484,3 +484,17 @@ Route::delete('testimonials/destroy/{id}',[TestimonialController::class, 'destro
 Route::get('videos',[PostController::class, 'videos'])->name('videos');
 Route::get('video/create',[PostController::class, 'createVideo'])->name('video.create');
 Route::get('video/edit/{id}',[PostController::class, 'editVideo'])->name('video.edit');
+
+// Language Manager
+Route::get('/language', 'LanguageController@langManage')->name('language.manage');
+Route::post('/language', 'LanguageController@langStore')->name('language.manage.store');
+Route::post('/language/delete/{id}', 'LanguageController@langDel')->name('language.manage.del');
+Route::post('/language/update/{id}', 'LanguageController@langUpdatepp')->name('language.manage.update');
+Route::get('/language/edit/{code}', 'LanguageController@langEdit')->name('language.key');
+Route::post('/language/import', 'LanguageController@langImport')->name('language.import_lang');
+
+
+
+Route::post('language/store/key/{id}', 'LanguageController@storeLanguageJson')->name('language.store.key');
+Route::post('language/delete/key/{id}', 'LanguageController@deleteLanguageJson')->name('language.delete.key');
+Route::post('language/update/key/{id}', 'LanguageController@updateLanguageJson')->name('language.update.key');

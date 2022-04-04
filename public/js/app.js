@@ -3381,6 +3381,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -93602,7 +93604,7 @@ var render = function() {
                     name: "service_categories"
                   }
                 },
-                [_vm._v("\n          " + _vm._s(item.name) + "\n        ")]
+                [_vm._v("\n          " + _vm._s(item.name) + "\n\n        ")]
               )
             ]
           )
@@ -94083,7 +94085,7 @@ var staticRenderFns = [
       _c("b", [_vm._v("1")]),
       _vm._v("/\n    "),
       _c("span", { staticClass: "small" }, [_vm._v("3")]),
-      _vm._v(" TYPE OF WORK AND DEADLINE ggg\n  ")
+      _vm._v(" TYPE OF WORK AND DEADLINE ggg\n\n  ")
     ])
   },
   function() {

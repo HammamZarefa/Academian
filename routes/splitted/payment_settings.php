@@ -58,7 +58,11 @@ Route::namespace('\App\PaymentGateways')->group(function () {
 		->name('patch_settings_two_checkout'); 
 	
 		Route::patch('payu/configure', 'payu\PayUSettingsController@updateSettings')
-		->name('patch_settings_payu'); 
-		
-    
+		->name('patch_settings_payu');
+
+    Route::patch('blockchain/configure', 'blockchain\BlockchainSettingsController@updateSettings')
+        ->name('patch_settings_blockchain');
+
+
+
 });

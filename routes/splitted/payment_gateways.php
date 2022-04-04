@@ -71,4 +71,16 @@ Route::namespace('\App\PaymentGateways')->group(function () {
             ->name('payu_payment_captured');
     });
 
+    //Paystack
+    Route::prefix('blockchain')->group(function () {
+
+        Route::get('/', 'blockchain\BlockchainController@index')
+            ->name('blockchain');
+
+        Route::post('/verify', 'blockchain\BlockichainController@verifyPayment')
+            ->name('blockchain_verify_payment');
+
+        Route::post('/payment-captured', 'blockchain\BlockchainController@paymentCaptured')
+            ->name('blockchain_payment_captured');
+    });
 });

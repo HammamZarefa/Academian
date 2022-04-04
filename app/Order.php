@@ -185,7 +185,6 @@ class Order extends Model
         $data['order_status_list'] = [
             '' => 'All'
         ] + OrderStatus::orderBy('id', 'ASC')->pluck('name', 'id')->toArray();
-
         $data['dead_line_list'] = [
             '' => 'N/A',
             'today' => 'Today',

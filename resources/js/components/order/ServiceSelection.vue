@@ -4,6 +4,7 @@
       Step
       <b>1</b>/
       <span class="small">3</span> TYPE OF WORK AND DEADLINE ggg
+
     </h5>
 
     <hr />
@@ -20,6 +21,7 @@
           <label class="bg" :for="`d${item.id}`"
           :label="item.name" type="radio" name="service_categories" >
             {{item.name}}
+
           </label>
       </div>
       </div>
