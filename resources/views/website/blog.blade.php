@@ -12,20 +12,20 @@ Blog -
 
         <div class="d-flex justify-content-between align-items-center">
           @isset($category)
-        <h2>{{ __('home.blogcategory') }}: {{ $category->name }}</h2>
+        <h2>@lang('blogcategory') : {{ $category->name }}</h2>
         @endisset
         @isset($tag)
-        <h2>{{ __('home.blogtah') }}: {{ $tag->name }}</h2>
+        <h2>@lang('.blogtah'): {{ $tag->name }}</h2>
         @endisset
         @isset($query)
         <h2>Hasil Pencarian: {{ $query }}</h2>
         @endisset
         @if (!isset($tag) && !isset($category) && !isset($query))
-        <h2>{{ __('home.blog') }}</h2>
+        <h2>@lang('blog') </h2>
         @endif
           <ol>
-            <li><a href="/">{{ __('home.home') }}</a></li>
-            <li>{{ __('home.blog') }}</li>
+            <li><a href="/">@lang('home') </a></li>
+            <li>@lang('blog') </li>
           </ol>
         </div>
 
@@ -64,7 +64,7 @@ Blog -
                   {{ Str::limit( strip_tags( $post->body ), 250 ) }}
                 </p>
                 <div class="read-more">
-                  <a href="{{ route('blogshow',$post->slug) }}">{{ __('home.readmore') }}</a>
+                  <a href="{{ route('blogshow',$post->slug) }}">@lang('readmore') </a>
                 </div>
               </div>
 
@@ -83,7 +83,7 @@ Blog -
 
             <div class="sidebar" data-aos="fade-left">
 
-              <h3 class="sidebar-title">{{ __('home.search') }}</h3>
+              <h3 class="sidebar-title">@lang('search') </h3>
               <div class="sidebar-item search-form">
                 <form action="{{ route("search") }}" method="GET">
                   <input type="text" name="query">
@@ -92,7 +92,7 @@ Blog -
 
               </div><!-- End sidebar search formn-->
 
-              <h3 class="sidebar-title">{{ __('home.categories') }}</h3>
+              <h3 class="sidebar-title"> @lang('categories') </h3>
               <div class="sidebar-item categories">
                 <ul>
                   @foreach ($categories as $category)
@@ -103,7 +103,7 @@ Blog -
 
               </div><!-- End sidebar categories-->
 
-              <h3 class="sidebar-title">{{ __('home.recentposts') }}</h3>
+              <h3 class="sidebar-title">@lang('recentposts') </h3>
               <div class="sidebar-item recent-posts">
 
                 @foreach ($recent as $recent)
@@ -116,7 +116,7 @@ Blog -
  
               </div><!-- End sidebar recent posts-->
 
-              <h3 class="sidebar-title">{{ __('home.tags') }}</h3>
+              <h3 class="sidebar-title">@lang('tags') </h3>
               <div class="sidebar-item tags">
                 <ul>
                   @foreach ($tags as $tag)

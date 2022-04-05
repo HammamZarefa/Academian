@@ -66,8 +66,8 @@
         enableExif: true,
 
         viewport: {
-            width: 154,
-            height: 36,
+            width: 140,
+            height: 140,
             type: 'rectangle' //circle
         },
         boundary: {
