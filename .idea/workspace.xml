@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="845b89e3-a634-48a9-a427-aba4eb9c247b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/video/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/video/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/video/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/video/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,15 +155,15 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views\setup" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\Academian\resources\views\video" />
       <recent name="D:\projects\Academian\resources\views\post" />
       <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views" />
       <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views\post" />
       <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\app\Http\Controllers" />
-      <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views\website" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views\setup" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -185,7 +181,8 @@
       <workItem from="1648664950471" duration="18363000" />
       <workItem from="1648969050219" duration="922000" />
       <workItem from="1648970001033" duration="4000" />
-      <workItem from="1648977707345" duration="1011000" />
+      <workItem from="1648977707345" duration="1667000" />
+      <workItem from="1649152885487" duration="2592000" />
     </task>
     <servers />
   </component>
