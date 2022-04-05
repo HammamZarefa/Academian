@@ -9,7 +9,6 @@ Blog -
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
         <div class="d-flex justify-content-between align-items-center">
           @isset($category)
         <h2>@lang('blogcategory') : {{ $category->name }}</h2>
@@ -53,9 +52,9 @@ Blog -
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="{{route('blogshow',$post->slug)}}">{{ $post->user->name }}</a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="{{route('blogshow',$post->slug)}}"><time datetime="2020-01-01">{{ Carbon\Carbon::parse($post->created_at)->format("d F, Y") }}</time></a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-eye"></i> <a href="{{route('blogshow',$post->slug)}}">{{ $post->views }} Views</a></li>
+                  <li class="d-flex align-items-center"><i class="icon-user"></i> <a href="{{route('blogshow',$post->slug)}}">{{ $post->user->name }}</a></li>
+                  <li class="d-flex align-items-center"><i class="icon-clock"></i> <a href="{{route('blogshow',$post->slug)}}"><time datetime="2020-01-01">{{ Carbon\Carbon::parse($post->created_at)->format("d F, Y") }}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="icon-eye"></i> <a href="{{route('blogshow',$post->slug)}}">{{ $post->views }} Views</a></li>
                 </ul>
               </div>
 
@@ -87,7 +86,7 @@ Blog -
               <div class="sidebar-item search-form">
                 <form action="{{ route("search") }}" method="GET">
                   <input type="text" name="query">
-                  <button type="submit"><i class="icofont-search"></i></button>
+                  <button type="submit"><i class="icon-search"></i></button>
                 </form>
 
               </div><!-- End sidebar search formn-->
