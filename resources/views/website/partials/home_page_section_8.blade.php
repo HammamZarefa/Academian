@@ -16,7 +16,7 @@
             <li>@lang('English')</li>
             <li>@lang('7 Days')</li>
             <li>@lang('Master') </li>
-            <li class="table-button"><a class="btn btn-default" href="#"><i class="icon-basket"></i>@lang('Order Now')</a></li>
+            <li class="table-button"><a class="btn btn-default" href="/orders/create?service=20&&words=400&urgency=4"><i class="icon-basket"></i>@lang('Order Now')</a></li>
        </ul>
         </div>
         <div class="col-sm-3">

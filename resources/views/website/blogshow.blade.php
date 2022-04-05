@@ -33,34 +33,27 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>{{ __('home.blog') }}</h2>
+          <h2>@lang('blog') </h2>
           <ol>
-            <li><a href="/">{{ __('home.home') }}</a></li>
-            <li>{{ __('home.blog') }}</li>
+            <li><a href="/">@lang('home') </a></li>
+            <li>@lang('blog') </li>
           </ol>
         </div>
-
       </div>
     </section><!-- End Breadcrumbs -->
 
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog">
       <div class="container">
-
         <div class="row">
-
           <div class="col-lg-8 entries">
-
             <article class="entry entry-single" data-aos="fade-up">
-
               <div class="entry-img">
                 <img src="{{ asset('storage/'.$post->cover) }}" alt="" class="img-fluid">
               </div>
-
               <h2 class="entry-title">
                 <a href="{{route('blogshow',$post->slug)}}">{{ $post->title }}</a>
               </h2>
-
               <div class="entry-meta">
                 <ul>
                   <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="{{route('blogshow',$post->slug)}}">{{ $post->user->name }}</a></li>
@@ -95,26 +88,18 @@
             </article><!-- End blog entry -->
 
             <div class="blog-comments" data-aos="fade-up">
-
               <div id="disqus_thread"></div>
-
             </div><!-- End blog comments -->
-
           </div><!-- End blog entries list -->
-
           <div class="col-lg-4">
-
             <div class="sidebar" data-aos="fade-left">
-
               <h3 class="sidebar-title">{{ __('home.search') }}</h3>
               <div class="sidebar-item search-form">
                 <form action="{{ route("search") }}" method="GET">
                   <input type="text" name="query">
                   <button type="submit"><i class="icofont-search"></i></button>
                 </form>
-
               </div><!-- End sidebar search formn-->
-
               <h3 class="sidebar-title">{{ __('home.categories') }}</h3>
               <div class="sidebar-item categories">
                 <ul>
@@ -122,12 +107,9 @@
                   <li><a href="{{ route('category',$category->slug) }}">{{ $category->name }} <span>({{ $category->count() }})</span></a></li>
                   @endforeach
                 </ul>
-
               </div><!-- End sidebar categories-->
-
-              <h3 class="sidebar-title">{{ __('home.recentposts') }}</h3>
+              <h3 class="sidebar-title">@lang('recentposts') </h3>
               <div class="sidebar-item recent-posts">
-
                 @foreach ($recent as $recent)
                 <div class="post-item clearfix">
                   <img src="{{ asset('storage/'.$recent->cover) }}" alt="">
@@ -135,25 +117,18 @@
                   <time datetime="2020-01-01">{{ Carbon\Carbon::parse($post->created_at)->format("d F, Y") }}</time>
                 </div>
                 @endforeach
-              
               </div><!-- End sidebar recent posts-->
-
-              <h3 class="sidebar-title">{{ __('home.tags') }}</h3>
+              <h3 class="sidebar-title">@lang('home.tags') </h3>
               <div class="sidebar-item tags">
                 <ul>
                   @foreach ($tags as $tag)
                    <li><a href="{{ route('tag',$tag->slug) }}">{{ $tag->name }}</a></li>
                   @endforeach 
                 </ul>
-
               </div><!-- End sidebar tags-->
-
             </div><!-- End sidebar -->
-
           </div><!-- End blog sidebar -->
-
         </div>
-
       </div>
     </section><!-- End Blog Section -->
 

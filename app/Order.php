@@ -273,7 +273,6 @@ class Order extends Model
 
             $statuses = array_chunk($statuses, 6);
         }
-
         return $statuses;
     }
 }
