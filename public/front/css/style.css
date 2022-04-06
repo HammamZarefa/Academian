@@ -975,28 +975,30 @@ height: 25%}
 	/*background-color: #46627e;*/
 /*}*/
 /* blog */
-.blog {
+.blogs {
 	background-color: #fff;
 	padding: 50px 0;
 }
-.blog .Blog-container {
+.blogs .Blog-container {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
 	padding: 50px 0;
   }
   
-  .blog .blog_post {
+  .blogs .blog_post {
 	position: relative;
 	padding: 20px;
 	background: #fff;
-	max-width: 400px;
+	max-width: 365px;
+	min-width: 365px;
 	border-radius: 10px;
 	box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
 	margin: 30px 0;
+	min-height: 265px;
   }
 
-  .blog .img_pod {
+  .blogs .img_pod {
 	height: 110px;
 	width: 110px;
 	background: linear-gradient(90deg, #027bef, #46627e);
@@ -1009,7 +1011,7 @@ height: 25%}
 	transform: translateY(-50%);
   }
   
-  .blog img {
+  .blogs img {
 	height: 100%;
 	width: 100%;
 	position: relative;
@@ -1020,39 +1022,39 @@ height: 25%}
 	box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
   }
   
-  .blog h3 {
+  .blogs h3 {
 	margin: 0 0 0.5rem 0;
 	color: #999;
 	font-size: 1.25rem;
   }
     /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-	.blog .blog_post {
+	.blogs .blog_post {
 		width:90%;	
 	  }
-	  .blog .img_pod {
+	  .blogs .img_pod {
 		left: 50%;
 		transform: translate(-50%,-50%);
 	  }
 	  
-	  .blog h3 {
+	  .blogs h3 {
 		margin: 50px 0 0.5rem 0;
 	  }
 }
-  .blog h1 {
+  .blogs h1 {
 	margin: 0 0 1rem 0;
 	font-size: 2.5rem;
 	letter-spacing: 0.5px;
 	color: #333;
   }
   
-  .blog p {
+  .blogs p {
 	margin: 0 0 4.5rem 0;
 	font-size: 1.5rem;
 	color: #333;
   }
   
-  .blog .btn_primary {
+  .blogs .btn_primary {
 	border: none;
 	outline: none;
 	background: linear-gradient(90deg, #027bef, #46627e);
@@ -1065,11 +1067,11 @@ height: 25%}
 	text-decoration: none;
   }
   
-  .blog .btn_primary:hover {
+  .blogs .btn_primary:hover {
 	box-shadow: 0px 5px 1rem #6e7073;
   }
   
-.blog a.btn{
+.blogs a.btn{
 	padding: 12px 20px;
 	border: 2px solid #026bc3;
 	background-color: #fff;
@@ -1079,7 +1081,7 @@ height: 25%}
 	letter-spacing: 2px;
 	border-radius: 50px;
 }
-.blog a.btn:hover{
+.blogs a.btn:hover{
 	background-color: #026bc3;
 	color: #fff;
 }
@@ -1680,6 +1682,63 @@ bottom:-35px;
 /*--------------------------------------------------------------
 # Blog
 --------------------------------------------------------------*/
+.breadcrumbs {
+    padding: 10px 0;
+    background: #428bca;
+    min-height: 40px;
+	
+}
+.breadcrumbs .container div{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.breadcrumbs h2 {
+    font-size: 26px;
+    font-weight: 300;
+    color: #fff;
+	margin: 0;
+}
+
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+}
+
+.breadcrumbs ol a {
+    color: #fff;
+}
+
+.breadcrumbs ol li + li {
+    padding-left: 10px;
+}
+
+.breadcrumbs ol li + li::before {
+    display: inline-block;
+    padding-right: 10px;
+    color: #fff;
+    content: "/";
+}
+
+@media (max-width: 991px) {
+    .breadcrumbs {
+        margin-top: 58px;
+    }
+    .breadcrumbs .d-flex {
+        display: block !important;
+    }
+    .breadcrumbs ol {
+        display: block;
+    }
+    .breadcrumbs ol li {
+        display: inline-block;
+    }
+}
+
 .blog {
 	padding: 40px 0 20px 0;
 }
@@ -1709,7 +1768,7 @@ bottom:-35px;
 }
 
 .blog .entry .entry-title a:hover {
-	color: #1bbd36;
+	color: #428bca;
 }
 
 .blog .entry .entry-meta {
@@ -1743,7 +1802,7 @@ bottom:-35px;
 }
 
 .blog .entry .entry-meta a:hover {
-	color: #1bbd36;
+	color: #428bca;
 }
 
 .blog .entry .entry-content p {
@@ -1757,7 +1816,7 @@ bottom:-35px;
 
 .blog .entry .entry-content .read-more a {
 	display: inline-block;
-	background: #1bbd36;
+	background: #428bca;
 	color: #fff;
 	padding: 7px 25px;
 	transition: 0.3s;
@@ -1766,7 +1825,7 @@ bottom:-35px;
 }
 
 .blog .entry .entry-content .read-more a:hover {
-	background: #1ed33c;
+	background: #236baa;
 }
 
 .blog .entry .entry-content h3 {
@@ -1837,7 +1896,7 @@ bottom:-35px;
 }
 
 .blog .entry .entry-footer a:hover {
-	color: #1bbd36;
+	color: #428bca;
 }
 
 .blog .entry .entry-footer .cats {
@@ -1942,7 +2001,7 @@ bottom:-35px;
 }
 
 .blog .blog-comments .comment h5 a:hover {
-	color: #1bbd36;
+	color: #428bca;
 }
 
 .blog .blog-comments .comment h5 .reply {
@@ -1990,7 +2049,7 @@ bottom:-35px;
 
 .blog .blog-comments .reply-form input:focus {
 	box-shadow: none;
-	border-color: #57e76f;
+	border-color: #236baa;
 }
 
 .blog .blog-comments .reply-form textarea {
@@ -2002,7 +2061,7 @@ bottom:-35px;
 
 .blog .blog-comments .reply-form textarea:focus {
 	box-shadow: none;
-	border-color: #57e76f;
+	border-color: #236baa;
 }
 
 .blog .blog-comments .reply-form .form-group {
@@ -2013,11 +2072,11 @@ bottom:-35px;
 	padding: 8px 20px;
 	border: 0;
 	border-radius: 4px;
-	background-color: #1bbd36;
+	background-color: #428bca;
 }
 
 .blog .blog-comments .reply-form .btn-primary:hover {
-	background-color: #1ed33c;
+	background-color: #236baa;
 }
 
 .blog .blog-pagination ul {
@@ -2034,6 +2093,7 @@ bottom:-35px;
 .blog .blog-pagination li a {
 	padding: 7px 16px;
 	display: inline-block;
+	color: #428bca;
 }
 
 .blog .sidebar {
@@ -2049,10 +2109,12 @@ bottom:-35px;
 	margin: 0 0 15px 0;
 	color: #111;
 	position: relative;
+	text-align: start;
 }
 
 .blog .sidebar .sidebar-item {
 	margin-bottom: 30px;
+	text-align: start;
 }
 
 .blog .sidebar .search-form form {
@@ -2079,14 +2141,14 @@ bottom:-35px;
 	font-size: 16px;
 	padding: 0 15px;
 	margin: -1px;
-	background: #1bbd36;
+	background: #428bca;
 	color: #fff;
 	transition: 0.3s;
 	border-radius: 0 4px 4px 0;
 }
 
 .blog .sidebar .search-form form button:hover {
-	background: #1ed33c;
+	background: #236baa;
 }
 
 .blog .sidebar .categories ul {
@@ -2104,7 +2166,7 @@ bottom:-35px;
 }
 
 .blog .sidebar .categories ul a:hover {
-	color: #1bbd36;
+	color: #428bca;
 }
 
 .blog .sidebar .categories ul a span {
@@ -2134,7 +2196,7 @@ bottom:-35px;
 }
 
 .blog .sidebar .recent-posts h4 a:hover {
-	color: #1bbd36;
+	color: #428bca;
 }
 
 .blog .sidebar .recent-posts time {
@@ -2171,8 +2233,8 @@ bottom:-35px;
 
 .blog .sidebar .tags ul a:hover {
 	color: #fff;
-	border: 1px solid #1bbd36;
-	background: #1bbd36;
+	border: 1px solid #428bca;
+	background: #428bca;
 }
 
 .blog .sidebar .tags ul a span {
