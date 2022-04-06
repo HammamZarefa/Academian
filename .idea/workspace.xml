@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="845b89e3-a634-48a9-a427-aba4eb9c247b" name="Default" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/Order.php" afterPath="$PROJECT_DIR$/app/Order.php" />
       <change beforePath="$PROJECT_DIR$/public/css/app.min.css" afterPath="$PROJECT_DIR$/public/css/app.min.css" />
@@ -16,6 +19,7 @@
       <change beforePath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_7.blade.php" afterPath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_7.blade.php" />
       <change beforePath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_8.blade.php" afterPath="$PROJECT_DIR$/resources/views/website/partials/home_page_section_8.blade.php" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
+>>>>>>> 7b214934c44189fe5dff71564cac1f6546c8a783
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -462,8 +466,19 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+<<<<<<< HEAD
+      <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views\setup" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\Academian\resources\views\video" />
+      <recent name="D:\projects\Academian\resources\views\post" />
+      <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views" />
+      <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views\post" />
+      <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\app\Http\Controllers" />
+=======
       <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\js\components" />
       <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views\setup" />
+>>>>>>> 7b214934c44189fe5dff71564cac1f6546c8a783
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\views\setup" />
@@ -499,7 +514,15 @@
       <option name="presentableId" value="Default" />
       <updated>1648368379174</updated>
       <workItem from="1648368380392" duration="20809000" />
+<<<<<<< HEAD
+      <workItem from="1648664950471" duration="18363000" />
+      <workItem from="1648969050219" duration="922000" />
+      <workItem from="1648970001033" duration="4000" />
+      <workItem from="1648977707345" duration="1667000" />
+      <workItem from="1649152885487" duration="2592000" />
+=======
       <workItem from="1648664950471" duration="44779000" />
+>>>>>>> 7b214934c44189fe5dff71564cac1f6546c8a783
     </task>
     <servers />
   </component>
