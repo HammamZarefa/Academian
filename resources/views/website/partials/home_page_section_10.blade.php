@@ -1,5 +1,6 @@
 <!-- Start Blog -->
-<div class="blog" id="blog">
+<div class="blogs" id="blog">
+    <div class="container">
     <div>
         <h2> @lang('Blog') </h2>
     </div>
@@ -21,7 +22,7 @@
     <div class="text-center mb-100">
         <a href="{{route('blog')}}" class="btn">Read More</a>
     </div>
-
+    </div>
     <!-- Section Gallery ********************************** -->
 <section class="gallery">
     <div class="title">
@@ -31,8 +32,10 @@
     <div id="gallery-images" class="owl-carousel">
         @foreach ($videos as $video)
       <div class="item">
-            <video autoplay=""  loop="" controls=""><source  class="sc" src="{{$video->body}}" /></video>
-      </div>
+      <!-- <iframe width="440" height="315" src="http://www.youtube.com/embed/qpv7sEjx52Y?"></iframe>  -->
+        <!-- <iframe width="440" height="315" src="{{ $video->desc}}"></iframe>   -->
+        <iframe width="440" height="315" src="https://www.youtube.com/embed/qpv7sEjx52Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
             {{--<iframe width="900" height="506" src="{{ $video->desc}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
             @endforeach
     </div> 
@@ -42,6 +45,7 @@
         <video id="video" autoplay="" loop="" controls=""></video>
         </div>
 </section>
+
 <!-- /Gallery Section -->
 </div>
 <!-- End Blog -->

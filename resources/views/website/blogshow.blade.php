@@ -56,9 +56,9 @@
               </h2>
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="{{route('blogshow',$post->slug)}}">{{ $post->user->name }}</a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="{{route('blogshow',$post->slug)}}"><time datetime="2020-01-01">{{ Carbon\Carbon::parse($post->created_at)->format("d F, Y") }}</time></a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="{{ URL::current()}}#disqus_thread">{{ __('home.comments') }}</a></li>
+                  <li class="d-flex align-items-center"><i class="icon-user"></i> <a href="{{route('blogshow',$post->slug)}}">{{ $post->user->name }}</a></li>
+                  <li class="d-flex align-items-center"><i class="icon-clock"></i> <a href="{{route('blogshow',$post->slug)}}"><time datetime="2020-01-01">{{ Carbon\Carbon::parse($post->created_at)->format("d F, Y") }}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="icon-comment"></i> <a href="{{ URL::current()}}#disqus_thread">{{ __('home.comments') }}</a></li>
                 </ul>
               </div>
 
@@ -70,12 +70,12 @@
 
               <div class="entry-footer clearfix">
                 <div class="float-left">
-                  <i class="icofont-folder"></i>
+                  <i class="icon-folder"></i>
                   <ul class="cats">
                     <li><a href="{{ route('category',$post->category->slug) }}">{{ $post->category->name }}</a></li>
                   </ul>
 
-                  <i class="icofont-tags"></i>
+                  <i class="icon-tags"></i>
                   <ul class="tags">
                     @foreach ($tags as $tag)
                    <li><a href="{{ route('tag',$tag->slug) }}">{{ $tag->name }}</a></li>
@@ -97,7 +97,7 @@
               <div class="sidebar-item search-form">
                 <form action="{{ route("search") }}" method="GET">
                   <input type="text" name="query">
-                  <button type="submit"><i class="icofont-search"></i></button>
+                  <button type="submit"><i class="icon-search" style="font-size: 20px;"></i></button>
                 </form>
               </div><!-- End sidebar search formn-->
               <h3 class="sidebar-title">{{ __('home.categories') }}</h3>
