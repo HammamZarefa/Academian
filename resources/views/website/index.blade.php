@@ -7,7 +7,7 @@
     @include('website.partials.home_page_section_5')
     @include('website.partials.home_page_section_6')
     <div class="text-center mb-100">
-        <a href="{{ route('instant_quote') }}" class="boxed_btn">{!! homepage('order_page_link_text') !!}</a>
+        <a href="{{ route('instant_quote') }}" class="boxed_btn">@lang('Calculate your order')</a>
     </div>
     @include('website.partials.home_page_section_7')
     @include('website.partials.home_page_section_10')
