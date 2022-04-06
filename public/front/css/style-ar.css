@@ -1028,7 +1028,8 @@ height: 25%}
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-  }
+	min-height: 265px;
+}
 
   .blogs .img_pod {
 	height: 110px;
@@ -2152,6 +2153,7 @@ bottom:-35px;
 	margin: 0 0 15px 0;
 	color: #111;
 	position: relative;
+	text-align: start;
 }
 
 .blog .sidebar .sidebar-item {

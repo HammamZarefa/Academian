@@ -86,7 +86,7 @@ Blog -
               <div class="sidebar-item search-form">
                 <form action="{{ route("search") }}" method="GET">
                   <input type="text" name="query">
-                  <button type="submit"><i class="icon-search"></i></button>
+                  <button type="submit"><i class="icon-search" style="font-size: 20px;"></i></button>
                 </form>
 
               </div><!-- End sidebar search formn-->
