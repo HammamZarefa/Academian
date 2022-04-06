@@ -14,12 +14,12 @@
             <h1>{{$post->title}}</h1>
             <p>{{$post->body}}</p>
             </div>
-            <a class="btn_primary" href="{{route('blogshow',$post->slug)}}">Read More</a>
+            <a class="btn_primary" href="{{route('blogshow',$post->slug)}}">@lang('Read More')</a>
         </div>
         @endforeach
     </div>
     <div class="text-center mb-100">
-        <a href="{{route('blog')}}" class="btn">Read More</a>
+        <a href="{{route('blog')}}" class="btn">@lang('Read More')</a>
     </div>
 
     <!-- Section Gallery ********************************** -->

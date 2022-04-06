@@ -48,11 +48,11 @@
                 <div><a href="{{ route('instant_quote')}}">
                     <svg width="100%" height="100%">
                         <text x="50%" y="40%" text-anchor="middle" class="un_text">
-                        @lang('University')
+                        @lang('University Approval')
                         </text>
-                        <text x="50%" y="70%" text-anchor="middle" class="un_text">
-                        @lang('Approval')
-                        </text>
+                        {{--<text x="50%" y="70%" text-anchor="middle" class="un_text">--}}
+                        {{--@lang('Approval')--}}
+                        {{--</text>--}}
                         
                     </svg>
                 </a></div>

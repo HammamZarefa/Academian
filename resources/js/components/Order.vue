@@ -17,6 +17,7 @@
                   :restricted_order_page_url="restricted_order_page_url"                  
                   :create_account_url="create_account_url" 
                   :additional_services_by_service_id_url="additional_services_by_service_id_url"
+                  :quest_order_url="quest_order_url"
                   @changeTab="changeTab($event)"
                   @dataChanged="handleServiceSelection($event)"
                 ></ServiceSelection>
@@ -99,7 +100,12 @@ export default {
       type: String,
       default() {
         return null;
-      }
+      }},
+     quest_order_url: {
+            type: String,
+            default() {
+                return null;
+            }
     },
     additional_services_by_service_id_url: {
       type: String,
@@ -153,6 +159,8 @@ export default {
        this.submitForm(mergedRecords);       
      },
     changeTab(tabNumber) {
+         // if(!this.user_id)
+         //     this.user_id=5;
       if (tabNumber == 2 && !this.user_id) {
         window.location = this.restricted_order_page_url;
         return false;

@@ -3,7 +3,7 @@
     <h5 class="card-title">
       Step
       <b>1</b>/
-      <span class="small">3</span> TYPE OF WORK AND DEADLINE ggg
+      <span class="small">3</span> @lang('TYPE OF WORK AND DEADLINE')
 
     </h5>
 
@@ -207,8 +207,7 @@
                 :disabled="hasError"
                 type="button"
                 class="btn btn-success btn-lg btn-block"
-                v-on:click.prevent="changeTab(2)"
-            >
+                v-on:click.prevent="changeTab(2)">
                 <i class="fas fa-arrow-circle-right"></i> Next
             </button>
         </div>
@@ -224,6 +223,10 @@
             <a :href="create_account_url" class="btn btn btn-info btn-lg btn-block">
                 <i class="fas fa-user-plus"></i> Create account
             </a>
+            <a :href="quest_order_url" class="btn btn btn-info btn-lg btn-block">
+                <i class="fas fa-user-plus"></i> Continue as Quest
+            </a>
+
         </div>
     </div>
 </template>
@@ -265,7 +268,7 @@ export default {
         user_id: {
             type: [Boolean, Number],
             default() {
-                return null;
+                return 5;
             }
         },
         restricted_order_page_url: {
@@ -281,6 +284,12 @@ export default {
             }
         },
         create_account_url: {
+            type: String,
+            default() {
+                return null;
+            }
+        },
+        quest_order_url: {
             type: String,
             default() {
                 return null;
