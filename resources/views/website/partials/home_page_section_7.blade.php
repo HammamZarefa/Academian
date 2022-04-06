@@ -12,7 +12,7 @@
             <div class="item col-sm-3 item">
                 <a href="#teacher01" data-toggle="modal">
                     <div class="class_title">
-                        <h2> {{$writer->firstName.' '.$writer->lastName}} </h2>
+                        <h2> {{$writer->first_name.' '.$writer->last_name}} </h2>
                     </div>
                     <figure>
                         <img src="{{asset(Storage::url($writer->photo))}}" alt="">

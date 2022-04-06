@@ -16,7 +16,7 @@
                   :user_id="user_id"
                   :restricted_order_page_url="restricted_order_page_url"                  
                   :create_account_url="create_account_url" 
-                  :additional_services_by_service_id_url="additional_services_by_service_id_url"               
+                  :additional_services_by_service_id_url="additional_services_by_service_id_url"
                   @changeTab="changeTab($event)"
                   @dataChanged="handleServiceSelection($event)"
                 ></ServiceSelection>

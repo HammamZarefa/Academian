@@ -183,9 +183,8 @@ class Order extends Model
     static function customer_dropdown()
     {
         $data['order_status_list'] = [
-                '' => 'All'
-            ] + OrderStatus::orderBy('id', 'ASC')->pluck('name', 'id')->toArray();
-
+            '' => 'All'
+        ] + OrderStatus::orderBy('id', 'ASC')->pluck('name', 'id')->toArray();
         $data['dead_line_list'] = [
             '' => 'N/A',
             'today' => 'Today',
@@ -274,7 +273,6 @@ class Order extends Model
 
             $statuses = array_chunk($statuses, 6);
         }
-
         return $statuses;
     }
 }

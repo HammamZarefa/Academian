@@ -1,62 +1,68 @@
 <template>
-    <div>
-        <h5 class="card-title">
-            Step
-            <b>1</b>/
-            <span class="small">3</span> TYPE OF WORK AND DEADLINE ggg
-        </h5>
+  <div>
+    <h5 class="card-title">
+      Step
+      <b>1</b>/
+      <span class="small">3</span> TYPE OF WORK AND DEADLINE ggg
 
+    </h5>
+
+    <hr />
+    <div>
+      
+    </div>
+    <div class="form-group">
+      <label>Service Category</label>
+              <div class="service_category">
+       <div class="base"  v-for="item in service_categories" :key="item"
+        @click="setServices3(item,item.id,item.worklevel)" :class="[active_services == item.id? 'active':'']">
+         <input class="option-input" :id="`d${item.id}`" type="radio" name="options" style="opacity:0" 
+          :value="item" v-model="form.service_categories_model"  @change="setServices" />
+          <label class="bg" :for="`d${item.id}`"
+          :label="item.name" type="radio" name="service_categories" >
+            {{item.name.en}}
+
+          </label>
+      </div>
+      </div>
+    </div>
+    <div class="form-group" >
+      <label>Service Type</label>
+      <multiselect
+        track-by="id"
+        label="name"
+        v-model="form.service_model"
+        :options="filteredServices"
+        @input="getAdditionalServices(form.service_model)"
+      ></multiselect>
+    </div>
+    <div class="form-group" v-if="show_worklevel">
+      <label>Work Level</label>
+      <div>
+        <div class="btn-group btn-group-toggle flex-wrap" data-toggle="buttons">
+          <label
+            class="btn btn-outline-primary"
+            v-on:click="workLevelChanged(row.id, index)"
+            :class="form.work_level_id === Number(row.id) ? 'active': ''"
+            v-for="(row,index) in levels"
+            :key="index"
+          >
+            <input
+              type="radio"
+              class="btn-group-toggle"
+              :id="'workLevel_' + index"
+              :value="row.id"
+              autocomplete="off"
+              v-model="form.work_level_id"
+            />
+            {{ row.name }}
+          </label>
+        </div>
+      </div>
+    </div>
         <hr />
         <div>
 
-        </div>
-        <div class="form-group">
-            <label>Service Category</label>
-            <div class="service_category">
-                <div class="base"  v-for="item in service_categories" :key="item"
-                     @click="setServices3(item,item.id,item.worklevel)" :class="[active_services == item.id? 'active':'']">
-                    <input class="option-input" :id="`d${item.id}`" type="radio" name="options" style="opacity:0"
-                           :value="item" v-model="form.service_categories_model"  @change="setServices" />
-                    <label class="bg" :for="`d${item.id}`"
-                           :label="item.name" type="radio" name="service_categories" >
-                        {{item.name}}
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="form-group" >
-            <label>Service Type</label>
-            <multiselect
-                track-by="id"
-                label="name"
-                v-model="form.service_model"
-                :options="filteredServices"
-                @input="getAdditionalServices(form.service_model)"
-            ></multiselect>
-        </div>
-        <div class="form-group" v-if="show_worklevel">
-            <label>Work Level</label>
-            <div>
-                <div class="btn-group btn-group-toggle flex-wrap" data-toggle="buttons">
-                    <label
-                        class="btn btn-outline-primary"
-                        v-on:click="workLevelChanged(row.id, index)"
-                        :class="form.work_level_id === Number(row.id) ? 'active': ''"
-                        v-for="(row,index) in levels"
-                        :key="index"
-                    >
-                        <input
-                            type="radio"
-                            class="btn-group-toggle"
-                            :id="'workLevel_' + index"
-                            :value="row.id"
-                            autocomplete="off"
-                            v-model="form.work_level_id"
-                        />
-                        {{ row.name }}
-                    </label>
-                </div>
-            </div>
         </div>
 
         <div class="form-row" v-if="form.service_model.price_type_id == pricingTypes.perPage">
