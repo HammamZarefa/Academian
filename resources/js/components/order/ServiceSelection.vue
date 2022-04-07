@@ -1,10 +1,14 @@
 <template>
   <div>
     <h5 class="card-title">
-      Step
+   {{ $t('Arabic.Home') }}  
+   <!-- step -->
       <b>1</b>/
       <span class="small">3</span> @lang('TYPE OF WORK AND DEADLINE')
-
+ <select v-model="Locale" @change="handleChange($event)">
+                            <option value="en">English</option>
+                            <option value="ar">العربية</option>
+                        </select>
     </h5>
 
     <hr />
@@ -20,7 +24,7 @@
           :value="item" v-model="form.service_categories_model"  @change="setServices" />
           <label class="bg" :for="`d${item.id}`"
           :label="item.name" type="radio" name="service_categories" >
-            {{item.name.en}}
+           {{item.name[lang] }} 
 
           </label>
       </div>
@@ -320,7 +324,9 @@ export default {
         }
     },
     data() {
+          const Locale = localStorage.getItem('Locale') || 'en';
         return {
+            Locale:Locale,
             passParam:false,
             params : {},
             hasError:false,
@@ -386,6 +392,10 @@ export default {
         // console.log('filteredServices:',this.filteredServices);
     },
     methods: {
+         handleChange (event) {
+            localStorage.setItem('lang', event.target.value);
+            window.location.reload();
+        },
         setServices(){
             this.form.service_model = this.filteredServices[0];
         },

@@ -339,7 +339,8 @@ p{
 	height: 50px;
 }
 .slider{
-	background: url("../img/form-bg-2.jpg");
+	background: url("../img/student.jpg");
+	background-size: cover;
 	padding: 100px 0 130px 0; 
 }
 .slider h2, .slider h3,.slider h4 {
@@ -1202,7 +1203,7 @@ height: 25%}
 
 /*  */
 .patterns {
-	background-color: #ffffff1f;
+	background-color: #0909095e;
 	border-radius: 5px;
 	transition: .3s;
 }
@@ -1220,7 +1221,7 @@ height: 25%}
 svg text {
 	font-family: Lora;
 	letter-spacing: 2px;
-	stroke: #46627e;
+	stroke: #68b8fa9f;
 	font-size: 4vw;
 	font-weight: 700;
 	stroke-width: 3;
@@ -1490,9 +1491,9 @@ svg .un_text{
 }
 .slider .botto div{
 	width: 49%;
-	background-color: #ffffff1f;
+	background-color: #0909095e;
 	border-radius: 5px;
-	padding: 15px;
+	padding: 10px;
 	transition: .3s;
 }
 .slider .botto div:hover{
