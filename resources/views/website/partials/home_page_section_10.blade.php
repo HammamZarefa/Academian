@@ -39,11 +39,6 @@
             {{--<iframe width="900" height="506" src="{{ $video->desc}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
             @endforeach
     </div> 
-        <div class="overlay" id="overlay"></div>
-        <!-- type="video/mp4" -->
-        <div id="show_videos">
-        <video id="video" autoplay="" loop="" controls=""></video>
-        </div>
 </section>
 <!-- /Gallery Section -->
 </div>
