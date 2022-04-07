@@ -35,7 +35,7 @@ class LanguageController extends Controller
 
 
 
-        $data = file_get_contents(resource_path('lang/') . 'en.json');
+        $data = file_get_contents(resource_path('lang/') . 'English.json');
         $json_file = strtolower($request->code) . '.json';
         $path = resource_path('lang/') . $json_file;
 
@@ -68,7 +68,7 @@ class LanguageController extends Controller
         $la = new Language();
         $la = Language::findOrFail($id);
 
-       
+
 
         if ($request->is_default) {
             $lang = $la->where('is_default', 1)->first();

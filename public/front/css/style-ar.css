@@ -1274,6 +1274,7 @@ svg .translate{
 }
 svg .Writing{
 	animation: textWriting 4.5s infinite alternate  ;
+	stroke: rgba(255, 255, 255, 0.541);
 }
 svg .un_text{
 	font-size: 30px;
@@ -1289,14 +1290,14 @@ svg .un_text{
 	0% {
 		stroke-dasharray: 0 50%;
 		stroke-dashoffset:  20%;
-		fill:hsl(189, 44%, 51%)
+		fill:#007ee5
 
 	}
 
 	100% {
 		stroke-dasharray: 50% 0;
 		stroke-dashoffstet: -20%;
-		fill: hsla(189, 68%, 75%,0%)
+		fill: #007ee546
 	}
 
 }
@@ -1319,14 +1320,14 @@ svg .un_text{
 	0% {
 		stroke-dasharray: 0 50%;
 		stroke-dashoffset:  20%;
-		fill:#9ec5ec;
+		fill:#46627e;
 
 	}
 
 	100% {
 		stroke-dasharray: 50% 0;
 		stroke-dashoffstet: -20%;
-		fill: #6f73743a
+		fill: #46627e3b
 	}
 
 }
@@ -1675,54 +1676,6 @@ bottom:-35px;
     border-radius:20px;
     margin-top:-1px;
 }
-#gallery-images video{
-    width: 100%;
-}
-
-#show_videos{
-	display: none;
-	position: absolute;
-	top: 0;
-	z-index: 9001;
-	width: 80%;
-	left: 50%;
-	transform: translate(-50%,0);
-}
-#show_videos video{
-    width: 100%;
-}
-/* extar Small devices (landscape phones, 576px and up) */
-
-@media (max-width: 575.98px) {
-	#show_videos{
-		top: 50%;
-		z-index: 9001;
-		width: 100%;
-		left: 0;
-		transform: translate(0,-21%);
-	}
-}
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-	#show_videos{
-		top: 50%;
-		z-index: 9001;
-		width: 100%;
-		left: 0;
-		transform: translate(0,-37%);
-	}
-}
-.overlay{
-	background-color: rgba(0, 0, 0, 0.2);
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 4;
-    top:  0;
-    display: none;
-}
-
-  /* End Video */
 
 /*--------------------------------------------------------------
 # Blog

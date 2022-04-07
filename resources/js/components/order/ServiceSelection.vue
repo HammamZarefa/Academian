@@ -1,8 +1,7 @@
 <template>
   <div>
     <h5 class="card-title">
-   {{ $t('Arabic.Home') }}  
-   <!-- step -->
+    step
       <b>1</b>/
       <span class="small">3</span> @lang('TYPE OF WORK AND DEADLINE')
  <select v-model="Locale" @change="handleChange($event)">

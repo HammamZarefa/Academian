@@ -34,7 +34,7 @@
       <div class="item">
       <!-- <iframe width="440" height="315" src="http://www.youtube.com/embed/qpv7sEjx52Y?"></iframe>  -->
         <!-- <iframe width="440" height="315" src="{{ $video->desc}}"></iframe>   -->
-        <iframe width="440" height="315" src="https://www.youtube.com/embed/qpv7sEjx52Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
+        <iframe class="vid" width="440" height="315" src="https://www.youtube.com/embed/qpv7sEjx52Y" frameborder="0" allowfullscreen></iframe>
         </div>
             {{--<iframe width="900" height="506" src="{{ $video->desc}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
             @endforeach
@@ -45,7 +45,6 @@
         <video id="video" autoplay="" loop="" controls=""></video>
         </div>
 </section>
-
 <!-- /Gallery Section -->
 </div>
 <!-- End Blog -->

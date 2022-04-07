@@ -33,10 +33,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>@lang('blog') </h2>
+          <h2>@lang('Blog') </h2>
           <ol>
-            <li><a href="/">@lang('home') </a></li>
-            <li>@lang('blog') </li>
+            <li><a href="/">@lang('Home') </a></li>
+            <li>@lang('Blog') </li>
           </ol>
         </div>
       </div>
@@ -58,7 +58,7 @@
                 <ul>
                   <li class="d-flex align-items-center"><i class="icon-user"></i> <a href="{{route('blogshow',$post->slug)}}">{{ $post->user->name }}</a></li>
                   <li class="d-flex align-items-center"><i class="icon-clock"></i> <a href="{{route('blogshow',$post->slug)}}"><time datetime="2020-01-01">{{ Carbon\Carbon::parse($post->created_at)->format("d F, Y") }}</time></a></li>
-                  <li class="d-flex align-items-center"><i class="icon-comment"></i> <a href="{{ URL::current()}}#disqus_thread">{{ __('home.comments') }}</a></li>
+                  <li class="d-flex align-items-center"><i class="icon-comment"></i> <a href="{{ URL::current()}}#disqus_thread">@lang('Comments')</a></li>
                 </ul>
               </div>
 
@@ -93,14 +93,14 @@
           </div><!-- End blog entries list -->
           <div class="col-lg-4">
             <div class="sidebar" data-aos="fade-left">
-              <h3 class="sidebar-title">{{ __('home.search') }}</h3>
+              <h3 class="sidebar-title">@lang('Search')</h3>
               <div class="sidebar-item search-form">
                 <form action="{{ route("search") }}" method="GET">
                   <input type="text" name="query">
                   <button type="submit"><i class="icon-search" style="font-size: 20px;"></i></button>
                 </form>
               </div><!-- End sidebar search formn-->
-              <h3 class="sidebar-title">{{ __('home.categories') }}</h3>
+              <h3 class="sidebar-title"> @lang('Categories')</h3>
               <div class="sidebar-item categories">
                 <ul>
                   @foreach ($categories as $category)
@@ -108,7 +108,7 @@
                   @endforeach
                 </ul>
               </div><!-- End sidebar categories-->
-              <h3 class="sidebar-title">@lang('recentposts') </h3>
+              <h3 class="sidebar-title">@lang('Recent Posts') </h3>
               <div class="sidebar-item recent-posts">
                 @foreach ($recent as $recent)
                 <div class="post-item clearfix">
@@ -118,7 +118,7 @@
                 </div>
                 @endforeach
               </div><!-- End sidebar recent posts-->
-              <h3 class="sidebar-title">@lang('home.tags') </h3>
+              <h3 class="sidebar-title">@lang('Tags') </h3>
               <div class="sidebar-item tags">
                 <ul>
                   @foreach ($tags as $tag)
