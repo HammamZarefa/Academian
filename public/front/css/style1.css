@@ -1548,6 +1548,104 @@ section {
     margin-top: 30px;
   }
 }
+/* Slider Button Styling // Gallery */
+.gallery {
+	position: relative;
+	padding: 50px 0;
+}
+.gallery .item{
+	cursor: pointer;
+}
+.gallery .owl-item{
+	width: 40%;
+}
+.owl-controls {
+    text-align:center;
+    height:35px;
+}
+section.gallery .owl-buttons {
+    font-family:"FontAwesome";
+    display:inline-block;
+    font-style:normal;
+    font-weight:normal;
+    -webkit-font-smoothing: antialiased;
+    font-size:33px;
+    bottom:15px;
+    z-index:9000;
+    margin: 0 auto;
+    text-align:center;
+    width: 300px;
+	position: absolute;
+	left: 50%;
+	margin-left: -150px;
+}
+section.gallery .owl-buttons div {
+    color:#fff;
+    transition:.3s all ease-in-out;
+    -webkit-transition:.3s all ease-in-out;
+    -moz-transition:.3s all ease-in-out;
+    text-align:center;
+	
+}
+section.gallery .owl-buttons div.owl-prev {
+    display:inline-block;
+    left:20px;
+    position:absolute;
+}
+section.gallery .owl-buttons div.owl-prev::after{
+	font-family: "Font Awesome 5 Free";
+   content: "\f359";
+   display: inline-block;
+   padding-right: 3px;
+   vertical-align: middle;
+   font-weight: 900;
+   color:#46627e;
+  	
+}
+section.gallery .owl-buttons div.owl-next::after{
+   font-family: "Font Awesome 5 Free";
+   content: "\f35a";
+   display: inline-block;
+   padding-right: 3px;
+   vertical-align: middle;
+   font-weight: 900;
+   color:#46627e;
+  	
+}
+
+section.gallery .owl-buttons div.owl-next {
+    display:inline-block;
+    right:20px;
+    position:absolute;
+}
+
+
+/* Pagination Styling // Gallery */
+#gallery-images .owl-pagination div {
+    border-radius:10px;
+    width:10px;
+    height:10px;
+    background:#cfcfcf;
+    float:left;
+    margin:0 5px;
+}
+#gallery-images .owl-pagination {
+    position: relative;
+margin:0 auto;
+display:inline-block;
+padding:0;
+bottom:-35px;
+}
+#gallery-images .owl-pagination div.active {
+    background:transparent;
+    border:2px solid #464e54;
+    height:12px;
+    width:12px;
+    border-radius:20px;
+    margin-top:-1px;
+}
+
+  /* End Video */
 
 /*--------------------------------------------------------------
 # Blog

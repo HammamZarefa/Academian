@@ -63,8 +63,8 @@
                             @else
                                 <a href="/instant-quote?Service_Category=2">
                                     @endif
-                    <svg width="100%" height="100%">
-                        <text x="50%" y="40%" text-anchor="middle" class="un_text">
+                    <svg width="104%" height="100%">
+                        <text x="50%" y="60%" text-anchor="middle" class="un_text">
                         @lang('University Approval')
                         </text>
                         {{--<text x="50%" y="70%" text-anchor="middle" class="un_text">--}}
@@ -74,6 +74,7 @@
                     </svg>
                 </a></div>
             </div>
+            
         </div>
     </div>
 </section>
