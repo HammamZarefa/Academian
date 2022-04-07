@@ -53,7 +53,7 @@ class PostController extends Controller
             "meta_desc" => "required"
         ])->validate();
         $data = $request->all();
-        $data['slug'] = \Str::slug(request('title_en'));
+        $data['slug'] = \Str::slug($request->title['en']);
         $data['category_id'] = request('category');
         $data['status'] = 'PUBLISH';
         $data['author_id'] = Auth::user()->id;
@@ -123,9 +123,10 @@ class PostController extends Controller
             "keyword" => "required",
             "meta_desc" => "required"
         ])->validate();
+
         $post = Post::findOrFail($post);
         $data = $request->all();
-        $data['slug'] = \Str::slug(request('title_en'));
+        $data['slug'] = \Str::slug($request->title['en']);
         $data['category_id'] = request('category');
         $cover = $request->file('cover');
         if ($cover) {

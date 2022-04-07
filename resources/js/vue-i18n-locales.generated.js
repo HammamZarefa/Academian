@@ -435,7 +435,9 @@ export default {
         "Send Invitation": "",
         "This website uses cookies to ensure you get the best experience on our website": "",
         "Got it": "",
-        "All rights reserved.": ""
+        "All rights reserved.": "",
+        "Editing": "التحرير",
+        "Resume Writing": ""
     },
     "en": {
         "auth": {
