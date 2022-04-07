@@ -3,7 +3,7 @@
     <h5 class="card-title">
       Step
       <b>1</b>/
-      <span class="small">3</span> @lang('TYPE OF WORK AND DEADLINE')
+      <span class="small">3</span> lang.get('TYPE OF WORK AND DEADLINE')
 
     </h5>
 
@@ -20,7 +20,7 @@
           :value="item" v-model="form.service_categories_model"  @change="setServices" />
           <label class="bg" :for="`d${item.id}`"
           :label="item.name" type="radio" name="service_categories" >
-            {{item.name.en}}
+              {{ translate(item.name) }}
 
           </label>
       </div>

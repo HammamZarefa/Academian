@@ -53,14 +53,22 @@ window.dateRanges = {
  window.GrowlNotification = require('./growl-notification.min');
 
 import VueFileAgent from 'vue-file-agent';
-import VueFileAgentStyles from 'vue-file-agent/dist/vue-file-agent.css';
+import * as VueInternationalization from 'vue-i18n';
+import Locale from './vue-i18n-locales.generated';
 
-
+Vue.use(VueInternationalization);
 Vue.use(VueFileAgent);
+const lang = localStorage.getItem('locale') || 'en';
 
+const i18n = new VueInternationalization({
+    locale: lang,
+    messages: Locale
+});
 Vue.component('Order', require('./components/Order.vue').default);
 Vue.component('SubmitWork', require('./components/SubmitWork.vue').default);
 Vue.component('Notification', require('./components/Notification.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -70,6 +78,9 @@ Vue.component('Notification', require('./components/Notification.vue').default);
 
 const app = new Vue({
     el: '#app',
+    store,
+    i18n,
+
 });
 
 
