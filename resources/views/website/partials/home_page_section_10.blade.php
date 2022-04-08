@@ -26,7 +26,7 @@
     <!-- Section Gallery ********************************** -->
 <section class="gallery">
     <div class="title">
-      <h2 style="padding: 0 20px;">Some video previews for you. <b>Click to zoom</b></h2>
+      <h2 style="padding: 0 20px;">Videos</h2>
     </div><!-- Title -->
 
     <div id="gallery-images" class="owl-carousel">
@@ -34,7 +34,7 @@
       <div class="item">
       <!-- <iframe width="440" height="315" src="http://www.youtube.com/embed/qpv7sEjx52Y?"></iframe>  -->
         <!-- <iframe width="440" height="315" src="{{ $video->desc}}"></iframe>   -->
-        <iframe class="vid" width="440" height="315" src="https://www.youtube.com/embed/qpv7sEjx52Y" frameborder="0" allowfullscreen></iframe>
+        <iframe class="vid" width="440" height="315" src="https://www.youtube.com/embed/BVxYAIQLewA" frameborder="0" allowfullscreen></iframe>
         </div>
             {{--<iframe width="900" height="506" src="{{ $video->desc}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
             @endforeach
@@ -43,3 +43,4 @@
 <!-- /Gallery Section -->
 </div>
 <!-- End Blog -->
+{{--<iframe width="900" height="506" src="https://www.youtube.com/embed/BVxYAIQLewA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}

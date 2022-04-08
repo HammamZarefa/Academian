@@ -96835,7 +96835,7 @@ var staticRenderFns = [
       _c("b", [_vm._v("1")]),
       _vm._v("/\n      "),
       _c("span", { staticClass: "small" }, [_vm._v("3")]),
-      _vm._v(" @lang('TYPE OF WORK AND DEADLINE')\n    ")
+      _vm._v(" TYPE OF WORK AND DEADLINE\n    ")
     ])
   },
   function() {
