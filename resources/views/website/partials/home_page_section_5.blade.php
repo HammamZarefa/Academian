@@ -1,7 +1,11 @@
 <!-- Slider -->
 <section class="slider" id="menu-slider">
     <div class="contain">
-        <a href="{{ route('instant_quote')}}" >
+        @if(auth()->check())
+            <a href="/orders/create?Service_Category=1">
+        @else
+            <a href="/instant-quote?Service_Category=1">
+        @endif
             <div class="patterns big">
                 <svg width="100%">
                     <text x="50%" y="60%" text-anchor="middle">
@@ -21,7 +25,11 @@
             </div>
         </a>
         <div class="right">
-            <a href="{{ route('instant_quote')}}">
+            @if(auth()->check())
+                <a href="/orders/create?Service_Category=3">
+                    @else
+                        <a href="/instant-quote?Service_Category=3">
+                            @endif
                 <div class="patterns">
                 <svg width="100%" height="100%">
                     <text x="50%" y="60%" text-anchor="middle" class="translate" >
@@ -33,30 +41,40 @@
                             <span class="block translat" ></span>
                             <h1 >@lang('between 4 languges')<span></span></h1>
                         </div>
-                                
+
                     </div>
                 </div>
             </a>
             <div class="botto">
-                <div><a href="{{ route('instant_quote')}}">
+                <div>@if(auth()->check())
+                        <a href="/orders/create?Service_Category=6">
+                            @else
+                                <a href="/instant-quote?Service_Category=6">
+                                    @endif
                     <svg width="100%" height="100%">
                         <text x="50%" y="60%" text-anchor="middle" class="un_text Writing">
                         @lang('CV Writing')
                         </text>
                     </svg>
-                </a></div>
-                <div><a href="{{ route('instant_quote')}}">
-                    <svg width="100%" height="100%">
-                        <text x="50%" y="40%" text-anchor="middle" class="un_text">
+                </a>
+                </div>
+                <div>@if(auth()->check())
+                        <a href="/orders/create?Service_Category=2">
+                            @else
+                                <a href="/instant-quote?Service_Category=2">
+                                    @endif
+                    <svg width="104%" height="100%">
+                        <text x="50%" y="60%" text-anchor="middle" class="un_text">
                         @lang('University Approval')
                         </text>
                         {{--<text x="50%" y="70%" text-anchor="middle" class="un_text">--}}
                         {{--@lang('Approval')--}}
                         {{--</text>--}}
-                        
+
                     </svg>
                 </a></div>
             </div>
+            
         </div>
     </div>
 </section>

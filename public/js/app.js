@@ -3779,6 +3779,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3867,7 +3870,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
+    var Locale = localStorage.getItem('Locale') || 'en';
     return {
+      Locale: Locale,
       passParam: false,
       params: {},
       hasError: false,
@@ -3938,6 +3943,10 @@ __webpack_require__.r(__webpack_exports__);
 
   },
   methods: {
+    handleChange: function handleChange(event) {
+      localStorage.setItem('lang', event.target.value);
+      window.location.reload();
+    },
     setServices: function setServices() {
       this.form.service_model = this.filteredServices[0];
     },
@@ -96230,7 +96239,51 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("h5", { staticClass: "card-title" }, [
+      _vm._v("\n   step\n     "),
+      _c("b", [_vm._v("1")]),
+      _vm._v("/\n     "),
+      _c("span", { staticClass: "small" }, [_vm._v("3")]),
+      _vm._v(" @lang('TYPE OF WORK AND DEADLINE')\n"),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.Locale,
+              expression: "Locale"
+            }
+          ],
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.Locale = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              function($event) {
+                return _vm.handleChange($event)
+              }
+            ]
+          }
+        },
+        [
+          _c("option", { attrs: { value: "en" } }, [_vm._v("English")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "ar" } }, [_vm._v("العربية")])
+        ]
+      )
+    ]),
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
@@ -96299,9 +96352,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n            " +
-                      _vm._s(_vm.translate(item.name)) +
-                      "\n\n        "
+                    "\n          " +
+                      _vm._s(item.name[_vm.lang]) +
+                      " \n\n         "
                   )
                 ]
               )
@@ -96392,7 +96445,7 @@ var render = function() {
                         }
                       }
                     }),
-                    _vm._v("\n          " + _vm._s(row.name) + "\n        ")
+                    _vm._v("\n           " + _vm._s(row.name) + "\n         ")
                   ]
                 )
               }),
@@ -96481,7 +96534,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group col-md-8" }, [
-            _vm._m(1),
+            _vm._m(0),
             _vm._v(" "),
             _c("div", [
               _c(
@@ -96530,9 +96583,9 @@ var render = function() {
                         }
                       }),
                       _vm._v(
-                        "\n                          " +
+                        "\n                           " +
                           _vm._s(row.name) +
-                          "\n                      "
+                          "\n                       "
                       )
                     ]
                   )
@@ -96701,16 +96754,16 @@ var render = function() {
                                       _c("i", {
                                         staticClass: "fas fa-check-circle"
                                       }),
-                                      _vm._v(" Added\n                ")
+                                      _vm._v(" Added\n                 ")
                                     ])
                                   : _c("span", [
                                       _c("i", { staticClass: "fas fa-plus" }),
-                                      _vm._v(" Add\n                ")
+                                      _vm._v(" Add\n                 ")
                                     ]),
                                 _vm._v(
-                                  "\n                                  " +
+                                  "\n                                   " +
                                     _vm._s(_vm._f("formatMoney")(row.rate)) +
-                                    "\n                              "
+                                    "\n                               "
                                 )
                               ]
                             )
@@ -96743,7 +96796,7 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-arrow-circle-right" }),
-              _vm._v(" Next\n          ")
+              _vm._v(" Next\n           ")
             ]
           )
         ])
@@ -96762,7 +96815,7 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-sign-in-alt" }),
-              _vm._v(" Sign in to place your order\n          ")
+              _vm._v(" Sign in to place your order\n           ")
             ]
           ),
           _vm._v(" "),
@@ -96774,7 +96827,7 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-user-plus" }),
-              _vm._v(" Create account\n          ")
+              _vm._v(" Create account\n           ")
             ]
           ),
           _vm._v(" "),
@@ -96786,7 +96839,7 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-user-plus" }),
-              _vm._v(" Continue as Quest\n          ")
+              _vm._v(" Continue as Quest\n           ")
             ]
           )
         ])
@@ -96797,20 +96850,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h5", { staticClass: "card-title" }, [
-      _vm._v("\n    Step\n    "),
-      _c("b", [_vm._v("1")]),
-      _vm._v("/\n    "),
-      _c("span", { staticClass: "small" }, [_vm._v("3")]),
-      _vm._v(" lang.get('TYPE OF WORK AND DEADLINE')\n\n  ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("\n                  Spacing\n                  "),
+      _vm._v("\n                   Spacing\n                   "),
       _c(
         "span",
         {
@@ -109061,16 +109102,21 @@ window.dateRanges = {
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 window.GrowlNotification = __webpack_require__(/*! ./growl-notification.min */ "./resources/js/growl-notification.min.js");
+ // *************** i18n ***************
 
 
+ //  import ar from '../lang/Arabic.json';
+// import en from '../lang/en.json';
 
-Vue.use(vue_i18n__WEBPACK_IMPORTED_MODULE_1__);
+Vue.use(vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]);
 Vue.use(vue_file_agent__WEBPACK_IMPORTED_MODULE_0___default.a);
-var lang = localStorage.getItem('locale') || 'en';
-var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__({
-  locale: lang,
-  messages: _vue_i18n_locales_generated__WEBPACK_IMPORTED_MODULE_2__["default"]
-});
+var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  locale: localStorage.getItem('Locale') || 'en',
+  messages: {
+    Locale: _vue_i18n_locales_generated__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }
+}); // *************** i18n ***************
+
 Vue.component('Order', __webpack_require__(/*! ./components/Order.vue */ "./resources/js/components/Order.vue")["default"]);
 Vue.component('SubmitWork', __webpack_require__(/*! ./components/SubmitWork.vue */ "./resources/js/components/SubmitWork.vue")["default"]);
 Vue.component('Notification', __webpack_require__(/*! ./components/Notification.vue */ "./resources/js/components/Notification.vue")["default"]);
@@ -109082,7 +109128,6 @@ Vue.component('Notification', __webpack_require__(/*! ./components/Notification.
 
 var app = new Vue({
   el: '#app',
-  store: store,
   i18n: i18n
 });
 

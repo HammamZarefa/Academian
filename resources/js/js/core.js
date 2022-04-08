@@ -16,23 +16,19 @@ $(document).ready(function() {
     pagination : true,
     navigationText : ["&#xf190;","&#xf18e;"]
 });
+$('.vid').each(function(el){
+  var _this = $(this);
+  var scc = _this[0].src;
+  _this.on('mouseover', function(ev) {
+    _this.attr('src',scc+"?autoplay=1");
+    ev.preventDefault();
 
-$(function () {
-  $("#gallery-images video").click(function() {
-       const srcvideo = $(this).children('.sc').prop("src");
-       
-       $("#gallery-images").fadeOut();
-       $("#overlay").fadeIn();
-       $("#show_videos").fadeIn();
-       $("#video").attr("src",srcvideo);
-       console.log($("#video").attr("src"));
   });
-  $("#overlay").click(function() {
-    $("#overlay").fadeOut();
-    $("#show_videos").fadeOut();
-    $("#gallery-images").fadeIn();
+  _this.on('mouseleave', function(ev) {
 
-});
-});
+    _this.attr('src',scc);
+    ev.preventDefault();
 
+  });
+});
 });
