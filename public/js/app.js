@@ -3782,6 +3782,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3943,9 +3951,8 @@ __webpack_require__.r(__webpack_exports__);
 
   },
   methods: {
-    handleChange: function handleChange(event) {
-      localStorage.setItem('lang', event.target.value);
-      window.location.reload();
+    setServicesType: function setServicesType(t) {
+      this.form.service_model = t;
     },
     setServices: function setServices() {
       this.form.service_model = this.filteredServices[0];
@@ -13900,7 +13907,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".service_category[data-v-5fbbe9ba] {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}\n.service_category .base[data-v-5fbbe9ba] {\n  position: relative;\n  display: grid;\n  grid-template-columns: repeat(30, 1fr);\n  grid-template-rows: repeat(10, 1fr);\n  width: 150px;\n  height: 50px;\n  border-radius: 0.3rem;\n  margin-bottom: 15px;\n  color: #fff;\n  background: #a9afb0;\n  cursor: pointer;\n  transition: 0.3s;\n  font: 700 18px sans-serif;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);\n}\n.service_category .base[data-v-5fbbe9ba]:hover {\n  background: #5e72e4;\n}\n.service_category .base.active[data-v-5fbbe9ba] {\n  background: #5e72e4;\n  box-shadow: 0 8px 16px #5e72e4;\n}\n.service_category .bg[data-v-5fbbe9ba] {\n  position: absolute;\n  z-index: 10;\n  left: 0;\n  top: 0;\n  display: grid;\n  place-content: center;\n  width: 100%;\n  height: 100%;\n  grid-column: 1/span 30;\n  grid-row: 1/span 10;\n  transition: opacity 0.3s;\n  pointer-events: none;\n  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);\n}", ""]);
+exports.push([module.i, ".service_category[data-v-5fbbe9ba] {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}\n.service_category .base[data-v-5fbbe9ba] {\n  position: relative;\n  display: grid;\n  grid-template-columns: repeat(30, 1fr);\n  grid-template-rows: repeat(10, 1fr);\n  width: 150px;\n  height: 50px;\n  border-radius: 0.3rem;\n  margin-bottom: 15px;\n  color: #fff;\n  background: #a9afb0;\n  cursor: pointer;\n  transition: 0.3s;\n  font: 700 16px sans-serif;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);\n}\n.service_category .base[data-v-5fbbe9ba]:hover {\n  background: #5e72e4;\n}\n.service_category .base.active[data-v-5fbbe9ba] {\n  background: #5e72e4;\n  box-shadow: 0 8px 16px #5e72e4;\n}\n.service_category .bg[data-v-5fbbe9ba] {\n  position: absolute;\n  z-index: 10;\n  left: 0;\n  top: 0;\n  display: grid;\n  place-content: center;\n  width: 100%;\n  height: 100%;\n  grid-column: 1/span 30;\n  grid-row: 1/span 10;\n  transition: opacity 0.3s;\n  pointer-events: none;\n  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);\n}\n\n/* Follow me for more pens like this! */\n/* Tweak to change the look and feel */\n/* Boring button styles */\na.button[data-v-5fbbe9ba] {\n  /* Frame */\n  display: inline-block;\n  padding: 3px 15px;\n  border-radius: 5px;\n  box-sizing: border-box;\n  /* Style */\n  border: none;\n  background: #fff;\n  color: #5e6e7e;\n  font-size: 18px;\n  cursor: pointer;\n}\na.button[data-v-5fbbe9ba]:active {\n  -webkit-filter: brightness(75%);\n          filter: brightness(75%);\n}\n\n/* Dropdown styles */\n.dropdown[data-v-5fbbe9ba] {\n  position: relative;\n  padding: 0;\n  height: 40px;\n  border: 1px solid #ececec;\n  border-radius: 5px;\n}\n\n/* Dropdown triangle */\n.dropdown summary[data-v-5fbbe9ba] {\n  list-style: none;\n  list-style-type: none;\n  position: relative;\n}\n.dropdown summary i[data-v-5fbbe9ba] {\n  position: absolute;\n  right: 14px;\n  top: 10px;\n  color: #999999;\n}\n.dropdown > summary[data-v-5fbbe9ba]::-webkit-details-marker {\n  display: none;\n}\n.dropdown summary[data-v-5fbbe9ba]:focus {\n  outline: none;\n}\n.dropdown summary:focus a.button[data-v-5fbbe9ba] {\n  border: 2px solid white;\n}\n.dropdown summary[data-v-5fbbe9ba]:focus {\n  outline: none;\n}\n.dropdown ul[data-v-5fbbe9ba] {\n  position: absolute;\n  margin: 20px 0 0 0;\n  padding: 0;\n  width: 100%;\n  height: 215px;\n  overflow-y: scroll;\n  left: 0;\n  top: 42px;\n  margin: 0;\n  box-sizing: border-box;\n  z-index: 3;\n  border: 1px solid #ececec;\n  background: #fff;\n  border-radius: 5px;\n  list-style: none;\n}\n.dropdown ul li[data-v-5fbbe9ba] {\n  padding: 0;\n  margin: 0;\n}\n.dropdown ul li a[data-v-5fbbe9ba]:link, .dropdown ul li a[data-v-5fbbe9ba]:visited {\n  display: inline-block;\n  padding: 6px 0.8rem;\n  width: 100%;\n  box-sizing: border-box;\n  color: black;\n  text-decoration: none;\n}\n.dropdown ul li a[data-v-5fbbe9ba]:hover {\n  background-color: #2caf72;\n  color: #fff;\n}\n.dropdown ul li a.active[data-v-5fbbe9ba]:hover {\n  background-color: #fa4f61;\n  color: #fff;\n}\n\n/* Close the dropdown with outside clicks */\n.dropdown > summary[data-v-5fbbe9ba]::before {\n  display: none;\n}\n.dropdown[open] > summary[data-v-5fbbe9ba]::before {\n  content: \" \";\n  display: block;\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  z-index: 1;\n}", ""]);
 
 // exports
 
@@ -96239,51 +96246,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h5", { staticClass: "card-title" }, [
-      _vm._v("\n   step\n     "),
-      _c("b", [_vm._v("1")]),
-      _vm._v("/\n     "),
-      _c("span", { staticClass: "small" }, [_vm._v("3")]),
-      _vm._v(" @lang('TYPE OF WORK AND DEADLINE')\n"),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.Locale,
-              expression: "Locale"
-            }
-          ],
-          on: {
-            change: [
-              function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.Locale = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              },
-              function($event) {
-                return _vm.handleChange($event)
-              }
-            ]
-          }
-        },
-        [
-          _c("option", { attrs: { value: "en" } }, [_vm._v("English")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "ar" } }, [_vm._v("العربية")])
-        ]
-      )
-    ]),
+    _vm._m(0),
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
@@ -96352,9 +96315,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n          " +
-                      _vm._s(item.name[_vm.lang]) +
-                      " \n\n         "
+                    "\n           " +
+                      _vm._s(item.name[_vm.Locale]) +
+                      " \n\n          "
                   )
                 ]
               )
@@ -96365,34 +96328,50 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c("label", [_vm._v("Service Type")]),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("Service Type")]),
+      _vm._v(" "),
+      _c("details", { staticClass: "dropdown" }, [
+        _c("summary", { attrs: { role: "button" } }, [
+          _c("a", { staticClass: "button" }, [
+            _vm._v(_vm._s(_vm.form.service_model.name[_vm.Locale]))
+          ]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-caret-down" })
+        ]),
         _vm._v(" "),
-        _c("multiselect", {
-          attrs: {
-            "track-by": "id",
-            label: "name",
-            options: _vm.filteredServices
-          },
-          on: {
-            input: function($event) {
-              return _vm.getAdditionalServices(_vm.form.service_model)
-            }
-          },
-          model: {
-            value: _vm.form.service_model,
-            callback: function($$v) {
-              _vm.$set(_vm.form, "service_model", $$v)
-            },
-            expression: "form.service_model"
-          }
-        })
-      ],
-      1
-    ),
+        _c(
+          "ul",
+          _vm._l(_vm.filteredServices, function(item) {
+            return _c(
+              "li",
+              {
+                key: item,
+                on: {
+                  click: function($event) {
+                    _vm.getAdditionalServices(_vm.form.service_model)
+                    _vm.setServicesType(item)
+                  }
+                }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    class: [
+                      _vm.form.service_model.id == item.id ? "active" : ""
+                    ],
+                    attrs: { href: "#" }
+                  },
+                  [_vm._v(_vm._s(item.name[_vm.Locale]))]
+                )
+              ]
+            )
+          }),
+          0
+        )
+      ])
+    ]),
     _vm._v(" "),
     _vm.show_worklevel
       ? _c("div", { staticClass: "form-group" }, [
@@ -96445,7 +96424,7 @@ var render = function() {
                         }
                       }
                     }),
-                    _vm._v("\n           " + _vm._s(row.name) + "\n         ")
+                    _vm._v("\n            " + _vm._s(row.name) + "\n          ")
                   ]
                 )
               }),
@@ -96534,7 +96513,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group col-md-8" }, [
-            _vm._m(0),
+            _vm._m(1),
             _vm._v(" "),
             _c("div", [
               _c(
@@ -96583,9 +96562,9 @@ var render = function() {
                         }
                       }),
                       _vm._v(
-                        "\n                           " +
+                        "\n                            " +
                           _vm._s(row.name) +
-                          "\n                       "
+                          "\n                        "
                       )
                     ]
                   )
@@ -96754,16 +96733,16 @@ var render = function() {
                                       _c("i", {
                                         staticClass: "fas fa-check-circle"
                                       }),
-                                      _vm._v(" Added\n                 ")
+                                      _vm._v(" Added\n                  ")
                                     ])
                                   : _c("span", [
                                       _c("i", { staticClass: "fas fa-plus" }),
-                                      _vm._v(" Add\n                 ")
+                                      _vm._v(" Add\n                  ")
                                     ]),
                                 _vm._v(
-                                  "\n                                   " +
+                                  "\n                                    " +
                                     _vm._s(_vm._f("formatMoney")(row.rate)) +
-                                    "\n                               "
+                                    "\n                                "
                                 )
                               ]
                             )
@@ -96796,7 +96775,7 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-arrow-circle-right" }),
-              _vm._v(" Next\n           ")
+              _vm._v(" Next\n            ")
             ]
           )
         ])
@@ -96815,7 +96794,7 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-sign-in-alt" }),
-              _vm._v(" Sign in to place your order\n           ")
+              _vm._v(" Sign in to place your order\n            ")
             ]
           ),
           _vm._v(" "),
@@ -96827,19 +96806,20 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-user-plus" }),
-              _vm._v(" Create account\n           ")
+              _vm._v(" Create account\n            ")
             ]
           ),
           _vm._v(" "),
           _c(
             "a",
             {
-              staticClass: "btn btn btn-info btn-lg btn-block",
+              staticClass: "btn btn  btn-lg btn-block",
+              staticStyle: { background: "#3969c6", color: "#fff" },
               attrs: { href: _vm.quest_order_url }
             },
             [
               _c("i", { staticClass: "fas fa-user-plus" }),
-              _vm._v(" Continue as Quest\n           ")
+              _vm._v(" Continue as Quest\n            ")
             ]
           )
         ])
@@ -96850,8 +96830,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "card-title" }, [
+      _vm._v("\n    step\n      "),
+      _c("b", [_vm._v("1")]),
+      _vm._v("/\n      "),
+      _c("span", { staticClass: "small" }, [_vm._v("3")]),
+      _vm._v(" @lang('TYPE OF WORK AND DEADLINE')\n    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("\n                   Spacing\n                   "),
+      _vm._v("\n                    Spacing\n                    "),
       _c(
         "span",
         {
@@ -109105,8 +109097,10 @@ window.GrowlNotification = __webpack_require__(/*! ./growl-notification.min */ "
  // *************** i18n ***************
 
 
- //  import ar from '../lang/Arabic.json';
-// import en from '../lang/en.json';
+ // import Arabic from '../lang/Arabic.json';
+// import English from '../lang/English.json';
+// import Dutch from '../lang/Arabic.json';
+// import French from '../lang/English.json';
 
 Vue.use(vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]);
 Vue.use(vue_file_agent__WEBPACK_IMPORTED_MODULE_0___default.a);
