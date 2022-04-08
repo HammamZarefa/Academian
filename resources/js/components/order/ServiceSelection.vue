@@ -4,12 +4,7 @@
     step
       <b>1</b>/
       <span class="small">3</span> @lang('TYPE OF WORK AND DEADLINE')
- <select v-model="Locale" @change="handleChange($event)">
-                            <option value="en">English</option>
-                            <option value="ar">العربية</option>
-                        </select>
     </h5>
-
     <hr />
     <div>
       
@@ -23,7 +18,7 @@
           :value="item" v-model="form.service_categories_model"  @change="setServices" />
           <label class="bg" :for="`d${item.id}`"
           :label="item.name" type="radio" name="service_categories" >
-           {{item.name[lang] }} 
+           {{item.name[Locale] }} 
 
           </label>
       </div>
@@ -31,13 +26,26 @@
     </div>
     <div class="form-group" >
       <label>Service Type</label>
-      <multiselect
+      <!-- <multiselect
         track-by="id"
         label="name"
         v-model="form.service_model"
         :options="filteredServices"
         @input="getAdditionalServices(form.service_model)"
-      ></multiselect>
+      ></multiselect> -->
+      <details class="dropdown">
+    <summary role="button">
+      <a class="button">{{form.service_model.name[Locale]}}</a>
+      <i class="fas fa-caret-down"></i> 
+    </summary>
+    <ul>
+      <li @click="getAdditionalServices(form.service_model);setServicesType(item)"
+      v-for="item in filteredServices" :key="item"
+      >
+          <a href="#" :class="[form.service_model.id == item.id? 'active':'']">{{item.name[Locale]}}</a>
+          </li>
+  </ul>
+</details>
     </div>
     <div class="form-group" v-if="show_worklevel">
       <label>Work Level</label>
@@ -226,7 +234,7 @@
             <a :href="create_account_url" class="btn btn btn-info btn-lg btn-block">
                 <i class="fas fa-user-plus"></i> Create account
             </a>
-            <a :href="quest_order_url" class="btn btn btn-info btn-lg btn-block">
+            <a :href="quest_order_url" class="btn btn  btn-lg btn-block" style="background:#3969c6;color:#fff">
                 <i class="fas fa-user-plus"></i> Continue as Quest
             </a>
 
@@ -391,9 +399,8 @@ export default {
         // console.log('filteredServices:',this.filteredServices);
     },
     methods: {
-         handleChange (event) {
-            localStorage.setItem('lang', event.target.value);
-            window.location.reload();
+        setServicesType(t){
+            this.form.service_model = t;
         },
         setServices(){
             this.form.service_model = this.filteredServices[0];
@@ -563,7 +570,7 @@ export default {
         background: #a9afb0;
         cursor: pointer;
         transition: .3s;
-        font: 700 18px sans-serif;
+        font: 700 16px sans-serif;
         box-shadow:
             0 1px 2px rgba(0,0,0,0.07),
             0 2px 4px rgba(0,0,0,0.07),
@@ -597,6 +604,125 @@ export default {
         text-shadow: 0px 2px 5px rgba(0,0,0,.1);
     }
 }
+/* Follow me for more pens like this! */
+
+/* Tweak to change the look and feel */
+
+
+/* Boring button styles */
+a.button {
+  /* Frame */
+  display: inline-block;
+  padding: 3px 15px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  
+  /* Style */
+  border: none;
+  background: #fff;
+  color: #5e6e7e;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+a.button:active {
+  filter: brightness(75%);
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  padding: 0;
+  height: 40px;
+  border: 1px solid rgb(236, 236, 236);
+  border-radius: 5px;
+}
+/* Dropdown triangle */
+
+.dropdown summary {
+  list-style: none;
+  list-style-type: none;
+  position: relative;
+}
+.dropdown summary i {
+    position: absolute;
+    right: 14px;
+    top: 10px;
+    color: #999999;
+}
+.dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+
+.dropdown summary:focus {
+  outline: none;
+}
+
+.dropdown summary:focus a.button {
+  border: 2px solid white;
+}
+
+.dropdown summary:focus {
+  outline: none;
+}
+
+.dropdown ul {
+  position: absolute;
+  margin: 20px 0 0 0;
+  padding:  0;
+  width: 100%;
+  height: 215px;
+  overflow-y: scroll;
+  left: 0;
+  top: 42px;
+  margin: 0;
+  box-sizing: border-box;
+  z-index: 3;
+  border: 1px solid rgb(236, 236, 236);
+  background: #fff;
+  border-radius: 5px;
+  list-style: none;
+}
+
+.dropdown ul li {
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown ul li a:link, .dropdown ul li a:visited {
+  display: inline-block;
+  padding: 6px 0.8rem;
+  width: 100%;
+  box-sizing: border-box;
+  
+  color: black;
+  text-decoration: none;
+}
+
+.dropdown ul li a:hover {
+  background-color: #2caf72;
+  color: #fff;
+}
+.dropdown ul li a.active:hover {
+  background-color: #fa4f61;
+  color: #fff;
+}
+/* Close the dropdown with outside clicks */
+.dropdown > summary::before {
+  display: none;
+}
+
+.dropdown[open] > summary::before {
+    content: ' ';
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
 </style>
 <style lang="scss" scoped>
 @import "~vue-multiselect/dist/vue-multiselect.min.css";

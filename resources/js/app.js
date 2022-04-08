@@ -57,8 +57,10 @@
 // *************** i18n ***************
  import  VueInternationalization from 'vue-i18n';
  import Locale from './vue-i18n-locales.generated';
-//  import ar from '../lang/Arabic.json';
-// import en from '../lang/en.json';
+// import Arabic from '../lang/Arabic.json';
+// import English from '../lang/English.json';
+// import Dutch from '../lang/Arabic.json';
+// import French from '../lang/English.json';
  Vue.use(VueInternationalization);
  Vue.use(VueFileAgent);
  
