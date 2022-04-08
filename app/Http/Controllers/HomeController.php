@@ -40,9 +40,9 @@ class HomeController extends Controller
         $service_categories=ServiceCategory::all();
         $writers= $this->userController->getWriters();
         $reviews=Testimonial::where('status','PUBLISH')->get();
-        $posts = Post::where('status','=','PUBLISH')->orderBy('id','desc')->limit(5)->get();
+        $posts = Post::where('status','=','PUBLISH')->orderBy('id','desc')->limit(3)->get();
         $videoCategory=PostCategory::where('slug','video')->first()->id;
-        $videos = Post::where('category_id',$videoCategory)->orderBy('id', 'desc')->get();
+        $videos = Post::where('category_id',$videoCategory)->orderBy('id', 'desc')->limit(4)->get();
 
         return view('website.index', compact('services','service_categories','writers','reviews','posts','videos'));
     }
