@@ -3790,6 +3790,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3881,6 +3882,8 @@ __webpack_require__.r(__webpack_exports__);
     var Locale = localStorage.getItem('Locale') || 'en';
     return {
       Locale: Locale,
+      lev: false,
+      urgen: false,
       passParam: false,
       params: {},
       hasError: false,
@@ -3911,12 +3914,34 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    filteredServices: function filteredServices() {
+    filteredlevels: function filteredlevels() {
       var _this2 = this;
+
+      if (this.lev == true) {
+        return this.levels.filter(function (el) {
+          return el.id == _this2.params.work_level;
+        });
+      } else {
+        return this.levels;
+      }
+    },
+    filteredurgency: function filteredurgency() {
+      var _this3 = this;
+
+      if (this.urgen == true) {
+        return this.urgencies.filter(function (el) {
+          return el.id == _this3.params.urgency;
+        });
+      } else {
+        return this.urgencies;
+      }
+    },
+    filteredServices: function filteredServices() {
+      var _this4 = this;
 
       if (this.form.service_categories_model.length != 0) {
         return this.services.filter(function (el) {
-          return el.service_category_id == _this2.form.service_categories_model.id;
+          return el.service_category_id == _this4.form.service_categories_model.id;
         });
       } else {
         return this.services;
@@ -3924,26 +3949,50 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var _this3 = this;
+    var _this5 = this;
 
     window.location.search.slice(1).split('&').forEach(function (elm) {
       if (elm === '') return;
       var spl = elm.split('=');
       var d = decodeURIComponent;
-      _this3.params[d(spl[0])] = spl.length >= 2 ? d(spl[1]) : true;
+      _this5.params[d(spl[0])] = spl.length >= 2 ? d(spl[1]) : true;
     });
 
     if (this.params == {}) {
       this.passParam = false;
       this.active_services = this.service_categories[0].id;
+    }
+
+    if (typeof this.params.work_level == 'string') {
+      this.lev = true;
+      this.form.work_level_model = this.filteredlevels[0];
+      this.form.work_level_id = this.filteredlevels[0].id;
+    }
+
+    if (typeof this.params.urgency == 'string') {
+      this.urgen = true;
+      this.form.urgency_model = this.filteredurgency[0];
+    }
+
+    if (typeof this.params.pages == 'string') {
+      this.form.number_of_pages = this.params.pages;
+    }
+
+    if (typeof this.params.spacing_type == 'string') {
+      this.form.spacing_type = this.params.spacing_type;
+    }
+
+    if (typeof this.params.words == 'string') {
+      this.form.number_of_words = this.params.words;
     } else {
       this.passParam = true;
       this.form.service_categories_model = this.filteredServices_categories[0];
       this.active_services = this.filteredServices_categories[0].id;
-    } // console.log('params:',this.params);
+    }
 
-
-    console.log('levels:', this.levels); // console.log('passParam:',this.passParam);
+    console.log('params:', this.params);
+    console.log('spacing_type:', this.form.spacing_type); // console.log('filteredlevels:',this.filteredlevels);
+    // console.log('passParam:',this.passParam);
     // console.log('service_categories:',this.service_categories);
     // console.log('services:',this.services);
     // console.log('service_categories_model:',this.form.service_categories_model);
@@ -96385,7 +96434,7 @@ var render = function() {
                 staticClass: "btn-group btn-group-toggle flex-wrap",
                 attrs: { "data-toggle": "buttons" }
               },
-              _vm._l(_vm.levels, function(row, index) {
+              _vm._l(_vm.filteredlevels, function(row, index) {
                 return _c(
                   "label",
                   {
@@ -96667,7 +96716,11 @@ var render = function() {
           _c("label", [_vm._v("Urgency")]),
           _vm._v(" "),
           _c("multiselect", {
-            attrs: { "track-by": "id", label: "name", options: _vm.urgencies },
+            attrs: {
+              "track-by": "id",
+              label: "name",
+              options: _vm.filteredurgency
+            },
             model: {
               value: _vm.form.urgency_model,
               callback: function($$v) {
@@ -110928,11 +110981,11 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\theme.scss */"./resources/sass/theme.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
-module.exports = __webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
+__webpack_require__(/*! E:\Academian\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\Academian\resources\sass\theme.scss */"./resources/sass/theme.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
+module.exports = __webpack_require__(/*! E:\Academian\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
 
 
 /***/ })

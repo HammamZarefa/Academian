@@ -55,7 +55,7 @@
             class="btn btn-outline-primary"
             v-on:click="workLevelChanged(row.id, index)"
             :class="form.work_level_id === Number(row.id) ? 'active': ''"
-            v-for="(row,index) in levels"
+            v-for="(row,index) in filteredlevels"
             :key="index"
           >
             <input
@@ -69,6 +69,7 @@
             {{ row.name }}
           </label>
         </div>
+        
       </div>
     </div>
         <hr />
@@ -180,7 +181,7 @@
                 v-bind:class="{ 'col-md-6': (form.service_model.price_type_id == pricingTypes.perWord), 'col-md-12': (form.service_model.price_type_id != pricingTypes.perWord) }"
             >
                 <label>Urgency</label>
-                <multiselect track-by="id" label="name" v-model="form.urgency_model" :options="urgencies"></multiselect>
+                <multiselect track-by="id" label="name" v-model="form.urgency_model" :options="filteredurgency"></multiselect>
             </div>
         </div>
 
@@ -334,6 +335,8 @@ export default {
           const Locale = localStorage.getItem('Locale') || 'en';
         return {
             Locale:Locale,
+            lev:false,
+            urgen:false,
             passParam:false,
             params : {},
             hasError:false,
@@ -362,6 +365,26 @@ export default {
                 });
             }
         },
+        filteredlevels() {
+            if (this.lev == true) {
+                return this.levels.filter((el) => {
+                    return el.id == this.params.work_level;
+                });
+            }
+            else {
+                return this.levels;
+            }
+        },
+        filteredurgency() {
+            if (this.urgen == true) {
+                return this.urgencies.filter((el) => {
+                    return el.id == this.params.urgency;
+                });
+            }
+            else {
+                return this.urgencies;
+            }
+        },
         filteredServices() {
             if (this.form.service_categories_model.length != 0) {
                 return this.services.filter((el) => {
@@ -383,14 +406,35 @@ export default {
         if(this.params == {}){
             this.passParam = false;
             this.active_services = this.service_categories[0].id;
+            
+        }
+        if(typeof(this.params.work_level) == 'string'){
+               this.lev = true;
+               this.form.work_level_model = this.filteredlevels[0];
+               this.form.work_level_id = this.filteredlevels[0].id;
+        }
+        if(typeof(this.params.urgency) == 'string'){
+               this.urgen = true;
+               this.form.urgency_model = this.filteredurgency[0];
+        }
+        if(typeof(this.params.pages) == 'string'){
+          
+               this.form.number_of_pages = this.params.pages;
+        }
+        if(typeof(this.params.spacing_type) == 'string'){
+               this.form.spacing_type = this.params.spacing_type;
+        }
+        if(typeof(this.params.words) == 'string'){
+               this.form.number_of_words = this.params.words;
         }
         else{
             this.passParam = true;
             this.form.service_categories_model =  this.filteredServices_categories[0];
             this.active_services = this.filteredServices_categories[0].id;
         }
-        // console.log('params:',this.params);
-        console.log('levels:',this.levels);
+        console.log('params:',this.params);
+        console.log('spacing_type:',this.form.spacing_type);
+        // console.log('filteredlevels:',this.filteredlevels);
         // console.log('passParam:',this.passParam);
         // console.log('service_categories:',this.service_categories);
         // console.log('services:',this.services);
