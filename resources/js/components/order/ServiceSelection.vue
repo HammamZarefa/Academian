@@ -390,6 +390,7 @@ export default {
             this.active_services = this.filteredServices_categories[0].id;
         }
         // console.log('params:',this.params);
+        console.log('levels:',this.levels);
         // console.log('passParam:',this.passParam);
         // console.log('service_categories:',this.service_categories);
         // console.log('services:',this.services);

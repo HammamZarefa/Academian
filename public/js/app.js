@@ -3941,14 +3941,15 @@ __webpack_require__.r(__webpack_exports__);
       this.form.service_categories_model = this.filteredServices_categories[0];
       this.active_services = this.filteredServices_categories[0].id;
     } // console.log('params:',this.params);
-    // console.log('passParam:',this.passParam);
+
+
+    console.log('levels:', this.levels); // console.log('passParam:',this.passParam);
     // console.log('service_categories:',this.service_categories);
     // console.log('services:',this.services);
     // console.log('service_categories_model:',this.form.service_categories_model);
     // console.log('service_model:',this.form.service_model);
     // console.log('filteredServices_categories:',this.filteredServices_categories);
     // console.log('filteredServices:',this.filteredServices);
-
   },
   methods: {
     setServicesType: function setServicesType(t) {
