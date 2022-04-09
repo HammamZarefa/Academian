@@ -45,6 +45,7 @@
                         <a class="dropdown-item" href="{{ route('posts') }}">@lang('Blog')</a>
                         <a class="dropdown-item" href="{{ route('post_categories') }}">@lang('Categories')</a>
                         <a class="dropdown-item" href="{{ route('post_tags') }}">@lang('Tag')</a>
+                        <a class="dropdown-item" href="{{ route('pending_post_approvals') }}">@lang('Pending Post')</a>
                         <a class="dropdown-item" href="{{ route('wallet_transactions') }}">@lang('Trash')</a>
                     </div>
                 </li>

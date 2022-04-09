@@ -21,6 +21,35 @@ class PostController extends Controller
         return view('post.index', compact('posts'));
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function approve()
+    {
+        $posts = Post::orderBy('id', 'desc')->where('status','PENDING')->get();
+        return view('post.pending_for_approval', compact('posts'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Post $post
+     * @return \Illuminate\Http\Response
+     */
+    public function approves($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->status = 'PUBLISH';
+        if ($post->save()){
+            return redirect()->route('pending_post_approvals')->with('success', 'Post approved');
+        }else{
+            return redirect()->route('pending_post_approvals')->with('error', 'Post can not approved');
+        }
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -33,6 +62,58 @@ class PostController extends Controller
         $tags = PostTag::get();
         return view('post.create', compact('categories', 'tags'));
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function add()
+    {
+        $categories = PostCategory::where('slug','!=','video')->get();
+        $tags = PostTag::get();
+        return view('website.add_blog', compact('categories', 'tags'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeBlog(Request $request)
+    {
+//        dd($request);
+        \Validator::make($request->all(), [
+            "title" => "required",
+            "cover" => "required",
+            "body" => "required",
+            "category" => "required",
+            "tags" => "array|required",
+            "keyword" => "required",
+            "meta_desc" => "required"
+        ])->validate();
+        $data = $request->all();
+        $data['slug'] = \Str::slug($request->title['en']);
+        $data['category_id'] = request('category');
+        $data['status'] = 'PENDING';
+        $data['author_id'] = Auth::user()->id;
+        $cover = $request->file('cover');
+        if ($cover) {
+            $cover_path = $cover->store('images/blog', 'public');
+            $data['cover'] = $cover_path;
+        }
+        $post = Post::create($data);
+        $post->tags()->attach(request('tag'));
+
+            if ($post) {
+                return redirect()->route('homepage')->with('success', 'Post added successfully');
+            } else {
+                return redirect()->route('homepage')->with('error', 'Post failed to add');
+            }
+
+    }
+
 
     /**
      * Store a newly created resource in storage.

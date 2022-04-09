@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\PostController;
+
 load_route('installer');
 load_route('website');
 
@@ -31,6 +33,8 @@ Route::get('language/{locale}', function ($locale) {
     session()->put('locale', $locale);
     return redirect()->back();
 });
+Route::get('post/add',[PostController::class, 'add'])->name('post.add');
+Route::post('post/add_blog',[PostController::class, 'storeBlog'])->name('post.storeBlog');
 
 // Authenticated Users
 Route::group(['middleware' => ['auth', 'verified']], function () {

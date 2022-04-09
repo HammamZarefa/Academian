@@ -32,7 +32,7 @@
                 </style>
             </div>
         </div>
-       
+
     </section>
     <!-- end Topbar -->
     <div class="navbar navbar-default" role="navigation">
@@ -81,6 +81,9 @@
                             </a>
                             @endforeach
                                 @endif
+                                <a href="{{ route('post.add')}}">
+                                    @lang('Add Blog')
+                                </a>
                         </div>
                     </li>
                     {{--<li class="sec-center">--}}
