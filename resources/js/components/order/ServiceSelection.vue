@@ -3,7 +3,7 @@
     <h5 class="card-title">
     step
       <b>1</b>/
-      <span class="small">3</span> @lang('TYPE OF WORK AND DEADLINE')
+      <span class="small">3</span> TYPE OF WORK AND DEADLINE
     </h5>
     <hr />
     <div>

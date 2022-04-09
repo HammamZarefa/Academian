@@ -81,7 +81,7 @@
             </article>
             <article class="item col-sm-3">
                 @if(auth()->check())
-                    <a href="/orders/create?service=41&&Service_Category=2"<i class="icon-graduation-cap"></i></a>
+                    <a href="/orders/create?service=41&&Service_Category=2"><i class="icon-graduation-cap"></i></a>
                 @else
                     <a href="/instant-quote?service=41&&Service_Category=2"><i class="icon-graduation-cap"></i></a>
                 @endif
