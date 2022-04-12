@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -66,7 +67,7 @@ class MyAccountController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        // Log user's activity       
+        // Log user's activity
         logActivity($user, 'updated password');
 
         return redirect()->back()->withSuccess('Password updated');
@@ -97,7 +98,7 @@ class MyAccountController extends Controller
 
         $userService->update_self_profile($request, auth()->user());
 
-        // Log user's activity       
+        // Log user's activity
         logActivity(auth()->user(), 'updated profile');
 
         return redirect()->back()->withSuccess('Successfully updated');
@@ -105,7 +106,7 @@ class MyAccountController extends Controller
 
     public function change_photo(ChangeProfilePhotoRequest $request, AvatarUploadService $avatar)
     {
-        // Log user's activity       
+        // Log user's activity
         logActivity(auth()->user(), 'updated avatar');
         return response()->json($avatar->upload($request, auth()->user()));
     }
@@ -127,6 +128,14 @@ class MyAccountController extends Controller
             'day_after_tommorrow' => 'The day after tommorrow'
         ];
         return view('my_account.orders', compact('data'));
+    }
+    public function posts()
+    {
+        $user = auth()->user();
+        $posts = Post::where('author_id',$user->id)->get();
+
+
+        return view('my_account.posts', compact('posts'));
     }
 
     public function my_orders_datatable(Request $request)

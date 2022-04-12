@@ -108,6 +108,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('order_page') }}">@lang('New Order')</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('my_posts') }}">@lang('My Posts')</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('post.add')}}">@lang('New Posts')</a>
+                    </li>
                     {{--<li class="nav-item">--}}
                         {{--<a class="nav-link" href="{{ route('my_account',['group' => 'wallet']) }}">My Wallet</a>--}}
                     {{--</li>--}}

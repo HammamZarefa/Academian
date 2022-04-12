@@ -107,9 +107,9 @@ class PostController extends Controller
         $post->tags()->attach(request('tag'));
 
             if ($post) {
-                return redirect()->route('homepage')->with('success', 'Post added successfully');
+                return redirect()->route('my_posts')->with('success', 'Post added successfully');
             } else {
-                return redirect()->route('homepage')->with('error', 'Post failed to add');
+                return redirect()->route('post.add')->with('error', 'Post failed to add');
             }
 
     }
@@ -187,6 +187,68 @@ class PostController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Post $post
+     * @return \Illuminate\Http\Response
+     */
+    public function edit_my_post($post)
+    {
+        $post = Post::findOrFail($post);
+        $categories = PostCategory::where('slug','!=','video')->get();
+        $tags = PostTag::get();
+        return view('website.edit_my_post', compact('post', 'categories', 'tags'));
+    }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Post $post
+     * @return \Illuminate\Http\Response
+     */
+    public function update_my_post(Request $request,$post)
+    {
+//        dd($request);
+        \Validator::make($request->all(), [
+            "title" => "required",
+            "body" => "required",
+            "category" => "required",
+            "tags" => "array|required",
+            "keyword" => "required",
+            "meta_desc" => "required"
+        ])->validate();
+
+        $post = Post::findOrFail($post);
+        $data = $request->all();
+        $data['slug'] = \Str::slug($request->title['en']);
+        $data['category_id'] = request('category');
+        $cover = $request->file('cover');
+        if ($cover) {
+            if ($post->cover && file_exists(storage_path('app/public/' . $post->cover))) {
+                \Storage::delete('public/' . $post->cover);
+            }
+            $cover_path = $cover->store('images/blog', 'public');
+            $data['cover'] = $cover_path;
+//            $post->cover = $cover_path;
+        }
+//        $post->title = $request->title;
+//        $post->body = $request->body;
+//        $post->keyword = $request->keyword;
+//        $post->category = $request->category;
+//        $post->meta_desc = $request->meta_desc;
+
+
+        $update = $post->update($data);
+        $post->tags()->sync(request('tag'));
+        if ($update) {
+            return redirect()->route('my_posts')->with('success', 'Post added successfully');
+        } else {
+            return redirect()->route('post.add')->with('error', 'Post failed to add');
+        }
+
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
@@ -260,6 +322,20 @@ class PostController extends Controller
     {
         $post = Post::onlyTrashed()->get();
         return view('post.trash', compact('post'));
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Post $post
+     * @return \Illuminate\Http\Response
+     */
+    public function trash_my_post($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
+        return redirect()->route('my_posts')->with('success', 'Post moved to trash');
     }
 
     public function restore($id)
