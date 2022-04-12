@@ -1,16 +1,16 @@
 <template>
   <div>
     <h5 class="card-title">
-    step
+    {{ $t('step') }}
       <b>1</b>/
-      <span class="small">3</span> TYPE OF WORK AND DEADLINE
+      <span class="small">3</span> {{ $t('TYPE OF WORK AND DEADLINE') }}
     </h5>
     <hr />
     <div>
       
     </div>
     <div class="form-group">
-      <label>Service Category</label>
+      <label>{{ $t('Service Category') }}</label>
               <div class="service_category">
        <div class="base"  v-for="item in service_categories" :key="item"
         @click="setServices3(item,item.id,item.worklevel)" :class="[active_services == item.id? 'active':'']">
@@ -18,14 +18,14 @@
           :value="item" v-model="form.service_categories_model"  @change="setServices" />
           <label class="bg" :for="`d${item.id}`"
           :label="item.name" type="radio" name="service_categories" >
-           {{item.name[Locale] }} 
+           {{item.name[locale] }} 
 
           </label>
       </div>
       </div>
     </div>
     <div class="form-group" >
-      <label>Service Type</label>
+      <label>{{ $t('Service Type') }}</label>
       <!-- <multiselect
         track-by="id"
         label="name"
@@ -35,20 +35,20 @@
       ></multiselect> -->
       <details class="dropdown">
     <summary role="button">
-      <a class="button">{{form.service_model.name[Locale]}}</a>
+      <a class="button">{{form.service_model.name[locale]}}</a>
       <i class="fas fa-caret-down"></i> 
     </summary>
     <ul>
       <li @click="getAdditionalServices(form.service_model);setServicesType(item)"
       v-for="item in filteredServices" :key="item"
       >
-          <a href="#" :class="[form.service_model.id == item.id? 'active':'']">{{item.name[Locale]}}</a>
+          <a href="#" :class="[form.service_model.id == item.id? 'active':'']">{{item.name[locale]}}</a>
           </li>
   </ul>
 </details>
     </div>
     <div class="form-group" v-if="show_worklevel">
-      <label>Work Level</label>
+      <label>{{ $t('Work Level') }}</label>
       <div>
         <div class="btn-group btn-group-toggle flex-wrap" data-toggle="buttons">
           <label
@@ -66,7 +66,7 @@
               autocomplete="off"
               v-model="form.work_level_id"
             />
-            {{ row.name }}
+            {{ row.name[locale] }}
           </label>
         </div>
         
@@ -79,7 +79,7 @@
 
         <div class="form-row" v-if="form.service_model.price_type_id == pricingTypes.perPage">
             <div class="form-group col-md-4">
-                <label>Number of pages</label>
+                <label>{{ $t('Number of pages') }}</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <button
@@ -110,7 +110,7 @@
             </div>
             <div class="form-group col-md-8">
                 <label>
-                    Spacing
+                  {{ $t('Spacing') }} 
                     <span
                         data-toggle="tooltip"
                         title="Single-spaced - The final paper will have one line spacing between lines."
@@ -146,7 +146,7 @@
                 class="form-group col-md-6"
                 v-if="form.service_model.price_type_id == pricingTypes.perWord"
             >
-                <label>Number of Words</label>
+                <label>{{ $t('Number of Words') }}</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <button
@@ -180,13 +180,13 @@
                 class="form-group"
                 v-bind:class="{ 'col-md-6': (form.service_model.price_type_id == pricingTypes.perWord), 'col-md-12': (form.service_model.price_type_id != pricingTypes.perWord) }"
             >
-                <label>Urgency</label>
+                <label>{{ $t('Urgency') }}</label>
                 <multiselect track-by="id" label="name" v-model="form.urgency_model" :options="filteredurgency"></multiselect>
             </div>
         </div>
 
         <div v-if="additional_services.length > 0">
-            <h5>Additional Services</h5>
+            <h5>{{ $t('Additional Services') }}</h5>
             <div class="card mb-3" v-for="row in additional_services" v-bind:key="row.id">
                 <div class="row no-gutters">
                     <div class="col-md-8">
@@ -200,10 +200,10 @@
                             <a href="#" v-on:click.prevent="additionalServiceChanged(row.id, row)">
                                 <div class="btn btn-block" v-bind:class="getServiceContainerClass(row.id)">
                   <span v-if="addedServiceList(row.id)">
-                    <i class="fas fa-check-circle"></i> Added
+                    <i class="fas fa-check-circle"></i>{{ $t('Added') }} 
                   </span>
                                     <span v-else>
-                    <i class="fas fa-plus"></i> Add
+                    <i class="fas fa-plus"></i> {{ $t('Add') }} 
                   </span>
                                     {{ row.rate | formatMoney }}
                                 </div>
@@ -213,30 +213,31 @@
                 </div>
             </div>
         </div>
-
+    
         <div v-if="user_id">
             <button
                 :disabled="hasError"
                 type="button"
                 class="btn btn-success btn-lg btn-block"
                 v-on:click.prevent="changeTab(2)">
-                <i class="fas fa-arrow-circle-right"></i> Next
+                <i class="fas fa-arrow-circle-right"></i>{{ $t('Next') }} 
             </button>
         </div>
+       
         <div v-else>
             <button
                 type="button"
                 class="btn btn-success btn-lg btn-block"
                 v-on:click.prevent="changeTab(2)"
             >
-                <i class="fas fa-sign-in-alt"></i> Sign in to place your order
+                <i class="fas fa-sign-in-alt"></i>{{ $t('Sign in to place your order') }}  
             </button>
 
             <a :href="create_account_url" class="btn btn btn-info btn-lg btn-block">
-                <i class="fas fa-user-plus"></i> Create account
+                <i class="fas fa-user-plus"></i> {{ $t('Create account') }}  
             </a>
             <a :href="quest_order_url" class="btn btn  btn-lg btn-block" style="background:#3969c6;color:#fff">
-                <i class="fas fa-user-plus"></i> Continue as Quest
+                <i class="fas fa-user-plus"></i> {{ $t('Continue as Quest') }}  
             </a>
 
         </div>
@@ -332,9 +333,9 @@ export default {
         }
     },
     data() {
-          const Locale = localStorage.getItem('Locale') || 'en';
+          const locale = localStorage.getItem('locale') || 'ar';
         return {
-            Locale:Locale,
+            locale:locale,
             lev:false,
             urgen:false,
             passParam:false,

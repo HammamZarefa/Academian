@@ -3791,6 +3791,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3879,9 +3880,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
-    var Locale = localStorage.getItem('Locale') || 'en';
+    var locale = localStorage.getItem('locale') || 'ar';
     return {
-      Locale: Locale,
+      locale: locale,
       lev: false,
       urgen: false,
       passParam: false,
@@ -95645,7 +95646,11 @@ var render = function() {
     _c("form", { attrs: { method: "POST", action: _vm.submit_work_url } }, [
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-header" }, [
-          _vm._v("\n            Submit your work\n         ")
+          _vm._v(
+            "\n           " +
+              _vm._s(_vm.$t("Submit your work")) +
+              " \n         "
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
@@ -95653,7 +95658,14 @@ var render = function() {
             "div",
             { staticClass: "form-group" },
             [
-              _c("label", [_vm._v("Attachment (.zip,.rar,.7zip only)")]),
+              _c("label", [
+                _vm._v(
+                  _vm._s(_vm.$t("Attachment")) +
+                    " (.zip,.rar,.7zip " +
+                    _vm._s(_vm.$t("only")) +
+                    ")"
+                )
+              ]),
               _vm._v(" "),
               _c("VueFileAgent", {
                 ref: "vueFileAgent",
@@ -95695,7 +95707,10 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
-            _vm._m(0),
+            _c("label", [
+              _vm._v(_vm._s(_vm.$t("Your Message")) + " "),
+              _c("span", { staticClass: "required" }, [_vm._v("*")])
+            ]),
             _vm._v(" "),
             _c("textarea", {
               directives: [
@@ -95776,7 +95791,7 @@ var render = function() {
                 },
                 [
                   _c("i", { staticClass: "far fa-paper-plane" }),
-                  _vm._v(" Submit\n           ")
+                  _vm._v(" " + _vm._s(_vm.$t("Submit")) + "\n           ")
                 ]
               )
             : _vm._e()
@@ -95785,17 +95800,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("Your Message "),
-      _c("span", { staticClass: "required" }, [_vm._v("*")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -95820,12 +95825,18 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm._m(0),
+      _c("h5", { staticClass: "card-title" }, [
+        _vm._v("\n   " + _vm._s(_vm.$t("step")) + "\n    "),
+        _c("b", [_vm._v("2")]),
+        _vm._v("/\n    "),
+        _c("span", { staticClass: "small" }, [_vm._v("3")]),
+        _vm._v(_vm._s(_vm.$t("ADDITIONAL PAPER DETAILS")) + " \n  ")
+      ]),
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
-        _vm._m(1),
+        _vm._m(0),
         _vm._v(" "),
         _c("input", {
           directives: [
@@ -95857,7 +95868,10 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
-        _vm._m(2),
+        _c("label", [
+          _vm._v(_vm._s(_vm.$t("Specific Instructions")) + "  "),
+          _c("span", { staticClass: "required" }, [_vm._v("*")])
+        ]),
         _vm._v(" "),
         _c("textarea", {
           directives: [
@@ -95902,7 +95916,6 @@ var render = function() {
             ".xlsx,.xls, .doc, .docx,.ppt, .pptx,.txt,.pdf, application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*",
           maxSize: "10MB",
           maxFiles: 2,
-          helpText: "Choose your files",
           errorText: {
             type:
               "Invalid file type. Only images, .pdf,.doc,.ppt,.txt files are allowed",
@@ -95939,7 +95952,7 @@ var render = function() {
             }
           }
         },
-        [_vm._v("Previous")]
+        [_vm._v(_vm._s(_vm.$t("Previous")))]
       ),
       _vm._v(" "),
       _c("br"),
@@ -95994,17 +96007,17 @@ var render = function() {
             attrs: { for: "termsCheckBox" }
           },
           [
-            _vm._v("\n      I agree to the "),
+            _vm._v("\n     " + _vm._s(_vm.$t("I agree to the")) + " "),
             _c(
               "a",
               { attrs: { href: _vm.term_and_condition_url, target: "_blank" } },
-              [_vm._v("Terms and Conditions")]
+              [_vm._v(_vm._s(_vm.$t("Terms and Conditions")))]
             ),
-            _vm._v("\n      and "),
+            _vm._v("\n      " + _vm._s(_vm.$t("and")) + " "),
             _c(
               "a",
               { attrs: { href: _vm.privacy_policy_url, target: "_blank" } },
-              [_vm._v("Privacy Policy")]
+              [_vm._v(_vm._s(_vm.$t("Privacy Policy")))]
             )
           ]
         )
@@ -96026,7 +96039,7 @@ var render = function() {
         },
         [
           _c("i", { staticClass: "far fa-check-circle" }),
-          _vm._v(" Pay now\n  ")
+          _vm._v(_vm._s(_vm.$t("Pay now")) + " \n  ")
         ]
       )
     ],
@@ -96038,29 +96051,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h5", { staticClass: "card-title" }, [
-      _vm._v("\n    Step\n    "),
-      _c("b", [_vm._v("2")]),
-      _vm._v("/\n    "),
-      _c("span", { staticClass: "small" }, [_vm._v("3")]),
-      _vm._v(" ADDITIONAL PAPER DETAILS\n  ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("Title "),
-      _c("span", { staticClass: "required" }, [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("Specific Instructions "),
       _c("span", { staticClass: "required" }, [_vm._v("*")])
     ])
   }
@@ -96090,11 +96082,13 @@ var render = function() {
     _c("div", { staticClass: "card" }, [
       !_vm.isObjectEmpty(_vm.form)
         ? _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [_vm._v("Order Summary")]),
+            _c("h5", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(_vm.$t("Order Summary")))
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "mb-4" }, [
               _c("p", [
-                _c("b", [_vm._v("Service")]),
+                _c("b", [_vm._v(_vm._s(_vm.$t("Service")))]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(
@@ -96106,7 +96100,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", [
-                _c("b", [_vm._v("Urgency")]),
+                _c("b", [_vm._v(_vm._s(_vm.$t("Urgency")))]),
                 _vm._v(
                   "\n                    :\n                    " +
                     _vm._s(_vm.form.urgency_model.name) +
@@ -96117,7 +96111,7 @@ var render = function() {
               _vm.form.service_model.price_type_id == _vm.pricingTypes.fixed
                 ? _c("div", [
                     _c("div", [
-                      _c("b", [_vm._v("Rate")]),
+                      _c("b", [_vm._v(_vm._s(_vm.$t("Rate")))]),
                       _vm._v(
                         "\n                        :\n                        " +
                           _vm._s(_vm._f("formatMoney")(_vm.form.unit_price)) +
@@ -96134,7 +96128,7 @@ var render = function() {
               _vm.form.service_model.price_type_id == _vm.pricingTypes.perWord
                 ? _c("div", [
                     _c("div", [
-                      _c("b", [_vm._v("Number of words")]),
+                      _c("b", [_vm._v(_vm._s(_vm.$t("Number of words")))]),
                       _vm._v(
                         "\n                        :\n                        " +
                           _vm._s(_vm.form.number_of_words) +
@@ -96143,7 +96137,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", [
-                      _c("b", [_vm._v("Rate")]),
+                      _c("b", [_vm._v(_vm._s(_vm.$t("Rate")))]),
                       _vm._v(
                         "\n                        :\n                        " +
                           _vm._s(_vm.form.unit_price) +
@@ -96156,7 +96150,7 @@ var render = function() {
               _vm.form.service_model.price_type_id == _vm.pricingTypes.perPage
                 ? _c("div", [
                     _c("div", [
-                      _c("b", [_vm._v("Spacing Type")]),
+                      _c("b", [_vm._v(_vm._s(_vm.$t("Spacing Type")))]),
                       _vm._v(
                         "\n                        :\n                        " +
                           _vm._s(_vm.form.spacing_type) +
@@ -96165,7 +96159,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", [
-                      _c("b", [_vm._v("Pages")]),
+                      _c("b", [_vm._v(_vm._s(_vm.$t("Pages")))]),
                       _vm._v(
                         "\n                        :\n                        " +
                           _vm._s(_vm.form.number_of_pages) +
@@ -96174,7 +96168,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", [
-                      _c("b", [_vm._v("Rate")]),
+                      _c("b", [_vm._v(_vm._s(_vm.$t("Rate")))]),
                       _vm._v(
                         "\n                        :\n                        " +
                           _vm._s(_vm._f("formatMoney")(_vm.form.unit_price)) +
@@ -96191,7 +96185,7 @@ var render = function() {
                   _c(
                     "th",
                     { staticStyle: { width: "30%" }, attrs: { scope: "row" } },
-                    [_vm._v("Amount")]
+                    [_vm._v(_vm._s(_vm.$t("Amount")))]
                   ),
                   _vm._v(" "),
                   _c(
@@ -96213,7 +96207,7 @@ var render = function() {
                             _c(
                               "div",
                               { staticStyle: { "font-weight": "bold" } },
-                              [_vm._v("Additional Services")]
+                              [_vm._v(_vm._s(_vm.$t("Additional Services")))]
                             ),
                             _vm._v(" "),
                             _vm._l(_vm.form.added_services, function(row) {
@@ -96254,7 +96248,7 @@ var render = function() {
                   _c(
                     "th",
                     { staticStyle: { width: "30%" }, attrs: { scope: "row" } },
-                    [_vm._v("Total")]
+                    [_vm._v(_vm._s(_vm.$t("Total")))]
                   ),
                   _vm._v(" "),
                   _c(
@@ -96296,14 +96290,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("h5", { staticClass: "card-title" }, [
+      _vm._v("\n    " + _vm._s(_vm.$t("step")) + "\n      "),
+      _c("b", [_vm._v("1")]),
+      _vm._v("/\n      "),
+      _c("span", { staticClass: "small" }, [_vm._v("3")]),
+      _vm._v(" " + _vm._s(_vm.$t("TYPE OF WORK AND DEADLINE")) + "\n    ")
+    ]),
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
     _c("div"),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v("Service Category")]),
+      _c("label", [_vm._v(_vm._s(_vm.$t("Service Category")))]),
       _vm._v(" "),
       _c(
         "div",
@@ -96366,7 +96366,7 @@ var render = function() {
                 [
                   _vm._v(
                     "\n           " +
-                      _vm._s(item.name[_vm.Locale]) +
+                      _vm._s(item.name[_vm.locale]) +
                       " \n\n          "
                   )
                 ]
@@ -96379,12 +96379,12 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v("Service Type")]),
+      _c("label", [_vm._v(_vm._s(_vm.$t("Service Type")))]),
       _vm._v(" "),
       _c("details", { staticClass: "dropdown" }, [
         _c("summary", { attrs: { role: "button" } }, [
           _c("a", { staticClass: "button" }, [
-            _vm._v(_vm._s(_vm.form.service_model.name[_vm.Locale]))
+            _vm._v(_vm._s(_vm.form.service_model.name[_vm.locale]))
           ]),
           _vm._v(" "),
           _c("i", { staticClass: "fas fa-caret-down" })
@@ -96413,7 +96413,7 @@ var render = function() {
                     ],
                     attrs: { href: "#" }
                   },
-                  [_vm._v(_vm._s(item.name[_vm.Locale]))]
+                  [_vm._v(_vm._s(item.name[_vm.locale]))]
                 )
               ]
             )
@@ -96425,7 +96425,7 @@ var render = function() {
     _vm._v(" "),
     _vm.show_worklevel
       ? _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Work Level")]),
+          _c("label", [_vm._v(_vm._s(_vm.$t("Work Level")))]),
           _vm._v(" "),
           _c("div", [
             _c(
@@ -96474,7 +96474,11 @@ var render = function() {
                         }
                       }
                     }),
-                    _vm._v("\n            " + _vm._s(row.name) + "\n          ")
+                    _vm._v(
+                      "\n            " +
+                        _vm._s(row.name[_vm.locale]) +
+                        "\n          "
+                    )
                   ]
                 )
               }),
@@ -96491,7 +96495,7 @@ var render = function() {
     _vm.form.service_model.price_type_id == _vm.pricingTypes.perPage
       ? _c("div", { staticClass: "form-row" }, [
           _c("div", { staticClass: "form-group col-md-4" }, [
-            _c("label", [_vm._v("Number of pages")]),
+            _c("label", [_vm._v(_vm._s(_vm.$t("Number of pages")))]),
             _vm._v(" "),
             _c("div", { staticClass: "input-group mb-3" }, [
               _c("div", { staticClass: "input-group-prepend" }, [
@@ -96563,7 +96567,14 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group col-md-8" }, [
-            _vm._m(1),
+            _c("label", [
+              _vm._v(
+                "\n                  " +
+                  _vm._s(_vm.$t("Spacing")) +
+                  " \n                    "
+              ),
+              _vm._m(0)
+            ]),
             _vm._v(" "),
             _c("div", [
               _c(
@@ -96629,7 +96640,7 @@ var render = function() {
     _c("div", { staticClass: "form-row" }, [
       _vm.form.service_model.price_type_id == _vm.pricingTypes.perWord
         ? _c("div", { staticClass: "form-group col-md-6" }, [
-            _c("label", [_vm._v("Number of Words")]),
+            _c("label", [_vm._v(_vm._s(_vm.$t("Number of Words")))]),
             _vm._v(" "),
             _c("div", { staticClass: "input-group mb-3" }, [
               _c("div", { staticClass: "input-group-prepend" }, [
@@ -96713,7 +96724,7 @@ var render = function() {
           }
         },
         [
-          _c("label", [_vm._v("Urgency")]),
+          _c("label", [_vm._v(_vm._s(_vm.$t("Urgency")))]),
           _vm._v(" "),
           _c("multiselect", {
             attrs: {
@@ -96738,7 +96749,7 @@ var render = function() {
       ? _c(
           "div",
           [
-            _c("h5", [_vm._v("Additional Services")]),
+            _c("h5", [_vm._v(_vm._s(_vm.$t("Additional Services")))]),
             _vm._v(" "),
             _vm._l(_vm.additional_services, function(row) {
               return _c("div", { key: row.id, staticClass: "card mb-3" }, [
@@ -96787,11 +96798,18 @@ var render = function() {
                                       _c("i", {
                                         staticClass: "fas fa-check-circle"
                                       }),
-                                      _vm._v(" Added\n                  ")
+                                      _vm._v(
+                                        _vm._s(_vm.$t("Added")) +
+                                          " \n                  "
+                                      )
                                     ])
                                   : _c("span", [
                                       _c("i", { staticClass: "fas fa-plus" }),
-                                      _vm._v(" Add\n                  ")
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(_vm.$t("Add")) +
+                                          " \n                  "
+                                      )
                                     ]),
                                 _vm._v(
                                   "\n                                    " +
@@ -96829,7 +96847,7 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-arrow-circle-right" }),
-              _vm._v(" Next\n            ")
+              _vm._v(_vm._s(_vm.$t("Next")) + " \n            ")
             ]
           )
         ])
@@ -96848,7 +96866,10 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-sign-in-alt" }),
-              _vm._v(" Sign in to place your order\n            ")
+              _vm._v(
+                _vm._s(_vm.$t("Sign in to place your order")) +
+                  "  \n            "
+              )
             ]
           ),
           _vm._v(" "),
@@ -96860,7 +96881,9 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-user-plus" }),
-              _vm._v(" Create account\n            ")
+              _vm._v(
+                " " + _vm._s(_vm.$t("Create account")) + "  \n            "
+              )
             ]
           ),
           _vm._v(" "),
@@ -96873,7 +96896,9 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-user-plus" }),
-              _vm._v(" Continue as Quest\n            ")
+              _vm._v(
+                " " + _vm._s(_vm.$t("Continue as Quest")) + "  \n            "
+              )
             ]
           )
         ])
@@ -96884,32 +96909,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h5", { staticClass: "card-title" }, [
-      _vm._v("\n    step\n      "),
-      _c("b", [_vm._v("1")]),
-      _vm._v("/\n      "),
-      _c("span", { staticClass: "small" }, [_vm._v("3")]),
-      _vm._v(" TYPE OF WORK AND DEADLINE\n    ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("\n                    Spacing\n                    "),
-      _c(
-        "span",
-        {
-          attrs: {
-            "data-toggle": "tooltip",
-            title:
-              "Single-spaced - The final paper will have one line spacing between lines."
-          }
-        },
-        [_c("i", { staticClass: "fas fa-question-circle" })]
-      )
-    ])
+    return _c(
+      "span",
+      {
+        attrs: {
+          "data-toggle": "tooltip",
+          title:
+            "Single-spaced - The final paper will have one line spacing between lines."
+        }
+      },
+      [_c("i", { staticClass: "fas fa-question-circle" })]
+    )
   }
 ]
 render._withStripped = true
@@ -109098,7 +109108,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_file_agent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-file-agent */ "./node_modules/vue-file-agent/dist/vue-file-agent.umd.js");
 /* harmony import */ var vue_file_agent__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_file_agent__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-i18n */ "./node_modules/vue-i18n/dist/vue-i18n.esm.js");
-/* harmony import */ var _vue_i18n_locales_generated__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./vue-i18n-locales.generated */ "./resources/js/vue-i18n-locales.generated.js");
+/* harmony import */ var _lang_Arabic_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lang/Arabic.json */ "./resources/lang/Arabic.json");
+var _lang_Arabic_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../lang/Arabic.json */ "./resources/lang/Arabic.json", 1);
+/* harmony import */ var _lang_English_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../lang/English.json */ "./resources/lang/English.json");
+var _lang_English_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../lang/English.json */ "./resources/lang/English.json", 1);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -109150,18 +109163,21 @@ window.dateRanges = {
 window.GrowlNotification = __webpack_require__(/*! ./growl-notification.min */ "./resources/js/growl-notification.min.js");
  // *************** i18n ***************
 
+ //  import Locale from './vue-i18n-locales.generated';
 
- // import Arabic from '../lang/Arabic.json';
-// import English from '../lang/English.json';
-// import Dutch from '../lang/Arabic.json';
-// import French from '../lang/English.json';
+
+
+
 
 Vue.use(vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]);
 Vue.use(vue_file_agent__WEBPACK_IMPORTED_MODULE_0___default.a);
 var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  locale: localStorage.getItem('Locale') || 'en',
+  locale: localStorage.getItem('locale') || 'ar',
   messages: {
-    Locale: _vue_i18n_locales_generated__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ar: _lang_Arabic_json__WEBPACK_IMPORTED_MODULE_2__,
+    en: _lang_English_json__WEBPACK_IMPORTED_MODULE_3__,
+    du: _lang_Arabic_json__WEBPACK_IMPORTED_MODULE_2__,
+    fr: _lang_English_json__WEBPACK_IMPORTED_MODULE_3__
   }
 }); // *************** i18n ***************
 
@@ -110328,605 +110344,33 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/js/vue-i18n-locales.generated.js":
-/*!****************************************************!*\
-  !*** ./resources/js/vue-i18n-locales.generated.js ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./resources/lang/Arabic.json":
+/*!************************************!*\
+  !*** ./resources/lang/Arabic.json ***!
+  \************************************/
+/*! exports provided: Home, About, Service, Blog, Contact, Account, Exquisite Of Social Media Marketing, Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam., Get Started Now, Dashboard, Services, Applicant, Referrer, Note, Change, Search, Applicant Number, Search &nbsp &nbsp &nbsp, Brief summary about you, optional, Resume (PDF file), Job Applicants, Job Applicants Profile, Resume, Referral Source, Application Date, Invite to join, Delete, Sign In, Sign in to your account to continue, Don't have an account?, Sign up, Paid, Unpaid, Bill To, Date, Item, Quantity, Rate, Sub Total, Total, Number, Bill Number, From, Request for payment, Submit Payout Request, Your Name, Your Address, Your Invoice Number, Sorry, there is no unbilled work by you, Unpaid Balance, Staff Invoice Number, My payment requests, Balance Due, Mark as unpaid, Payment Date,  Mark as paid, Successfully completed!, Pay with, Allowed file types, Maximum file size:10 MB, Confirm Payment, Select a payment method, Offline, Wallet- Balance, Pay using your wallet, Dear, We are pleased to inform you that your application for joining us as a Writer has been approved, You can use the following credentials to log in to our system, Please
+make sure to change your password after you log in, Login, Thanks, Hi, Congratulation! You have been invited to join, Please click the button below to confirm your joining, Join Now, Order Summary, Service Item, Work level, Urgency, Spacing Type, Additional Services, Subtotal, Congratulation! Your email is configured correctly, Toggle navigation, Contact US, Reviews, My Account, log in, Reqeust Help, writing Service, Profesional, 500 Clients, Translation Service, between 4 languges, CV Writing, University Approval, Our Services, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse, Assignment, Essay, Reports, Reflection Reports, Presentations, Desertations, Proposals, Projects, Calculate your order, Read More, Meet the Teachers, Jason Smith, Mathematics, Lorem ipsum dolor sit amet, consectetur adipisicing elit, JAKE VALINER, Marketing, Tom Reedert, web designer, Max Smithson, SEO, Select your price, Words, words, English, Master Degree of Design, 7 Days, Master, Order Now, Degree, French, or Arabic, Project, Pages, Arabic, Documentation, Days, April, Title, views, jun, keyword, Payment System, Yes Soft, A better way to, Success, Lorem ipsum dolor sit amet, ei vis sint persecuti, Suscribe to the form and get all the, information that you need, Select degree program, PhD, Request Information, Get in Touch, Send, Pricing, New Customers, Last 7 days, Orders, In progress, Bill Paid, Last 30 days, Profit, Activity Log, See All, Most recent 5 activities, has, No activity, Database Information, App Base URL, Base URL must not have space and it should end with a trailing slash, Database Host, Database Name, Database User Name, Database Password, Back, Database Connected, After login, please go through the, After-Installation, setup instructions on our documentation page and make sure to follow them all. Configure
+						 everything one by one, for example, Email, Currency, Services setup, etc	, Note that, If you start using the application before configuring 
+						your settings, you might run into error pages. So please make sure 
+						to set up everything before you start using the application., For support please send us an email at, with your purchase code, Go to Login page, Installation in progress, Please wait while we install your application, Install Microelephant App, Customers, Payments, Pending Approval, Payments List, Wallet Transactions, Tag, Trash, Income Statement, Total Wallet Balance, Browse Work, My Tasks, Payment Request, List of payment requests, My Orders, New Order, My Wallet, Change password, New password, Retype Password, Change photo, Bio, Max character, Area of expertise, Preferred method for receiving payment, Payment method details, Timzeone, Upload & Crop Image, Uploading, Crop & Upload Image, Wallet Balance, Wallet Topup, Edit Profile, Archived, Service Type, Assigned To, full_name, Posted, Deadline, Applicable after payment, Due Date, Order Number, Display by nearest due date, &nbsp &nbsp &nbsp, My Payments, Reference, feedback from clients, Skills, Roles, Joined, Feedback from clients, View order, Current Balance, Choose payment option, My Transactions, Type, Your Notifications, Place your first order, Assignee, Payment Amount, Budget, Accept this work, Conversations, Sorted based on most recent comment, Client, Team Member, Admin, Request for revision, Download, Accept, A downlodable link will apprear here when your order is ready, Payout Budget, spacing, None, Attachments, Revision Requested, Unfollow, Follow, Unarchive, Archive, Financial, Base Price, % of Base Price, Staff Payment, No payment has been made, Wallet payment, Your Message, Order Information, Messages, Submitted Works, Rating, Comment, Rate our service, Order Date, Show Archived, In Abandoned Cart, Posted at, Start Working, Sl#, Company, Customer, Attachment, No work has been submitted yet, &nbsp &nbsp &nbsp &nbsp Submit &nbsp &nbsp &nbsp &nbsp, Pending Payment Approval, Disapprove, Payment Information, Financial Summary, Payments pending for approval, Reason, Upload Cover, Meta Desc, keywords, Keyword, lang, Slug, Tell us about your experience, We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better, Your rating, Your comment, Delete Logs, Causer, Date Range, &nbsp &nbsp , &nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp, Report generated based on all the orders that are marked with status "Complete", to, Sales Revenue, Expenses, Payments to staffs, Net Income, No record found, Currently, The following amount is the summation of wallet balances of all the users, Balance in wallets are advance payments and they do not reflect in your income statement, Inactive, Save record, General, Employees, Recruitment, Services & Pricing, Services Category, Urgencies, Work Levels, View Generated Prices, Configuration, Send Test Email, Logo, Website Content, Homepage, Social Links, How it works, FAQ, Money Back Guarantee, Privacy Policy, Revision Policy, Disclaimer, Terms & Condition, Google Analytics, Website SEO, Custom Script, Clear Cache, Tags, Payments Gateways, Offline Payment Methods, System Update, Message to display after submitting the payment request, Instruction to customer, e.g bank name, account number, swift code etc, Requires Evidence, Transaction number, Field name to display for entering transaction number, Requires Uploading attachment, Field name to display for attachment uploading, After your client submits payment request via offline methods, you have to manually approve the payment from, List, Price Type, Service Category, Single Spacing Price, Double Spacing Price, Minimum Order Quantity, Service Category<, Desc, Need Work Level, Image, Duration and Type, Percentage of base price of a service, Enter the percentage of base price of a service that should add up with the total of an order, Currency Symbol, Currency Code, Digit Grouping, Decimal Symbol, Thousand Seperator, Send email using, Queue Connection, Email From Address, Mailgun Domain, Mailgun Key, Smtp Host, SMTP Port, Email Encryption, SMTP Username, Smtp Password, Company Name, Number of times a customer can request for revision of their work, Enter -1 for unlimited times, Email for receiving notifications, Hide Website, Tracking Code, Website Frontend, Version, Suggested image dimension: 154x36 pixel, Upload & Crop Logo, Disable "Writer\'s Application", Crop & Upload Logo, Show link to Writer\'s Application page, on website\'s top menu, Writer\'s application page link - Menu Title, Writer\'s application page title, Writer\'s application Form title, Writer\'s application Form subtitle, Message to show after after successful form submission, Content for Writer\'s application page, Allow staffs to browse work, Staff payment type, Staff payment amount, You are running Prowriters version, Please make sure to create a backup copy of your database before running the upgrade, Upgrade to v, Enter an email address to test the email configutation, Please note that if you want to add a css/js code you have to include the css/js tag as well, Header Script, Codes inserted below will be injected between the header tag, during run time, Footer Script, Codes inserted below will be injected in the footer section, during run time, Activites, Tasks, Orders Placed, Assigned Tasks, Download Resume, Most recent, Name or Email, List of, Send an Invitation, Email Address, Request to join as, Manager, Staff, Writer, Send Invitation, This website uses cookies to ensure you get the best experience on our website, Got it, All rights reserved., Editing, Resume Writing, TYPE OF WORK AND DEADLINE, Pending Post, Posts pending for approval, step, Work Level, Number of pages, Spacing, Number of Words, Next, Sign in to place your order, Create account, Continue as Quest, Amount, Added, Add, ADDITIONAL PAPER DETAILS, Specific Instructions, Previous, I agree to the, Terms and Conditions, and, Pay now, Type of Service, Submit your work, only, Submit, default */
+/***/ (function(module) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  "Arabic": {
-    "Home": "الرئيسية",
-    "About": "من نحن",
-    "Service": "الباقة",
-    "Blog": "المدونة",
-    "Contact": "تواصل معنا",
-    "Account": "الحساب",
-    "Exquisite Of Social Media Marketing": "সোশ্যাল মিডিয়া মার্কেটিং এর দুর্দান্ত",
-    "Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam.": "ফ্রাংগ্লা প্রাইসেন্ট কুইস। ম্যাগনরিলোকাম ফ্র্লা ডোনেক বসেন। সেড ভেলিট আউগুয়েড সেম ডায়ম নিউ প্লেসরত ই ইউ অর্ন নাম।",
-    "Get Started Now": "এখনই শুরু কর",
-    "Dashboard": "",
-    "Services": "الخدمات",
-    "Applicant": "",
-    "Referrer": "",
-    "Note": "",
-    "Change": "",
-    "Search": "",
-    "Applicant Number": "",
-    "Search &nbsp &nbsp &nbsp": "",
-    "Brief summary about you": "",
-    "optional": "",
-    "Resume (PDF file)": "",
-    "Job Applicants": "",
-    "Job Applicants Profile": "",
-    "Resume": "",
-    "Referral Source": "",
-    "Application Date": "",
-    "Invite to join": "",
-    "Delete": "",
-    "Sign In": "",
-    "Sign in to your account to continue": "",
-    "Don't have an account?": "",
-    "Sign up": "",
-    "Paid": "",
-    "Unpaid": "",
-    "Bill To": "",
-    "Date": "",
-    "Item": "",
-    "Quantity": "",
-    "Rate": "",
-    "Sub Total": "",
-    "Total": "",
-    "Number": "",
-    "Bill Number": "",
-    "From": "",
-    "Request for payment": "",
-    "Submit Payout Request": "",
-    "Your Name": "",
-    "Your Address": "",
-    "Your Invoice Number": "",
-    "Sorry, there is no unbilled work by you": "",
-    "Unpaid Balance": "",
-    "Staff Invoice Number": "",
-    "My payment requests": "",
-    "Balance Due": "",
-    "Mark as unpaid": "",
-    "Payment Date": "",
-    " Mark as paid": "",
-    "Successfully completed!": "",
-    "Pay with": "",
-    "Allowed file types": "",
-    "Maximum file size{10} MB": "",
-    "Confirm Payment": "",
-    "Select a payment method": "",
-    "Offline": "",
-    "Wallet- Balance": "",
-    "Pay using your wallet": "",
-    "Dear": "",
-    "We are pleased to inform you that your application for joining us as a Writer has been approved": "",
-    "You can use the following credentials to log in to our system": "",
-    "Please\nmake sure to change your password after you log in": "",
-    "Login": "",
-    "Thanks": "",
-    "Hi": "",
-    "Congratulation! You have been invited to join": "",
-    "Please click the button below to confirm your joining": "",
-    "Join Now": "",
-    "Order Summary": "",
-    "Service Item": "",
-    "Work level": "",
-    "Urgency": "",
-    "Spacing Type": "",
-    "Additional Services": "",
-    "Subtotal": "",
-    "Congratulation! Your email is configured correctly": "",
-    "Toggle navigation": "",
-    "Contact US": "تواصل معنا",
-    "Reviews": "آراء العملاء",
-    "My Account": "حسابي",
-    "log in": "تسجيل الدخول",
-    "Reqeust Help": "طلب خدمة",
-    "writing Service": "خدمات كتابة",
-    "Profesional": "إحتراف",
-    "500 Clients": "500 زبون",
-    "Translation Service": "خدمات الترجمة",
-    "between 4 languges": "بين 4 لغات",
-    "CV Writing": "كتابة السيرة الذاتية",
-    "University Approval": "قبولات جامعية",
-    "Our Services": "خدماتنا",
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse": "هذا نص تجريبي يشير لمكان وصف الخدمات وحجم الخط واللون الذي سيظهر فيه هذا الوصف",
-    "Assignment": "تكليفات",
-    "Essay": "مقالة",
-    "Reports": "تقارير",
-    "Reflection Reports": "تقارير إنعكاس",
-    "Presentations": "العروض التقديمية",
-    "Desertations": "الأطروحات",
-    "Proposals": "عقود",
-    "Projects": "مشاريع",
-    "Calculate your order": "حساب قيمة طلبك",
-    "Read More": "رؤية المزيد",
-    "Meet the Teachers": "مدرسينا",
-    "Jason Smith": "",
-    "Mathematics": "",
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit": "",
-    "JAKE VALINER": "",
-    "Marketing": "",
-    "Tom Reedert": "",
-    "web designer": "",
-    "Max Smithson": "",
-    "SEO": "",
-    "Select your price": "إختر السعر المناسب",
-    "Words": "كلمة",
-    "words": "كلمة",
-    "English": "إنكليزي",
-    "Master Degree of Design": "الماجستير في التصميم",
-    "7 Days": "اسبوع",
-    "Master": "ماستر",
-    "Order Now": "طلب الآن",
-    "Degree": "هندسة",
-    "French": "فرنسي",
-    "or Arabic": "للعربية",
-    "Project": "مشروع",
-    "Pages": "صفحة",
-    "Arabic": "عربي",
-    "Documentation": "توثيق",
-    "Days": "يوم",
-    "April": "",
-    "Title": "",
-    "views": "",
-    "jun": "",
-    "keyword": "",
-    "Payment System": "",
-    "Yes Soft": "",
-    "A better way to": "طريقك الأفضل ",
-    "Success": "للنجاح",
-    "Lorem ipsum dolor sit amet": "أبجد هوز حطي كلمن",
-    "ei vis sint persecuti": "نص ابجد هوز حطي كلمن آخر",
-    "Suscribe to the form and get all the": "اشترك عن طريق تعبئة النموذج ",
-    "information that you need": "لتصلك المعلومات التي تحتاجها",
-    "Select degree program": "اختر الدرجة ",
-    "PhD": "دكتوراه",
-    "Request Information": "طلب المعلومات",
-    "Get in Touch": "",
-    "Send": "",
-    "Pricing": "",
-    "New Customers": "",
-    "Last 7 days": "",
-    "Orders": "",
-    "In progress": "",
-    "Bill Paid": "",
-    "Last 30 days": "",
-    "Profit": "",
-    "Activity Log": "",
-    "See All": "",
-    "Most recent 5 activities": "",
-    "has": "",
-    "No activity": "",
-    "Database Information": "",
-    "App Base URL": "",
-    "Base URL must not have space and it should end with a trailing slash": "",
-    "Database Host": "",
-    "Database Name": "",
-    "Database User Name": "",
-    "Database Password": "",
-    "Back": "",
-    "Database Connected": "",
-    "After login, please go through the": "",
-    "After-Installation": "",
-    "setup instructions on our documentation page and make sure to follow them all. Configure\n\t\t\t\t\t\t everything one by one, for example, Email, Currency, Services setup, etc\t": "",
-    "Note that, If you start using the application before configuring \n\t\t\t\t\t\tyour settings, you might run into error pages. So please make sure \n\t\t\t\t\t\tto set up everything before you start using the application.": "",
-    "For support please send us an email at": "",
-    "with your purchase code": "",
-    "Go to Login page": "",
-    "Installation in progress": "",
-    "Please wait while we install your application": "",
-    "Install Microelephant App": "",
-    "Customers": "",
-    "Payments": "",
-    "Pending Approval": "",
-    "Payments List": "",
-    "Wallet Transactions": "",
-    "Tag": "",
-    "Trash": "",
-    "Income Statement": "",
-    "Total Wallet Balance": "",
-    "Browse Work": "",
-    "My Tasks": "",
-    "Payment Request": "",
-    "List of payment requests": "",
-    "My Orders": "",
-    "New Order": "",
-    "My Wallet": "",
-    "Change password": "",
-    "New password": "",
-    "Retype Password": "",
-    "Change photo": "",
-    "Bio": "",
-    "Max character": "",
-    "Area of expertise": "",
-    "Preferred method for receiving payment": "",
-    "Payment method details": "",
-    "Timzeone": "",
-    "Upload & Crop Image": "",
-    "Uploading": "",
-    "Crop & Upload Image": "",
-    "Wallet Balance": "",
-    "Wallet Topup": "",
-    "Edit Profile": "",
-    "Archived": "",
-    "Service Type": "",
-    "Assigned To": "",
-    "full_name": "",
-    "Posted": "",
-    "Deadline": "",
-    "Applicable after payment": "",
-    "Due Date": "",
-    "Order Number": "",
-    "Display by nearest due date": "",
-    "&nbsp &nbsp &nbsp": "",
-    "My Payments": "",
-    "Reference": "",
-    "feedback from clients": "",
-    "Skills": "",
-    "Roles": "",
-    "Joined": "",
-    "Feedback from clients": "",
-    "View order": "",
-    "Current Balance": "",
-    "Choose payment option": "",
-    "My Transactions": "",
-    "Type": "",
-    "Your Notifications": "",
-    "Place your first order": "",
-    "Assignee": "",
-    "Payment Amount": "",
-    "Budget": "",
-    "Accept this work": "",
-    "Conversations": "",
-    "Sorted based on most recent comment": "",
-    "Client": "",
-    "Team Member": "",
-    "Admin": "",
-    "Request for revision": "",
-    "Download": "",
-    "Accept": "",
-    "A downlodable link will apprear here when your order is ready": "",
-    "Payout Budget": "",
-    "spacing": "",
-    "None": "",
-    "Attachments": "",
-    "Revision Requested": "",
-    "Unfollow": "",
-    "Follow": "",
-    "Unarchive": "",
-    "Archive": "",
-    "Financial": "",
-    "Base Price": "",
-    "% of Base Price": "",
-    "Staff Payment": "",
-    "No payment has been made": "",
-    "Wallet payment": "",
-    "Your Message": "",
-    "Order Information": "",
-    "Messages": "",
-    "Submitted Works": "",
-    "Rating": "",
-    "Comment": "",
-    "Rate our service": "",
-    "Order Date": "",
-    "Show Archived": "",
-    "In Abandoned Cart": "",
-    "Posted at": "",
-    "Start Working": "",
-    "Sl#": "",
-    "Company": "",
-    "Customer": "",
-    "Attachment": "",
-    "No work has been submitted yet": "",
-    "&nbsp &nbsp &nbsp &nbsp Submit &nbsp &nbsp &nbsp &nbsp": "",
-    "Pending Payment Approval": "",
-    "Disapprove": "",
-    "Payment Information": "",
-    "Financial Summary": "",
-    "Payments pending for approval": "",
-    "Reason": "",
-    "Upload Cover": "",
-    "Meta Desc": "",
-    "keywords": "",
-    "Keyword": "",
-    "lang": "",
-    "Slug": "",
-    "Tell us about your experience": "",
-    "We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better": "",
-    "Your rating": "",
-    "Your comment": "",
-    "Delete Logs": "",
-    "Causer": "",
-    "Date Range": "",
-    "&nbsp &nbsp ": "",
-    "&nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp": "",
-    "Report generated based on all the orders that are marked with status \"Complete\"": "",
-    "to": "",
-    "Sales Revenue": "",
-    "Expenses": "",
-    "Payments to staffs": "",
-    "Net Income": "",
-    "No record found": "",
-    "Currently": "",
-    "The following amount is the summation of wallet balances of all the users": "",
-    "Balance in wallets are advance payments and they do not reflect in your income statement": "",
-    "Inactive": "",
-    "Save record": "",
-    "General": "",
-    "Employees": "",
-    "Recruitment": "",
-    "Services & Pricing": "",
-    "Services Category": "",
-    "Urgencies": "",
-    "Work Levels": "",
-    "View Generated Prices": "",
-    "Configuration": "",
-    "Send Test Email": "",
-    "Logo": "",
-    "Website Content": "",
-    "Homepage": "",
-    "Social Links": "",
-    "How it works": "",
-    "FAQ": "",
-    "Money Back Guarantee": "",
-    "Privacy Policy": "",
-    "Revision Policy": "",
-    "Disclaimer": "",
-    "Terms & Condition": "",
-    "Google Analytics": "",
-    "Website SEO": "",
-    "Custom Script": "",
-    "Clear Cache": "",
-    "Tags": "",
-    "Payments Gateways": "",
-    "Offline Payment Methods": "",
-    "System Update": "",
-    "Message to display after submitting the payment request": "",
-    "Instruction to customer": "",
-    "e.g bank name, account number, swift code etc": "",
-    "Requires Evidence": "",
-    "Transaction number": "",
-    "Field name to display for entering transaction number": "",
-    "Requires Uploading attachment": "",
-    "Field name to display for attachment uploading": "",
-    "After your client submits payment request via offline methods, you have to manually approve the payment from": "",
-    "List": "",
-    "Price Type": "",
-    "Service Category": "",
-    "Single Spacing Price": "",
-    "Double Spacing Price": "",
-    "Minimum Order Quantity": "",
-    "Service Category<": "",
-    "Desc": "",
-    "Need Work Level": "",
-    "Image": "",
-    "Duration and Type": "",
-    "Percentage of base price of a service": "",
-    "Enter the percentage of base price of a service that should add up with the total of an order": "",
-    "Currency Symbol": "",
-    "Currency Code": "",
-    "Digit Grouping": "",
-    "Decimal Symbol": "",
-    "Thousand Seperator": "",
-    "Send email using": "",
-    "Queue Connection": "",
-    "Email From Address": "",
-    "Mailgun Domain": "",
-    "Mailgun Key": "",
-    "Smtp Host": "",
-    "SMTP Port": "",
-    "Email Encryption": "",
-    "SMTP Username": "",
-    "Smtp Password": "",
-    "Company Name": "",
-    "Number of times a customer can request for revision of their work": "",
-    "Enter -1 for unlimited times": "",
-    "Email for receiving notifications": "",
-    "Hide Website": "",
-    "Tracking Code": "",
-    "Website Frontend": "",
-    "Version": "",
-    "Suggested image dimension: 154x36 pixel": "",
-    "Upload & Crop Logo": "",
-    "Disable \"Writer\\'s Application\"": "",
-    "Crop & Upload Logo": "",
-    "Show link to Writer\\'s Application page, on website\\'s top menu": "",
-    "Writer\\'s application page link - Menu Title": "",
-    "Writer\\'s application page title": "",
-    "Writer\\'s application Form title": "",
-    "Writer\\'s application Form subtitle": "",
-    "Message to show after after successful form submission": "",
-    "Content for Writer\\'s application page": "",
-    "Allow staffs to browse work": "",
-    "Staff payment type": "",
-    "Staff payment amount": "",
-    "You are running Prowriters version": "",
-    "Please make sure to create a backup copy of your database before running the upgrade": "",
-    "Upgrade to v": "",
-    "Enter an email address to test the email configutation": "",
-    "Please note that if you want to add a css/js code you have to include the css/js tag as well": "",
-    "Header Script": "",
-    "Codes inserted below will be injected between the header tag, during run time": "",
-    "Footer Script": "",
-    "Codes inserted below will be injected in the footer section, during run time": "",
-    "Activites": "",
-    "Tasks": "",
-    "Orders Placed": "",
-    "Assigned Tasks": "",
-    "Download Resume": "",
-    "Most recent": "",
-    "Name or Email": "",
-    "List of": "",
-    "Send an Invitation": "",
-    "Email Address": "",
-    "Request to join as": "",
-    "Manager": "",
-    "Staff": "",
-    "Writer": "",
-    "Send Invitation": "",
-    "This website uses cookies to ensure you get the best experience on our website": "",
-    "Got it": "",
-    "All rights reserved.": "",
-    "Editing": "التحرير",
-    "Resume Writing": ""
-  },
-  "en": {
-    "auth": {
-      "failed": "These credentials do not match our records.",
-      "throttle": "Too many login attempts. Please try again in {seconds} seconds."
-    },
-    "form": {
-      "dropdown_select_text": "Select",
-      "sign_in": "Sign In",
-      "please_enter_email_password": "Please enter your email and password",
-      "orders": "Orders",
-      "order": "Order",
-      "order_now": "Order Now",
-      "customers": "Customers",
-      "team_members": "Team Members",
-      "my_account": "My Account",
-      "type_of_work": "Type of work",
-      "subject": "Subject",
-      "title": "Title",
-      "level": "Level",
-      "instruction": "Instruction"
-    },
-    "pagination": {
-      "previous": "&laquo; Previous",
-      "next": "Next &raquo;"
-    },
-    "passwords": {
-      "reset": "Your password has been reset!",
-      "sent": "We have e-mailed your password reset link!",
-      "throttled": "Please wait before retrying.",
-      "token": "This password reset token is invalid.",
-      "user": "We can't find a user with that e-mail address."
-    },
-    "validation": {
-      "accepted": "The {attribute} must be accepted.",
-      "active_url": "The {attribute} is not a valid URL.",
-      "after": "The {attribute} must be a date after {date}.",
-      "after_or_equal": "The {attribute} must be a date after or equal to {date}.",
-      "alpha": "The {attribute} may only contain letters.",
-      "alpha_dash": "The {attribute} may only contain letters, numbers, dashes and underscores.",
-      "alpha_num": "The {attribute} may only contain letters and numbers.",
-      "array": "The {attribute} must be an array.",
-      "before": "The {attribute} must be a date before {date}.",
-      "before_or_equal": "The {attribute} must be a date before or equal to {date}.",
-      "between": {
-        "numeric": "The {attribute} must be between {min} and {max}.",
-        "file": "The {attribute} must be between {min} and {max} kilobytes.",
-        "string": "The {attribute} must be between {min} and {max} characters.",
-        "array": "The {attribute} must have between {min} and {max} items."
-      },
-      "boolean": "The {attribute} field must be true or false.",
-      "confirmed": "The {attribute} confirmation does not match.",
-      "date": "The {attribute} is not a valid date.",
-      "date_equals": "The {attribute} must be a date equal to {date}.",
-      "date_format": "The {attribute} does not match the format {format}.",
-      "different": "The {attribute} and {other} must be different.",
-      "digits": "The {attribute} must be {digits} digits.",
-      "digits_between": "The {attribute} must be between {min} and {max} digits.",
-      "dimensions": "The {attribute} has invalid image dimensions.",
-      "distinct": "The {attribute} field has a duplicate value.",
-      "email": "The {attribute} must be a valid email address.",
-      "ends_with": "The {attribute} must end with one of the following: {values}",
-      "exists": "The selected {attribute} is invalid.",
-      "file": "The {attribute} must be a file.",
-      "filled": "The {attribute} field must have a value.",
-      "gt": {
-        "numeric": "The {attribute} must be greater than {value}.",
-        "file": "The {attribute} must be greater than {value} kilobytes.",
-        "string": "The {attribute} must be greater than {value} characters.",
-        "array": "The {attribute} must have more than {value} items."
-      },
-      "gte": {
-        "numeric": "The {attribute} must be greater than or equal {value}.",
-        "file": "The {attribute} must be greater than or equal {value} kilobytes.",
-        "string": "The {attribute} must be greater than or equal {value} characters.",
-        "array": "The {attribute} must have {value} items or more."
-      },
-      "image": "The {attribute} must be an image.",
-      "in": "The selected {attribute} is invalid.",
-      "in_array": "The {attribute} field does not exist in {other}.",
-      "integer": "The {attribute} must be an integer.",
-      "ip": "The {attribute} must be a valid IP address.",
-      "ipv4": "The {attribute} must be a valid IPv4 address.",
-      "ipv6": "The {attribute} must be a valid IPv6 address.",
-      "json": "The {attribute} must be a valid JSON string.",
-      "lt": {
-        "numeric": "The {attribute} must be less than {value}.",
-        "file": "The {attribute} must be less than {value} kilobytes.",
-        "string": "The {attribute} must be less than {value} characters.",
-        "array": "The {attribute} must have less than {value} items."
-      },
-      "lte": {
-        "numeric": "The {attribute} must be less than or equal {value}.",
-        "file": "The {attribute} must be less than or equal {value} kilobytes.",
-        "string": "The {attribute} must be less than or equal {value} characters.",
-        "array": "The {attribute} must not have more than {value} items."
-      },
-      "max": {
-        "numeric": "The {attribute} may not be greater than {max}.",
-        "file": "The {attribute} may not be greater than {max} kilobytes.",
-        "string": "The {attribute} may not be greater than {max} characters.",
-        "array": "The {attribute} may not have more than {max} items."
-      },
-      "mimes": "The {attribute} must be a file of type: {values}.",
-      "mimetypes": "The {attribute} must be a file of type: {values}.",
-      "min": {
-        "numeric": "The {attribute} must be at least {min}.",
-        "file": "The {attribute} must be at least {min} kilobytes.",
-        "string": "The {attribute} must be at least {min} characters.",
-        "array": "The {attribute} must have at least {min} items."
-      },
-      "not_in": "The selected {attribute} is invalid.",
-      "not_regex": "The {attribute} format is invalid.",
-      "numeric": "The {attribute} must be a number.",
-      "password": "The password is incorrect.",
-      "present": "The {attribute} field must be present.",
-      "regex": "The {attribute} format is invalid.",
-      "required": "The {attribute} field is required.",
-      "required_if": "The {attribute} field is required when {other} is {value}.",
-      "required_unless": "The {attribute} field is required unless {other} is in {values}.",
-      "required_with": "The {attribute} field is required when {values} is present.",
-      "required_with_all": "The {attribute} field is required when {values} are present.",
-      "required_without": "The {attribute} field is required when {values} is not present.",
-      "required_without_all": "The {attribute} field is required when none of {values} are present.",
-      "same": "The {attribute} and {other} must match.",
-      "size": {
-        "numeric": "The {attribute} must be {size}.",
-        "file": "The {attribute} must be {size} kilobytes.",
-        "string": "The {attribute} must be {size} characters.",
-        "array": "The {attribute} must contain {size} items."
-      },
-      "starts_with": "The {attribute} must start with one of the following: {values}",
-      "string": "The {attribute} must be a string.",
-      "timezone": "The {attribute} must be a valid zone.",
-      "unique": "The {attribute} has already been taken.",
-      "uploaded": "The {attribute} failed to upload.",
-      "url": "The {attribute} format is invalid.",
-      "uuid": "The {attribute} must be a valid UUID.",
-      "custom": {
-        "attribute-name": {
-          "rule-name": "custom-message"
-        }
-      },
-      "attributes": []
-    },
-    "wallet": {
-      "placed_order": "Placed Order"
-    }
-  }
-});
+module.exports = JSON.parse("{\"Home\":\"الرئيسية\",\"About\":\"من نحن\",\"Service\":\"الباقة\",\"Blog\":\"المدونة\",\"Contact\":\"تواصل معنا\",\"Account\":\"الحساب\",\"Exquisite Of Social Media Marketing\":\"সোশ্যাল মিডিয়া মার্কেটিং এর দুর্দান্ত\",\"Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam.\":\"ফ্রাংগ্লা প্রাইসেন্ট কুইস। ম্যাগনরিলোকাম ফ্র্লা ডোনেক বসেন। সেড ভেলিট আউগুয়েড সেম ডায়ম নিউ প্লেসরত ই ইউ অর্ন নাম।\",\"Get Started Now\":\"এখনই শুরু কর\",\"Dashboard\":\"\",\"Services\":\"الخدمات\",\"Applicant\":\"\",\"Referrer\":\"\",\"Note\":\"\",\"Change\":\"\",\"Search\":\"\",\"Applicant Number\":\"\",\"Search &nbsp &nbsp &nbsp\":\"\",\"Brief summary about you\":\"\",\"optional\":\"\",\"Resume (PDF file)\":\"\",\"Job Applicants\":\"\",\"Job Applicants Profile\":\"\",\"Resume\":\"\",\"Referral Source\":\"\",\"Application Date\":\"\",\"Invite to join\":\"\",\"Delete\":\"\",\"Sign In\":\"\",\"Sign in to your account to continue\":\"\",\"Don't have an account?\":\"\",\"Sign up\":\"\",\"Paid\":\"\",\"Unpaid\":\"\",\"Bill To\":\"\",\"Date\":\"\",\"Item\":\"\",\"Quantity\":\"\",\"Rate\":\"معدل\",\"Sub Total\":\"\",\"Total\":\"المجموع\",\"Number\":\"\",\"Bill Number\":\"\",\"From\":\"\",\"Request for payment\":\"\",\"Submit Payout Request\":\"\",\"Your Name\":\"\",\"Your Address\":\"\",\"Your Invoice Number\":\"\",\"Sorry, there is no unbilled work by you\":\"\",\"Unpaid Balance\":\"\",\"Staff Invoice Number\":\"\",\"My payment requests\":\"\",\"Balance Due\":\"\",\"Mark as unpaid\":\"\",\"Payment Date\":\"\",\" Mark as paid\":\"\",\"Successfully completed!\":\"\",\"Pay with\":\"\",\"Allowed file types\":\"\",\"Maximum file size:10 MB\":\"\",\"Confirm Payment\":\"\",\"Select a payment method\":\"\",\"Offline\":\"\",\"Wallet- Balance\":\"\",\"Pay using your wallet\":\"\",\"Dear\":\"\",\"We are pleased to inform you that your application for joining us as a Writer has been approved\":\"\",\"You can use the following credentials to log in to our system\":\"\",\"Please\\nmake sure to change your password after you log in\":\"\",\"Login\":\"\",\"Thanks\":\"\",\"Hi\":\"\",\"Congratulation! You have been invited to join\":\"\",\"Please click the button below to confirm your joining\":\"\",\"Join Now\":\"\",\"Order Summary\":\"ملخص الطلب\",\"Service Item\":\"\",\"Work level\":\"\",\"Urgency\":\"الاستعجال\",\"Spacing Type\":\"نوع التباعد\",\"Additional Services\":\"\",\"Subtotal\":\"\",\"Congratulation! Your email is configured correctly\":\"\",\"Toggle navigation\":\"\",\"Contact US\":\"تواصل معنا\",\"Reviews\":\"آراء العملاء\",\"My Account\":\"حسابي\",\"log in\":\"تسجيل الدخول\",\"Reqeust Help\":\"طلب خدمة\",\"writing Service\":\"خدمات كتابة\",\"Profesional\":\"إحتراف\",\"500 Clients\":\"500 زبون\",\"Translation Service\":\"خدمات الترجمة\",\"between 4 languges\":\"بين 4 لغات\",\"CV Writing\":\"كتابة السيرة الذاتية\",\"University Approval\":\"قبولات جامعية\",\"Our Services\":\"خدماتنا\",\"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse\":\"هذا نص تجريبي يشير لمكان وصف الخدمات وحجم الخط واللون الذي سيظهر فيه هذا الوصف\",\"Assignment\":\"تكليفات\",\"Essay\":\"مقالة\",\"Reports\":\"تقارير\",\"Reflection Reports\":\"تقارير إنعكاس\",\"Presentations\":\"العروض التقديمية\",\"Desertations\":\"الأطروحات\",\"Proposals\":\"عقود\",\"Projects\":\"مشاريع\",\"Calculate your order\":\"حساب قيمة طلبك\",\"Read More\":\"رؤية المزيد\",\"Meet the Teachers\":\"مدرسينا\",\"Jason Smith\":\"\",\"Mathematics\":\"\",\"Lorem ipsum dolor sit amet, consectetur adipisicing elit\":\"\",\"JAKE VALINER\":\"\",\"Marketing\":\"\",\"Tom Reedert\":\"\",\"web designer\":\"\",\"Max Smithson\":\"\",\"SEO\":\"\",\"Select your price\":\"إختر السعر المناسب\",\"Words\":\"كلمة\",\"words\":\"كلمة\",\"English\":\"إنكليزي\",\"Master Degree of Design\":\"الماجستير في التصميم\",\"7 Days\":\"اسبوع\",\"Master\":\"ماستر\",\"Order Now\":\"طلب الآن\",\"Degree\":\"هندسة\",\"French\":\"فرنسي\",\"or Arabic\":\"للعربية\",\"Project\":\"مشروع\",\"Pages\":\"صفحة\",\"Arabic\":\"عربي\",\"Documentation\":\"توثيق\",\"Days\":\"يوم\",\"April\":\"\",\"Title\":\"\",\"views\":\"\",\"jun\":\"\",\"keyword\":\"\",\"Payment System\":\"\",\"Yes Soft\":\"\",\"A better way to\":\"طريقك الأفضل \",\"Success\":\"للنجاح\",\"Lorem ipsum dolor sit amet\":\"أبجد هوز حطي كلمن\",\"ei vis sint persecuti\":\"نص ابجد هوز حطي كلمن آخر\",\"Suscribe to the form and get all the\":\"اشترك عن طريق تعبئة النموذج \",\"information that you need\":\"لتصلك المعلومات التي تحتاجها\",\"Select degree program\":\"اختر الدرجة \",\"PhD\":\"دكتوراه\",\"Request Information\":\"طلب المعلومات\",\"Get in Touch\":\"\",\"Send\":\"\",\"Pricing\":\"\",\"New Customers\":\"\",\"Last 7 days\":\"\",\"Orders\":\"\",\"In progress\":\"\",\"Bill Paid\":\"\",\"Last 30 days\":\"\",\"Profit\":\"\",\"Activity Log\":\"\",\"See All\":\"\",\"Most recent 5 activities\":\"\",\"has\":\"\",\"No activity\":\"\",\"Database Information\":\"\",\"App Base URL\":\"\",\"Base URL must not have space and it should end with a trailing slash\":\"\",\"Database Host\":\"\",\"Database Name\":\"\",\"Database User Name\":\"\",\"Database Password\":\"\",\"Back\":\"\",\"Database Connected\":\"\",\"After login, please go through the\":\"\",\"After-Installation\":\"\",\"setup instructions on our documentation page and make sure to follow them all. Configure\\n\\t\\t\\t\\t\\t\\t everything one by one, for example, Email, Currency, Services setup, etc\\t\":\"\",\"Note that, If you start using the application before configuring \\n\\t\\t\\t\\t\\t\\tyour settings, you might run into error pages. So please make sure \\n\\t\\t\\t\\t\\t\\tto set up everything before you start using the application.\":\"\",\"For support please send us an email at\":\"\",\"with your purchase code\":\"\",\"Go to Login page\":\"\",\"Installation in progress\":\"\",\"Please wait while we install your application\":\"\",\"Install Microelephant App\":\"\",\"Customers\":\"\",\"Payments\":\"\",\"Pending Approval\":\"\",\"Payments List\":\"\",\"Wallet Transactions\":\"\",\"Tag\":\"\",\"Trash\":\"\",\"Income Statement\":\"\",\"Total Wallet Balance\":\"\",\"Browse Work\":\"\",\"My Tasks\":\"\",\"Payment Request\":\"\",\"List of payment requests\":\"\",\"My Orders\":\"\",\"New Order\":\"\",\"My Wallet\":\"\",\"Change password\":\"\",\"New password\":\"\",\"Retype Password\":\"\",\"Change photo\":\"\",\"Bio\":\"\",\"Max character\":\"\",\"Area of expertise\":\"\",\"Preferred method for receiving payment\":\"\",\"Payment method details\":\"\",\"Timzeone\":\"\",\"Upload & Crop Image\":\"\",\"Uploading\":\"\",\"Crop & Upload Image\":\"\",\"Wallet Balance\":\"\",\"Wallet Topup\":\"\",\"Edit Profile\":\"\",\"Archived\":\"\",\"Service Type\":\"نوع الخدمة\",\"Assigned To\":\"\",\"full_name\":\"\",\"Posted\":\"\",\"Deadline\":\"موعد\",\"Applicable after payment\":\"\",\"Due Date\":\"\",\"Order Number\":\"\",\"Display by nearest due date\":\"\",\"&nbsp &nbsp &nbsp\":\"\",\"My Payments\":\"\",\"Reference\":\"\",\"feedback from clients\":\"\",\"Skills\":\"\",\"Roles\":\"\",\"Joined\":\"\",\"Feedback from clients\":\"\",\"View order\":\"\",\"Current Balance\":\"\",\"Choose payment option\":\"\",\"My Transactions\":\"\",\"Type\":\"\",\"Your Notifications\":\"\",\"Place your first order\":\"\",\"Assignee\":\"\",\"Payment Amount\":\"\",\"Budget\":\"\",\"Accept this work\":\"\",\"Conversations\":\"\",\"Sorted based on most recent comment\":\"\",\"Client\":\"\",\"Team Member\":\"\",\"Admin\":\"\",\"Request for revision\":\"\",\"Download\":\"\",\"Accept\":\"\",\"A downlodable link will apprear here when your order is ready\":\"\",\"Payout Budget\":\"\",\"spacing\":\"\",\"None\":\"\",\"Attachments\":\"\",\"Revision Requested\":\"\",\"Unfollow\":\"\",\"Follow\":\"\",\"Unarchive\":\"\",\"Archive\":\"\",\"Financial\":\"\",\"Base Price\":\"\",\"% of Base Price\":\"\",\"Staff Payment\":\"\",\"No payment has been made\":\"\",\"Wallet payment\":\"\",\"Your Message\":\"رسالتك\",\"Order Information\":\"\",\"Messages\":\"\",\"Submitted Works\":\"\",\"Rating\":\"\",\"Comment\":\"\",\"Rate our service\":\"\",\"Order Date\":\"\",\"Show Archived\":\"\",\"In Abandoned Cart\":\"\",\"Posted at\":\"\",\"Start Working\":\"\",\"Sl#\":\"\",\"Company\":\"\",\"Customer\":\"\",\"Attachment\":\"المرفق\",\"No work has been submitted yet\":\"\",\"&nbsp &nbsp &nbsp &nbsp Submit &nbsp &nbsp &nbsp &nbsp\":\"\",\"Pending Payment Approval\":\"\",\"Disapprove\":\"\",\"Payment Information\":\"\",\"Financial Summary\":\"\",\"Payments pending for approval\":\"\",\"Reason\":\"\",\"Upload Cover\":\"\",\"Meta Desc\":\"\",\"keywords\":\"\",\"Keyword\":\"\",\"lang\":\"\",\"Slug\":\"\",\"Tell us about your experience\":\"\",\"We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better\":\"\",\"Your rating\":\"\",\"Your comment\":\"\",\"Delete Logs\":\"\",\"Causer\":\"\",\"Date Range\":\"\",\"&nbsp &nbsp \":\"\",\"&nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp\":\"\",\"Report generated based on all the orders that are marked with status \\\"Complete\\\"\":\"\",\"to\":\"\",\"Sales Revenue\":\"\",\"Expenses\":\"\",\"Payments to staffs\":\"\",\"Net Income\":\"\",\"No record found\":\"\",\"Currently\":\"\",\"The following amount is the summation of wallet balances of all the users\":\"\",\"Balance in wallets are advance payments and they do not reflect in your income statement\":\"\",\"Inactive\":\"\",\"Save record\":\"\",\"General\":\"\",\"Employees\":\"\",\"Recruitment\":\"\",\"Services & Pricing\":\"\",\"Services Category\":\"\",\"Urgencies\":\"\",\"Work Levels\":\"\",\"View Generated Prices\":\"\",\"Configuration\":\"\",\"Send Test Email\":\"\",\"Logo\":\"\",\"Website Content\":\"\",\"Homepage\":\"\",\"Social Links\":\"\",\"How it works\":\"\",\"FAQ\":\"\",\"Money Back Guarantee\":\"\",\"Privacy Policy\":\"سياسة الخصوصية\",\"Revision Policy\":\"\",\"Disclaimer\":\"\",\"Terms & Condition\":\"\",\"Google Analytics\":\"\",\"Website SEO\":\"\",\"Custom Script\":\"\",\"Clear Cache\":\"\",\"Tags\":\"\",\"Payments Gateways\":\"\",\"Offline Payment Methods\":\"\",\"System Update\":\"\",\"Message to display after submitting the payment request\":\"\",\"Instruction to customer\":\"\",\"e.g bank name, account number, swift code etc\":\"\",\"Requires Evidence\":\"\",\"Transaction number\":\"\",\"Field name to display for entering transaction number\":\"\",\"Requires Uploading attachment\":\"\",\"Field name to display for attachment uploading\":\"\",\"After your client submits payment request via offline methods, you have to manually approve the payment from\":\"\",\"List\":\"\",\"Price Type\":\"\",\"Service Category\":\"فئة الخدمة\",\"Single Spacing Price\":\"\",\"Double Spacing Price\":\"\",\"Minimum Order Quantity\":\"\",\"Service Category<\":\"\",\"Desc\":\"\",\"Need Work Level\":\"\",\"Image\":\"\",\"Duration and Type\":\"\",\"Percentage of base price of a service\":\"\",\"Enter the percentage of base price of a service that should add up with the total of an order\":\"\",\"Currency Symbol\":\"\",\"Currency Code\":\"\",\"Digit Grouping\":\"\",\"Decimal Symbol\":\"\",\"Thousand Seperator\":\"\",\"Send email using\":\"\",\"Queue Connection\":\"\",\"Email From Address\":\"\",\"Mailgun Domain\":\"\",\"Mailgun Key\":\"\",\"Smtp Host\":\"\",\"SMTP Port\":\"\",\"Email Encryption\":\"\",\"SMTP Username\":\"\",\"Smtp Password\":\"\",\"Company Name\":\"\",\"Number of times a customer can request for revision of their work\":\"\",\"Enter -1 for unlimited times\":\"\",\"Email for receiving notifications\":\"\",\"Hide Website\":\"\",\"Tracking Code\":\"\",\"Website Frontend\":\"\",\"Version\":\"\",\"Suggested image dimension: 154x36 pixel\":\"\",\"Upload & Crop Logo\":\"\",\"Disable \\\"Writer\\\\'s Application\\\"\":\"\",\"Crop & Upload Logo\":\"\",\"Show link to Writer\\\\'s Application page, on website\\\\'s top menu\":\"\",\"Writer\\\\'s application page link - Menu Title\":\"\",\"Writer\\\\'s application page title\":\"\",\"Writer\\\\'s application Form title\":\"\",\"Writer\\\\'s application Form subtitle\":\"\",\"Message to show after after successful form submission\":\"\",\"Content for Writer\\\\'s application page\":\"\",\"Allow staffs to browse work\":\"\",\"Staff payment type\":\"\",\"Staff payment amount\":\"\",\"You are running Prowriters version\":\"\",\"Please make sure to create a backup copy of your database before running the upgrade\":\"\",\"Upgrade to v\":\"\",\"Enter an email address to test the email configutation\":\"\",\"Please note that if you want to add a css/js code you have to include the css/js tag as well\":\"\",\"Header Script\":\"\",\"Codes inserted below will be injected between the header tag, during run time\":\"\",\"Footer Script\":\"\",\"Codes inserted below will be injected in the footer section, during run time\":\"\",\"Activites\":\"\",\"Tasks\":\"\",\"Orders Placed\":\"\",\"Assigned Tasks\":\"\",\"Download Resume\":\"\",\"Most recent\":\"\",\"Name or Email\":\"\",\"List of\":\"\",\"Send an Invitation\":\"\",\"Email Address\":\"\",\"Request to join as\":\"\",\"Manager\":\"\",\"Staff\":\"\",\"Writer\":\"\",\"Send Invitation\":\"\",\"This website uses cookies to ensure you get the best experience on our website\":\"\",\"Got it\":\"\",\"All rights reserved.\":\"\",\"Editing\":\"التحرير\",\"Resume Writing\":\"\",\"TYPE OF WORK AND DEADLINE\":\"نوع العمل والموعد النهائي\",\"Pending Post\":\"\",\"Posts pending for approval\":\"\",\"step\":\"الخطوة\",\"Work Level\":\"مستوى العمل\",\"Number of pages\":\"عدد الصفحات\",\"Spacing\":\"تباعد\",\"Number of Words\":\"عدد الكلمات\",\"Next\":\"التالي\",\"Sign in to place your order\":\"تسجيل الدخول لتقديم طلبك\",\"Create account\":\"إنشاء حساب\",\"Continue as Quest\":\"تواصل مثل كويست\",\"Amount\":\"مقدار\",\"Added\":\"اضافت\",\"Add\":\"اضافة\",\"ADDITIONAL PAPER DETAILS\":\"تفاصيل ورق إضافية\",\"Specific Instructions\":\"تعليمات محددة\",\"Previous\":\"سابق\",\"I agree to the\":\"أنا أوافق على\",\"Terms and Conditions\":\"الأحكام والشروط\",\"and\":\"و\",\"Pay now\":\"ادفع الآن\",\"Type of Service\":\"نوع الخدمة\",\"Submit your work\":\"أرسل عملك\",\"only\":\"فقط\",\"Submit\":\"إرسال\"}");
+
+/***/ }),
+
+/***/ "./resources/lang/English.json":
+/*!*************************************!*\
+  !*** ./resources/lang/English.json ***!
+  \*************************************/
+/*! exports provided: Home, About, Service, Blog, Contact, Account, Exquisite Of Social Media Marketing, Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam., Get Started Now, Dashboard, Services, Applicant, Referrer, Note, Change, Search, Applicant Number, Search &nbsp &nbsp &nbsp, Brief summary about you, optional, Resume (PDF file), Job Applicants, Job Applicants Profile, Resume, Referral Source, Application Date, Invite to join, Delete, Sign In, Sign in to your account to continue, Don't have an account?, Sign up, Paid, Unpaid, Bill To, Date, Item, Quantity, Rate, Sub Total, Total, Number, Bill Number, From, Request for payment, Submit Payout Request, Your Name, Your Address, Your Invoice Number, Sorry, there is no unbilled work by you, Unpaid Balance, Staff Invoice Number, My payment requests, Balance Due, Mark as unpaid, Payment Date,  Mark as paid, Successfully completed!, Pay with, Allowed file types, Maximum file size:10 MB, Confirm Payment, Select a payment method, Offline, Wallet- Balance, Pay using your wallet, Dear, We are pleased to inform you that your application for joining us as a Writer has been approved, You can use the following credentials to log in to our system, Please
+make sure to change your password after you log in, Login, Thanks, Hi, Congratulation! You have been invited to join, Please click the button below to confirm your joining, Join Now, Order Summary, Service Item, Work level, Urgency, Spacing Type, Additional Services, Subtotal, Congratulation! Your email is configured correctly, Toggle navigation, Contact US, Reviews, My Account, log in, Reqeust Help, writing Service, Profesional, 500 Clients, Translation Service, between 4 languges, CV Writing, University Approval, Our Services, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse, Assignment, Essay, Reports, Reflection Reports, Presentations, Desertations, Proposals, Projects, Calculate your order, Read More, Meet the Teachers, Jason Smith, Mathematics, Lorem ipsum dolor sit amet, consectetur adipisicing elit, JAKE VALINER, Marketing, Tom Reedert, web designer, Max Smithson, SEO, Select your price, Words, words, English, Master Degree of Design, 7 Days, Master, Order Now, Degree, French, or Arabic, Project, Pages, Arabic, Documentation, Days, April, Title, views, jun, keyword, Payment System, Yes Soft, A better way to, Success, Lorem ipsum dolor sit amet, ei vis sint persecuti, Suscribe to the form and get all the, information that you need, Select degree program, PhD, Request Information, Get in Touch, Send, Pricing, New Customers, Last 7 days, Orders, In progress, Bill Paid, Last 30 days, Profit, Activity Log, See All, Most recent 5 activities, has, No activity, Database Information, App Base URL, Base URL must not have space and it should end with a trailing slash, Database Host, Database Name, Database User Name, Database Password, Back, Database Connected, After login, please go through the, After-Installation, setup instructions on our documentation page and make sure to follow them all. Configure
+						 everything one by one, for example, Email, Currency, Services setup, etc	, Note that, If you start using the application before configuring 
+						your settings, you might run into error pages. So please make sure 
+						to set up everything before you start using the application., For support please send us an email at, with your purchase code, Go to Login page, Installation in progress, Please wait while we install your application, Install Microelephant App, Customers, Payments, Pending Approval, Payments List, Wallet Transactions, Tag, Trash, Income Statement, Total Wallet Balance, Browse Work, My Tasks, Payment Request, List of payment requests, My Orders, New Order, My Wallet, Change password, New password, Retype Password, Change photo, Bio, Max character, Area of expertise, Preferred method for receiving payment, Payment method details, Timzeone, Upload & Crop Image, Uploading, Crop & Upload Image, Wallet Balance, Wallet Topup, Edit Profile, Archived, Service Type, Assigned To, full_name, Posted, Deadline, Applicable after payment, Due Date, Order Number, Display by nearest due date, &nbsp &nbsp &nbsp, My Payments, Reference, feedback from clients, Skills, Roles, Joined, Feedback from clients, View order, Current Balance, Choose payment option, My Transactions, Type, Your Notifications, Place your first order, Assignee, Payment Amount, Budget, Accept this work, Conversations, Sorted based on most recent comment, Client, Team Member, Admin, Request for revision, Download, Accept, A downlodable link will apprear here when your order is ready, Payout Budget, spacing, None, Attachments, Revision Requested, Unfollow, Follow, Unarchive, Archive, Financial, Base Price, % of Base Price, Staff Payment, No payment has been made, Wallet payment, Your Message, Order Information, Messages, Submitted Works, Rating, Comment, Rate our service, Order Date, Show Archived, In Abandoned Cart, Posted at, Start Working, Sl#, Company, Customer, Attachment, No work has been submitted yet, &nbsp &nbsp &nbsp &nbsp Submit &nbsp &nbsp &nbsp &nbsp, Pending Payment Approval, Disapprove, Payment Information, Financial Summary, Payments pending for approval, Reason, Upload Cover, Meta Desc, keywords, Keyword, lang, Slug, Tell us about your experience, We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better, Your rating, Your comment, Delete Logs, Causer, Date Range, &nbsp &nbsp , &nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp, Report generated based on all the orders that are marked with status "Complete", to, Sales Revenue, Expenses, Payments to staffs, Net Income, No record found, Currently, The following amount is the summation of wallet balances of all the users, Balance in wallets are advance payments and they do not reflect in your income statement, Inactive, Save record, General, Employees, Recruitment, Services & Pricing, Services Category, Urgencies, Work Levels, View Generated Prices, Configuration, Send Test Email, Logo, Website Content, Homepage, Social Links, How it works, FAQ, Money Back Guarantee, Privacy Policy, Revision Policy, Disclaimer, Terms & Condition, Google Analytics, Website SEO, Custom Script, Clear Cache, Tags, Payments Gateways, Offline Payment Methods, System Update, Message to display after submitting the payment request, Instruction to customer, e.g bank name, account number, swift code etc, Requires Evidence, Transaction number, Field name to display for entering transaction number, Requires Uploading attachment, Field name to display for attachment uploading, After your client submits payment request via offline methods, you have to manually approve the payment from, List, Price Type, Service Category, Single Spacing Price, Double Spacing Price, Minimum Order Quantity, Service Category<, Desc, Need Work Level, Image, Duration and Type, Percentage of base price of a service, Enter the percentage of base price of a service that should add up with the total of an order, Currency Symbol, Currency Code, Digit Grouping, Decimal Symbol, Thousand Seperator, Send email using, Queue Connection, Email From Address, Mailgun Domain, Mailgun Key, Smtp Host, SMTP Port, Email Encryption, SMTP Username, Smtp Password, Company Name, Number of times a customer can request for revision of their work, Enter -1 for unlimited times, Email for receiving notifications, Hide Website, Tracking Code, Website Frontend, Version, Suggested image dimension: 154x36 pixel, Upload & Crop Logo, Disable "Writer\'s Application", Crop & Upload Logo, Show link to Writer\'s Application page, on website\'s top menu, Writer\'s application page link - Menu Title, Writer\'s application page title, Writer\'s application Form title, Writer\'s application Form subtitle, Message to show after after successful form submission, Content for Writer\'s application page, Allow staffs to browse work, Staff payment type, Staff payment amount, You are running Prowriters version, Please make sure to create a backup copy of your database before running the upgrade, Upgrade to v, Enter an email address to test the email configutation, Please note that if you want to add a css/js code you have to include the css/js tag as well, Header Script, Codes inserted below will be injected between the header tag, during run time, Footer Script, Codes inserted below will be injected in the footer section, during run time, Activites, Tasks, Orders Placed, Assigned Tasks, Download Resume, Most recent, Name or Email, List of, Send an Invitation, Email Address, Request to join as, Manager, Staff, Writer, Send Invitation, This website uses cookies to ensure you get the best experience on our website, Got it, All rights reserved., Editing, Resume Writing, TYPE OF WORK AND DEADLINE, Pending Post, Posts pending for approval, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"Home\":\"Home\",\"About\":\"\",\"Service\":\"\",\"Blog\":\"\",\"Contact\":\"\",\"Account\":\"\",\"Exquisite Of Social Media Marketing\":\"\",\"Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam.\":\"\",\"Get Started Now\":\"\",\"Dashboard\":\"\",\"Services\":\"\",\"Applicant\":\"\",\"Referrer\":\"\",\"Note\":\"\",\"Change\":\"\",\"Search\":\"\",\"Applicant Number\":\"\",\"Search &nbsp &nbsp &nbsp\":\"\",\"Brief summary about you\":\"\",\"optional\":\"\",\"Resume (PDF file)\":\"\",\"Job Applicants\":\"\",\"Job Applicants Profile\":\"\",\"Resume\":\"\",\"Referral Source\":\"\",\"Application Date\":\"\",\"Invite to join\":\"\",\"Delete\":\"\",\"Sign In\":\"\",\"Sign in to your account to continue\":\"\",\"Don't have an account?\":\"\",\"Sign up\":\"\",\"Paid\":\"\",\"Unpaid\":\"\",\"Bill To\":\"\",\"Date\":\"\",\"Item\":\"\",\"Quantity\":\"\",\"Rate\":\"Rate\",\"Sub Total\":\"\",\"Total\":\"Total\",\"Number\":\"\",\"Bill Number\":\"\",\"From\":\"\",\"Request for payment\":\"\",\"Submit Payout Request\":\"\",\"Your Name\":\"\",\"Your Address\":\"\",\"Your Invoice Number\":\"\",\"Sorry, there is no unbilled work by you\":\"\",\"Unpaid Balance\":\"\",\"Staff Invoice Number\":\"\",\"My payment requests\":\"\",\"Balance Due\":\"\",\"Mark as unpaid\":\"\",\"Payment Date\":\"\",\" Mark as paid\":\"\",\"Successfully completed!\":\"\",\"Pay with\":\"\",\"Allowed file types\":\"\",\"Maximum file size:10 MB\":\"\",\"Confirm Payment\":\"\",\"Select a payment method\":\"\",\"Offline\":\"\",\"Wallet- Balance\":\"\",\"Pay using your wallet\":\"\",\"Dear\":\"\",\"We are pleased to inform you that your application for joining us as a Writer has been approved\":\"\",\"You can use the following credentials to log in to our system\":\"\",\"Please\\nmake sure to change your password after you log in\":\"\",\"Login\":\"\",\"Thanks\":\"\",\"Hi\":\"\",\"Congratulation! You have been invited to join\":\"\",\"Please click the button below to confirm your joining\":\"\",\"Join Now\":\"\",\"Order Summary\":\"\",\"Service Item\":\"\",\"Work level\":\"\",\"Urgency\":\"\",\"Spacing Type\":\"Spacing Type\",\"Additional Services\":\"Additional Services'\",\"Subtotal\":\"\",\"Congratulation! Your email is configured correctly\":\"\",\"Toggle navigation\":\"\",\"Contact US\":\"\",\"Reviews\":\"\",\"My Account\":\"\",\"log in\":\"\",\"Reqeust Help\":\"\",\"writing Service\":\"\",\"Profesional\":\"\",\"500 Clients\":\"\",\"Translation Service\":\"\",\"between 4 languges\":\"\",\"CV Writing\":\"\",\"University Approval\":\"\",\"Our Services\":\"\",\"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse\":\"\",\"Assignment\":\"\",\"Essay\":\"\",\"Reports\":\"\",\"Reflection Reports\":\"\",\"Presentations\":\"\",\"Desertations\":\"\",\"Proposals\":\"\",\"Projects\":\"\",\"Calculate your order\":\"\",\"Read More\":\"\",\"Meet the Teachers\":\"\",\"Jason Smith\":\"\",\"Mathematics\":\"\",\"Lorem ipsum dolor sit amet, consectetur adipisicing elit\":\"\",\"JAKE VALINER\":\"\",\"Marketing\":\"\",\"Tom Reedert\":\"\",\"web designer\":\"\",\"Max Smithson\":\"\",\"SEO\":\"\",\"Select your price\":\"\",\"Words\":\"\",\"words\":\"\",\"English\":\"\",\"Master Degree of Design\":\"\",\"7 Days\":\"\",\"Master\":\"\",\"Order Now\":\"\",\"Degree\":\"\",\"French\":\"\",\"or Arabic\":\"\",\"Project\":\"\",\"Pages\":\"\",\"Arabic\":\"\",\"Documentation\":\"\",\"Days\":\"\",\"April\":\"\",\"Title\":\"\",\"views\":\"\",\"jun\":\"\",\"keyword\":\"\",\"Payment System\":\"\",\"Yes Soft\":\"\",\"A better way to\":\"\",\"Success\":\"\",\"Lorem ipsum dolor sit amet\":\"\",\"ei vis sint persecuti\":\"\",\"Suscribe to the form and get all the\":\"\",\"information that you need\":\"\",\"Select degree program\":\"\",\"PhD\":\"\",\"Request Information\":\"\",\"Get in Touch\":\"\",\"Send\":\"\",\"Pricing\":\"\",\"New Customers\":\"\",\"Last 7 days\":\"\",\"Orders\":\"\",\"In progress\":\"\",\"Bill Paid\":\"\",\"Last 30 days\":\"\",\"Profit\":\"\",\"Activity Log\":\"\",\"See All\":\"\",\"Most recent 5 activities\":\"\",\"has\":\"\",\"No activity\":\"\",\"Database Information\":\"\",\"App Base URL\":\"\",\"Base URL must not have space and it should end with a trailing slash\":\"\",\"Database Host\":\"\",\"Database Name\":\"\",\"Database User Name\":\"\",\"Database Password\":\"\",\"Back\":\"\",\"Database Connected\":\"\",\"After login, please go through the\":\"\",\"After-Installation\":\"\",\"setup instructions on our documentation page and make sure to follow them all. Configure\\n\\t\\t\\t\\t\\t\\t everything one by one, for example, Email, Currency, Services setup, etc\\t\":\"\",\"Note that, If you start using the application before configuring \\n\\t\\t\\t\\t\\t\\tyour settings, you might run into error pages. So please make sure \\n\\t\\t\\t\\t\\t\\tto set up everything before you start using the application.\":\"\",\"For support please send us an email at\":\"\",\"with your purchase code\":\"\",\"Go to Login page\":\"\",\"Installation in progress\":\"\",\"Please wait while we install your application\":\"\",\"Install Microelephant App\":\"\",\"Customers\":\"\",\"Payments\":\"\",\"Pending Approval\":\"\",\"Payments List\":\"\",\"Wallet Transactions\":\"\",\"Tag\":\"\",\"Trash\":\"\",\"Income Statement\":\"\",\"Total Wallet Balance\":\"\",\"Browse Work\":\"\",\"My Tasks\":\"\",\"Payment Request\":\"\",\"List of payment requests\":\"\",\"My Orders\":\"\",\"New Order\":\"\",\"My Wallet\":\"\",\"Change password\":\"\",\"New password\":\"\",\"Retype Password\":\"\",\"Change photo\":\"\",\"Bio\":\"\",\"Max character\":\"\",\"Area of expertise\":\"\",\"Preferred method for receiving payment\":\"\",\"Payment method details\":\"\",\"Timzeone\":\"\",\"Upload & Crop Image\":\"\",\"Uploading\":\"\",\"Crop & Upload Image\":\"\",\"Wallet Balance\":\"\",\"Wallet Topup\":\"\",\"Edit Profile\":\"\",\"Archived\":\"\",\"Service Type\":\"\",\"Assigned To\":\"\",\"full_name\":\"\",\"Posted\":\"\",\"Deadline\":\"\",\"Applicable after payment\":\"\",\"Due Date\":\"\",\"Order Number\":\"\",\"Display by nearest due date\":\"\",\"&nbsp &nbsp &nbsp\":\"\",\"My Payments\":\"\",\"Reference\":\"\",\"feedback from clients\":\"\",\"Skills\":\"\",\"Roles\":\"\",\"Joined\":\"\",\"Feedback from clients\":\"\",\"View order\":\"\",\"Current Balance\":\"\",\"Choose payment option\":\"\",\"My Transactions\":\"\",\"Type\":\"\",\"Your Notifications\":\"\",\"Place your first order\":\"\",\"Assignee\":\"\",\"Payment Amount\":\"\",\"Budget\":\"\",\"Accept this work\":\"\",\"Conversations\":\"\",\"Sorted based on most recent comment\":\"\",\"Client\":\"\",\"Team Member\":\"\",\"Admin\":\"\",\"Request for revision\":\"\",\"Download\":\"\",\"Accept\":\"\",\"A downlodable link will apprear here when your order is ready\":\"\",\"Payout Budget\":\"\",\"spacing\":\"\",\"None\":\"\",\"Attachments\":\"\",\"Revision Requested\":\"\",\"Unfollow\":\"\",\"Follow\":\"\",\"Unarchive\":\"\",\"Archive\":\"\",\"Financial\":\"\",\"Base Price\":\"\",\"% of Base Price\":\"\",\"Staff Payment\":\"\",\"No payment has been made\":\"\",\"Wallet payment\":\"\",\"Your Message\":\"\",\"Order Information\":\"\",\"Messages\":\"\",\"Submitted Works\":\"\",\"Rating\":\"\",\"Comment\":\"\",\"Rate our service\":\"\",\"Order Date\":\"\",\"Show Archived\":\"\",\"In Abandoned Cart\":\"\",\"Posted at\":\"\",\"Start Working\":\"\",\"Sl#\":\"\",\"Company\":\"\",\"Customer\":\"\",\"Attachment\":\"\",\"No work has been submitted yet\":\"\",\"&nbsp &nbsp &nbsp &nbsp Submit &nbsp &nbsp &nbsp &nbsp\":\"\",\"Pending Payment Approval\":\"\",\"Disapprove\":\"\",\"Payment Information\":\"\",\"Financial Summary\":\"\",\"Payments pending for approval\":\"\",\"Reason\":\"\",\"Upload Cover\":\"\",\"Meta Desc\":\"\",\"keywords\":\"\",\"Keyword\":\"\",\"lang\":\"\",\"Slug\":\"\",\"Tell us about your experience\":\"\",\"We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better\":\"\",\"Your rating\":\"\",\"Your comment\":\"\",\"Delete Logs\":\"\",\"Causer\":\"\",\"Date Range\":\"\",\"&nbsp &nbsp \":\"\",\"&nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp\":\"\",\"Report generated based on all the orders that are marked with status \\\"Complete\\\"\":\"\",\"to\":\"\",\"Sales Revenue\":\"\",\"Expenses\":\"\",\"Payments to staffs\":\"\",\"Net Income\":\"\",\"No record found\":\"\",\"Currently\":\"\",\"The following amount is the summation of wallet balances of all the users\":\"\",\"Balance in wallets are advance payments and they do not reflect in your income statement\":\"\",\"Inactive\":\"\",\"Save record\":\"\",\"General\":\"\",\"Employees\":\"\",\"Recruitment\":\"\",\"Services & Pricing\":\"\",\"Services Category\":\"\",\"Urgencies\":\"\",\"Work Levels\":\"\",\"View Generated Prices\":\"\",\"Configuration\":\"\",\"Send Test Email\":\"\",\"Logo\":\"\",\"Website Content\":\"\",\"Homepage\":\"\",\"Social Links\":\"\",\"How it works\":\"\",\"FAQ\":\"\",\"Money Back Guarantee\":\"\",\"Privacy Policy\":\"\",\"Revision Policy\":\"\",\"Disclaimer\":\"\",\"Terms & Condition\":\"\",\"Google Analytics\":\"\",\"Website SEO\":\"\",\"Custom Script\":\"\",\"Clear Cache\":\"\",\"Tags\":\"\",\"Payments Gateways\":\"\",\"Offline Payment Methods\":\"\",\"System Update\":\"\",\"Message to display after submitting the payment request\":\"\",\"Instruction to customer\":\"\",\"e.g bank name, account number, swift code etc\":\"\",\"Requires Evidence\":\"\",\"Transaction number\":\"\",\"Field name to display for entering transaction number\":\"\",\"Requires Uploading attachment\":\"\",\"Field name to display for attachment uploading\":\"\",\"After your client submits payment request via offline methods, you have to manually approve the payment from\":\"\",\"List\":\"\",\"Price Type\":\"\",\"Service Category\":\"\",\"Single Spacing Price\":\"\",\"Double Spacing Price\":\"\",\"Minimum Order Quantity\":\"\",\"Service Category<\":\"\",\"Desc\":\"\",\"Need Work Level\":\"\",\"Image\":\"\",\"Duration and Type\":\"\",\"Percentage of base price of a service\":\"\",\"Enter the percentage of base price of a service that should add up with the total of an order\":\"\",\"Currency Symbol\":\"\",\"Currency Code\":\"\",\"Digit Grouping\":\"\",\"Decimal Symbol\":\"\",\"Thousand Seperator\":\"\",\"Send email using\":\"\",\"Queue Connection\":\"\",\"Email From Address\":\"\",\"Mailgun Domain\":\"\",\"Mailgun Key\":\"\",\"Smtp Host\":\"\",\"SMTP Port\":\"\",\"Email Encryption\":\"\",\"SMTP Username\":\"\",\"Smtp Password\":\"\",\"Company Name\":\"\",\"Number of times a customer can request for revision of their work\":\"\",\"Enter -1 for unlimited times\":\"\",\"Email for receiving notifications\":\"\",\"Hide Website\":\"\",\"Tracking Code\":\"\",\"Website Frontend\":\"\",\"Version\":\"\",\"Suggested image dimension: 154x36 pixel\":\"\",\"Upload & Crop Logo\":\"\",\"Disable \\\"Writer\\\\'s Application\\\"\":\"\",\"Crop & Upload Logo\":\"\",\"Show link to Writer\\\\'s Application page, on website\\\\'s top menu\":\"\",\"Writer\\\\'s application page link - Menu Title\":\"\",\"Writer\\\\'s application page title\":\"\",\"Writer\\\\'s application Form title\":\"\",\"Writer\\\\'s application Form subtitle\":\"\",\"Message to show after after successful form submission\":\"\",\"Content for Writer\\\\'s application page\":\"\",\"Allow staffs to browse work\":\"\",\"Staff payment type\":\"\",\"Staff payment amount\":\"\",\"You are running Prowriters version\":\"\",\"Please make sure to create a backup copy of your database before running the upgrade\":\"\",\"Upgrade to v\":\"\",\"Enter an email address to test the email configutation\":\"\",\"Please note that if you want to add a css/js code you have to include the css/js tag as well\":\"\",\"Header Script\":\"\",\"Codes inserted below will be injected between the header tag, during run time\":\"\",\"Footer Script\":\"\",\"Codes inserted below will be injected in the footer section, during run time\":\"\",\"Activites\":\"\",\"Tasks\":\"\",\"Orders Placed\":\"\",\"Assigned Tasks\":\"\",\"Download Resume\":\"\",\"Most recent\":\"\",\"Name or Email\":\"\",\"List of\":\"\",\"Send an Invitation\":\"\",\"Email Address\":\"\",\"Request to join as\":\"\",\"Manager\":\"\",\"Staff\":\"\",\"Writer\":\"\",\"Send Invitation\":\"\",\"This website uses cookies to ensure you get the best experience on our website\":\"\",\"Got it\":\"\",\"All rights reserved.\":\"\",\"Editing\":\"\",\"Resume Writing\":\"\",\"TYPE OF WORK AND DEADLINE\":\"\",\"Pending Post\":\"\",\"Posts pending for approval\":\"\"}");
 
 /***/ }),
 

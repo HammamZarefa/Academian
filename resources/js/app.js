@@ -56,18 +56,21 @@
 
 // *************** i18n ***************
  import  VueInternationalization from 'vue-i18n';
- import Locale from './vue-i18n-locales.generated';
-// import Arabic from '../lang/Arabic.json';
-// import English from '../lang/English.json';
-// import Dutch from '../lang/Arabic.json';
-// import French from '../lang/English.json';
+//  import Locale from './vue-i18n-locales.generated';
+import ar from '../lang/Arabic.json';
+import en from '../lang/English.json';
+import du from '../lang/Arabic.json';
+import fr from '../lang/English.json';
  Vue.use(VueInternationalization);
  Vue.use(VueFileAgent);
  
  const i18n = new VueInternationalization({
-     locale: localStorage.getItem('Locale') || 'en',
+     locale: localStorage.getItem('locale') || 'ar',
      messages: {
-        Locale
+        ar: ar,
+        en: en,
+        du: du,
+        fr: fr,
     },
  });
  // *************** i18n ***************
