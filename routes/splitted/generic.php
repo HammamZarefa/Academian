@@ -66,7 +66,10 @@ Route::prefix('my-account')->group(function () {
 
     Route::get('orders', 'MyAccountController@orders')
         ->name('my_orders');
-    
+
+    Route::get('posts', 'MyAccountController@posts')
+        ->name('my_posts');
+
     Route::post('orders', 'MyAccountController@my_orders_datatable')
         ->name('my_orders_datatable');
 

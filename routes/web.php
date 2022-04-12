@@ -33,8 +33,11 @@ Route::get('language/{locale}', function ($locale) {
     session()->put('locale', $locale);
     return redirect()->back();
 });
-Route::get('post/add',[PostController::class, 'add'])->name('post.add');
+Route::get('post/add',[PostController::class, 'add'])->middleware('auth')->name('post.add');
 Route::post('post/add_blog',[PostController::class, 'storeBlog'])->name('post.storeBlog');
+Route::get('post/edit_my_post/{id}',[PostController::class, 'edit_my_post'])->name('post.edit_my_post');
+Route::post('post/edit_my_post/{id}',[PostController::class, 'update_my_post'])->name('post.update_my_post');
+Route::delete('my_post/trash/{id}',[PostController::class, 'trash_my_post'])->middleware('auth')->name('post.trash_my_post');
 
 // Authenticated Users
 Route::group(['middleware' => ['auth', 'verified']], function () {
