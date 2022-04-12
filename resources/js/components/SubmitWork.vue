@@ -3,11 +3,11 @@
       <form method="POST" :action="submit_work_url">
          <div class="card">
             <div class="card-header">
-               Submit your work
+              {{ $t('Submit your work') }} 
             </div>              
             <div class="card-body">
                <div class="form-group">
-                  <label>Attachment (.zip,.rar,.7zip only)</label>
+                  <label>{{ $t('Attachment') }} (.zip,.rar,.7zip {{ $t('only') }})</label>
                   <VueFileAgent
                      ref="vueFileAgent"
                      :theme="'list'"
@@ -30,14 +30,14 @@
                </div>
 
                <div class="form-group">
-                  <label>Your Message <span class="required">*</span></label>
+                  <label>{{ $t('Your Message') }} <span class="required">*</span></label>
                   <textarea class="form-control" name="message" v-model="form.message"></textarea>
                </div>
                <input type="hidden" name="name" v-model="form.name">
                <input type="hidden" name="display_name" v-model="form.display_name">
                <input type="hidden" name="_token" :value="csrf">             
                <button v-if="form.files_data.length > 0" class="btn btn-success btn-lg btn-block" type="submit">
-                <i class="far fa-paper-plane"></i> Submit
+                <i class="far fa-paper-plane"></i> {{ $t('Submit') }}
               </button>
             </div>
          </div>

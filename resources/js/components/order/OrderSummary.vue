@@ -2,24 +2,24 @@
     <div>
         <div class="card">
             <div class="card-body" v-if="!isObjectEmpty(form)">
-                <h5 class="card-title">Order Summary</h5>
+                <h5 class="card-title">{{ $t('Order Summary') }}</h5>
                 <div class="mb-4">
                     <p>
-                        <b>Service</b>
+                        <b>{{ $t('Service') }}</b>
                         <br />
                         {{ form.service_model.name.en }}
                         <br />
                         <!--<small class="form-text text-muted">{{ form.work_level_model.name }} (Work level)</small>-->
                     </p>
                     <div>
-                        <b>Urgency</b>
+                        <b>{{ $t('Urgency') }}</b>
                         :
                         {{ form.urgency_model.name }}
                     </div>
 
                     <div v-if="form.service_model.price_type_id == pricingTypes.fixed">
                         <div>
-                            <b>Rate</b>
+                            <b>{{ $t('Rate') }}</b>
                             :
                             {{ form.unit_price | formatMoney }}
                         </div>
@@ -35,12 +35,12 @@
 
                     <div v-if="form.service_model.price_type_id == pricingTypes.perWord">
                         <div>
-                            <b>Number of words</b>
+                            <b>{{ $t('Number of words') }}</b>
                             :
                             {{ form.number_of_words }}
                         </div>
                         <div>
-                            <b>Rate</b>
+                            <b>{{ $t('Rate') }}</b>
                             :
                             {{ form.unit_price }}
                         </div>
@@ -48,17 +48,17 @@
 
                     <div v-if="form.service_model.price_type_id == pricingTypes.perPage">
                         <div>
-                            <b>Spacing Type</b>
+                            <b>{{ $t('Spacing Type') }}</b>
                             :
                             {{ form.spacing_type }}
                         </div>
                         <div>
-                            <b>Pages</b>
+                            <b>{{ $t('Pages') }}</b>
                             :
                             {{ form.number_of_pages }}
                         </div>
                         <div>
-                            <b>Rate</b>
+                            <b>{{ $t('Rate') }}</b>
                             :
                             {{ form.unit_price | formatMoney }}
                         </div>
@@ -68,13 +68,13 @@
                 <table class="table table-sm">
                     <tbody>
                     <tr>
-                        <th scope="row" style="width: 30%">Amount</th>
+                        <th scope="row" style="width: 30%">{{ $t('Amount') }}</th>
                         <td style="width: 70%" class="text-right">{{ form.amount | formatMoney }}</td>
                     </tr>
                     <tr v-if="form.added_services.length > 0 ">
                         <td colspan="2">
                             <div>
-                                <div style="font-weight: bold;">Additional Services</div>
+                                <div style="font-weight: bold;">{{ $t('Additional Services') }}</div>
                                 <div class="row" v-for="row in form.added_services" v-bind:key="row.id">
                                     <div class="col-md-6">
                                         <div style="padding-left: 10px;">{{ row.name }}</div>
@@ -85,7 +85,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row" style="width: 30%">Total</th>
+                        <th scope="row" style="width: 30%">{{ $t('Total') }}</th>
                         <td style="width: 80%" class="text-right">{{ calculateTotal }}</td>
                     </tr>
                     </tbody>

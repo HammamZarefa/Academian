@@ -1,5 +1,5 @@
 {
-    "Home": "",
+    "Home": "Home",
     "About": "",
     "Service": "",
     "Blog": "",
@@ -37,9 +37,9 @@
     "Date" : "",
     "Item" : "",
     "Quantity" : "",
-    "Rate" : "",
+    "Rate" : "Rate",
     "Sub Total" : "",
-    "Total" : "",
+    "Total" : "Total",
     "Number" : "",
     "Bill Number" : "",
     "From" : "",
@@ -79,8 +79,8 @@
     "Service Item" : "",
     "Work level" : "",
     "Urgency": "",
-    "Spacing Type" : "",
-    "Additional Services" : "",
+    "Spacing Type" : "Spacing Type",
+    "Additional Services" : "Additional Services'",
     "Subtotal" : "",
     "Congratulation! Your email is configured correctly" : "",
     "Toggle navigation": "",
@@ -442,4 +442,9 @@
     "TYPE OF WORK AND DEADLINE" : "",
     "Pending Post" : "",
     "Posts pending for approval" : ""
+    
+    
+        
+
+    
 }
