@@ -49,6 +49,9 @@
                         <a class="dropdown-item" href="{{ route('wallet_transactions') }}">@lang('Trash')</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('videos') }}">@lang('Videos')</a>
+                </li>
 
 
                 {{--<li class="nav-item dropdown">--}}
@@ -120,7 +123,9 @@
                     @endunlessrole
                 @endauth
             </ul>
-
+{{--            <div class="col-sm-2 sm-lang">--}}
+{{--                @include('website.partials/language_switcher')--}}
+{{--            </div>--}}
             <ul class="navbar-nav ml-auto">
                 @guest
                     @if(!settings('disable_writer_application'))
@@ -144,6 +149,7 @@
                         @include('layouts.notification_bell')
                     </li>
                     @endhasanyrole
+
                     <li class="nav-item dropdown" style="z-index: 2000 !important;">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
