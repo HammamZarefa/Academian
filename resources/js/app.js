@@ -52,7 +52,7 @@
  
   window.GrowlNotification = require('./growl-notification.min');
  import VueFileAgent from 'vue-file-agent';
-
+import VueFileAgentStyles from 'vue-file-agent/dist/vue-file-agent.css';
 
 // *************** i18n ***************
  import  VueInternationalization from 'vue-i18n';
