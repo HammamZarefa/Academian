@@ -3792,6 +3792,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3989,10 +3991,9 @@ __webpack_require__.r(__webpack_exports__);
       this.passParam = true;
       this.form.service_categories_model = this.filteredServices_categories[0];
       this.active_services = this.filteredServices_categories[0].id;
-    }
-
-    console.log('params:', this.params);
-    console.log('spacing_type:', this.form.spacing_type); // console.log('filteredlevels:',this.filteredlevels);
+    } // console.log('params:',this.params);
+    // console.log('spacing_type:',this.form.spacing_type);
+    // console.log('filteredlevels:',this.filteredlevels);
     // console.log('passParam:',this.passParam);
     // console.log('service_categories:',this.service_categories);
     // console.log('services:',this.services);
@@ -4000,6 +4001,7 @@ __webpack_require__.r(__webpack_exports__);
     // console.log('service_model:',this.form.service_model);
     // console.log('filteredServices_categories:',this.filteredServices_categories);
     // console.log('filteredServices:',this.filteredServices);
+
   },
   methods: {
     setServicesType: function setServicesType(t) {
@@ -96416,7 +96418,11 @@ var render = function() {
                 [
                   _vm._v(
                     "\n           " +
-                      _vm._s(item.name[_vm.locale]) +
+                      _vm._s(
+                        item.name[_vm.locale] == null
+                          ? item.name["en"]
+                          : item.name[_vm.locale]
+                      ) +
                       " \n\n          "
                   )
                 ]
@@ -96463,7 +96469,17 @@ var render = function() {
                     ],
                     attrs: { href: "#" }
                   },
-                  [_vm._v(_vm._s(item.name[_vm.locale]))]
+                  [
+                    _vm._v(
+                      "\n           " +
+                        _vm._s(
+                          item.name[_vm.locale] == null
+                            ? item.name["en"]
+                            : item.name[_vm.locale]
+                        ) +
+                        "    \n              "
+                    )
+                  ]
                 )
               ]
             )
@@ -96526,8 +96542,12 @@ var render = function() {
                     }),
                     _vm._v(
                       "\n            " +
-                        _vm._s(row.name[_vm.locale]) +
-                        "\n          "
+                        _vm._s(
+                          row.name[_vm.locale] == null
+                            ? row.name["en"]
+                            : row.name[_vm.locale]
+                        ) +
+                        "   \n          "
                     )
                   ]
                 )

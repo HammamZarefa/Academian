@@ -1218,7 +1218,7 @@ height: 25%}
 
 }
 
-/* svg text {
+svg text {
 	font-family: Lora;
 	letter-spacing: 2px;
 	stroke: #68b8fa9f;
@@ -1237,7 +1237,7 @@ svg .Writing{
 }
 svg .un_text{
 	font-size: 30px;
-} */
+}
 /* Small devices (landscape phones, 576px and up) */
 @media  (max-width: 767.98px) {
 	svg text {
@@ -2199,7 +2199,60 @@ bottom:-35px;
 	font-size: 14px;
 }
 
-/*--------------------------------------------------------------
-
-
-
+/*-------------------------------------------------------------- */
+.bradcam_area h2{
+	font-size: 38px;
+	font-weight: 500;
+	color: #46627e;
+}
+.contact-section .contact-title{
+	font-weight: 500;
+	color: #46627e;
+}
+.contact-section .contact-info{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.contact-section .contact-info .contact-info__icon{
+	display: flex;
+}
+.contact-section .contact-info .contact-info__icon i{
+	margin-top: 10px;
+	margin-inline-end: 10px;
+}
+.contact-section .form-control {
+	border-color: #b5b2b2 !important;
+}
+.contact-section .name{
+	padding:0;
+	padding-inline-end: 10px;
+}
+.contact-section .email{
+	padding:0;
+	padding-inline-start: 10px;
+}
+/* Small devices (landscape phones, 576px and up) */
+@media  (max-width: 767.98px) {
+	.contact-section{
+		padding: 20px;
+	}
+	.contact-section .name{
+		padding:0;
+	}
+	.contact-section .email{
+		padding:0;
+	}
+}
+.contact-section .button{
+	background-color: #026bc3;
+	color: #fff;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	transition: .3s;
+}
+.contact-section .button:hover{
+	background-color: #04589c;
+	
+}
