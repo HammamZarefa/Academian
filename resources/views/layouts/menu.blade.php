@@ -123,9 +123,9 @@
                     @endunlessrole
                 @endauth
             </ul>
-            <div class="col-sm-2 sm-lang">
-                @include('website.partials/language_switcher')
-            </div>
+{{--            <div class="col-sm-2 sm-lang">--}}
+{{--                @include('website.partials/language_switcher')--}}
+{{--            </div>--}}
             <ul class="navbar-nav ml-auto">
                 @guest
                     @if(!settings('disable_writer_application'))

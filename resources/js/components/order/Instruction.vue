@@ -1,9 +1,9 @@
 <template>
   <div>
     <h5 class="card-title">
-      Step
+     {{ $t('step') }}
       <b>2</b>/
-      <span class="small">3</span> ADDITIONAL PAPER DETAILS
+      <span class="small">3</span>{{ $t('ADDITIONAL PAPER DETAILS') }} 
     </h5>
     <hr />
 
@@ -13,7 +13,7 @@
       <div class="invalid-feedback d-block" v-if="errors.title">{{ errors.title[0] }}</div>
     </div>
     <div class="form-group">
-      <label>Specific Instructions <span class="required">*</span></label>
+      <label>{{ $t('Specific Instructions') }}  <span class="required">*</span></label>
       <textarea
         class="form-control"
         v-model="form.instruction"
@@ -31,7 +31,7 @@
       :accept="'.xlsx,.xls, .doc, .docx,.ppt, .pptx,.txt,.pdf, application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*'"
       :maxSize="'10MB'"
       :maxFiles="2"
-      :helpText="'Choose your files'"
+      
       :errorText="{
                      type: 'Invalid file type. Only images, .pdf,.doc,.ppt,.txt files are allowed',
                      size: 'Files should not exceed 10MB in size',
@@ -44,20 +44,20 @@
                      Upload {{ filesDataForUpload.length }} files
     </button>-->
     <br />
-    <a href="#" v-on:click.prevent="changeTab(1)">Previous</a>
+    <a href="#" v-on:click.prevent="changeTab(1)">{{ $t('Previous') }}</a>
     <br />
     <br />
     <div class="custom-control custom-checkbox">
       <input  :value="1" type="checkbox" class="custom-control-input" id="termsCheckBox" v-model="agreedToTermsChecked">
       <label class="custom-control-label" for="termsCheckBox">
-        I agree to the <a :href="term_and_condition_url" target="_blank">Terms and Conditions</a>
-        and <a :href="privacy_policy_url" target="_blank">Privacy Policy</a>
+       {{ $t('I agree to the') }} <a :href="term_and_condition_url" target="_blank">{{ $t('Terms and Conditions') }}</a>
+        {{ $t('and') }} <a :href="privacy_policy_url" target="_blank">{{ $t('Privacy Policy') }}</a>
       </label>
     </div>
     <br>
 
     <button :disabled="!agreedToTermsChecked" class="btn btn-success btn-lg btn-block" v-on:click.prevent="submit()">
-      <i class="far fa-check-circle"></i> Pay now
+      <i class="far fa-check-circle"></i>{{ $t('Pay now') }} 
     </button>
   </div>
 </template>

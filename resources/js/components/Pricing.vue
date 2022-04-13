@@ -2,7 +2,7 @@
    <div>
       <form>
          <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg">Type of Service</label>
+            <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg">{{ $t('Type of Service') }}</label>
             <div class="col-sm-9">
                <multiselect
                   track-by="id" label="name" 
@@ -13,7 +13,7 @@
       <table class="table table-hover">
          <thead class="thead-dark">
             <tr>
-               <th scope="col" class="text-center">Deadline</th>
+               <th scope="col" class="text-center">{{ $t('Deadline') }}</th>
                <th scope="col" class="text-center"  v-for="(row,index) in work_levels" :key="index">
                   {{ row.name }}
                </th>
