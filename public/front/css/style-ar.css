@@ -2241,4 +2241,88 @@ bottom:-35px;
 	font-size: 14px;
 }
 
-/*--------------------------------------------------------------
+/*--------------------------------------------------------------*/
+.bradcam_area h2{
+	font-size: 38px;
+	font-weight: 500;
+	color: #46627e;
+}
+.bradcam_area p{
+	width: 70%;
+	margin: 0 auto;
+	font-size: 17px;
+}
+.contact-section .contact-title{
+	font-weight: 500;
+	color: #46627e;
+}
+.contact-section .contact-info{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.contact-section textarea{
+	resize: none;
+}
+.contact-section .contact-info .contact-info__icon{
+	display: flex;
+}
+.contact-section .contact-info .contact-info__icon i{
+	margin-top: 10px;
+	margin-inline-end: 10px;
+	color: #46627e;
+}
+.contact-section .contact-info h3 {
+	color: #46627e;
+	font-weight: 510;
+}
+.contact-section .contact-info a {
+	color: #46627e;
+	transition: .3s;
+	font-weight: 510;
+}
+.contact-section .contact-info a:hover {
+	color: #027bef;
+	text-decoration: underline;
+}
+.contact-section .form-control {
+	border-color: #b5b2b2 !important;
+}
+.contact-section .name{
+	padding:0;
+	padding-inline-start: 10px;
+}
+.contact-section .email{
+	padding:0;
+	padding-inline-end: 10px;
+}
+/* Small devices (landscape phones, 576px and up) */
+@media  (max-width: 767.98px) {
+	.contact-section{
+		padding: 20px;
+	}
+	.bradcam_area p{
+		width: 90%;
+	}
+	.contact-section .name{
+		padding:0;
+	}
+	.contact-section .email{
+		padding:0;
+	}
+}
+.contact-section .button{
+	background-color: #026bc3;
+	color: #fff;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+	transition: .3s;
+}
+.contact-section .button i{
+	margin: 0 5px;
+}
+.contact-section .button:hover{
+	background-color: #04589c;
+	
+}

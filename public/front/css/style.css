@@ -2205,6 +2205,11 @@ bottom:-35px;
 	font-weight: 500;
 	color: #46627e;
 }
+.bradcam_area p{
+	width: 70%;
+	margin: 0 auto;
+	font-size: 17px;
+}
 .contact-section .contact-title{
 	font-weight: 500;
 	color: #46627e;
@@ -2214,12 +2219,29 @@ bottom:-35px;
 	justify-content: center;
 	align-items: center;
 }
+.contact-section textarea{
+	resize: none;
+}
 .contact-section .contact-info .contact-info__icon{
 	display: flex;
 }
 .contact-section .contact-info .contact-info__icon i{
 	margin-top: 10px;
 	margin-inline-end: 10px;
+	color: #46627e;
+}
+.contact-section .contact-info h3 {
+	color: #46627e;
+	font-weight: 510;
+}
+.contact-section .contact-info a {
+	color: #46627e;
+	transition: .3s;
+	font-weight: 510;
+}
+.contact-section .contact-info a:hover {
+	color: #027bef;
+	text-decoration: underline;
 }
 .contact-section .form-control {
 	border-color: #b5b2b2 !important;
@@ -2237,6 +2259,9 @@ bottom:-35px;
 	.contact-section{
 		padding: 20px;
 	}
+	.bradcam_area p{
+		width: 90%;
+	}
 	.contact-section .name{
 		padding:0;
 	}
@@ -2251,6 +2276,9 @@ bottom:-35px;
 	padding: 5px 10px;
 	border-radius: 5px;
 	transition: .3s;
+}
+.contact-section .button i{
+	margin: 0 5px;
 }
 .contact-section .button:hover{
 	background-color: #04589c;

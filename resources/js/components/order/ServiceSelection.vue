@@ -182,7 +182,7 @@
                 class="form-group"
                 v-bind:class="{ 'col-md-6': (form.service_model.price_type_id == pricingTypes.perWord), 'col-md-12': (form.service_model.price_type_id != pricingTypes.perWord) }"
             >
-                <label>{{ $t('Urgency') }}</label>
+                <label>{{ $t('Urgency') }}</label> 
                 <multiselect track-by="id" label="name" v-model="form.urgency_model" :options="filteredurgency"></multiselect>
             </div>
         </div>
@@ -770,7 +770,9 @@ a.button:active {
     bottom: 0;
     z-index: 1;
 }
-
+button i {
+    margin: 0 5px;
+}
 </style>
 <style lang="scss" scoped>
 @import "~vue-multiselect/dist/vue-multiselect.min.css";
