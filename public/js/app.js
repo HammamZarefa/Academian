@@ -95916,6 +95916,7 @@ var render = function() {
             ".xlsx,.xls, .doc, .docx,.ppt, .pptx,.txt,.pdf, application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*",
           maxSize: "10MB",
           maxFiles: 2,
+          helpText: "Choose your files",
           errorText: {
             type:
               "Invalid file type. Only images, .pdf,.doc,.ppt,.txt files are allowed",
@@ -110425,11 +110426,11 @@ module.exports = JSON.parse("{\"Home\":\"Home\",\"About\":\"\",\"Service\":\"\",
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Academian\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! E:\Academian\resources\sass\theme.scss */"./resources/sass/theme.scss");
-__webpack_require__(/*! E:\Academian\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! E:\Academian\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
-module.exports = __webpack_require__(/*! E:\Academian\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
+__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\theme.scss */"./resources/sass/theme.scss");
+__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
+module.exports = __webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
 
 
 /***/ })

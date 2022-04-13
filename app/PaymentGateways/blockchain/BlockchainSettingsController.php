@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PaymentGateways\payu;
+namespace App\PaymentGateways\blockchain;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,16 +9,15 @@ use App\Services\PaymentGatewaySettingsService;
 
 class BlockchainSettingsController extends Controller
 {
-    private $uniqueName = 'payu';
+    private $uniqueName = 'blockchain';
 
     public function updateSettings(Request $request, PaymentGatewaySettingsService $settingService)
     {
-    
+
         $validator = Validator::make($request->all(), [
-            'environment' => 'required',
-            'name' => 'required',           
-            'merchant_key' => 'required',
-            'merchant_salt' => 'required',      
+            'name' => 'required',
+            'api_key' => 'required',
+            'xpub_code' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -28,9 +27,9 @@ class BlockchainSettingsController extends Controller
         }
 
         $keys = [
-            'merchant_key' => $request->merchant_key,
-            'merchant_salt' => $request->merchant_salt,  
-            'environment' => $request->environment,    
+            'api_key' => $request->api_key,
+            'xpub_code' => $request->xpub_code,
+//            'environment' => $request->environment,
         ];
         $settingService->save($this->uniqueName, $request->name, $keys, $request->inactive);
 
