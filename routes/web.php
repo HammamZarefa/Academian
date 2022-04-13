@@ -32,7 +32,7 @@ Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);
     session()->put('locale', $locale);
     return redirect()->back();
-});
+})->name('language');
 Route::get('post/add',[PostController::class, 'add'])->middleware('auth')->name('post.add');
 Route::post('post/add_blog',[PostController::class, 'storeBlog'])->name('post.storeBlog');
 Route::get('post/edit_my_post/{id}',[PostController::class, 'edit_my_post'])->name('post.edit_my_post');
