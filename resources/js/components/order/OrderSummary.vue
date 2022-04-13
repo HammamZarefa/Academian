@@ -12,8 +12,8 @@
                         <!--<small class="form-text text-muted">{{ form.work_level_model.name }} (Work level)</small>-->
                     </p>
                     <div>
-                        <b>{{ $t('Urgency') }}</b>
-                        :
+                        <b>{{ $t('Urgency') }}</b> 
+                        <br>
                         {{ form.urgency_model.name }}
                     </div>
 
