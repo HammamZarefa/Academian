@@ -1,5 +1,5 @@
-<div class="flex justify-center pt-8 sm:justify-start sm:pt-0">  
-	  
+<div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+
         <nav class="btn-pluss-wrapper">
 		<div class="icon"></div>
             <div href="#" class="btn-pluss">
@@ -8,7 +8,7 @@
                 @if($available_locale === $current_locale)
                 <li class="active`"><a href="language/{{$locale_name}}"> {{ $locale_name }}</a></li>
                 @else
-                <li><a href="language/{{$locale_name}}"> {{ $locale_name }}</a></li>
+                <li><a href="{{route('language',$locale_name)}}"> {{ $locale_name }}</a></li>
                 @endif
                 @endforeach
             </ul>
@@ -48,7 +48,7 @@
      font-family: "Font Awesome 5 Free";
      vertical-align: middle;
      font-weight: 900;
-  
+
 }
 
     .current_locale{
@@ -115,7 +115,7 @@
      font-family: "Font Awesome 5 Free";
      vertical-align: middle;
      font-weight: 900;
-  
+
 } */
  .btn-pluss ul {
 	 opacity: 0;
@@ -177,5 +177,5 @@
 		 transform: translateY(3px);
 	}
 }
- 
+
 </style>

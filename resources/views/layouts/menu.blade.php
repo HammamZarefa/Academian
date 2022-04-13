@@ -179,6 +179,12 @@
                         </div>
                     </li>
                 @endguest
+                <li class="nav-item">
+                    <div class="col-sm-2 sm-lang" style="margin-top: 10px;">
+                        @include('website.partials/language_switcher')
+                    </div>
+                </li>
+
             </ul>
         </div>
     </div>

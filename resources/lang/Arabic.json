@@ -198,7 +198,7 @@
     "My Tasks" : "",
     "Payment Request" : "",
     "List of payment requests" : "",
-    "My Orders" : "",
+    "My Orders" : "طلباتي",
     "New Order": "",
     "My Wallet" : "",
     "Change password" : "",
@@ -454,7 +454,7 @@
     "Next":"التالي",
     "Sign in to place your order":"تسجيل الدخول لتقديم طلبك",
     "Create account":"إنشاء حساب",
-    "Continue as Quest":"تواصل مثل كويست",   
+    "Continue as Quest":"تواصل مثل كويست",
     "Order Summary":"ملخص الطلب",
     "Amount":"مقدار",
     "Added":"اضافت",
@@ -471,12 +471,13 @@
     "Submit your work":"أرسل عملك",
     "only":"فقط",
     "Your Message":"رسالتك",
-    "Submit":"إرسال"
+    "Submit":"إرسال",
+    "My Posts" : "مقالاتي"
 
 
-    
 
-    
-    
+
+
+
 
 }
