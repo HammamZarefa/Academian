@@ -31,7 +31,7 @@
       :accept="'.xlsx,.xls, .doc, .docx,.ppt, .pptx,.txt,.pdf, application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*'"
       :maxSize="'10MB'"
       :maxFiles="2"
-      
+      :helpText="'Choose your files'"
       :errorText="{
                      type: 'Invalid file type. Only images, .pdf,.doc,.ppt,.txt files are allowed',
                      size: 'Files should not exceed 10MB in size',
