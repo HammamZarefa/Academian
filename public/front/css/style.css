@@ -1218,7 +1218,7 @@ height: 25%}
 
 }
 
-svg text {
+/* svg text {
 	font-family: Lora;
 	letter-spacing: 2px;
 	stroke: #68b8fa9f;
@@ -1237,7 +1237,7 @@ svg .Writing{
 }
 svg .un_text{
 	font-size: 30px;
-}
+} */
 /* Small devices (landscape phones, 576px and up) */
 @media  (max-width: 767.98px) {
 	svg text {
