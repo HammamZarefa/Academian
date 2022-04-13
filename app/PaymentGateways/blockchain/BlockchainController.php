@@ -54,7 +54,7 @@ class BlockchainController extends PaymentGatewayController
     public function verifyPayment(Request $request)
     {
          $my_xpub =$this->gateway->keys->xpub_code;
-            $my_api_key = $this->gateway->keys->api_keyockchainAcc->api_key);
+            $my_api_key = $this->gateway->keys->api_keyockchainAcc->api_key;
        $all = curlContent("https://blockchain.info/ticker");
         $res = json_decode($all);
         $btcrate =5; //$res->USD->last;

@@ -3,7 +3,7 @@
 @section('content')
 <!-- bradcam_area_start -->
 <div class="bradcam_area breadcam_bg overlay2">
-   <h3>contact us</h3>
+   <h2>About us</h2>
 </div>
 <!-- bradcam_area_end -->
 <!-- ================ contact section start ================= -->
@@ -18,7 +18,7 @@
             </button>
          </div>
          @endif
-            <h2 class="contact-title">@lang('Get in Touch')</h2>
+            <h3 class="contact-title">@lang('Get in Touch')</h3>
          </div>
          <div class="col-lg-6">
             <form class="" action="{{ route('handle_email_query') }}" method="post" id="contactForm" novalidate="novalidate" >
@@ -30,13 +30,13 @@
                         <div class="invalid-feedback d-block">{{ showError($errors,'message') }}</div>
                      </div>
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-6 name" >
                      <div class="form-group">
                         <input class="form-control {{ showErrorClass($errors,'name') }}" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name" value="{{ old('name') }}">
                         <div class="invalid-feedback d-block">{{ showError($errors,'name') }}</div>
                      </div>
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-6 email">
                      <div class="form-group">
                         <input class="form-control {{ showErrorClass($errors,'email') }}" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email" value="{{ old('email') }}">
                         <div class="invalid-feedback d-block">{{ showError($errors,'email') }}</div>

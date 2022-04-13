@@ -18,7 +18,7 @@
           :value="item" v-model="form.service_categories_model"  @change="setServices" />
           <label class="bg" :for="`d${item.id}`"
           :label="item.name" type="radio" name="service_categories" >
-           {{item.name[locale] }} 
+           {{item.name[locale] == null ? item.name['en']: item.name[locale] }} 
 
           </label>
       </div>
@@ -42,7 +42,9 @@
       <li @click="getAdditionalServices(form.service_model);setServicesType(item)"
       v-for="item in filteredServices" :key="item"
       >
-          <a href="#" :class="[form.service_model.id == item.id? 'active':'']">{{item.name[locale]}}</a>
+          <a href="#" :class="[form.service_model.id == item.id? 'active':'']">
+           {{item.name[locale] == null ? item.name['en']: item.name[locale] }}    
+              </a>
           </li>
   </ul>
 </details>
@@ -66,7 +68,7 @@
               autocomplete="off"
               v-model="form.work_level_id"
             />
-            {{ row.name[locale] }}
+            {{row.name[locale] == null ? row.name['en']: row.name[locale] }}   
           </label>
         </div>
         
@@ -433,8 +435,8 @@ export default {
             this.form.service_categories_model =  this.filteredServices_categories[0];
             this.active_services = this.filteredServices_categories[0].id;
         }
-        console.log('params:',this.params);
-        console.log('spacing_type:',this.form.spacing_type);
+        // console.log('params:',this.params);
+        // console.log('spacing_type:',this.form.spacing_type);
         // console.log('filteredlevels:',this.filteredlevels);
         // console.log('passParam:',this.passParam);
         // console.log('service_categories:',this.service_categories);
