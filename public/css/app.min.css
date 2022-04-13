@@ -15609,22 +15609,22 @@ a {
 }
 
 .card-bg-indigo {
-  background-color: #5941aa;
+  background-color: #5941aa !important;
   color: #fff;
 }
 
 .card-bg-indigo-light {
-  background-color: #9b93d4;
+  background-color: #9b93d4 !important;
   color: #fff;
 }
 
 .card-bg-red-light {
-  background-color: #f57c8d;
+  background-color: #f57c8d !important;
   color: #fff;
 }
 
 .card-bg-green {
-  background-color: #2dce89;
+  background-color: #2dce89 !important;
   color: #fff;
 }
 

@@ -2329,3 +2329,104 @@ bottom:-35px;
 	background-color: #04589c;
 	
 }
+.language .btn-pluss-wrapper{
+	display: flex;
+	justify-content: end;
+}
+.language .icon{
+		position: relative;
+		width:20px;
+		height:20px;
+		cursor: pointer;
+	}
+	.language .icon:after {
+	 content: '\f0ac';
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 display: block;
+	 height: 20px;
+	 width: 20px;
+	 border-radius: 100%;
+	 line-height: 20px;
+	 text-align: center;
+	 font-size: 1.1rem;
+	 background-color: #026bc3;
+     font-size: 18px;
+	 color: white;
+	 transform: translateY(-50%) translateX(-50%);
+	 transition: all 0.3s 0.5s ease;
+	 cursor: pointer;
+	 cursor: hand;
+     font-family: "Font Awesome 5 Free";
+     vertical-align: middle;
+     font-weight: 900;
+
+}
+
+.language .current_locale{
+        color:#fff
+    }
+    section {
+	 position: relative;
+}
+.language  .btn-pluss {
+	 overflow: hidden;
+	 position: absolute;
+	 display: block;
+	 padding-left: 5px;
+	 padding-right: 5px;
+	 border-radius: 22px;
+	 width: 30px;
+	 margin: 0 auto;
+	 background-color: transparent;
+	 transition: width 0.3s 0.5s ease, border-radius 1.1s ease;
+     z-index: 999;
+     top: -5px;
+     right: 0;
+}
+.language .btn-pluss:hover{
+    background-color: white;
+	box-shadow: 1px 3px 10px #555;
+}
+.language .btn-pluss a {
+	 display: block;
+	 position: relative;
+	 color: #026bc3;
+	 text-decoration: none;
+	 overflow: hidden;
+	 padding: 5px 3px;
+	 border-radius: 5px;
+	 height: 100%;
+	 font-size:16px;
+}
+.language .btn-pluss a:hover {
+	 text-decoration: inherit;
+	 color: white;
+	 background-color: #026bc3;
+	 transition: background-color 0.5s ease;
+}
+ /* .btn-pluss:after {
+	 content: '\f0ac';
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 display: block;
+	 height: 20px;
+	 width: 20px;
+	 border-radius: 100%;
+	 line-height: 20px;
+	 text-align: center;
+	 font-size: 1.1rem;
+	 background-color: #026bc3;
+     font-size: 18px;
+	 color: white;
+	 transform: translateY(-50%) translateX(-50%);
+	 transition: all 0.3s 0.5s ease;
+	 cursor: pointer;
+	 cursor: hand;
+     font-family: "Font Awesome 5 Free";
+     vertical-align: middle;
+     font-weight: 900;
+
+} */
