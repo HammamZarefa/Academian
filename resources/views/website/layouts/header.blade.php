@@ -64,7 +64,7 @@
                     {{--@endif--}}
                     {{--<li><a class="{{ is_active_menu('order_page') }}" href="{{ route('order_page') }}">Order Now</a>--}}
                     {{--</li>--}}
-                    <li class="active"><a href="#menu-slider">@lang('Home')</a></li>
+                    <li class="active"><a href="{{ route('homepage') }}">@lang('Home')</a></li>
 
                     <li class="dropdown">
                         <a class="dropbtn">@lang('Services')</a>
@@ -107,8 +107,8 @@
                             {{--</div>--}}
                         {{--</div>--}}
                     {{--</li>--}}
-                    <li><a href="#menu-contact">@lang('Contact US')</a></li>
-                    <li><a href="#menu-testimonials">@lang('Reviews')</a></li>
+                    <li><a href="{{ route('contact') }}">@lang('Contact US')</a></li>
+                    <li><a href="{{ route('homepage') }}#menu-testimonials">@lang('Reviews')</a></li>
                     <li><a href="{{route('blog')}}">@lang('Blog')</a></li>
                     <li>
                                 @auth
