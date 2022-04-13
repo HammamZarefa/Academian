@@ -4006,6 +4006,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     setServicesType: function setServicesType(t) {
       this.form.service_model = t;
+      document.getElementById("dropdown").removeAttribute("open");
     },
     setServices: function setServices() {
       this.form.service_model = this.filteredServices[0];
@@ -96438,7 +96439,7 @@ var render = function() {
     _c("div", { staticClass: "form-group" }, [
       _c("label", [_vm._v(_vm._s(_vm.$t("Service Type")))]),
       _vm._v(" "),
-      _c("details", { staticClass: "dropdown" }, [
+      _c("details", { staticClass: "dropdown", attrs: { id: "dropdown" } }, [
         _c("summary", { attrs: { role: "button" } }, [
           _c("a", { staticClass: "button" }, [
             _vm._v(_vm._s(_vm.form.service_model.name[_vm.locale]))

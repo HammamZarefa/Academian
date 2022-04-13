@@ -33,7 +33,7 @@
         :options="filteredServices"
         @input="getAdditionalServices(form.service_model)"
       ></multiselect> -->
-      <details class="dropdown">
+      <details class="dropdown" id="dropdown">
     <summary role="button">
       <a class="button">{{form.service_model.name[locale]}}</a>
       <i class="fas fa-caret-down"></i> 
@@ -449,6 +449,7 @@ export default {
     methods: {
         setServicesType(t){
             this.form.service_model = t;
+           document.getElementById("dropdown").removeAttribute("open"); 
         },
         setServices(){
             this.form.service_model = this.filteredServices[0];

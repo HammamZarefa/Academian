@@ -1,4 +1,4 @@
-<div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+<div class="flex justify-center pt-8 sm:justify-start sm:pt-0 language">
 
         <nav class="btn-pluss-wrapper">
 		<div class="icon"></div>
@@ -16,17 +16,17 @@
         </nav>
 </div>
 <style>
-.btn-pluss-wrapper{
+.language .btn-pluss-wrapper{
 	display: flex;
 	justify-content: end;
 }
-	.icon{
+.language .icon{
 		position: relative;
 		width:20px;
 		height:20px;
 		cursor: pointer;
 	}
-	.icon:after {
+	.language .icon:after {
 	 content: '\f0ac';
 	 position: absolute;
 	 top: 50%;
@@ -51,13 +51,13 @@
 
 }
 
-    .current_locale{
+.language .current_locale{
         color:#fff
     }
     section {
 	 position: relative;
 }
- .btn-pluss {
+.language .btn-pluss {
 	 overflow: hidden;
 	 position: absolute;
 	 display: block;
@@ -72,11 +72,11 @@
      top: -5px;
      right: 0;
 }
-.btn-pluss:hover{
+.language .btn-pluss:hover{
     background-color: white;
 	box-shadow: 1px 3px 10px #555;
 }
- .btn-pluss a {
+.language .btn-pluss a {
 	 display: block;
 	 position: relative;
 	 color: #026bc3;
@@ -87,7 +87,7 @@
 	 height: 100%;
 	 font-size:16px;
 }
- .btn-pluss a:hover {
+.language .btn-pluss a:hover {
 	 text-decoration: inherit;
 	 color: white;
 	 background-color: #026bc3;
@@ -117,11 +117,11 @@
      font-weight: 900;
 
 } */
- .btn-pluss ul {
+.language .btn-pluss ul {
 	 opacity: 0;
      padding: 0;
 }
- .btn-pluss ul {
+.language  .btn-pluss ul {
 	 margin-top: 10px;
 	 opacity: 0;
 	 width: 100%;
@@ -130,7 +130,7 @@
 	 text-align: center;
 	 font-size: 0.9rem;
 }
- .btn-pluss ul li {
+.language .btn-pluss ul li {
 	 background-color: #e4e4e4;
 	 margin-top: 5px;
 	 border-radius: 5px;
@@ -140,7 +140,7 @@
 	 transition: height 1s ease;
 }
 
- .btn-pluss-wrapper:hover .btn-pluss {
+.language .btn-pluss-wrapper:hover .btn-pluss {
 	 width: 150px;
 	 border-radius: 15px;
 	 padding-bottom: 5px;
@@ -154,16 +154,16 @@
 	 top: 10px;
 	 transform: translateY(-5px) translateX(-50%);
 } */
- .btn-pluss-wrapper:hover .btn-pluss ul {
+.language .btn-pluss-wrapper:hover .btn-pluss ul {
 	 opacity: 1;
 	 margin-top: 30px;
 	 transition: all 1s ease;
 }
- .btn-pluss-wrapper:hover .btn-pluss li {
+.language .btn-pluss-wrapper:hover .btn-pluss li {
 	 height: 25px;
 	 transition: height 1s ease;
 }
- .btn-pluss-wrapper:hover .btn-pluss li:hover {
+.language .btn-pluss-wrapper:hover .btn-pluss li:hover {
 	 border-bottom: 1px solid #d2c9c9;
 }
  @keyframes jump {

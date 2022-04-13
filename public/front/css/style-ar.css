@@ -305,7 +305,7 @@ p{
 }
 .navbar-collapse .help button a{
 	color: #46627e;
-	font-size: 14px;
+	font-size: 16px;
 }
 .navbar-collapse .help button:hover{
 	background-color: #46627e;
@@ -321,6 +321,9 @@ p{
 	.navbar-default .navbar-nav{
 		display: flex;
 	}
+}
+.navbar-default .navbar-nav>li{
+	font-size: 18px;
 }
 .navbar-default .navbar-nav>li>a {
 	color: #46627e;
