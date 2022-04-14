@@ -132,7 +132,7 @@ class ServiceCategoryController extends Controller
                 ->withInput();
         }
 
-        $request['worklevel'] = (isset($request->worklevel)) ? 1 : 0;
+//        $request['worklevel'] = (isset($request->worklevel)) ? 1 : 0;
 
         ServiceCategory::where('id', $id)->update($request->only('name', 'desc', 'image','worklevel'));
 

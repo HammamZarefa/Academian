@@ -1,4 +1,4 @@
-n<?php
+<?php
 
 namespace App\Console\Commands;
 
