@@ -18,7 +18,7 @@
           :value="item" v-model="form.service_categories_model"  @change="setServices" />
           <label class="bg" :for="`d${item.id}`"
           :label="item.name" type="radio" name="service_categories" >
-           {{item.name[locale] == null ? item.name['en']: item.name[locale] }} 
+           {{item.name[locale] == null ? item.name['en']: item.name[locale] }}
 
           </label>
       </div>
