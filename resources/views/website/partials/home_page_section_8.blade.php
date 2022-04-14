@@ -12,7 +12,7 @@
             <div class="col-sm-3">
                 <ul class="table-list">
                     <li class="table-header">@lang('Essay')</li>
-                    <li class="table-price">$555.00,<sup>00</sup></li>
+                    <li class="table-price">£555.00,<sup>00</sup></li>
                     <li>500 @lang('words')</li>
                     <li>@lang('Degree')</li>
                     <li>@lang('7 Days')</li>
@@ -32,7 +32,7 @@
             <div class="col-sm-3">
                 <ul class="table-list">
                     <li class="table-header">@lang('Assignment')</li>
-                    <li class="table-price">$48,<sup>00</sup></li>
+                    <li class="table-price">£48,<sup>00</sup></li>
                     <li>400 @lang('Words')</li>
                     <li>@lang('Masters')</li>
                     <li>@lang('7 Days') </li>
@@ -52,7 +52,7 @@
             <div class="col-sm-3">
                 <ul class="table-list">
                     <li class="table-header">@lang('Presentation')</li>
-                    <li class="table-price">$22,<sup>20</sup></li>
+                    <li class="table-price">£22,<sup>20</sup></li>
                     <li>10 @lang('Pages')</li>
                     <li>@lang('Double spaced')</li>
                     <li>@lang('Master') </li>
@@ -69,7 +69,7 @@
             <div class="col-sm-3">
                 <ul class="table-list">
                     <li class="table-header">@lang('Resume Writing')</li>
-                    <li class="table-price">$12,<sup>18</sup></li>
+                    <li class="table-price">£12,<sup>18</sup></li>
                     <li>@lang('Resume Writing')</li>
                     <li>@lang('English')</li>
                     <li>@lang('Ph.D')</li>
