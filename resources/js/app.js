@@ -56,7 +56,6 @@ require('./bootstrap');
 require('select2/dist/js/select2');
 window.moment = require('moment');
 require('bootstrap-daterangepicker/daterangepicker');
-
 window.Vue = require('vue');
 window.accounting = require('accounting-js');
 // CommonJS
