@@ -112,7 +112,7 @@ Vue.use(VueInternationalization);
 Vue.use(VueFileAgent);
 
 const i18n = new VueInternationalization({
-    locale: localStorage.getItem('locale') || 'ar',
+    locale: localStorage.getItem('locale') || 'en',
     messages: {
         ar: ar,
         en: en,

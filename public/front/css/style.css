@@ -2205,6 +2205,11 @@ bottom:-35px;
 	font-weight: 500;
 	color: #46627e;
 }
+.bradcam_area p{
+	width: 70%;
+	margin: 0 auto;
+	font-size: 17px;
+}
 .contact-section .contact-title{
 	font-weight: 500;
 	color: #46627e;
@@ -2214,12 +2219,29 @@ bottom:-35px;
 	justify-content: center;
 	align-items: center;
 }
+.contact-section textarea{
+	resize: none;
+}
 .contact-section .contact-info .contact-info__icon{
 	display: flex;
 }
 .contact-section .contact-info .contact-info__icon i{
 	margin-top: 10px;
 	margin-inline-end: 10px;
+	color: #46627e;
+}
+.contact-section .contact-info h3 {
+	color: #46627e;
+	font-weight: 510;
+}
+.contact-section .contact-info a {
+	color: #46627e;
+	transition: .3s;
+	font-weight: 510;
+}
+.contact-section .contact-info a:hover {
+	color: #027bef;
+	text-decoration: underline;
 }
 .contact-section .form-control {
 	border-color: #b5b2b2 !important;
@@ -2237,6 +2259,9 @@ bottom:-35px;
 	.contact-section{
 		padding: 20px;
 	}
+	.bradcam_area p{
+		width: 90%;
+	}
 	.contact-section .name{
 		padding:0;
 	}
@@ -2248,11 +2273,116 @@ bottom:-35px;
 	background-color: #026bc3;
 	color: #fff;
 	border: none;
-	padding: 5px 10px;
+	padding: 10px;
 	border-radius: 5px;
 	transition: .3s;
+}
+.contact-section .button i{
+	margin: 0 5px;
 }
 .contact-section .button:hover{
 	background-color: #04589c;
 	
 }
+.language .btn-pluss-wrapper{
+	display: flex;
+	justify-content: end;
+}
+.language .icon{
+		position: relative;
+		width:20px;
+		height:20px;
+		cursor: pointer;
+	}
+	.language .icon:after {
+	 content: '\f0ac';
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 display: block;
+	 height: 20px;
+	 width: 20px;
+	 border-radius: 100%;
+	 line-height: 20px;
+	 text-align: center;
+	 font-size: 1.1rem;
+	 background-color: #026bc3;
+     font-size: 18px;
+	 color: white;
+	 transform: translateY(-50%) translateX(-50%);
+	 transition: all 0.3s 0.5s ease;
+	 cursor: pointer;
+	 cursor: hand;
+     font-family: "Font Awesome 5 Free";
+     vertical-align: middle;
+     font-weight: 900;
+
+}
+
+.language .current_locale{
+        color:#fff
+    }
+    section {
+	 position: relative;
+}
+.language  .btn-pluss {
+	 overflow: hidden;
+	 position: absolute;
+	 display: block;
+	 padding-left: 5px;
+	 padding-right: 5px;
+	 border-radius: 22px;
+	 width: 30px;
+	 margin: 0 auto;
+	 background-color: transparent;
+	 transition: width 0.3s 0.5s ease, border-radius 1.1s ease;
+     z-index: 999;
+     top: -5px;
+     right: 0;
+}
+.language .btn-pluss:hover{
+    background-color: white;
+	box-shadow: 1px 3px 10px #555;
+}
+.language .btn-pluss a {
+	 display: block;
+	 position: relative;
+	 color: #026bc3;
+	 text-decoration: none;
+	 overflow: hidden;
+	 padding: 5px 3px;
+	 border-radius: 5px;
+	 height: 100%;
+	 font-size:16px;
+}
+.language .btn-pluss a:hover {
+	 text-decoration: inherit;
+	 color: white;
+	 background-color: #026bc3;
+	 transition: background-color 0.5s ease;
+}
+ /* .btn-pluss:after {
+	 content: '\f0ac';
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 display: block;
+	 height: 20px;
+	 width: 20px;
+	 border-radius: 100%;
+	 line-height: 20px;
+	 text-align: center;
+	 font-size: 1.1rem;
+	 background-color: #026bc3;
+     font-size: 18px;
+	 color: white;
+	 transform: translateY(-50%) translateX(-50%);
+	 transition: all 0.3s 0.5s ease;
+	 cursor: pointer;
+	 cursor: hand;
+     font-family: "Font Awesome 5 Free";
+     vertical-align: middle;
+     font-weight: 900;
+
+} */
+

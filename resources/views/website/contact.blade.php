@@ -4,6 +4,7 @@
 <!-- bradcam_area_start -->
 <div class="bradcam_area breadcam_bg overlay2">
    <h2>About us</h2>
+   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus vero autem officiis doloribus itaque. Expedita vero, hic eligendi ab, voluptatem optio nesciunt cupiditate enim ad pariatur similique ipsam, sit temporibus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus vero autem officiis doloribus itaque. Expedita vero, hic eligendi ab, voluptatem optio nesciunt cupiditate enim ad pariatur similique ipsam, sit temporibus.</p>
 </div>
 <!-- bradcam_area_end -->
 <!-- ================ contact section start ================= -->
@@ -49,7 +50,7 @@
                      </div>
                   </div>
                </div>
-               <div class="form-group mt-3">
+               <div class="form-group mt-3 text-center">
                   <button type="submit" class="button button-contactForm boxed-btn">
                      <i class="far fa-paper-plane"></i>@lang('Send') </button>
                </div>
@@ -65,13 +66,13 @@
             <div class="media contact-info">
                <span class="contact-info__icon"><i class="fas fa-phone-alt"></i></span>
                <div class="media-body">
-                  <h3>{!! Purifier::clean(settings('company_phone')) !!}</h3>
+                  <h3><a href="https://wa.me/{!! Purifier::clean(settings('company_phone')) !!}" target="_blank">{!! Purifier::clean(settings('company_phone')) !!}</a></h3>
                </div>
             </div>
             <div class="media contact-info">
                <span class="contact-info__icon"><i class="far fa-envelope-open"></i></span>
                <div class="media-body">
-                  <h3>{!! Purifier::clean(settings('company_email')) !!}</h3>
+                  <h3><a href="{!! Purifier::clean(settings('company_email')) !!}">{!! Purifier::clean(settings('company_email')) !!}</a></h3>
                </div>
             </div>
          </div>
