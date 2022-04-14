@@ -66,7 +66,7 @@
             <div class="media contact-info">
                <span class="contact-info__icon"><i class="fas fa-phone-alt"></i></span>
                <div class="media-body">
-                  <h3><a href="https://wa.me/{!! Purifier::clean(settings('company_phone')) !!}" target="_blank">{!! Purifier::clean(settings('company_phone')) !!}</a></h3>
+                  <h3><a href="{!! Purifier::clean(settings('company_phone')) !!}" target="_blank">{!! Purifier::clean(settings('company_phone')) !!}</a></h3>
                </div>
             </div>
             <div class="media contact-info">
