@@ -57,7 +57,6 @@ require('select2/dist/js/select2');
 window.moment = require('moment');
 require('bootstrap-daterangepicker/daterangepicker');
 
-
 window.Vue = require('vue');
 window.accounting = require('accounting-js');
 // CommonJS
@@ -112,7 +111,7 @@ Vue.use(VueInternationalization);
 Vue.use(VueFileAgent);
 
 const i18n = new VueInternationalization({
-    locale: localStorage.getItem('locale') || 'en',
+    locale: localStorage.getItem('locale') || 'ar',
     messages: {
         ar: ar,
         en: en,
