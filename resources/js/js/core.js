@@ -31,4 +31,11 @@ $('.vid').each(function(el){
 
   });
 });
+$('.language li a').click(function(el){
+  var _this = $(this);
+  var len=  _this[0].href.indexOf('language/')
+  var langValue = _this[0].href.slice(len+9,len+11).toLowerCase();
+  localStorage.setItem('locale',langValue)
+ 
+});
 });
