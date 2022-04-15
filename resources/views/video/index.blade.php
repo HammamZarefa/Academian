@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Blog')
+@section('title', 'Video')
 @section('content')
 
 <style type="text/css">
@@ -18,22 +18,18 @@
   <thead>
      <tr>
         <th scope="col" style="width: 40%;">@lang('Title')</th>
-        <th scope="col">@lang('Keyword')</th>
-         <th scope="col">@lang('video')</th>
-        <th scope="col">@lang('Status')</th>
+        <th scope="col">@lang('Url')</th>
         <th scope="col" class="text-right">@lang('Action')</th>
      </tr>
   </thead>
     <tbody>
-    @foreach ($posts as $post)
+    @foreach ($videos as $video)
         <tr>
-            <td>{{ $post->title }}</td>
-            <td>{{$post->keyword}}</td>
-            <td>{{ $post->body }}</td>
-            <td>{{ $post->status }}</td>
+            <td>{{ $video->title }}</td>
+            <td>{{$video->url}}</td>
             <td>
-                <a href="{{route('video.edit', [$post->id])}}" class="btn btn-info btn-sm">@lang('Edit')  </a>
-                <form method="POST" class="d-inline" onsubmit="return confirm('Move post to trash ?')" action="{{route('post.destroy', $post->id)}}">
+                <a href="{{route('video.edit', [$video->id])}}" class="btn btn-info btn-sm">@lang('Edit')  </a>
+                <form method="POST" class="d-inline" onsubmit="return confirm('Move Video to trash ?')" action="{{route('video.destroy', $video->id)}}">
                     @csrf
                     <input type="hidden" value="DELETE" name="_method">
                     <input type="submit" value="Trash" class="btn btn-danger btn-sm">
