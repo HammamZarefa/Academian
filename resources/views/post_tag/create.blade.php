@@ -1,6 +1,6 @@
-@extends('setup.index')
+@extends('layouts.app')
 @section('title', 'Post Tag')
-@section('setting_page')
+@section('content')
 
 @include('setup.partials.action_toolbar', [
  'title' => (isset($tag->id)) ? 'Edit post tag' : 'Create new post tag',

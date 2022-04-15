@@ -183,6 +183,7 @@
           <root url="file://$MODULE_DIR$/vendor/league/commonmark" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
           <root url="file://$MODULE_DIR$/vendor/league/mime-type-detection" />
+          <root url="file://$MODULE_DIR$/vendor/martinlindhe/laravel-vue-i18n-generator" />
           <root url="file://$MODULE_DIR$/vendor/mews/purifier" />
           <root url="file://$MODULE_DIR$/vendor/mockery/mockery" />
           <root url="file://$MODULE_DIR$/vendor/monolog/monolog" />
@@ -233,6 +234,7 @@
           <root url="file://$MODULE_DIR$/vendor/spatie/laravel-cookie-consent" />
           <root url="file://$MODULE_DIR$/vendor/spatie/laravel-permission" />
           <root url="file://$MODULE_DIR$/vendor/spatie/laravel-translatable" />
+          <root url="file://$MODULE_DIR$/vendor/spatie/laravel-translation-loader" />
           <root url="file://$MODULE_DIR$/vendor/stripe/stripe-php" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/console" />
@@ -305,6 +307,7 @@
           <root url="file://$MODULE_DIR$/vendor/league/commonmark" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
           <root url="file://$MODULE_DIR$/vendor/league/mime-type-detection" />
+          <root url="file://$MODULE_DIR$/vendor/martinlindhe/laravel-vue-i18n-generator" />
           <root url="file://$MODULE_DIR$/vendor/mews/purifier" />
           <root url="file://$MODULE_DIR$/vendor/mockery/mockery" />
           <root url="file://$MODULE_DIR$/vendor/monolog/monolog" />
@@ -355,6 +358,7 @@
           <root url="file://$MODULE_DIR$/vendor/spatie/laravel-cookie-consent" />
           <root url="file://$MODULE_DIR$/vendor/spatie/laravel-permission" />
           <root url="file://$MODULE_DIR$/vendor/spatie/laravel-translatable" />
+          <root url="file://$MODULE_DIR$/vendor/spatie/laravel-translation-loader" />
           <root url="file://$MODULE_DIR$/vendor/stripe/stripe-php" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/console" />

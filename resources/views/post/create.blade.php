@@ -1,7 +1,7 @@
-@extends('setup.index')
-@section('title', 'Post')
-@section('setting_page')
-@include('setup.partials.action_toolbar', [
+@extends('layouts.app')
+@section('title', 'Blog')
+@section('content')
+    @include('setup.partials.action_toolbar', [
      'title' =>  'Create new post',
      'hide_save_button' => TRUE,
      'back_link' => [

@@ -154,21 +154,21 @@
                @include('order.partials.choose_work')
             @endif
 
-            @role('admin')
-               @if($order->isAFollower(auth()->user()->id))
-                  <a href="{{ route('orders_unfollow', $order->id) }}">@lang('Unfollow')</a>
-               @else
-                  <a href="{{ route('orders_follow', $order->id) }}">@lang('Follow')</a>
-               @endif
+            {{--@role('admin')--}}
+               {{--@if($order->isAFollower(auth()->user()->id))--}}
+                  {{--<a href="{{ route('orders_unfollow', $order->id) }}">@lang('Unfollow')</a>--}}
+               {{--@else--}}
+                  {{--<a href="{{ route('orders_follow', $order->id) }}">@lang('Follow')</a>--}}
+               {{--@endif--}}
 
-               <div class="mt-4">
-                  @if($order->archived)
-                     <a href="{{ route('orders_unarchive', $order->id) }}">@lang('Unarchive')</a>
-                  @else
-                     <a href="{{ route('orders_archive', $order->id) }}">@lang('Archive')</a>
-                  @endif
-               </div>
-            @endrole
+               {{--<div class="mt-4">--}}
+                  {{--@if($order->archived)--}}
+                     {{--<a href="{{ route('orders_unarchive', $order->id) }}">@lang('Unarchive')</a>--}}
+                  {{--@else--}}
+                     {{--<a href="{{ route('orders_archive', $order->id) }}">@lang('Archive')</a>--}}
+                  {{--@endif--}}
+               {{--</div>--}}
+            {{--@endrole--}}
       @endif
    </div>
 </div>

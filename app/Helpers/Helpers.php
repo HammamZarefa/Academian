@@ -351,4 +351,9 @@ function paymentIsPending($orderStatusId)
         $languages=Config::get('app.available_locales');
         return $languages;
     }
+    function settingMenuState()
+    {
+        $state=true;
+        return $state;
+    }
 }

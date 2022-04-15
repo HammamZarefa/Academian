@@ -1,6 +1,6 @@
-@extends('setup.index')
+@extends('layouts.app')
 @section('title', 'Post')
-@section('setting_page')
+@section('content')
 
 @include('setup.partials.action_toolbar', [
  'title' => (isset($post->id)) ? 'Edit Video' : 'Add new Video',
