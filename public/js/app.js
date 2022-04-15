@@ -3987,7 +3987,9 @@ __webpack_require__.r(__webpack_exports__);
 
     if (typeof this.params.words == 'string') {
       this.form.number_of_words = this.params.words;
-    } else {
+    }
+
+    if (this.params != {}) {
       this.passParam = true;
       this.form.service_categories_model = this.filteredServices_categories[0];
       this.active_services = this.filteredServices_categories[0].id;
@@ -96362,11 +96364,11 @@ var render = function() {
       _c(
         "div",
         { staticClass: "service_category" },
-        _vm._l(_vm.service_categories, function(item) {
+        _vm._l(_vm.service_categories, function(item, index) {
           return _c(
             "div",
             {
-              key: item,
+              key: index,
               staticClass: "base",
               class: [_vm.active_services == item.id ? "active" : ""],
               on: {
@@ -96450,11 +96452,11 @@ var render = function() {
         _vm._v(" "),
         _c(
           "ul",
-          _vm._l(_vm.filteredServices, function(item) {
+          _vm._l(_vm.filteredServices, function(item, index) {
             return _c(
               "li",
               {
-                key: item,
+                key: index,
                 on: {
                   click: function($event) {
                     _vm.getAdditionalServices(_vm.form.service_model)
