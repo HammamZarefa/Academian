@@ -37,7 +37,7 @@
          <?php
             if(isset($order->assignee))
             {
-               echo '<a href="'.route('user_profile', $order->staff_id).'">'.$order->assignee->{{@lang('full_name')}}.'</a>';
+               echo '<a href="'.route('user_profile', $order->staff_id).'">'.$order->assignee->full_name.'</a>';
             }
             ?>
       </div>
