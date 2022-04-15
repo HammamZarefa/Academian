@@ -1,6 +1,6 @@
-@extends('setup.index')
+@extends('layouts.app')
 @section('title', 'Blog')
-@section('setting_page')
+@section('content')
 
     <style type="text/css">
         .toolbar {

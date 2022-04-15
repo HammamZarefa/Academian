@@ -1,10 +1,10 @@
-@extends('setup.index')
+@extends('layouts.app')
 @section('title', 'Post Category')
-@section('setting_page')
+@section('content')
 
 
     @include('setup.partials.action_toolbar', [
-     'title' => (isset($postCategory->id)) ? 'Edit post categories' : 'Create new post categories',
+     'title' =>  'Create new post categories',
      'hide_save_button' => TRUE,
      'back_link' => [
                       'title' => 'back to post categories',
@@ -12,7 +12,7 @@
                    ]
     ])
     <form role="form" class="form-horizontal" enctype="multipart/form-data"
-          action="{{ (isset($postCategory->id)) ? route( 'post_category.edit', $postCategory->id) : route('post_category.store') }}"
+          action="{{  route('post_category.store') }}"
           method="post" autocomplete="off">
         {{ csrf_field()  }}
         <div class="form-group">
