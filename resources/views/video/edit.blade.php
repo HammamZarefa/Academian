@@ -1,14 +1,14 @@
-@extends('setup.index')
+@extends('layouts.app')
 @section('title', 'Post')
-@section('setting_page')
+@section('content')
 
 
 @include('setup.partials.action_toolbar', [
  'title' => (isset($post->id)) ? 'Edit post' : 'Create new post',
  'hide_save_button' => TRUE,
  'back_link' => [
-                  'title' => 'back to post ',
-                  'url' => route("posts")
+                  'title' => 'back to videos ',
+                  'url' => route("videos")
                ]
 ])
 <form role="form" class="form-horizontal" enctype="multipart/form-data" action="{{ (isset($post->id)) ? route( 'post.edit', $post->id) : route('post.store') }}" method="post" autocomplete="off" >

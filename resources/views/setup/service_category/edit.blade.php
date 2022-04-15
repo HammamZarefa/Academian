@@ -101,9 +101,9 @@
    </div>
      <div class="form-group">
          <label>@lang('Need Work Level')</label>
-         <input type="checkbox" class="form-control form-control-sm {{ showErrorClass($errors, 'worklevel') }}" name="worklevel" value=1 checked>
-     </div>
-   {{--<div class="form-group">--}}
+         <input type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'worklevel') }}" name="worklevel" >
+    </div>
+  {{--<div class="form-group">--}}
       {{--<div class="custom-control custom-checkbox">--}}
          {{--<input type="checkbox" class="custom-control-input" id="inactive" name="inactive" value="1" {{ old_set('inactive', NULL, $service_categories) ? 'checked="checked"' : '' }}>--}}
          {{--<label class="custom-control-label" for="inactive">Inactive</label>--}}

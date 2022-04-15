@@ -12,13 +12,13 @@
     <div class="form-group">
       <label>{{ $t('Service Category') }}</label>
               <div class="service_category">
-       <div class="base"  v-for="item in service_categories" :key="item"
+       <div class="base"  v-for="(item,index) in service_categories" :key="index"
         @click="setServices3(item,item.id,item.worklevel)" :class="[active_services == item.id? 'active':'']">
          <input class="option-input" :id="`d${item.id}`" type="radio" name="options" style="opacity:0" 
           :value="item" v-model="form.service_categories_model"  @change="setServices" />
           <label class="bg" :for="`d${item.id}`"
           :label="item.name" type="radio" name="service_categories" >
-           {{item.name[locale] == null ? item.name['en']: item.name[locale] }} 
+           {{item.name[locale] == null ? item.name['en']: item.name[locale] }}
 
           </label>
       </div>
@@ -40,7 +40,7 @@
     </summary>
     <ul>
       <li @click="getAdditionalServices(form.service_model);setServicesType(item)"
-      v-for="item in filteredServices" :key="item"
+      v-for="(item,index) in filteredServices" :key="index"
       >
           <a href="#" :class="[form.service_model.id == item.id? 'active':'']">
            {{item.name[locale] == null ? item.name['en']: item.name[locale] }}    
@@ -430,7 +430,7 @@ export default {
         if(typeof(this.params.words) == 'string'){
                this.form.number_of_words = this.params.words;
         }
-        else{
+       if(this.params != {}){
             this.passParam = true;
             this.form.service_categories_model =  this.filteredServices_categories[0];
             this.active_services = this.filteredServices_categories[0].id;

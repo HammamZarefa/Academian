@@ -1,6 +1,6 @@
-@extends('setup.index')
+@extends('layouts.app')
 @section('title', 'Post Category')
-@section('setting_page')
+@section('content')
 
 
     @include('setup.partials.action_toolbar', [

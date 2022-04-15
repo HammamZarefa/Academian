@@ -1,17 +1,8 @@
-@extends('setup.index')
-@section('title', 'Post')
-@section('setting_page')
+@extends('layouts.app')
+@section('title', 'Blog')
+@section('content')
 
-
-@include('setup.partials.action_toolbar', [
- 'title' => (isset($post->id)) ? 'Edit post' : 'Create new post',
- 'hide_save_button' => TRUE,
- 'back_link' => [
-                  'title' => 'back to post ',
-                  'url' => route("posts")
-               ]
-])
-<form role="form" class="form-horizontal" enctype="multipart/form-data" action="{{ (isset($post->id)) ? route( 'post.edit', $post->id) : route('post.store') }}" method="post" autocomplete="off" >
+    <form role="form" class="form-horizontal" enctype="multipart/form-data" action="{{ (isset($post->id)) ? route( 'post.edit', $post->id) : route('post.store') }}" method="post" autocomplete="off" >
     {{ csrf_field()  }}
     <div class="form-group">
         <div class="picture-container">

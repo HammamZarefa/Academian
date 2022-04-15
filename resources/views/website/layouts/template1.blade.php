@@ -20,7 +20,6 @@
     {{--<link href="{{ asset('front/css/style-ar.css') }}" rel="stylesheet">--}}
 
     <!-- <link href="{{ asset('front/css/style.css') }}" rel="stylesheet"> -->
-
     <link href="{{ asset('front/css/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/media-queries.css') }}" rel="stylesheet">
 {!! settings('website_header_script') !!}
@@ -38,6 +37,7 @@
 @include('website.layouts.footer')
 
 <script src="{{ asset('js/theme.min.js') }}"></script>
+
 {!! settings('website_footer_script') !!}
 </body>
 </html>

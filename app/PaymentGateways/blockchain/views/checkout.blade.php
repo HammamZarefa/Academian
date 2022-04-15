@@ -32,19 +32,19 @@
 
 @push('scripts')
 
-@if(strtolower($data['environment']) == 'sandbox')
-<script id="bolt" src="https://sboxcheckout-static.citruspay.com/bolt/run/bolt.min.js" bolt-
-color="e34524" bolt-logo="{{ get_company_logo() }}"></script>
-@else  
+{{--@if(strtolower($data['environment']) == 'sandbox')--}}
+{{--<script id="bolt" src="https://sboxcheckout-static.citruspay.com/bolt/run/bolt.min.js" bolt---}}
+{{--color="e34524" bolt-logo="{{ get_company_logo() }}"></script>--}}
+{{--@else  --}}
 <script id="bolt" src="https://checkout-static.citruspay.com/bolt/run/bolt.min.js" bolt-color="e34524" bolt-logo="{{ get_company_logo() }}"></script>
-@endif
+{{--@endif--}}
 <script type="text/javascript">
   function launchBOLT()
   {
     bolt.launch({
     key: "{{ $data['rec']->key }}",
     txnid: "{{ $data['rec']->txnid }}",
-    hash: "{{ $data['hash'] }}",
+    {{--hash: "{{ $data['hash'] }}",--}}
     amount: "{{ $data['rec']->amount }}",
     firstname: "{{ $data['rec']->fname }}",
     email: "{{ $data['rec']->email }}",

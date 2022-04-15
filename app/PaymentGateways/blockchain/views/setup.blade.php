@@ -1,25 +1,25 @@
-<form role="form" class="form-horizontal" enctype="multipart/form-data" action="{{ route('patch_settings_payu') }}" method="post" autocomplete="off" >
+<form role="form" class="form-horizontal" enctype="multipart/form-data" action="{{ route('patch_settings_blockchain') }}" method="post" autocomplete="off" >
    {{ csrf_field()  }}
    {{ method_field('PATCH') }}
-   <div class="form-group">
-      <label>Environment <span class="required">*</span></label>    
-      <?php echo form_dropdown("environment", $options['env_list'], old('environment', optional($rec->keys)->environment), "class='form-control selectPickerWithoutSearch'") ?>      
-      <div class="invalid-feedback d-block">{{ showError($errors,'environment') }}</div>
-   </div>
+   {{--<div class="form-group">--}}
+      {{--<label>Environment <span class="required">*</span></label>    --}}
+      {{--<?php echo form_dropdown("environment", $options['env_list'], old('environment', optional($rec->keys)->environment), "class='form-control selectPickerWithoutSearch'") ?>      --}}
+      {{--<div class="invalid-feedback d-block">{{ showError($errors,'environment') }}</div>--}}
+   {{--</div>--}}
    <div class="form-group">
      <label>Display Name<span class="required">*</span></label>
       <input type="text" class="form-control {{ showErrorClass($errors,'name') }}" name="name" value="{{ old('name', optional($rec)->name) }}">
       <div class="invalid-feedback">{{ showError($errors,'name') }}</div>
    </div>
    <div class="form-group">
-      <label>Merchant Key <span class="required">*</span></label>
-      <input type="text" class="form-control {{ showErrorClass($errors,'merchant_key') }}" name="merchant_key" value="{{ old('merchant_key', optional($rec->keys)->merchant_key) }}">
-      <div class="invalid-feedback">{{ showError($errors,'merchant_key') }}</div>
+      <label>Api Key <span class="required">*</span></label>
+      <input type="text" class="form-control {{ showErrorClass($errors,'api_key') }}" name="api_key" value="{{ old('api_key', optional($rec->keys)->api_key) }}">
+      <div class="invalid-feedback">{{ showError($errors,'api_key') }}</div>
    </div>
    <div class="form-group">
-      <label>Merchant Salt <span class="required">*</span></label>
-      <input type="text" class="form-control {{ showErrorClass($errors,'merchant_salt') }}" name="merchant_salt" value="{{ old('merchant_salt', optional($rec->keys)->merchant_salt) }}">
-      <div class="invalid-feedback">{{ showError($errors,'merchant_salt') }}</div>
+      <label>Xpub Code  <span class="required">*</span></label>
+      <input type="text" class="form-control {{ showErrorClass($errors,'xpub_code') }}" name="xpub_code" value="{{ old('xpub_code', optional($rec->keys)->xpub_code) }}">
+      <div class="invalid-feedback">{{ showError($errors,'xpub_code') }}</div>
    </div>   
     <?php
       $inactive = (old('inactive', (optional($rec)->inactive))) ? 'checked' : '';

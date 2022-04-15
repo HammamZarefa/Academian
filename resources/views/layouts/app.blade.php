@@ -26,6 +26,16 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+<!-- <script src="{{ asset('js/theme.min.js') }}"></script> -->
+<script>
+  $('.language li a').click(function(el){
+    var _this = $(this);
+    var len=  _this[0].href.indexOf('language/')
+    var langValue = _this[0].href.slice(len+9,len+11).toLowerCase();
+    localStorage.setItem('locale',langValue)
+   
+  });
+</script>
       <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 @if($notification = growl_notification())
 <script type="text/javascript">
