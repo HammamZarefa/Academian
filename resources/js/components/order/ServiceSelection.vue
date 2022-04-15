@@ -344,12 +344,12 @@ export default {
             params : {},
             hasError:false,
             show_worklevel:true,
-            active_services: this.passParam == true ?  this.filteredServices_categories[0].id : this.service_categories[0].id,
+            active_services:this.filteredServices_categories == undefined ? this.service_categories[0].id : this.filteredServices_categories[0].id,
             errors: {},
             additional_services: [],
             form: {
                 service_model:this.services? this.services[0]: {},
-                service_categories_model: this.service_categories ? this.service_categories[0] : {},
+                service_categories_model:  this.filteredServices_categories == undefined? this.service_categories[0] : this.filteredServices_categories[0],
                 urgency_model: this.urgencies ? this.urgencies[0] : {},
                 work_level_model: this.levels ? this.levels[0] : {},
                 work_level_id: this.levels ? this.levels[0].id : 1,
@@ -360,61 +360,28 @@ export default {
             }
         };
     },
-    computed: {
-        filteredServices_categories() {
-            if (this.passParam == true) {
-                return this.service_categories.filter((el) => {
-                    return el.id == this.params.Service_Category;
-                });
-            }
-        },
-        filteredlevels() {
-            if (this.lev == true) {
-                return this.levels.filter((el) => {
-                    return el.id == this.params.work_level;
-                });
-            }
-            else {
-                return this.levels;
-            }
-        },
-        filteredurgency() {
-            if (this.urgen == true) {
-                return this.urgencies.filter((el) => {
-                    return el.id == this.params.urgency;
-                });
-            }
-            else {
-                return this.urgencies;
-            }
-        },
-        filteredServices() {
-            if (this.form.service_categories_model.length != 0) {
-                return this.services.filter((el) => {
-                    return el.service_category_id == this.form.service_categories_model.id;
-                });
-            } else {
-                return this.services;
-            }
-        },
-    },
+ 
     mounted(){
         window.location.search.slice(1).split('&').forEach(elm => {
             if (elm === '') return;
             let spl = elm.split('=');
             const d = decodeURIComponent;
             this.params[d(spl[0])] = (spl.length >= 2 ? d(spl[1]) : true);
+            if(this.params != {}){
+                this.passParam = true;
+            }
+            else{
+                 this.passParam = false;
+            }
         });
-
-        if(this.params == {}){
-            this.passParam = false;
-            this.active_services = this.service_categories[0].id;
-            
+        if(typeof(this.params.Service_Category) == 'string'){
+               this.active_services = this.filteredServices_categories[0].id;
+               this.form.service_categories_model =  this.filteredServices_categories[0];
         }
         if(typeof(this.params.work_level) == 'string'){
-               this.lev = true;
-               this.form.work_level_model = this.filteredlevels[0];
-               this.form.work_level_id = this.filteredlevels[0].id;
+            this.lev = true;
+            this.form.work_level_model = this.filteredlevels[0];
+            this.form.work_level_id = this.filteredlevels[0].id;
         }
         if(typeof(this.params.urgency) == 'string'){
                this.urgen = true;
@@ -430,12 +397,10 @@ export default {
         if(typeof(this.params.words) == 'string'){
                this.form.number_of_words = this.params.words;
         }
-       if(this.params != {}){
-            this.passParam = true;
-            this.form.service_categories_model =  this.filteredServices_categories[0];
-            this.active_services = this.filteredServices_categories[0].id;
-        }
+       
         // console.log('params:',this.params);
+        // console.log('levels:',this.levels);
+        // console.log('work_level_model:',this.form.work_level_model);
         // console.log('spacing_type:',this.form.spacing_type);
         // console.log('filteredlevels:',this.filteredlevels);
         // console.log('passParam:',this.passParam);
@@ -443,8 +408,62 @@ export default {
         // console.log('services:',this.services);
         // console.log('service_categories_model:',this.form.service_categories_model);
         // console.log('service_model:',this.form.service_model);
-        // console.log('filteredServices_categories:',this.filteredServices_categories);
+        // console.log('filteredServices_categories[0]:',this.filteredServices_categories[0]);
         // console.log('filteredServices:',this.filteredServices);
+ 
+    },
+       computed: {
+        filteredServices_categories() {
+            if (this.params != {}) {
+                if(this.service_categories.some(item => item.id ==  this.params.Service_Category)){
+                return this.levels.filter((el) => {
+                      return  el.id == this.params.Service_Category;
+                });
+                }
+                else {
+                return this.service_categories;
+                }
+            } 
+         },
+        filteredlevels() {
+            if (this.lev == true) {
+                if(this.levels.some(item => item.id ==  this.params.work_level)){
+                return this.levels.filter((el) => {
+                      return  el.id == this.params.work_level;
+                });
+                }
+                else {
+                return this.levels;
+                }
+            }
+            else {
+                return this.levels;
+            }
+        },
+        filteredurgency() {
+            if (this.urgen == true) {
+                if(this.urgencies.some(item => item.id ==  this.params.urgency)){
+                return this.urgencies.filter((el) => {
+                      return  el.id == this.params.urgency;
+                });
+                }
+                else {
+                return this.urgencies;
+                }
+            }
+            else {
+                return this.urgencies;
+            }
+        },
+        filteredServices() {
+            if (this.form.service_categories_model.length != 0) {
+                return this.services.filter((el) => {
+                    return el.service_category_id == this.form.service_categories_model.id;
+                });
+            } else {
+                return this.services;
+            }
+        },
     },
     methods: {
         setServicesType(t){
