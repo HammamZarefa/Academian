@@ -4,6 +4,7 @@ use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostTagController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('dashboard/statistics', 'DashboardController@statistics')
@@ -486,9 +487,12 @@ Route::post('testimonials/edit/{id}', [TestimonialController::class, 'update'])-
 Route::delete('testimonials/destroy/{id}',[TestimonialController::class, 'destroy'])->name('admin.testi.destroy');
 
 //video
-Route::get('videos',[PostController::class, 'videos'])->name('videos');
-Route::get('video/create',[PostController::class, 'createVideo'])->name('video.create');
-Route::get('video/edit/{id}',[PostController::class, 'editVideo'])->name('video.edit');
+Route::get('videos',[VideoController::class, 'index'])->name('videos');
+Route::get('video/create',[VideoController::class, 'create'])->name('video.create');
+Route::post('video/create',[VideoController::class, 'store'])->name('video.store');
+Route::get('video/edit/{id}',[VideoController::class, 'edit'])->name('video.edit');
+Route::post('video/edit/{id}',[VideoController::class, 'update'])->name('video.update');
+Route::delete('video/trash/{id}',[VideoController::class, 'destroy'])->name('video.destroy');
 
 // Language Manager
 Route::get('/language', 'LanguageController@langManage')->name('language.manage');

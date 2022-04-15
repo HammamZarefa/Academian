@@ -7,6 +7,7 @@ use App\PostTag;
 use App\ServiceCategory;
 use App\Testimonial;
 use App\User;
+use App\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
@@ -21,7 +22,7 @@ class HomeController extends Controller
 {
     private $seoService;
     private $userController;
-    
+
     function __construct(SeoService $seoService,UserController $userController)
     {
         $this->seoService = $seoService;
@@ -29,7 +30,7 @@ class HomeController extends Controller
     }
 
     public function index()
-    {     
+    {
 
 //       if(env('ENABLE_APP_SETUP_CONFIG') != TRUE)
 //       {
@@ -41,16 +42,15 @@ class HomeController extends Controller
         $writers= $this->userController->getWriters();
         $reviews=Testimonial::where('status','PUBLISH')->get();
         $posts = Post::where('status','=','PUBLISH')->orderBy('id','desc')->limit(3)->get();
-        $videoCategory=PostCategory::where('slug','video')->first()->id;
-        $videos = Post::where('category_id',$videoCategory)->orderBy('id', 'desc')->limit(4)->get();
+        $videos = Video::orderBy('id', 'desc')->limit(4)->get();
 
         return view('website.index', compact('services','service_categories','writers','reviews','posts','videos'));
     }
 
     function pricing(CalculatorService $calculator)
     {
-        $this->seoService->load('pricing'); 
-  
+        $this->seoService->load('pricing');
+
         return view('website.pricing')->with(['data' => $calculator->priceList()]);
     }
 
