@@ -96524,17 +96524,19 @@ var render = function() {
                 staticClass: "btn-group btn-group-toggle flex-wrap",
                 attrs: { "data-toggle": "buttons" }
               },
-              _vm._l(_vm.filteredlevels, function(row, index) {
+              _vm._l(_vm.filteredlevels, function(workLevel, index) {
                 return _c(
                   "label",
                   {
                     key: index,
                     staticClass: "btn btn-outline-primary",
                     class:
-                      _vm.form.work_level_id === Number(row.id) ? "active" : "",
+                      _vm.form.work_level_id === Number(workLevel.id)
+                        ? "active"
+                        : "",
                     on: {
                       click: function($event) {
-                        return _vm.workLevelChanged(row.id, index)
+                        return _vm.workLevelChanged(workLevel.id, index)
                       }
                     }
                   },
@@ -96555,21 +96557,25 @@ var render = function() {
                         autocomplete: "off"
                       },
                       domProps: {
-                        value: row.id,
-                        checked: _vm._q(_vm.form.work_level_id, row.id)
+                        value: workLevel.id,
+                        checked: _vm._q(_vm.form.work_level_id, workLevel.id)
                       },
                       on: {
                         change: function($event) {
-                          return _vm.$set(_vm.form, "work_level_id", row.id)
+                          return _vm.$set(
+                            _vm.form,
+                            "work_level_id",
+                            workLevel.id
+                          )
                         }
                       }
                     }),
                     _vm._v(
                       "\n            " +
                         _vm._s(
-                          row.name[_vm.locale] == null
-                            ? row.name["en"]
-                            : row.name[_vm.locale]
+                          workLevel.name[_vm.locale] == null
+                            ? workLevel.name["en"]
+                            : workLevel.name[_vm.locale]
                         ) +
                         "   \n          "
                     )
@@ -96677,16 +96683,17 @@ var render = function() {
                   staticClass: "btn-group btn-group-toggle",
                   attrs: { "data-toggle": "buttons" }
                 },
-                _vm._l(_vm.spacings, function(row) {
+                _vm._l(_vm.spacings, function(spacing) {
                   return _c(
                     "label",
                     {
-                      key: row.id,
+                      key: spacing.id,
                       staticClass: "btn btn-outline-pink",
-                      class: _vm.form.spacing_type == row.id ? "active" : "",
+                      class:
+                        _vm.form.spacing_type == spacing.id ? "active" : "",
                       on: {
                         click: function($event) {
-                          return _vm.spacingTypeChanged(row.id)
+                          return _vm.spacingTypeChanged(spacing.id)
                         }
                       }
                     },
@@ -96703,22 +96710,26 @@ var render = function() {
                         staticClass: "btn-group-toggle",
                         attrs: {
                           type: "radio",
-                          id: "spacing_" + row.id,
+                          id: "spacing_" + spacing.id,
                           autocomplete: "off"
                         },
                         domProps: {
-                          value: row.id,
-                          checked: _vm._q(_vm.form.spacing_type, row.id)
+                          value: spacing.id,
+                          checked: _vm._q(_vm.form.spacing_type, spacing.id)
                         },
                         on: {
                           change: function($event) {
-                            return _vm.$set(_vm.form, "spacing_type", row.id)
+                            return _vm.$set(
+                              _vm.form,
+                              "spacing_type",
+                              spacing.id
+                            )
                           }
                         }
                       }),
                       _vm._v(
                         "\n                            " +
-                          _vm._s(row.name) +
+                          _vm._s(spacing.name) +
                           "\n                        "
                       )
                     ]
@@ -96845,80 +96856,91 @@ var render = function() {
           [
             _c("h5", [_vm._v(_vm._s(_vm.$t("Additional Services")))]),
             _vm._v(" "),
-            _vm._l(_vm.additional_services, function(row) {
-              return _c("div", { key: row.id, staticClass: "card mb-3" }, [
-                _c("div", { staticClass: "row no-gutters" }, [
-                  _c("div", { staticClass: "col-md-8" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(row.name))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(_vm._s(row.description))
+            _vm._l(_vm.additional_services, function(addi_serv) {
+              return _c(
+                "div",
+                { key: addi_serv.id, staticClass: "card mb-3" },
+                [
+                  _c("div", { staticClass: "row no-gutters" }, [
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("h5", { staticClass: "card-title" }, [
+                          _vm._v(_vm._s(addi_serv.name))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(_vm._s(addi_serv.description))
+                        ])
                       ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-4" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "d-flex justify-content-center",
-                        staticStyle: { "margin-top": "40px" }
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.additionalServiceChanged(row.id, row)
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "d-flex justify-content-center",
+                          staticStyle: { "margin-top": "40px" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.additionalServiceChanged(
+                                    addi_serv.id,
+                                    addi_serv
+                                  )
+                                }
                               }
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "btn btn-block",
-                                class: _vm.getServiceContainerClass(row.id)
-                              },
-                              [
-                                _vm.addedServiceList(row.id)
-                                  ? _c("span", [
-                                      _c("i", {
-                                        staticClass: "fas fa-check-circle"
-                                      }),
-                                      _vm._v(
-                                        _vm._s(_vm.$t("Added")) +
-                                          " \n                  "
-                                      )
-                                    ])
-                                  : _c("span", [
-                                      _c("i", { staticClass: "fas fa-plus" }),
-                                      _vm._v(
-                                        " " +
-                                          _vm._s(_vm.$t("Add")) +
-                                          " \n                  "
-                                      )
-                                    ]),
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(_vm._f("formatMoney")(row.rate)) +
-                                    "\n                                "
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "btn btn-block",
+                                  class: _vm.getServiceContainerClass(
+                                    addi_serv.id
+                                  )
+                                },
+                                [
+                                  _vm.addedServiceList(addi_serv.id)
+                                    ? _c("span", [
+                                        _c("i", {
+                                          staticClass: "fas fa-check-circle"
+                                        }),
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Added")) +
+                                            " \n                  "
+                                        )
+                                      ])
+                                    : _c("span", [
+                                        _c("i", { staticClass: "fas fa-plus" }),
+                                        _vm._v(
+                                          " " +
+                                            _vm._s(_vm.$t("Add")) +
+                                            " \n                  "
+                                        )
+                                      ]),
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(
+                                        _vm._f("formatMoney")(addi_serv.rate)
+                                      ) +
+                                      "\n                                "
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
                   ])
-                ])
-              ])
+                ]
+              )
             })
           ],
           2
