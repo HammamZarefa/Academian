@@ -3926,6 +3926,7 @@ __webpack_require__.r(__webpack_exports__);
     if (typeof this.params.Service_Category == 'string') {
       this.active_services = this.filteredServices_categories[0].id;
       this.form.service_categories_model = this.filteredServices_categories[0];
+      this.form.service_model = this.filteredServices[0];
     }
 
     if (typeof this.params.work_level == 'string') {
@@ -3953,15 +3954,15 @@ __webpack_require__.r(__webpack_exports__);
     // console.log('levels:',this.levels);
     // console.log('work_level_model:',this.form.work_level_model);
     // console.log('spacing_type:',this.form.spacing_type);
-    // console.log('filteredlevels:',this.filteredlevels);
-    // console.log('passParam:',this.passParam);
+
+
+    console.log('filteredlevels:', JSON.stringify(this.filteredlevels)); // console.log('passParam:',this.passParam);
     // console.log('service_categories:',this.service_categories);
     // console.log('services:',this.services);
     // console.log('service_categories_model:',this.form.service_categories_model);
     // console.log('service_model:',this.form.service_model);
     // console.log('filteredServices_categories[0]:',this.filteredServices_categories[0]);
     // console.log('filteredServices:',this.filteredServices);
-
   },
   computed: {
     filteredServices_categories: function filteredServices_categories() {
