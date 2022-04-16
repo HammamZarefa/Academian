@@ -377,6 +377,7 @@ export default {
         if(typeof(this.params.Service_Category) == 'string'){
                this.active_services = this.filteredServices_categories[0].id;
                this.form.service_categories_model =  this.filteredServices_categories[0];
+               this.form.service_model = this.filteredServices[0];
         }
         if(typeof(this.params.work_level) == 'string'){
             this.lev = true;
@@ -402,7 +403,7 @@ export default {
         // console.log('levels:',this.levels);
         // console.log('work_level_model:',this.form.work_level_model);
         // console.log('spacing_type:',this.form.spacing_type);
-        // console.log('filteredlevels:',this.filteredlevels);
+        console.log('filteredlevels:',JSON.stringify(this.filteredlevels));
         // console.log('passParam:',this.passParam);
         // console.log('service_categories:',this.service_categories);
         // console.log('services:',this.services);
