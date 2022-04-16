@@ -55,20 +55,20 @@
         <div class="btn-group btn-group-toggle flex-wrap" data-toggle="buttons">
           <label
             class="btn btn-outline-primary"
-            v-on:click="workLevelChanged(row.id, index)"
-            :class="form.work_level_id === Number(row.id) ? 'active': ''"
-            v-for="(row,index) in filteredlevels"
+            v-on:click="workLevelChanged(workLevel.id, index)"
+            :class="form.work_level_id === Number(workLevel.id) ? 'active': ''"
+            v-for="(workLevel,index) in filteredlevels"
             :key="index"
           >
             <input
               type="radio"
               class="btn-group-toggle"
               :id="'workLevel_' + index"
-              :value="row.id"
+              :value="workLevel.id"
               autocomplete="off"
               v-model="form.work_level_id"
             />
-            {{row.name[locale] == null ? row.name['en']: row.name[locale] }}   
+            {{workLevel.name[locale] == null ? workLevel.name['en']: workLevel.name[locale] }}   
           </label>
         </div>
         
@@ -123,21 +123,21 @@
                 <div>
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label
-                            v-for="row in spacings"
+                            v-for="spacing in spacings"
                             class="btn btn-outline-pink"
-                            v-on:click="spacingTypeChanged(row.id)"
-                            :class="form.spacing_type == row.id ? 'active': ''"
-                            :key="row.id"
+                            v-on:click="spacingTypeChanged(spacing.id)"
+                            :class="form.spacing_type == spacing.id ? 'active': ''"
+                            :key="spacing.id"
                         >
                             <input
                                 type="radio"
                                 class="btn-group-toggle"
-                                :id="'spacing_' + row.id"
-                                :value="row.id"
+                                :id="'spacing_' + spacing.id"
+                                :value="spacing.id"
                                 autocomplete="off"
                                 v-model="form.spacing_type"
                             />
-                            {{ row.name }}
+                            {{ spacing.name }}
                         </label>
                     </div>
                 </div>
@@ -189,25 +189,25 @@
 
         <div v-if="additional_services.length > 0">
             <h5>{{ $t('Additional Services') }}</h5>
-            <div class="card mb-3" v-for="row in additional_services" v-bind:key="row.id">
+            <div class="card mb-3" v-for="addi_serv in additional_services" v-bind:key="addi_serv.id">
                 <div class="row no-gutters">
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">{{ row.name }}</h5>
-                            <p class="card-text">{{ row.description }}</p>
+                            <h5 class="card-title">{{ addi_serv.name }}</h5>
+                            <p class="card-text">{{ addi_serv.description }}</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="d-flex justify-content-center" style="margin-top: 40px;">
-                            <a href="#" v-on:click.prevent="additionalServiceChanged(row.id, row)">
-                                <div class="btn btn-block" v-bind:class="getServiceContainerClass(row.id)">
-                  <span v-if="addedServiceList(row.id)">
+                            <a href="#" v-on:click.prevent="additionalServiceChanged(addi_serv.id, addi_serv)">
+                                <div class="btn btn-block" v-bind:class="getServiceContainerClass(addi_serv.id)">
+                  <span v-if="addedServiceList(addi_serv.id)">
                     <i class="fas fa-check-circle"></i>{{ $t('Added') }} 
                   </span>
                                     <span v-else>
                     <i class="fas fa-plus"></i> {{ $t('Add') }} 
                   </span>
-                                    {{ row.rate | formatMoney }}
+                                    {{ addi_serv.rate | formatMoney }}
                                 </div>
                             </a>
                         </div>
