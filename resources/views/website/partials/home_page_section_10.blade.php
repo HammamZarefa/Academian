@@ -10,9 +10,14 @@
             <div class="img_pod">
             <img  src="{{asset(Storage::url($post->cover))}}" alt="">
             </div>
+            
             <div class="container_copy">
-            <h3>{{$post->created_at->format('Y-m-d')}}</h3>
             <h1>{{$post->title}}</h1>
+            <ul>
+                  <li class="d-flex align-items-center"><i class="icon-user"></i> <a href="{{route('blogshow',$post->slug)}}">{{ $post->user->first_name.' '.$post->user->last_name  }}</a></li>
+                  <li class="d-flex align-items-center"><i class="icon-clock"></i> <a href="{{route('blogshow',$post->slug)}}"><time datetime="2020-01-01">{{$post->created_at->format('Y-m-d')}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="icon-comment"></i> <a href="{{ URL::current()}}#disqus_thread">@lang('Comments')</a></li>
+                </ul>
             <p>{!! Str::limit($post->body, 60) !!}...</p>
             </div>
            <div class="text-center"> <a class="btn_primary" href="{{route('blogshow',$post->slug)}}">@lang('Read More')</a></div>

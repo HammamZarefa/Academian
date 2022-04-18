@@ -999,8 +999,22 @@ input::-webkit-inner-spin-button {
     min-height: 265px;
     display: grid;
     align-items: end;
+    min-height: 315px;
 }
-
+.blogs .blog_post .container_copy p {
+    margin: 0;
+}
+.blogs .blog_post .container_copy ul{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    margin: 0;
+    font-size: 14px;
+    justify-content: space-between;
+}
+.blogs .blog_post .container_copy ul li a{
+    color: #747474;
+}
 .blogs .img_pod {
     height: 110px;
     width: 110px;
