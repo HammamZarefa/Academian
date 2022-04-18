@@ -44,9 +44,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route('homepage') }}" style="margin-left:0">
+                <!-- <a class="navbar-brand" href="{{ route('homepage') }}" style="margin-left:0">
                     <img src="{{ get_company_logo() }}" height="50px"
                      width="50px" alt="{{ settings('company_name') }}">
+                </a> -->
+                <a href="{{ route('homepage') }}">  
+                    <div style="width:70px;margin-inline-start: 20px;color: #a2a2a2;
+                            height: 70px;
+                            display: flex;
+                            align-items: center;">
+                        <img src="{{ get_company_logo() }}"
+                        alt="{{ settings('company_name') }}">
+                    </div>  
                 </a>
             </div>
             <div class="navbar-collapse collapse">

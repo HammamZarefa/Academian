@@ -3794,6 +3794,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3882,7 +3897,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
-    var locale = localStorage.getItem('locale') || 'ar';
+    var locale = localStorage.getItem('locale') || 'en';
     return {
       locale: locale,
       lev: false,
@@ -3910,6 +3925,18 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    // console.log('params:',this.params);
+    // console.log('levels:',this.levels);
+    // console.log('work_level_model:',this.form.work_level_model);
+    // console.log('spacing_type:',this.form.spacing_type);
+    // console.log('filteredlevels:',JSON.stringify(this.filteredlevels));
+    // console.log('passParam:',this.passParam);
+    console.log('service_categories:', this.service_categories);
+    console.log('services:', this.services); // console.log('service_categories_model:',this.form.service_categories_model);
+    // console.log('service_model:',this.form.service_model);
+    // console.log('filteredServices_categories[0]:',this.filteredServices_categories[0]);
+    // console.log('filteredServices:',this.filteredServices);
+
     window.location.search.slice(1).split('&').forEach(function (elm) {
       if (elm === '') return;
       var spl = elm.split('=');
@@ -3922,6 +3949,11 @@ __webpack_require__.r(__webpack_exports__);
         _this.passParam = false;
       }
     });
+
+    if (typeof this.params.Service_Category == 'string') {
+      this.active_services = this.filteredServices_categories[0].id;
+      this.form.service_categories_model = this.filteredServices_categories[0];
+    }
 
     if (typeof this.params.Service_Category == 'string') {
       this.active_services = this.filteredServices_categories[0].id;
@@ -3949,25 +3981,13 @@ __webpack_require__.r(__webpack_exports__);
 
     if (typeof this.params.words == 'string') {
       this.form.number_of_words = this.params.words;
-    } // console.log('params:',this.params);
-    // console.log('levels:',this.levels);
-    // console.log('work_level_model:',this.form.work_level_model);
-    // console.log('spacing_type:',this.form.spacing_type);
-    // console.log('filteredlevels:',this.filteredlevels);
-    // console.log('passParam:',this.passParam);
-    // console.log('service_categories:',this.service_categories);
-    // console.log('services:',this.services);
-    // console.log('service_categories_model:',this.form.service_categories_model);
-    // console.log('service_model:',this.form.service_model);
-    // console.log('filteredServices_categories[0]:',this.filteredServices_categories[0]);
-    // console.log('filteredServices:',this.filteredServices);
-
+    }
   },
   computed: {
     filteredServices_categories: function filteredServices_categories() {
       var _this2 = this;
 
-      if (this.params != {}) {
+      if (this.passParam == true) {
         if (this.service_categories.some(function (item) {
           return item.id == _this2.params.Service_Category;
         })) {
@@ -4019,6 +4039,17 @@ __webpack_require__.r(__webpack_exports__);
       if (this.form.service_categories_model.length != 0) {
         return this.services.filter(function (el) {
           return el.service_category_id == _this5.form.service_categories_model.id;
+        });
+      } else {
+        return this.services;
+      }
+    },
+    filteredServicesParam: function filteredServicesParam() {
+      var _this6 = this;
+
+      if (this.passParam == true) {
+        return this.services.filter(function (el) {
+          return el.id == _this6.params.service;
         });
       } else {
         return this.services;
@@ -100581,56 +100612,86 @@ var render = function() {
     _c("div", { staticClass: "form-group" }, [
       _c("label", [_vm._v(_vm._s(_vm.$t("Service Type")))]),
       _vm._v(" "),
-      _c("details", { staticClass: "dropdown", attrs: { id: "dropdown" } }, [
-        _c("summary", { attrs: { role: "button" } }, [
-          _c("a", { staticClass: "button" }, [
-            _vm._v(_vm._s(_vm.form.service_model.name[_vm.locale]))
-          ]),
-          _vm._v(" "),
-          _c("i", { staticClass: "fas fa-caret-down" })
-        ]),
-        _vm._v(" "),
-        _c(
-          "ul",
-          _vm._l(_vm.filteredServices, function(item, index) {
-            return _c(
-              "li",
-              {
-                key: index,
-                on: {
-                  click: function($event) {
-                    _vm.getAdditionalServices(_vm.form.service_model)
-                    _vm.setServicesType(item)
-                  }
-                }
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    class: [
-                      _vm.form.service_model.id == item.id ? "active" : ""
-                    ],
-                    attrs: { href: "#" }
-                  },
-                  [
-                    _vm._v(
-                      "\n           " +
-                        _vm._s(
-                          item.name[_vm.locale] == null
-                            ? item.name["en"]
-                            : item.name[_vm.locale]
-                        ) +
-                        "    \n              "
+      _vm.filteredServices.length > 1
+        ? _c(
+            "details",
+            { staticClass: "dropdown", attrs: { id: "dropdown" } },
+            [
+              _c("summary", { attrs: { role: "button" } }, [
+                _c("a", { staticClass: "button" }, [
+                  _vm._v(
+                    _vm._s(
+                      _vm.passParam == true
+                        ? _vm.filteredServicesParam[0].name[_vm.locale]
+                        : _vm.filteredServices[0].name[_vm.locale]
                     )
-                  ]
-                )
-              ]
-            )
-          }),
-          0
-        )
-      ])
+                  )
+                ]),
+                _vm._v(" "),
+                _c("i", { staticClass: "fas fa-caret-down" })
+              ]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                _vm._l(_vm.filteredServices, function(item, index) {
+                  return _c(
+                    "li",
+                    {
+                      key: index,
+                      on: {
+                        click: function($event) {
+                          _vm.getAdditionalServices(_vm.form.service_model)
+                          _vm.setServicesType(item)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          class: [
+                            _vm.form.service_model.id == item.id ? "active" : ""
+                          ],
+                          attrs: { href: "#" }
+                        },
+                        [
+                          _vm._v(
+                            "\n           " +
+                              _vm._s(
+                                item.name[_vm.locale] == null
+                                  ? item.name["en"]
+                                  : item.name[_vm.locale]
+                              ) +
+                              "    \n              "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            ]
+          )
+        : _c(
+            "details",
+            { staticClass: "dropdown", attrs: { id: "dropdown" } },
+            [
+              _c("summary", { attrs: { role: "button" } }, [
+                _c("a", { staticClass: "button" }, [
+                  _vm._v(
+                    _vm._s(
+                      _vm.passParam == true
+                        ? _vm.filteredServicesParam[0].name[_vm.locale]
+                        : _vm.filteredServices[0].name[_vm.locale]
+                    )
+                  )
+                ]),
+                _vm._v(" "),
+                _c("i", {}, [_vm._v(_vm._s(_vm.$t("Selected")))])
+              ])
+            ]
+          )
     ]),
     _vm._v(" "),
     _vm.show_worklevel
@@ -100644,17 +100705,19 @@ var render = function() {
                 staticClass: "btn-group btn-group-toggle flex-wrap",
                 attrs: { "data-toggle": "buttons" }
               },
-              _vm._l(_vm.filteredlevels, function(row, index) {
+              _vm._l(_vm.filteredlevels, function(workLevel, index) {
                 return _c(
                   "label",
                   {
                     key: index,
                     staticClass: "btn btn-outline-primary",
                     class:
-                      _vm.form.work_level_id === Number(row.id) ? "active" : "",
+                      _vm.form.work_level_id === Number(workLevel.id)
+                        ? "active"
+                        : "",
                     on: {
                       click: function($event) {
-                        return _vm.workLevelChanged(row.id, index)
+                        return _vm.workLevelChanged(workLevel.id, index)
                       }
                     }
                   },
@@ -100675,21 +100738,25 @@ var render = function() {
                         autocomplete: "off"
                       },
                       domProps: {
-                        value: row.id,
-                        checked: _vm._q(_vm.form.work_level_id, row.id)
+                        value: workLevel.id,
+                        checked: _vm._q(_vm.form.work_level_id, workLevel.id)
                       },
                       on: {
                         change: function($event) {
-                          return _vm.$set(_vm.form, "work_level_id", row.id)
+                          return _vm.$set(
+                            _vm.form,
+                            "work_level_id",
+                            workLevel.id
+                          )
                         }
                       }
                     }),
                     _vm._v(
                       "\n            " +
                         _vm._s(
-                          row.name[_vm.locale] == null
-                            ? row.name["en"]
-                            : row.name[_vm.locale]
+                          workLevel.name[_vm.locale] == null
+                            ? workLevel.name["en"]
+                            : workLevel.name[_vm.locale]
                         ) +
                         "   \n          "
                     )
@@ -100797,16 +100864,17 @@ var render = function() {
                   staticClass: "btn-group btn-group-toggle",
                   attrs: { "data-toggle": "buttons" }
                 },
-                _vm._l(_vm.spacings, function(row) {
+                _vm._l(_vm.spacings, function(spacing) {
                   return _c(
                     "label",
                     {
-                      key: row.id,
+                      key: spacing.id,
                       staticClass: "btn btn-outline-pink",
-                      class: _vm.form.spacing_type == row.id ? "active" : "",
+                      class:
+                        _vm.form.spacing_type == spacing.id ? "active" : "",
                       on: {
                         click: function($event) {
-                          return _vm.spacingTypeChanged(row.id)
+                          return _vm.spacingTypeChanged(spacing.id)
                         }
                       }
                     },
@@ -100823,22 +100891,26 @@ var render = function() {
                         staticClass: "btn-group-toggle",
                         attrs: {
                           type: "radio",
-                          id: "spacing_" + row.id,
+                          id: "spacing_" + spacing.id,
                           autocomplete: "off"
                         },
                         domProps: {
-                          value: row.id,
-                          checked: _vm._q(_vm.form.spacing_type, row.id)
+                          value: spacing.id,
+                          checked: _vm._q(_vm.form.spacing_type, spacing.id)
                         },
                         on: {
                           change: function($event) {
-                            return _vm.$set(_vm.form, "spacing_type", row.id)
+                            return _vm.$set(
+                              _vm.form,
+                              "spacing_type",
+                              spacing.id
+                            )
                           }
                         }
                       }),
                       _vm._v(
                         "\n                            " +
-                          _vm._s(row.name) +
+                          _vm._s(spacing.name) +
                           "\n                        "
                       )
                     ]
@@ -100965,80 +101037,91 @@ var render = function() {
           [
             _c("h5", [_vm._v(_vm._s(_vm.$t("Additional Services")))]),
             _vm._v(" "),
-            _vm._l(_vm.additional_services, function(row) {
-              return _c("div", { key: row.id, staticClass: "card mb-3" }, [
-                _c("div", { staticClass: "row no-gutters" }, [
-                  _c("div", { staticClass: "col-md-8" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(row.name))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(_vm._s(row.description))
+            _vm._l(_vm.additional_services, function(addi_serv) {
+              return _c(
+                "div",
+                { key: addi_serv.id, staticClass: "card mb-3" },
+                [
+                  _c("div", { staticClass: "row no-gutters" }, [
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("h5", { staticClass: "card-title" }, [
+                          _vm._v(_vm._s(addi_serv.name))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(_vm._s(addi_serv.description))
+                        ])
                       ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-4" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "d-flex justify-content-center",
-                        staticStyle: { "margin-top": "40px" }
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.additionalServiceChanged(row.id, row)
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "d-flex justify-content-center",
+                          staticStyle: { "margin-top": "40px" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.additionalServiceChanged(
+                                    addi_serv.id,
+                                    addi_serv
+                                  )
+                                }
                               }
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "btn btn-block",
-                                class: _vm.getServiceContainerClass(row.id)
-                              },
-                              [
-                                _vm.addedServiceList(row.id)
-                                  ? _c("span", [
-                                      _c("i", {
-                                        staticClass: "fas fa-check-circle"
-                                      }),
-                                      _vm._v(
-                                        _vm._s(_vm.$t("Added")) +
-                                          " \n                  "
-                                      )
-                                    ])
-                                  : _c("span", [
-                                      _c("i", { staticClass: "fas fa-plus" }),
-                                      _vm._v(
-                                        " " +
-                                          _vm._s(_vm.$t("Add")) +
-                                          " \n                  "
-                                      )
-                                    ]),
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(_vm._f("formatMoney")(row.rate)) +
-                                    "\n                                "
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "btn btn-block",
+                                  class: _vm.getServiceContainerClass(
+                                    addi_serv.id
+                                  )
+                                },
+                                [
+                                  _vm.addedServiceList(addi_serv.id)
+                                    ? _c("span", [
+                                        _c("i", {
+                                          staticClass: "fas fa-check-circle"
+                                        }),
+                                        _vm._v(
+                                          _vm._s(_vm.$t("Added")) +
+                                            " \n                  "
+                                        )
+                                      ])
+                                    : _c("span", [
+                                        _c("i", { staticClass: "fas fa-plus" }),
+                                        _vm._v(
+                                          " " +
+                                            _vm._s(_vm.$t("Add")) +
+                                            " \n                  "
+                                        )
+                                      ]),
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(
+                                        _vm._f("formatMoney")(addi_serv.rate)
+                                      ) +
+                                      "\n                                "
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
                   ])
-                ])
-              ])
+                ]
+              )
             })
           ],
           2
@@ -113434,7 +113517,7 @@ window.GrowlNotification = __webpack_require__(/*! ./growl-notification.min */ "
 Vue.use(vue_i18n__WEBPACK_IMPORTED_MODULE_2__["default"]);
 Vue.use(vue_file_agent__WEBPACK_IMPORTED_MODULE_0___default.a);
 var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_2__["default"]({
-  locale: localStorage.getItem('locale') || 'ar',
+  locale: localStorage.getItem('locale') || 'en',
   messages: {
     ar: _lang_Arabic_json__WEBPACK_IMPORTED_MODULE_3__,
     en: _lang_English_json__WEBPACK_IMPORTED_MODULE_4__,
@@ -114614,10 +114697,10 @@ $(function () {
 make sure to change your password after you log in, Login, Thanks, Hi, Congratulation! You have been invited to join, Please click the button below to confirm your joining, Join Now, Order Summary, Service Item, Work level, Urgency, Spacing Type, Additional Services, Subtotal, Congratulation! Your email is configured correctly, Toggle navigation, Contact US, Reviews, My Account, log in, Reqeust Help, writing Service, Profesional, 500 Clients, Translation Service, between 4 languges, CV Writing, University Approval, Our Services, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse, Assignment, Essay, Reports, Reflection Reports, Presentations, Desertations, Proposals, Projects, Calculate your order, Read More, Meet the Teachers, Jason Smith, Mathematics, Lorem ipsum dolor sit amet, consectetur adipisicing elit, JAKE VALINER, Marketing, Tom Reedert, web designer, Max Smithson, SEO, Select your price, Words, words, English, Master Degree of Design, 7 Days, Master, Order Now, Degree, French, or Arabic, Project, Pages, Arabic, Documentation, Days, April, Title, views, jun, keyword, Payment System, Yes Soft, A better way to, Success, Lorem ipsum dolor sit amet, ei vis sint persecuti, Suscribe to the form and get all the, information that you need, Select degree program, PhD, Request Information, Get in Touch, Send, Pricing, New Customers, Last 7 days, Orders, In progress, Bill Paid, Last 30 days, Profit, Activity Log, See All, Most recent 5 activities, has, No activity, Database Information, App Base URL, Base URL must not have space and it should end with a trailing slash, Database Host, Database Name, Database User Name, Database Password, Back, Database Connected, After login, please go through the, After-Installation, setup instructions on our documentation page and make sure to follow them all. Configure
 						 everything one by one, for example, Email, Currency, Services setup, etc	, Note that, If you start using the application before configuring 
 						your settings, you might run into error pages. So please make sure 
-						to set up everything before you start using the application., For support please send us an email at, with your purchase code, Go to Login page, Installation in progress, Please wait while we install your application, Install Microelephant App, Customers, Payments, Pending Approval, Payments List, Wallet Transactions, Tag, Trash, Income Statement, Total Wallet Balance, Browse Work, My Tasks, Payment Request, List of payment requests, My Orders, New Order, My Wallet, Change password, New password, Retype Password, Change photo, Bio, Max character, Area of expertise, Preferred method for receiving payment, Payment method details, Timzeone, Upload & Crop Image, Uploading, Crop & Upload Image, Wallet Balance, Wallet Topup, Edit Profile, Archived, Service Type, Assigned To, full_name, Posted, Deadline, Applicable after payment, Due Date, Order Number, Display by nearest due date, &nbsp &nbsp &nbsp, My Payments, Reference, feedback from clients, Skills, Roles, Joined, Feedback from clients, View order, Current Balance, Choose payment option, My Transactions, Type, Your Notifications, Place your first order, Assignee, Payment Amount, Budget, Accept this work, Conversations, Sorted based on most recent comment, Client, Team Member, Admin, Request for revision, Download, Accept, A downlodable link will apprear here when your order is ready, Payout Budget, spacing, None, Attachments, Revision Requested, Unfollow, Follow, Unarchive, Archive, Financial, Base Price, % of Base Price, Staff Payment, No payment has been made, Wallet payment, Your Message, Order Information, Messages, Submitted Works, Rating, Comment, Rate our service, Order Date, Show Archived, In Abandoned Cart, Posted at, Start Working, Sl#, Company, Customer, Attachment, No work has been submitted yet, &nbsp &nbsp &nbsp &nbsp Submit &nbsp &nbsp &nbsp &nbsp, Pending Payment Approval, Disapprove, Payment Information, Financial Summary, Payments pending for approval, Reason, Upload Cover, Meta Desc, keywords, Keyword, lang, Slug, Tell us about your experience, We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better, Your rating, Your comment, Delete Logs, Causer, Date Range, &nbsp &nbsp , &nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp, Report generated based on all the orders that are marked with status "Complete", to, Sales Revenue, Expenses, Payments to staffs, Net Income, No record found, Currently, The following amount is the summation of wallet balances of all the users, Balance in wallets are advance payments and they do not reflect in your income statement, Inactive, Save record, General, Employees, Recruitment, Services & Pricing, Services Category, Urgencies, Work Levels, View Generated Prices, Configuration, Send Test Email, Logo, Website Content, Homepage, Social Links, How it works, FAQ, Money Back Guarantee, Privacy Policy, Revision Policy, Disclaimer, Terms & Condition, Google Analytics, Website SEO, Custom Script, Clear Cache, Tags, Payments Gateways, Offline Payment Methods, System Update, Message to display after submitting the payment request, Instruction to customer, e.g bank name, account number, swift code etc, Requires Evidence, Transaction number, Field name to display for entering transaction number, Requires Uploading attachment, Field name to display for attachment uploading, After your client submits payment request via offline methods, you have to manually approve the payment from, List, Price Type, Service Category, Single Spacing Price, Double Spacing Price, Minimum Order Quantity, Service Category<, Desc, Need Work Level, Image, Duration and Type, Percentage of base price of a service, Enter the percentage of base price of a service that should add up with the total of an order, Currency Symbol, Currency Code, Digit Grouping, Decimal Symbol, Thousand Seperator, Send email using, Queue Connection, Email From Address, Mailgun Domain, Mailgun Key, Smtp Host, SMTP Port, Email Encryption, SMTP Username, Smtp Password, Company Name, Number of times a customer can request for revision of their work, Enter -1 for unlimited times, Email for receiving notifications, Hide Website, Tracking Code, Website Frontend, Version, Suggested image dimension: 154x36 pixel, Upload & Crop Logo, Disable "Writer\'s Application", Crop & Upload Logo, Show link to Writer\'s Application page, on website\'s top menu, Writer\'s application page link - Menu Title, Writer\'s application page title, Writer\'s application Form title, Writer\'s application Form subtitle, Message to show after after successful form submission, Content for Writer\'s application page, Allow staffs to browse work, Staff payment type, Staff payment amount, You are running Prowriters version, Please make sure to create a backup copy of your database before running the upgrade, Upgrade to v, Enter an email address to test the email configutation, Please note that if you want to add a css/js code you have to include the css/js tag as well, Header Script, Codes inserted below will be injected between the header tag, during run time, Footer Script, Codes inserted below will be injected in the footer section, during run time, Activites, Tasks, Orders Placed, Assigned Tasks, Download Resume, Most recent, Name or Email, List of, Send an Invitation, Email Address, Request to join as, Manager, Staff, Writer, Send Invitation, This website uses cookies to ensure you get the best experience on our website, Got it, All rights reserved., Editing, Resume Writing, TYPE OF WORK AND DEADLINE, Pending Post, Posts pending for approval, step, Work Level, Number of pages, Spacing, Number of Words, Next, Sign in to place your order, Create account, Continue as Quest, Amount, Added, Add, ADDITIONAL PAPER DETAILS, Specific Instructions, Previous, I agree to the, Terms and Conditions, and, Pay now, Type of Service, Submit your work, only, Submit, My Posts, default */
+						to set up everything before you start using the application., For support please send us an email at, with your purchase code, Go to Login page, Installation in progress, Please wait while we install your application, Install Microelephant App, Customers, Payments, Pending Approval, Payments List, Wallet Transactions, Tag, Trash, Income Statement, Total Wallet Balance, Browse Work, My Tasks, Payment Request, List of payment requests, My Orders, New Order, My Wallet, Change password, New password, Retype Password, Change photo, Bio, Max character, Area of expertise, Preferred method for receiving payment, Payment method details, Timzeone, Upload & Crop Image, Uploading, Crop & Upload Image, Wallet Balance, Wallet Topup, Edit Profile, Archived, Service Type, Assigned To, full_name, Posted, Deadline, Applicable after payment, Due Date, Order Number, Display by nearest due date, &nbsp &nbsp &nbsp, My Payments, Reference, feedback from clients, Skills, Roles, Joined, Feedback from clients, View order, Current Balance, Choose payment option, My Transactions, Type, Your Notifications, Place your first order, Assignee, Payment Amount, Budget, Accept this work, Conversations, Sorted based on most recent comment, Client, Team Member, Admin, Request for revision, Download, Accept, A downlodable link will apprear here when your order is ready, Payout Budget, spacing, None, Attachments, Revision Requested, Unfollow, Follow, Unarchive, Archive, Financial, Base Price, % of Base Price, Staff Payment, No payment has been made, Wallet payment, Your Message, Order Information, Messages, Submitted Works, Rating, Comment, Rate our service, Order Date, Show Archived, In Abandoned Cart, Posted at, Start Working, Sl#, Company, Customer, Attachment, No work has been submitted yet, &nbsp &nbsp &nbsp &nbsp Submit &nbsp &nbsp &nbsp &nbsp, Pending Payment Approval, Disapprove, Payment Information, Financial Summary, Payments pending for approval, Reason, Upload Cover, Meta Desc, keywords, Keyword, lang, Slug, Tell us about your experience, We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better, Your rating, Your comment, Delete Logs, Causer, Date Range, &nbsp &nbsp , &nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp, Report generated based on all the orders that are marked with status "Complete", to, Sales Revenue, Expenses, Payments to staffs, Net Income, No record found, Currently, The following amount is the summation of wallet balances of all the users, Balance in wallets are advance payments and they do not reflect in your income statement, Inactive, Save record, General, Employees, Recruitment, Services & Pricing, Services Category, Urgencies, Work Levels, View Generated Prices, Configuration, Send Test Email, Logo, Website Content, Homepage, Social Links, How it works, FAQ, Money Back Guarantee, Privacy Policy, Revision Policy, Disclaimer, Terms & Condition, Google Analytics, Website SEO, Custom Script, Clear Cache, Tags, Payments Gateways, Offline Payment Methods, System Update, Message to display after submitting the payment request, Instruction to customer, e.g bank name, account number, swift code etc, Requires Evidence, Transaction number, Field name to display for entering transaction number, Requires Uploading attachment, Field name to display for attachment uploading, After your client submits payment request via offline methods, you have to manually approve the payment from, List, Price Type, Service Category, Single Spacing Price, Double Spacing Price, Minimum Order Quantity, Service Category<, Desc, Need Work Level, Image, Duration and Type, Percentage of base price of a service, Enter the percentage of base price of a service that should add up with the total of an order, Currency Symbol, Currency Code, Digit Grouping, Decimal Symbol, Thousand Seperator, Send email using, Queue Connection, Email From Address, Mailgun Domain, Mailgun Key, Smtp Host, SMTP Port, Email Encryption, SMTP Username, Smtp Password, Company Name, Number of times a customer can request for revision of their work, Enter -1 for unlimited times, Email for receiving notifications, Hide Website, Tracking Code, Website Frontend, Version, Suggested image dimension: 154x36 pixel, Upload & Crop Logo, Disable "Writer\'s Application", Crop & Upload Logo, Show link to Writer\'s Application page, on website\'s top menu, Writer\'s application page link - Menu Title, Writer\'s application page title, Writer\'s application Form title, Writer\'s application Form subtitle, Message to show after after successful form submission, Content for Writer\'s application page, Allow staffs to browse work, Staff payment type, Staff payment amount, You are running Prowriters version, Please make sure to create a backup copy of your database before running the upgrade, Upgrade to v, Enter an email address to test the email configutation, Please note that if you want to add a css/js code you have to include the css/js tag as well, Header Script, Codes inserted below will be injected between the header tag, during run time, Footer Script, Codes inserted below will be injected in the footer section, during run time, Activites, Tasks, Orders Placed, Assigned Tasks, Download Resume, Most recent, Name or Email, List of, Send an Invitation, Email Address, Request to join as, Manager, Staff, Writer, Send Invitation, This website uses cookies to ensure you get the best experience on our website, Got it, All rights reserved., Editing, Resume Writing, TYPE OF WORK AND DEADLINE, Pending Post, Posts pending for approval, step, Work Level, Number of pages, Spacing, Number of Words, Next, Sign in to place your order, Create account, Continue as Quest, Amount, Added, Add, ADDITIONAL PAPER DETAILS, Specific Instructions, Previous, I agree to the, Terms and Conditions, and, Pay now, Type of Service, Submit your work, only, Submit, My Posts, Selected, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"Home\":\"الرئيسية\",\"About\":\"من نحن\",\"Service\":\"الباقة\",\"Blog\":\"المدونة\",\"Contact\":\"تواصل معنا\",\"Account\":\"الحساب\",\"Exquisite Of Social Media Marketing\":\"সোশ্যাল মিডিয়া মার্কেটিং এর দুর্দান্ত\",\"Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam.\":\"ফ্রাংগ্লা প্রাইসেন্ট কুইস। ম্যাগনরিলোকাম ফ্র্লা ডোনেক বসেন। সেড ভেলিট আউগুয়েড সেম ডায়ম নিউ প্লেসরত ই ইউ অর্ন নাম।\",\"Get Started Now\":\"এখনই শুরু কর\",\"Dashboard\":\"\",\"Services\":\"الخدمات\",\"Applicant\":\"\",\"Referrer\":\"\",\"Note\":\"ملاجظة\",\"Change\":\"تغيير\",\"Search\":\"بحث\",\"Applicant Number\":\"\",\"Search &nbsp &nbsp &nbsp\":\"\",\"Brief summary about you\":\"\",\"optional\":\"اختياري\",\"Resume (PDF file)\":\"\",\"Job Applicants\":\"\",\"Job Applicants Profile\":\"\",\"Resume\":\"سيرة ذاتية\",\"Referral Source\":\"\",\"Application Date\":\"\",\"Invite to join\":\"\",\"Delete\":\"حذف\",\"Sign In\":\"تسجيل الدخول\",\"Sign in to your account to continue\":\"تسجيل الدخول للمتابعة\",\"Don't have an account?\":\"ليس لديك حساب؟\",\"Sign up\":\"تسجيل\",\"Paid\":\"\",\"Unpaid\":\"\",\"Bill To\":\"\",\"Date\":\"\",\"Item\":\"\",\"Quantity\":\"كمية\",\"Rate\":\"معدل\",\"Sub Total\":\"\",\"Total\":\"المجموع\",\"Number\":\"\",\"Bill Number\":\"\",\"From\":\"من\",\"Request for payment\":\"\",\"Submit Payout Request\":\"\",\"Your Name\":\"اسمك\",\"Your Address\":\"عنوانك\",\"Your Invoice Number\":\"\",\"Sorry, there is no unbilled work by you\":\"\",\"Unpaid Balance\":\"\",\"Staff Invoice Number\":\"\",\"My payment requests\":\"\",\"Balance Due\":\"\",\"Mark as unpaid\":\"\",\"Payment Date\":\"تاريخ الدفع\",\" Mark as paid\":\"\",\"Successfully completed!\":\"\",\"Pay with\":\"\",\"Allowed file types\":\"\",\"Maximum file size:10 MB\":\"\",\"Confirm Payment\":\"\",\"Select a payment method\":\"\",\"Offline\":\"\",\"Wallet- Balance\":\"\",\"Pay using your wallet\":\"\",\"Dear\":\"\",\"We are pleased to inform you that your application for joining us as a Writer has been approved\":\"\",\"You can use the following credentials to log in to our system\":\"\",\"Please\\nmake sure to change your password after you log in\":\"\",\"Login\":\"\",\"Thanks\":\"\",\"Hi\":\"\",\"Congratulation! You have been invited to join\":\"\",\"Please click the button below to confirm your joining\":\"\",\"Join Now\":\"\",\"Order Summary\":\"ملخص الطلب\",\"Service Item\":\"\",\"Work level\":\"\",\"Urgency\":\"الاستعجال\",\"Spacing Type\":\"نوع التباعد\",\"Additional Services\":\"\",\"Subtotal\":\"\",\"Congratulation! Your email is configured correctly\":\"\",\"Toggle navigation\":\"\",\"Contact US\":\"تواصل معنا\",\"Reviews\":\"آراء العملاء\",\"My Account\":\"حسابي\",\"log in\":\"تسجيل الدخول\",\"Reqeust Help\":\"طلب خدمة\",\"writing Service\":\"خدمات كتابة\",\"Profesional\":\"إحتراف\",\"500 Clients\":\"500 زبون\",\"Translation Service\":\"خدمات الترجمة\",\"between 4 languges\":\"بين 4 لغات\",\"CV Writing\":\"كتابة السيرة الذاتية\",\"University Approval\":\"قبولات جامعية\",\"Our Services\":\"خدماتنا\",\"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse\":\"هذا نص تجريبي يشير لمكان وصف الخدمات وحجم الخط واللون الذي سيظهر فيه هذا الوصف\",\"Assignment\":\"تكليفات\",\"Essay\":\"مقالة\",\"Reports\":\"تقارير\",\"Reflection Reports\":\"تقارير إنعكاس\",\"Presentations\":\"العروض التقديمية\",\"Desertations\":\"الأطروحات\",\"Proposals\":\"عقود\",\"Projects\":\"مشاريع\",\"Calculate your order\":\"حساب قيمة طلبك\",\"Read More\":\"رؤية المزيد\",\"Meet the Teachers\":\"مدرسينا\",\"Jason Smith\":\"\",\"Mathematics\":\"\",\"Lorem ipsum dolor sit amet, consectetur adipisicing elit\":\"\",\"JAKE VALINER\":\"\",\"Marketing\":\"\",\"Tom Reedert\":\"\",\"web designer\":\"\",\"Max Smithson\":\"\",\"SEO\":\"\",\"Select your price\":\"إختر السعر المناسب\",\"Words\":\"كلمة\",\"words\":\"كلمة\",\"English\":\"إنكليزي\",\"Master Degree of Design\":\"الماجستير في التصميم\",\"7 Days\":\"اسبوع\",\"Master\":\"ماستر\",\"Order Now\":\"طلب الآن\",\"Degree\":\"هندسة\",\"French\":\"فرنسي\",\"or Arabic\":\"للعربية\",\"Project\":\"مشروع\",\"Pages\":\"صفحة\",\"Arabic\":\"عربي\",\"Documentation\":\"توثيق\",\"Days\":\"يوم\",\"April\":\"\",\"Title\":\"\",\"views\":\"\",\"jun\":\"\",\"keyword\":\"\",\"Payment System\":\"\",\"Yes Soft\":\"\",\"A better way to\":\"طريقك الأفضل \",\"Success\":\"للنجاح\",\"Lorem ipsum dolor sit amet\":\"أبجد هوز حطي كلمن\",\"ei vis sint persecuti\":\"نص ابجد هوز حطي كلمن آخر\",\"Suscribe to the form and get all the\":\"اشترك عن طريق تعبئة النموذج \",\"information that you need\":\"لتصلك المعلومات التي تحتاجها\",\"Select degree program\":\"اختر الدرجة \",\"PhD\":\"دكتوراه\",\"Request Information\":\"طلب المعلومات\",\"Get in Touch\":\"\",\"Send\":\"\",\"Pricing\":\"\",\"New Customers\":\"\",\"Last 7 days\":\"\",\"Orders\":\"\",\"In progress\":\"\",\"Bill Paid\":\"\",\"Last 30 days\":\"\",\"Profit\":\"\",\"Activity Log\":\"\",\"See All\":\"\",\"Most recent 5 activities\":\"\",\"has\":\"\",\"No activity\":\"\",\"Database Information\":\"\",\"App Base URL\":\"\",\"Base URL must not have space and it should end with a trailing slash\":\"\",\"Database Host\":\"\",\"Database Name\":\"\",\"Database User Name\":\"\",\"Database Password\":\"\",\"Back\":\"\",\"Database Connected\":\"\",\"After login, please go through the\":\"\",\"After-Installation\":\"\",\"setup instructions on our documentation page and make sure to follow them all. Configure\\n\\t\\t\\t\\t\\t\\t everything one by one, for example, Email, Currency, Services setup, etc\\t\":\"\",\"Note that, If you start using the application before configuring \\n\\t\\t\\t\\t\\t\\tyour settings, you might run into error pages. So please make sure \\n\\t\\t\\t\\t\\t\\tto set up everything before you start using the application.\":\"\",\"For support please send us an email at\":\"\",\"with your purchase code\":\"\",\"Go to Login page\":\"\",\"Installation in progress\":\"\",\"Please wait while we install your application\":\"\",\"Install Microelephant App\":\"\",\"Customers\":\"\",\"Payments\":\"\",\"Pending Approval\":\"\",\"Payments List\":\"\",\"Wallet Transactions\":\"\",\"Tag\":\"\",\"Trash\":\"\",\"Income Statement\":\"\",\"Total Wallet Balance\":\"\",\"Browse Work\":\"\",\"My Tasks\":\"\",\"Payment Request\":\"\",\"List of payment requests\":\"\",\"My Orders\":\"طلباتي\",\"New Order\":\"\",\"My Wallet\":\"\",\"Change password\":\"\",\"New password\":\"\",\"Retype Password\":\"\",\"Change photo\":\"\",\"Bio\":\"\",\"Max character\":\"\",\"Area of expertise\":\"\",\"Preferred method for receiving payment\":\"\",\"Payment method details\":\"\",\"Timzeone\":\"\",\"Upload & Crop Image\":\"\",\"Uploading\":\"\",\"Crop & Upload Image\":\"\",\"Wallet Balance\":\"\",\"Wallet Topup\":\"\",\"Edit Profile\":\"\",\"Archived\":\"\",\"Service Type\":\"نوع الخدمة\",\"Assigned To\":\"\",\"full_name\":\"\",\"Posted\":\"\",\"Deadline\":\"موعد\",\"Applicable after payment\":\"\",\"Due Date\":\"\",\"Order Number\":\"\",\"Display by nearest due date\":\"\",\"&nbsp &nbsp &nbsp\":\"\",\"My Payments\":\"\",\"Reference\":\"\",\"feedback from clients\":\"\",\"Skills\":\"\",\"Roles\":\"\",\"Joined\":\"\",\"Feedback from clients\":\"\",\"View order\":\"\",\"Current Balance\":\"\",\"Choose payment option\":\"\",\"My Transactions\":\"\",\"Type\":\"\",\"Your Notifications\":\"\",\"Place your first order\":\"\",\"Assignee\":\"\",\"Payment Amount\":\"\",\"Budget\":\"\",\"Accept this work\":\"\",\"Conversations\":\"\",\"Sorted based on most recent comment\":\"\",\"Client\":\"\",\"Team Member\":\"\",\"Admin\":\"\",\"Request for revision\":\"\",\"Download\":\"\",\"Accept\":\"\",\"A downlodable link will apprear here when your order is ready\":\"\",\"Payout Budget\":\"\",\"spacing\":\"\",\"None\":\"\",\"Attachments\":\"\",\"Revision Requested\":\"\",\"Unfollow\":\"\",\"Follow\":\"\",\"Unarchive\":\"\",\"Archive\":\"\",\"Financial\":\"\",\"Base Price\":\"\",\"% of Base Price\":\"\",\"Staff Payment\":\"\",\"No payment has been made\":\"\",\"Wallet payment\":\"\",\"Your Message\":\"رسالتك\",\"Order Information\":\"\",\"Messages\":\"\",\"Submitted Works\":\"\",\"Rating\":\"\",\"Comment\":\"\",\"Rate our service\":\"\",\"Order Date\":\"\",\"Show Archived\":\"\",\"In Abandoned Cart\":\"\",\"Posted at\":\"\",\"Start Working\":\"\",\"Sl#\":\"\",\"Company\":\"\",\"Customer\":\"\",\"Attachment\":\"المرفق\",\"No work has been submitted yet\":\"\",\"&nbsp &nbsp &nbsp &nbsp Submit &nbsp &nbsp &nbsp &nbsp\":\"\",\"Pending Payment Approval\":\"\",\"Disapprove\":\"\",\"Payment Information\":\"\",\"Financial Summary\":\"\",\"Payments pending for approval\":\"\",\"Reason\":\"\",\"Upload Cover\":\"\",\"Meta Desc\":\"\",\"keywords\":\"\",\"Keyword\":\"\",\"lang\":\"\",\"Slug\":\"\",\"Tell us about your experience\":\"\",\"We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better\":\"\",\"Your rating\":\"\",\"Your comment\":\"\",\"Delete Logs\":\"\",\"Causer\":\"\",\"Date Range\":\"\",\"&nbsp &nbsp \":\"\",\"&nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp\":\"\",\"Report generated based on all the orders that are marked with status \\\"Complete\\\"\":\"\",\"to\":\"\",\"Sales Revenue\":\"\",\"Expenses\":\"\",\"Payments to staffs\":\"\",\"Net Income\":\"\",\"No record found\":\"\",\"Currently\":\"\",\"The following amount is the summation of wallet balances of all the users\":\"\",\"Balance in wallets are advance payments and they do not reflect in your income statement\":\"\",\"Inactive\":\"\",\"Save record\":\"\",\"General\":\"\",\"Employees\":\"\",\"Recruitment\":\"\",\"Services & Pricing\":\"\",\"Services Category\":\"\",\"Urgencies\":\"\",\"Work Levels\":\"\",\"View Generated Prices\":\"\",\"Configuration\":\"\",\"Send Test Email\":\"\",\"Logo\":\"\",\"Website Content\":\"\",\"Homepage\":\"\",\"Social Links\":\"\",\"How it works\":\"\",\"FAQ\":\"\",\"Money Back Guarantee\":\"\",\"Privacy Policy\":\"سياسة الخصوصية\",\"Revision Policy\":\"\",\"Disclaimer\":\"\",\"Terms & Condition\":\"\",\"Google Analytics\":\"\",\"Website SEO\":\"\",\"Custom Script\":\"\",\"Clear Cache\":\"\",\"Tags\":\"\",\"Payments Gateways\":\"\",\"Offline Payment Methods\":\"\",\"System Update\":\"\",\"Message to display after submitting the payment request\":\"\",\"Instruction to customer\":\"\",\"e.g bank name, account number, swift code etc\":\"\",\"Requires Evidence\":\"\",\"Transaction number\":\"\",\"Field name to display for entering transaction number\":\"\",\"Requires Uploading attachment\":\"\",\"Field name to display for attachment uploading\":\"\",\"After your client submits payment request via offline methods, you have to manually approve the payment from\":\"\",\"List\":\"\",\"Price Type\":\"\",\"Service Category\":\"فئة الخدمة\",\"Single Spacing Price\":\"\",\"Double Spacing Price\":\"\",\"Minimum Order Quantity\":\"\",\"Service Category<\":\"\",\"Desc\":\"\",\"Need Work Level\":\"\",\"Image\":\"\",\"Duration and Type\":\"\",\"Percentage of base price of a service\":\"\",\"Enter the percentage of base price of a service that should add up with the total of an order\":\"\",\"Currency Symbol\":\"\",\"Currency Code\":\"\",\"Digit Grouping\":\"\",\"Decimal Symbol\":\"\",\"Thousand Seperator\":\"\",\"Send email using\":\"\",\"Queue Connection\":\"\",\"Email From Address\":\"\",\"Mailgun Domain\":\"\",\"Mailgun Key\":\"\",\"Smtp Host\":\"\",\"SMTP Port\":\"\",\"Email Encryption\":\"\",\"SMTP Username\":\"\",\"Smtp Password\":\"\",\"Company Name\":\"\",\"Number of times a customer can request for revision of their work\":\"\",\"Enter -1 for unlimited times\":\"\",\"Email for receiving notifications\":\"\",\"Hide Website\":\"\",\"Tracking Code\":\"\",\"Website Frontend\":\"\",\"Version\":\"\",\"Suggested image dimension: 154x36 pixel\":\"\",\"Upload & Crop Logo\":\"\",\"Disable \\\"Writer\\\\'s Application\\\"\":\"\",\"Crop & Upload Logo\":\"\",\"Show link to Writer\\\\'s Application page, on website\\\\'s top menu\":\"\",\"Writer\\\\'s application page link - Menu Title\":\"\",\"Writer\\\\'s application page title\":\"\",\"Writer\\\\'s application Form title\":\"\",\"Writer\\\\'s application Form subtitle\":\"\",\"Message to show after after successful form submission\":\"\",\"Content for Writer\\\\'s application page\":\"\",\"Allow staffs to browse work\":\"\",\"Staff payment type\":\"\",\"Staff payment amount\":\"\",\"You are running Prowriters version\":\"\",\"Please make sure to create a backup copy of your database before running the upgrade\":\"\",\"Upgrade to v\":\"\",\"Enter an email address to test the email configutation\":\"\",\"Please note that if you want to add a css/js code you have to include the css/js tag as well\":\"\",\"Header Script\":\"\",\"Codes inserted below will be injected between the header tag, during run time\":\"\",\"Footer Script\":\"\",\"Codes inserted below will be injected in the footer section, during run time\":\"\",\"Activites\":\"\",\"Tasks\":\"\",\"Orders Placed\":\"\",\"Assigned Tasks\":\"\",\"Download Resume\":\"\",\"Most recent\":\"\",\"Name or Email\":\"\",\"List of\":\"\",\"Send an Invitation\":\"\",\"Email Address\":\"\",\"Request to join as\":\"\",\"Manager\":\"\",\"Staff\":\"\",\"Writer\":\"\",\"Send Invitation\":\"\",\"This website uses cookies to ensure you get the best experience on our website\":\"\",\"Got it\":\"\",\"All rights reserved.\":\"\",\"Editing\":\"التحرير\",\"Resume Writing\":\"\",\"TYPE OF WORK AND DEADLINE\":\"نوع العمل والموعد النهائي\",\"Pending Post\":\"\",\"Posts pending for approval\":\"\",\"step\":\"الخطوة\",\"Work Level\":\"مستوى العمل\",\"Number of pages\":\"عدد الصفحات\",\"Spacing\":\"تباعد\",\"Number of Words\":\"عدد الكلمات\",\"Next\":\"التالي\",\"Sign in to place your order\":\"تسجيل الدخول لتقديم طلبك\",\"Create account\":\"إنشاء حساب\",\"Continue as Quest\":\"المتابعة كزائر\",\"Amount\":\"مقدار\",\"Added\":\"اضافت\",\"Add\":\"اضافة\",\"ADDITIONAL PAPER DETAILS\":\"تفاصيل ورق إضافية\",\"Specific Instructions\":\"تعليمات محددة\",\"Previous\":\"سابق\",\"I agree to the\":\"أنا أوافق على\",\"Terms and Conditions\":\"الأحكام والشروط\",\"and\":\"و\",\"Pay now\":\"ادفع الآن\",\"Type of Service\":\"نوع الخدمة\",\"Submit your work\":\"أرسل عملك\",\"only\":\"فقط\",\"Submit\":\"إرسال\",\"My Posts\":\"مقالاتي\"}");
+module.exports = JSON.parse("{\"Home\":\"الرئيسية\",\"About\":\"من نحن\",\"Service\":\"الباقة\",\"Blog\":\"المدونة\",\"Contact\":\"تواصل معنا\",\"Account\":\"الحساب\",\"Exquisite Of Social Media Marketing\":\"সোশ্যাল মিডিয়া মার্কেটিং এর দুর্দান্ত\",\"Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam.\":\"ফ্রাংগ্লা প্রাইসেন্ট কুইস। ম্যাগনরিলোকাম ফ্র্লা ডোনেক বসেন। সেড ভেলিট আউগুয়েড সেম ডায়ম নিউ প্লেসরত ই ইউ অর্ন নাম।\",\"Get Started Now\":\"এখনই শুরু কর\",\"Dashboard\":\"\",\"Services\":\"الخدمات\",\"Applicant\":\"\",\"Referrer\":\"\",\"Note\":\"ملاجظة\",\"Change\":\"تغيير\",\"Search\":\"بحث\",\"Applicant Number\":\"\",\"Search &nbsp &nbsp &nbsp\":\"\",\"Brief summary about you\":\"\",\"optional\":\"اختياري\",\"Resume (PDF file)\":\"\",\"Job Applicants\":\"\",\"Job Applicants Profile\":\"\",\"Resume\":\"سيرة ذاتية\",\"Referral Source\":\"\",\"Application Date\":\"\",\"Invite to join\":\"\",\"Delete\":\"حذف\",\"Sign In\":\"تسجيل الدخول\",\"Sign in to your account to continue\":\"تسجيل الدخول للمتابعة\",\"Don't have an account?\":\"ليس لديك حساب؟\",\"Sign up\":\"تسجيل\",\"Paid\":\"\",\"Unpaid\":\"\",\"Bill To\":\"\",\"Date\":\"\",\"Item\":\"\",\"Quantity\":\"كمية\",\"Rate\":\"معدل\",\"Sub Total\":\"\",\"Total\":\"المجموع\",\"Number\":\"\",\"Bill Number\":\"\",\"From\":\"من\",\"Request for payment\":\"\",\"Submit Payout Request\":\"\",\"Your Name\":\"اسمك\",\"Your Address\":\"عنوانك\",\"Your Invoice Number\":\"\",\"Sorry, there is no unbilled work by you\":\"\",\"Unpaid Balance\":\"\",\"Staff Invoice Number\":\"\",\"My payment requests\":\"\",\"Balance Due\":\"\",\"Mark as unpaid\":\"\",\"Payment Date\":\"تاريخ الدفع\",\" Mark as paid\":\"\",\"Successfully completed!\":\"\",\"Pay with\":\"\",\"Allowed file types\":\"\",\"Maximum file size:10 MB\":\"\",\"Confirm Payment\":\"\",\"Select a payment method\":\"\",\"Offline\":\"\",\"Wallet- Balance\":\"\",\"Pay using your wallet\":\"\",\"Dear\":\"\",\"We are pleased to inform you that your application for joining us as a Writer has been approved\":\"\",\"You can use the following credentials to log in to our system\":\"\",\"Please\\nmake sure to change your password after you log in\":\"\",\"Login\":\"\",\"Thanks\":\"\",\"Hi\":\"\",\"Congratulation! You have been invited to join\":\"\",\"Please click the button below to confirm your joining\":\"\",\"Join Now\":\"\",\"Order Summary\":\"ملخص الطلب\",\"Service Item\":\"\",\"Work level\":\"\",\"Urgency\":\"الاستعجال\",\"Spacing Type\":\"نوع التباعد\",\"Additional Services\":\"\",\"Subtotal\":\"\",\"Congratulation! Your email is configured correctly\":\"\",\"Toggle navigation\":\"\",\"Contact US\":\"تواصل معنا\",\"Reviews\":\"آراء العملاء\",\"My Account\":\"حسابي\",\"log in\":\"تسجيل الدخول\",\"Reqeust Help\":\"طلب خدمة\",\"writing Service\":\"خدمات كتابة\",\"Profesional\":\"إحتراف\",\"500 Clients\":\"500 زبون\",\"Translation Service\":\"خدمات الترجمة\",\"between 4 languges\":\"بين 4 لغات\",\"CV Writing\":\"كتابة السيرة الذاتية\",\"University Approval\":\"قبولات جامعية\",\"Our Services\":\"خدماتنا\",\"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse\":\"هذا نص تجريبي يشير لمكان وصف الخدمات وحجم الخط واللون الذي سيظهر فيه هذا الوصف\",\"Assignment\":\"تكليفات\",\"Essay\":\"مقالة\",\"Reports\":\"تقارير\",\"Reflection Reports\":\"تقارير إنعكاس\",\"Presentations\":\"العروض التقديمية\",\"Desertations\":\"الأطروحات\",\"Proposals\":\"عقود\",\"Projects\":\"مشاريع\",\"Calculate your order\":\"حساب قيمة طلبك\",\"Read More\":\"رؤية المزيد\",\"Meet the Teachers\":\"مدرسينا\",\"Jason Smith\":\"\",\"Mathematics\":\"\",\"Lorem ipsum dolor sit amet, consectetur adipisicing elit\":\"\",\"JAKE VALINER\":\"\",\"Marketing\":\"\",\"Tom Reedert\":\"\",\"web designer\":\"\",\"Max Smithson\":\"\",\"SEO\":\"\",\"Select your price\":\"إختر السعر المناسب\",\"Words\":\"كلمة\",\"words\":\"كلمة\",\"English\":\"إنكليزي\",\"Master Degree of Design\":\"الماجستير في التصميم\",\"7 Days\":\"اسبوع\",\"Master\":\"ماستر\",\"Order Now\":\"طلب الآن\",\"Degree\":\"هندسة\",\"French\":\"فرنسي\",\"or Arabic\":\"للعربية\",\"Project\":\"مشروع\",\"Pages\":\"صفحة\",\"Arabic\":\"عربي\",\"Documentation\":\"توثيق\",\"Days\":\"يوم\",\"April\":\"\",\"Title\":\"\",\"views\":\"\",\"jun\":\"\",\"keyword\":\"\",\"Payment System\":\"\",\"Yes Soft\":\"\",\"A better way to\":\"طريقك الأفضل \",\"Success\":\"للنجاح\",\"Lorem ipsum dolor sit amet\":\"أبجد هوز حطي كلمن\",\"ei vis sint persecuti\":\"نص ابجد هوز حطي كلمن آخر\",\"Suscribe to the form and get all the\":\"اشترك عن طريق تعبئة النموذج \",\"information that you need\":\"لتصلك المعلومات التي تحتاجها\",\"Select degree program\":\"اختر الدرجة \",\"PhD\":\"دكتوراه\",\"Request Information\":\"طلب المعلومات\",\"Get in Touch\":\"\",\"Send\":\"\",\"Pricing\":\"\",\"New Customers\":\"\",\"Last 7 days\":\"\",\"Orders\":\"\",\"In progress\":\"\",\"Bill Paid\":\"\",\"Last 30 days\":\"\",\"Profit\":\"\",\"Activity Log\":\"\",\"See All\":\"\",\"Most recent 5 activities\":\"\",\"has\":\"\",\"No activity\":\"\",\"Database Information\":\"\",\"App Base URL\":\"\",\"Base URL must not have space and it should end with a trailing slash\":\"\",\"Database Host\":\"\",\"Database Name\":\"\",\"Database User Name\":\"\",\"Database Password\":\"\",\"Back\":\"\",\"Database Connected\":\"\",\"After login, please go through the\":\"\",\"After-Installation\":\"\",\"setup instructions on our documentation page and make sure to follow them all. Configure\\n\\t\\t\\t\\t\\t\\t everything one by one, for example, Email, Currency, Services setup, etc\\t\":\"\",\"Note that, If you start using the application before configuring \\n\\t\\t\\t\\t\\t\\tyour settings, you might run into error pages. So please make sure \\n\\t\\t\\t\\t\\t\\tto set up everything before you start using the application.\":\"\",\"For support please send us an email at\":\"\",\"with your purchase code\":\"\",\"Go to Login page\":\"\",\"Installation in progress\":\"\",\"Please wait while we install your application\":\"\",\"Install Microelephant App\":\"\",\"Customers\":\"\",\"Payments\":\"\",\"Pending Approval\":\"\",\"Payments List\":\"\",\"Wallet Transactions\":\"\",\"Tag\":\"\",\"Trash\":\"\",\"Income Statement\":\"\",\"Total Wallet Balance\":\"\",\"Browse Work\":\"\",\"My Tasks\":\"\",\"Payment Request\":\"\",\"List of payment requests\":\"\",\"My Orders\":\"طلباتي\",\"New Order\":\"\",\"My Wallet\":\"\",\"Change password\":\"\",\"New password\":\"\",\"Retype Password\":\"\",\"Change photo\":\"\",\"Bio\":\"\",\"Max character\":\"\",\"Area of expertise\":\"\",\"Preferred method for receiving payment\":\"\",\"Payment method details\":\"\",\"Timzeone\":\"\",\"Upload & Crop Image\":\"\",\"Uploading\":\"\",\"Crop & Upload Image\":\"\",\"Wallet Balance\":\"\",\"Wallet Topup\":\"\",\"Edit Profile\":\"\",\"Archived\":\"\",\"Service Type\":\"نوع الخدمة\",\"Assigned To\":\"\",\"full_name\":\"\",\"Posted\":\"\",\"Deadline\":\"موعد\",\"Applicable after payment\":\"\",\"Due Date\":\"\",\"Order Number\":\"\",\"Display by nearest due date\":\"\",\"&nbsp &nbsp &nbsp\":\"\",\"My Payments\":\"\",\"Reference\":\"\",\"feedback from clients\":\"\",\"Skills\":\"\",\"Roles\":\"\",\"Joined\":\"\",\"Feedback from clients\":\"\",\"View order\":\"\",\"Current Balance\":\"\",\"Choose payment option\":\"\",\"My Transactions\":\"\",\"Type\":\"\",\"Your Notifications\":\"\",\"Place your first order\":\"\",\"Assignee\":\"\",\"Payment Amount\":\"\",\"Budget\":\"\",\"Accept this work\":\"\",\"Conversations\":\"\",\"Sorted based on most recent comment\":\"\",\"Client\":\"\",\"Team Member\":\"\",\"Admin\":\"\",\"Request for revision\":\"\",\"Download\":\"\",\"Accept\":\"\",\"A downlodable link will apprear here when your order is ready\":\"\",\"Payout Budget\":\"\",\"spacing\":\"\",\"None\":\"\",\"Attachments\":\"\",\"Revision Requested\":\"\",\"Unfollow\":\"\",\"Follow\":\"\",\"Unarchive\":\"\",\"Archive\":\"\",\"Financial\":\"\",\"Base Price\":\"\",\"% of Base Price\":\"\",\"Staff Payment\":\"\",\"No payment has been made\":\"\",\"Wallet payment\":\"\",\"Your Message\":\"رسالتك\",\"Order Information\":\"\",\"Messages\":\"\",\"Submitted Works\":\"\",\"Rating\":\"\",\"Comment\":\"\",\"Rate our service\":\"\",\"Order Date\":\"\",\"Show Archived\":\"\",\"In Abandoned Cart\":\"\",\"Posted at\":\"\",\"Start Working\":\"\",\"Sl#\":\"\",\"Company\":\"\",\"Customer\":\"\",\"Attachment\":\"المرفق\",\"No work has been submitted yet\":\"\",\"&nbsp &nbsp &nbsp &nbsp Submit &nbsp &nbsp &nbsp &nbsp\":\"\",\"Pending Payment Approval\":\"\",\"Disapprove\":\"\",\"Payment Information\":\"\",\"Financial Summary\":\"\",\"Payments pending for approval\":\"\",\"Reason\":\"\",\"Upload Cover\":\"\",\"Meta Desc\":\"\",\"keywords\":\"\",\"Keyword\":\"\",\"lang\":\"\",\"Slug\":\"\",\"Tell us about your experience\":\"\",\"We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better\":\"\",\"Your rating\":\"\",\"Your comment\":\"\",\"Delete Logs\":\"\",\"Causer\":\"\",\"Date Range\":\"\",\"&nbsp &nbsp \":\"\",\"&nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp\":\"\",\"Report generated based on all the orders that are marked with status \\\"Complete\\\"\":\"\",\"to\":\"\",\"Sales Revenue\":\"\",\"Expenses\":\"\",\"Payments to staffs\":\"\",\"Net Income\":\"\",\"No record found\":\"\",\"Currently\":\"\",\"The following amount is the summation of wallet balances of all the users\":\"\",\"Balance in wallets are advance payments and they do not reflect in your income statement\":\"\",\"Inactive\":\"\",\"Save record\":\"\",\"General\":\"\",\"Employees\":\"\",\"Recruitment\":\"\",\"Services & Pricing\":\"\",\"Services Category\":\"\",\"Urgencies\":\"\",\"Work Levels\":\"\",\"View Generated Prices\":\"\",\"Configuration\":\"\",\"Send Test Email\":\"\",\"Logo\":\"\",\"Website Content\":\"\",\"Homepage\":\"\",\"Social Links\":\"\",\"How it works\":\"\",\"FAQ\":\"\",\"Money Back Guarantee\":\"\",\"Privacy Policy\":\"سياسة الخصوصية\",\"Revision Policy\":\"\",\"Disclaimer\":\"\",\"Terms & Condition\":\"\",\"Google Analytics\":\"\",\"Website SEO\":\"\",\"Custom Script\":\"\",\"Clear Cache\":\"\",\"Tags\":\"\",\"Payments Gateways\":\"\",\"Offline Payment Methods\":\"\",\"System Update\":\"\",\"Message to display after submitting the payment request\":\"\",\"Instruction to customer\":\"\",\"e.g bank name, account number, swift code etc\":\"\",\"Requires Evidence\":\"\",\"Transaction number\":\"\",\"Field name to display for entering transaction number\":\"\",\"Requires Uploading attachment\":\"\",\"Field name to display for attachment uploading\":\"\",\"After your client submits payment request via offline methods, you have to manually approve the payment from\":\"\",\"List\":\"\",\"Price Type\":\"\",\"Service Category\":\"فئة الخدمة\",\"Single Spacing Price\":\"\",\"Double Spacing Price\":\"\",\"Minimum Order Quantity\":\"\",\"Service Category<\":\"\",\"Desc\":\"\",\"Need Work Level\":\"\",\"Image\":\"\",\"Duration and Type\":\"\",\"Percentage of base price of a service\":\"\",\"Enter the percentage of base price of a service that should add up with the total of an order\":\"\",\"Currency Symbol\":\"\",\"Currency Code\":\"\",\"Digit Grouping\":\"\",\"Decimal Symbol\":\"\",\"Thousand Seperator\":\"\",\"Send email using\":\"\",\"Queue Connection\":\"\",\"Email From Address\":\"\",\"Mailgun Domain\":\"\",\"Mailgun Key\":\"\",\"Smtp Host\":\"\",\"SMTP Port\":\"\",\"Email Encryption\":\"\",\"SMTP Username\":\"\",\"Smtp Password\":\"\",\"Company Name\":\"\",\"Number of times a customer can request for revision of their work\":\"\",\"Enter -1 for unlimited times\":\"\",\"Email for receiving notifications\":\"\",\"Hide Website\":\"\",\"Tracking Code\":\"\",\"Website Frontend\":\"\",\"Version\":\"\",\"Suggested image dimension: 154x36 pixel\":\"\",\"Upload & Crop Logo\":\"\",\"Disable \\\"Writer\\\\'s Application\\\"\":\"\",\"Crop & Upload Logo\":\"\",\"Show link to Writer\\\\'s Application page, on website\\\\'s top menu\":\"\",\"Writer\\\\'s application page link - Menu Title\":\"\",\"Writer\\\\'s application page title\":\"\",\"Writer\\\\'s application Form title\":\"\",\"Writer\\\\'s application Form subtitle\":\"\",\"Message to show after after successful form submission\":\"\",\"Content for Writer\\\\'s application page\":\"\",\"Allow staffs to browse work\":\"\",\"Staff payment type\":\"\",\"Staff payment amount\":\"\",\"You are running Prowriters version\":\"\",\"Please make sure to create a backup copy of your database before running the upgrade\":\"\",\"Upgrade to v\":\"\",\"Enter an email address to test the email configutation\":\"\",\"Please note that if you want to add a css/js code you have to include the css/js tag as well\":\"\",\"Header Script\":\"\",\"Codes inserted below will be injected between the header tag, during run time\":\"\",\"Footer Script\":\"\",\"Codes inserted below will be injected in the footer section, during run time\":\"\",\"Activites\":\"\",\"Tasks\":\"\",\"Orders Placed\":\"\",\"Assigned Tasks\":\"\",\"Download Resume\":\"\",\"Most recent\":\"\",\"Name or Email\":\"\",\"List of\":\"\",\"Send an Invitation\":\"\",\"Email Address\":\"\",\"Request to join as\":\"\",\"Manager\":\"\",\"Staff\":\"\",\"Writer\":\"\",\"Send Invitation\":\"\",\"This website uses cookies to ensure you get the best experience on our website\":\"\",\"Got it\":\"\",\"All rights reserved.\":\"\",\"Editing\":\"التحرير\",\"Resume Writing\":\"\",\"TYPE OF WORK AND DEADLINE\":\"نوع العمل والموعد النهائي\",\"Pending Post\":\"\",\"Posts pending for approval\":\"\",\"step\":\"الخطوة\",\"Work Level\":\"مستوى العمل\",\"Number of pages\":\"عدد الصفحات\",\"Spacing\":\"تباعد\",\"Number of Words\":\"عدد الكلمات\",\"Next\":\"التالي\",\"Sign in to place your order\":\"تسجيل الدخول لتقديم طلبك\",\"Create account\":\"إنشاء حساب\",\"Continue as Quest\":\"المتابعة كزائر\",\"Amount\":\"مقدار\",\"Added\":\"اضافت\",\"Add\":\"اضافة\",\"ADDITIONAL PAPER DETAILS\":\"تفاصيل ورق إضافية\",\"Specific Instructions\":\"تعليمات محددة\",\"Previous\":\"سابق\",\"I agree to the\":\"أنا أوافق على\",\"Terms and Conditions\":\"الأحكام والشروط\",\"and\":\"و\",\"Pay now\":\"ادفع الآن\",\"Type of Service\":\"نوع الخدمة\",\"Submit your work\":\"أرسل عملك\",\"only\":\"فقط\",\"Submit\":\"إرسال\",\"My Posts\":\"مقالاتي\",\"Selected\":\"تم الاختيار\"}");
 
 /***/ }),
 

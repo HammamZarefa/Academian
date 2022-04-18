@@ -5,7 +5,7 @@
         <h2> @lang('Blog') </h2>
     </div>
     <div class="Blog-container">
-       @foreach($posts as $post)
+    @foreach ($posts->slice(0, 3) as $post)
         <div class="blog_post">
             <div class="img_pod">
             <img  src="{{asset(Storage::url($post->cover))}}" alt="">
@@ -13,9 +13,9 @@
             <div class="container_copy">
             <h3>{{$post->created_at->format('Y-m-d')}}</h3>
             <h1>{{$post->title}}</h1>
-            <p>{{$post->body}}</p>
+            <p>{!! Str::limit($post->body, 60) !!}...</p>
             </div>
-            <a class="btn_primary" href="{{route('blogshow',$post->slug)}}">@lang('Read More')</a>
+           <div class="text-center"> <a class="btn_primary" href="{{route('blogshow',$post->slug)}}">@lang('Read More')</a></div>
         </div>
         @endforeach
     </div>

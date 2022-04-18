@@ -103,12 +103,12 @@
          name="minimum_order_quantity" value="{{ old_set('minimum_order_quantity', NULL, $service) }}">
       <div class="invalid-feedback">{{ showError($errors, 'minimum_order_quantity') }}</div>
    </div>
-   <div class="form-group">
-      <label>@lang('Additional Services')</label>
-      <small class="text-muted"><a href="{{ route('additional_services_create') }}">Create Additional Service</a></small>
-      <?php echo form_dropdown("additional_services[]", $data['additional_services_list'], old_set('additional_services', NULL,$service), "class='form-control form-control-sm  multiSelect' multiple='multiple'") ?>
-      <div class="invalid-feedback d-block">{{ showError($errors,'additional_services') }}</div>
-   </div>
+   {{--<div class="form-group">--}}
+      {{--<label>@lang('Additional Services')</label>--}}
+      {{--<small class="text-muted"><a href="{{ route('additional_services_create') }}">Create Additional Service</a></small>--}}
+      {{--<?php echo form_dropdown("additional_services[]", $data['additional_services_list'], old_set('additional_services', NULL,$service), "class='form-control form-control-sm  multiSelect' multiple='multiple'") ?>--}}
+      {{--<div class="invalid-feedback d-block">{{ showError($errors,'additional_services') }}</div>--}}
+   {{--</div>--}}
    <div class="form-group">
       <div class="custom-control custom-checkbox">
          <input type="checkbox" class="custom-control-input" id="inactive" name="inactive" value="1"

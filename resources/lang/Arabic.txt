@@ -472,8 +472,7 @@
     "only":"فقط",
     "Your Message":"رسالتك",
     "Submit":"إرسال",
-    "My Posts" : "مقالاتي",
-    "Selected": "تم الاختيار"
+    "My Posts" : "مقالاتي"
 
 
 

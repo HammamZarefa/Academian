@@ -33,13 +33,13 @@
                 <div class="patterns">
                 <svg width="100%" height="100%">
                     <text x="50%" y="60%" text-anchor="middle" class="translate" >
-                    @lang('Translation Service')
+                    @lang('University Approval')
                     </text>
                 </svg>
                     <div class="box">
                         <div class="title">
                             <span class="block translat" ></span>
-                            <h1 >@lang('between 4 languges')<span></span></h1>
+                            <h1 >@lang('in four country')<span></span></h1>
                         </div>
 
                     </div>
@@ -65,7 +65,7 @@
                                     @endif
                     <svg width="104%" height="100%">
                         <text x="50%" y="60%" text-anchor="middle" class="un_text">
-                        @lang('University Approval')
+                        @lang('Translation Service')
                         </text>
                         {{--<text x="50%" y="70%" text-anchor="middle" class="un_text">--}}
                         {{--@lang('Approval')--}}
