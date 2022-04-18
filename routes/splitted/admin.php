@@ -445,7 +445,7 @@ Route::prefix('job')->group(function () {
 
 // Manage Categories
 Route::get('categories', [PostCategoryController::class, 'index'])->name('post_categories');
-Route::get('categories/create', [PostCategoryController::class, 'create'])->name('post_category.create');
+Route::get('category/create', [PostCategoryController::class, 'create'])->name('post_category.create');
 Route::post('categories/create', [PostCategoryController::class, 'store'])->name('post_category.store');
 Route::get('categories/edit/{id}', [PostCategoryController::class, 'edit'])->name('post_category.edit');
 Route::post('categories/edit/{id}', [PostCategoryController::class, 'update'])->name('post_category.update');
@@ -453,7 +453,7 @@ Route::delete('categories/destroy/{id}',[PostCategoryController::class, 'destroy
 
 // Manage Tags
 Route::get('tags', [PostTagController::class, 'index'])->name('post_tags');
-Route::get('tags/create', [PostTagController::class, 'create'])->name('post_tag.create');
+Route::get('tag/create', [PostTagController::class, 'create'])->name('post_tag.create');
 Route::post('tags/create', [PostTagController::class, 'store'])->name('post_tag.store');
 Route::get('tags/edit/{id}', [PostTagController::class, 'edit'])->name('post_tag.edit');
 Route::post('tags/edit/{id}', [PostTagController::class, 'update'])->name('post_tag.update');
