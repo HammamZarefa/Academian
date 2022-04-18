@@ -93,7 +93,7 @@
                     <div class="col-md-10">
                         <label>@lang('Desc') <span class="required">*</span></label>
                         @foreach(Config::get('app.available_locales') as $lang)
-                            <textarea id="body_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
+                            <textarea id="body_{{$lang}}" type="text" class="ckeditor form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
                                       name="body[{{$lang}}]" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">{{ old_set('body['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
                         @endforeach
                         <div class="invalid-feedback d-block">{{ showError($errors, 'body.*') }}</div>
@@ -200,6 +200,11 @@
     </form>
 @endsection
 @section('innerPageJS')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
     <script>
         $("#wizard-picture").change(function(){
             readURL(this);
@@ -241,6 +246,10 @@
                 document.getElementById('body_en').setAttribute('style','display:none')
                 document.getElementById('body_fr').setAttribute('style','display:none')
                 document.getElementById('body_de').setAttribute('style','display:none')
+                document.getElementById('cke_body_'+local).setAttribute('style','display:block')
+                document.getElementById('cke_body_en').setAttribute('style','display:none')
+                document.getElementById('cke_body_fr').setAttribute('style','display:none')
+                document.getElementById('cke_body_de').setAttribute('style','display:none')
                 var x = $('.navbarDarkDropdownMenuLink')
                 for (i=0 ; i < x.length ;i++){
                     x[i].innerHTML = local
