@@ -7,15 +7,15 @@
                 <p>@lang('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse')
                     .</p>
             </div>
-            <div id="carousel-example-generic" class="carousel slide col-sm-3" data-ride="carousel">
-                    <!-- Indicators -->
+            <!-- <div id="carousel-example-generic" class="carousel slide col-sm-3" data-ride="carousel">
+                  
                     <ol class="carousel-indicators">
                         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                     </ol>
 
-                    <!-- Wrapper for slides -->
+                  
                     <div class="carousel-inner">
                         <div class="item active">
                         <img src="{{ asset('front/img/side-banner.png') }}" alt="">
@@ -27,8 +27,8 @@
                         <img src="{{ asset('front/img/side-banner.png') }}" alt="">
                         </div>
                     </div>
-            </div>
-           <div class="col-sm-9">
+            </div> -->
+          
            <article class="item col-sm-3">
                 @if(auth()->check())
                     <a href="/orders/create?service=7&&Service_Category=1"><i class="icon-monitor"></i></a>
@@ -111,7 +111,7 @@
                 <p>@lang('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse')
                     . </p>
             </article>
-           </div>
+        
         </div>
     </div>
 

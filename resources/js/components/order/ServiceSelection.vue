@@ -350,7 +350,7 @@ export default {
         }
     },
     data() {
-          const locale = localStorage.getItem('locale') || 'ar';
+          const locale = localStorage.getItem('locale') || 'en';
         return {
             locale:locale,
             lev:false,

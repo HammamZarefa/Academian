@@ -3897,7 +3897,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
-    var locale = localStorage.getItem('locale') || 'ar';
+    var locale = localStorage.getItem('locale') || 'en';
     return {
       locale: locale,
       lev: false,
@@ -109397,7 +109397,7 @@ window.GrowlNotification = __webpack_require__(/*! ./growl-notification.min */ "
 Vue.use(vue_i18n__WEBPACK_IMPORTED_MODULE_2__["default"]);
 Vue.use(vue_file_agent__WEBPACK_IMPORTED_MODULE_0___default.a);
 var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_2__["default"]({
-  locale: localStorage.getItem('locale') || 'ar',
+  locale: localStorage.getItem('locale') || 'en',
   messages: {
     ar: _lang_Arabic_json__WEBPACK_IMPORTED_MODULE_3__,
     en: _lang_English_json__WEBPACK_IMPORTED_MODULE_4__,
