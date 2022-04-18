@@ -7,7 +7,7 @@
                 <p>@lang('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse').</p>
             </div>
         </div>
-        @foreach($reviews as $review)
+        @foreach($reviews->slice(0, 3) as $review)
         <div class="row">
             <div class="col-sm-2">
                 <div class="date">

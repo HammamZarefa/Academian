@@ -1033,6 +1033,8 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     align-items: center;
     min-height: 265px;
+    display: grid;
+    align-items: end;
 }
 
 .blogs .img_pod {
