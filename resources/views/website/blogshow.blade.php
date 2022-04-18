@@ -56,7 +56,7 @@
               </h2>
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="icon-user"></i> <a href="{{route('blogshow',$post->slug)}}">{{ $post->user->name }}</a></li>
+                  <li class="d-flex align-items-center"><i class="icon-user"></i> <a href="{{route('blogshow',$post->slug)}}">{{ $post->user->first_name.' '.$post->user->last_name  }}</a></li>
                   <li class="d-flex align-items-center"><i class="icon-clock"></i> <a href="{{route('blogshow',$post->slug)}}"><time datetime="2020-01-01">{{ Carbon\Carbon::parse($post->created_at)->format("d F, Y") }}</time></a></li>
                   <li class="d-flex align-items-center"><i class="icon-comment"></i> <a href="{{ URL::current()}}#disqus_thread">@lang('Comments')</a></li>
                 </ul>
