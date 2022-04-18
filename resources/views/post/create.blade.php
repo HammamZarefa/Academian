@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Blog')
+
 @section('content')
     @include('setup.partials.action_toolbar', [
      'title' =>  'Create new post',
@@ -9,6 +10,17 @@
                       'url' => route("posts")
                    ]
     ])
+    <style>
+        #cke_body_ar {
+            display: none;
+        }
+        #cke_body_fr {
+            display: none;
+        }
+        #cke_body_de {
+            display: none;
+        }
+    </style>
     <form role="form" class="form-horizontal" enctype="multipart/form-data" action="{{ (isset($post->id)) ? route( 'post.edit', $post->id) : route('post.store') }}" method="post" autocomplete="off" >
         {{ csrf_field()  }}
         <div class="form-group">
@@ -94,7 +106,7 @@
                         <label>@lang('Desc') <span class="required">*</span></label>
                         @foreach(Config::get('app.available_locales') as $lang)
                             <textarea id="body_{{$lang}}" type="text" class="ckeditor form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
-                                      name="body[{{$lang}}]" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">{{ old_set('body['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
+                                      name="body[{{$lang}}]">{{ old_set('body['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
                         @endforeach
                         <div class="invalid-feedback d-block">{{ showError($errors, 'body.*') }}</div>
                     </div>
@@ -199,7 +211,7 @@
         <input type="submit" name="submit" class="btn btn-success" value="@lang('Submit')"/>
     </form>
 @endsection
-@section('innerPageJS')
+@push('scripts')
     <script type="text/javascript">
         $(document).ready(function () {
             $('.ckeditor').ckeditor();
@@ -242,10 +254,10 @@
                 document.getElementById('meta_desc_en').setAttribute('style','display:none')
                 document.getElementById('meta_desc_fr').setAttribute('style','display:none')
                 document.getElementById('meta_desc_de').setAttribute('style','display:none')
-                document.getElementById('body_'+local).setAttribute('style','display:block')
-                document.getElementById('body_en').setAttribute('style','display:none')
-                document.getElementById('body_fr').setAttribute('style','display:none')
-                document.getElementById('body_de').setAttribute('style','display:none')
+                // document.getElementById('body_'+local).setAttribute('style','display:block')
+                // document.getElementById('body_en').setAttribute('style','display:none')
+                // document.getElementById('body_fr').setAttribute('style','display:none')
+                // document.getElementById('body_de').setAttribute('style','display:none')
                 document.getElementById('cke_body_'+local).setAttribute('style','display:block')
                 document.getElementById('cke_body_en').setAttribute('style','display:none')
                 document.getElementById('cke_body_fr').setAttribute('style','display:none')
@@ -268,10 +280,14 @@
                 document.getElementById('meta_desc_ar').setAttribute('style','display:none')
                 document.getElementById('meta_desc_fr').setAttribute('style','display:none')
                 document.getElementById('meta_desc_de').setAttribute('style','display:none')
-                document.getElementById('body_'+local).setAttribute('style','display:block')
-                document.getElementById('body_ar').setAttribute('style','display:none')
-                document.getElementById('body_fr').setAttribute('style','display:none')
-                document.getElementById('body_de').setAttribute('style','display:none')
+                // document.getElementById('body_'+local).setAttribute('style','display:block')
+                // document.getElementById('body_ar').setAttribute('style','display:none')
+                // document.getElementById('body_fr').setAttribute('style','display:none')
+                // document.getElementById('body_de').setAttribute('style','display:none')
+                document.getElementById('cke_body_'+local).setAttribute('style','display:block')
+                document.getElementById('cke_body_ar').setAttribute('style','display:none')
+                document.getElementById('cke_body_fr').setAttribute('style','display:none')
+                document.getElementById('cke_body_de').setAttribute('style','display:none')
                 var x = $('.navbarDarkDropdownMenuLink')
                 for (i=0 ; i < x.length ;i++){
                     x[i].innerHTML = local
@@ -289,10 +305,14 @@
                 document.getElementById('meta_desc_en').setAttribute('style','display:none')
                 document.getElementById('meta_desc_ar').setAttribute('style','display:none')
                 document.getElementById('meta_desc_de').setAttribute('style','display:none')
-                document.getElementById('body_'+local).setAttribute('style','display:block')
-                document.getElementById('body_en').setAttribute('style','display:none')
-                document.getElementById('body_ar').setAttribute('style','display:none')
-                document.getElementById('body_de').setAttribute('style','display:none')
+                // document.getElementById('body_'+local).setAttribute('style','display:block')
+                // document.getElementById('body_en').setAttribute('style','display:none')
+                // document.getElementById('body_ar').setAttribute('style','display:none')
+                // document.getElementById('body_de').setAttribute('style','display:none')
+                document.getElementById('cke_body_'+local).setAttribute('style','display:block')
+                document.getElementById('cke_body_en').setAttribute('style','display:none')
+                document.getElementById('cke_body_ar').setAttribute('style','display:none')
+                document.getElementById('cke_body_de').setAttribute('style','display:none')
                 var x = $('.navbarDarkDropdownMenuLink')
                 for (i=0 ; i < x.length ;i++){
                     x[i].innerHTML = local
@@ -310,10 +330,14 @@
                 document.getElementById('meta_desc_en').setAttribute('style','display:none')
                 document.getElementById('meta_desc_ar').setAttribute('style','display:none')
                 document.getElementById('meta_desc_fr').setAttribute('style','display:none')
-                document.getElementById('body_'+local).setAttribute('style','display:block')
-                document.getElementById('body_en').setAttribute('style','display:none')
-                document.getElementById('body_ar').setAttribute('style','display:none')
-                document.getElementById('body_fr').setAttribute('style','display:none')
+                // document.getElementById('body_'+local).setAttribute('style','display:block')
+                // document.getElementById('body_en').setAttribute('style','display:none')
+                // document.getElementById('body_ar').setAttribute('style','display:none')
+                // document.getElementById('body_fr').setAttribute('style','display:none')
+                document.getElementById('cke_body_'+local).setAttribute('style','display:block')
+                document.getElementById('cke_body_en').setAttribute('style','display:none')
+                document.getElementById('cke_body_ar').setAttribute('style','display:none')
+                document.getElementById('cke_body_fr').setAttribute('style','display:none')
                 var x = $('.navbarDarkDropdownMenuLink')
                 for (i=0 ; i < x.length ;i++){
                     x[i].innerHTML = local
@@ -321,4 +345,4 @@
             }
         }
     </script>
-@endsection
+@endpush
