@@ -144,7 +144,7 @@ class PostController extends Controller
             $data['cover'] = $cover_path;
         }
         $post = Post::create($data);
-        $post->tags()->attach(request('tag'));
+        $post->tags()->attach(request('tags'));
         if($request->category != 25){
             if ($post) {
                 return redirect()->route('posts')->with('success', 'Post added successfully');
@@ -239,7 +239,7 @@ class PostController extends Controller
 
 
         $update = $post->update($data);
-        $post->tags()->sync(request('tag'));
+        $post->tags()->sync(request('tags'));
         if ($update) {
             return redirect()->route('my_posts')->with('success', 'Post added successfully');
         } else {
@@ -288,7 +288,7 @@ class PostController extends Controller
 
 
         $update = $post->update($data);
-        $post->tags()->sync(request('tag'));
+        $post->tags()->sync(request('tags'));
         if($request->category != 25){
             if ($update) {
                 return redirect()->route('posts')->with('success', 'Data added successfully');

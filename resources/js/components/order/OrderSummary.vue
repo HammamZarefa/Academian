@@ -25,13 +25,13 @@
                         </div>
                     </div>
 
-                    <div v-if="form.service_model.price_type_id == pricingTypes.later">
-                        <!--<div>-->
-                        <!--<b>Rate</b>-->
-                        <!--:-->
-                        <!--{{ 0 }}-->
-                        <!--</div>-->
-                    </div>
+                    <!--<div v-if="form.service_model.price_type_id == pricingTypes.later">-->
+                        <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<b>Rate</b>&ndash;&gt;-->
+                        <!--&lt;!&ndash;:&ndash;&gt;-->
+                        <!--&lt;!&ndash;{{ 0 }}&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--</div>-->
 
                     <div v-if="form.service_model.price_type_id == pricingTypes.perWord">
                         <div>
@@ -139,8 +139,8 @@ export default {
                 }
                 // When Price Type is later
                 if (serviceModel.price_type_id == pricingTypes.later) {
-                    var quantity = 0;
-                    var base_price ="later";
+                    var quantity = 1;
+                    var base_price =parseFloat(serviceModel.price);
                 }
                 // When Price Type is Per Word
                 if (serviceModel.price_type_id == pricingTypes.perWord) {

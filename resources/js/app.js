@@ -102,10 +102,10 @@ import VueFileAgentStyles from 'vue-file-agent/dist/vue-file-agent.css';
 // *************** i18n ***************
 import  VueInternationalization from 'vue-i18n';
 //  import Locale from './vue-i18n-locales.generated';
-import ar from '../lang/Arabic.json';
-import en from '../lang/English.json';
-import du from '../lang/Arabic.json';
-import fr from '../lang/English.json';
+import ar from '../lang/ar.json';
+import en from '../lang/en.json';
+import de from '../lang/de.json';
+import fr from '../lang/fr.json';
 Vue.use(VueInternationalization);
 Vue.use(VueFileAgent);
 

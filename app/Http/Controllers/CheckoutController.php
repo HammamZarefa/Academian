@@ -36,7 +36,8 @@ class CheckoutController extends Controller
                 $data['order_link'] = route('orders_show', $order['order_id']);
             }
         }
-
+        if($data['total']==0)
+            return  redirect()->route('homepage')->withSuccess('We Well Catch You Soon');
         return view('checkout.select_payment_method')->with('data', $data);
     }
 

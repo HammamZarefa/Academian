@@ -80,10 +80,10 @@ return [
     |
     */
 
-//    'locale' => 'en',
+    'locale' => 'en',
     'available_locales' => [
         'English' => 'en',
-        'Arabic' => 'ar',
+        'عربي' => 'ar',
         'French' => 'fr',
         'Dutch' => 'de'
 
