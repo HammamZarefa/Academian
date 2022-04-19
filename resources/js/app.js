@@ -114,7 +114,7 @@ const i18n = new VueInternationalization({
     messages: {
         ar: ar,
         en: en,
-        du: du,
+        de: de,
         fr: fr,
     },
 });
