@@ -120,7 +120,7 @@
                     <label>@lang('Desc') <span class="required">*</span></label>
                     @foreach(Config::get('app.available_locales') as $lang)
                         <textarea id="body_{{$lang}}" type="text"
-                                  class="form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
+                                  class="ckeditor form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
                                   name="body[{{$lang}}]"
                                   style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">{{ old_set('body['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
                     @endforeach
@@ -252,6 +252,11 @@
 </form>
 @endsection
 @push('scripts')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
     <script>
         $("#wizard-picture").change(function () {
             readURL(this);
@@ -274,96 +279,112 @@
 
     </script>
     <script>
-        function test($this) {
+        function test($this){
             var local = $this.getAttribute("data-value");
             // var locals = $('.locals')
             // for (j=0 ; j < locals.length ; j++){
             //
             // }
             // console.log(locals[0])
-            if (local == "ar") {
-                document.getElementById('title_' + local).setAttribute('style', 'display:block')
-                document.getElementById('title_en').setAttribute('style', 'display:none')
-                document.getElementById('title_fr').setAttribute('style', 'display:none')
-                document.getElementById('title_de').setAttribute('style', 'display:none')
-                document.getElementById('keyword_' + local).setAttribute('style', 'display:block')
-                document.getElementById('keyword_en').setAttribute('style', 'display:none')
-                document.getElementById('keyword_fr').setAttribute('style', 'display:none')
-                document.getElementById('keyword_de').setAttribute('style', 'display:none')
-                document.getElementById('meta_desc_' + local).setAttribute('style', 'display:block')
-                document.getElementById('meta_desc_en').setAttribute('style', 'display:none')
-                document.getElementById('meta_desc_fr').setAttribute('style', 'display:none')
-                document.getElementById('meta_desc_de').setAttribute('style', 'display:none')
-                document.getElementById('body_' + local).setAttribute('style', 'display:block')
-                document.getElementById('body_en').setAttribute('style', 'display:none')
-                document.getElementById('body_fr').setAttribute('style', 'display:none')
-                document.getElementById('body_de').setAttribute('style', 'display:none')
+            if (local == "ar"){
+                document.getElementById('title_'+local).setAttribute('style','display:block')
+                document.getElementById('title_en').setAttribute('style','display:none')
+                document.getElementById('title_fr').setAttribute('style','display:none')
+                document.getElementById('title_de').setAttribute('style','display:none')
+                document.getElementById('keyword_'+local).setAttribute('style','display:block')
+                document.getElementById('keyword_en').setAttribute('style','display:none')
+                document.getElementById('keyword_fr').setAttribute('style','display:none')
+                document.getElementById('keyword_de').setAttribute('style','display:none')
+                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
+                document.getElementById('meta_desc_en').setAttribute('style','display:none')
+                document.getElementById('meta_desc_fr').setAttribute('style','display:none')
+                document.getElementById('meta_desc_de').setAttribute('style','display:none')
+                // document.getElementById('body_'+local).setAttribute('style','display:block')
+                // document.getElementById('body_en').setAttribute('style','display:none')
+                // document.getElementById('body_fr').setAttribute('style','display:none')
+                // document.getElementById('body_de').setAttribute('style','display:none')
+                document.getElementById('cke_body_'+local).setAttribute('style','display:block')
+                document.getElementById('cke_body_en').setAttribute('style','display:none')
+                document.getElementById('cke_body_fr').setAttribute('style','display:none')
+                document.getElementById('cke_body_de').setAttribute('style','display:none')
                 var x = $('.navbarDarkDropdownMenuLink')
-                for (i = 0; i < x.length; i++) {
+                for (i=0 ; i < x.length ;i++){
                     x[i].innerHTML = local
                 }
-                console.log($('.navbarDarkDropdownMenuLink')[0].innerHTML)
-            } else if (local == "en") {
-                document.getElementById('title_' + local).setAttribute('style', 'display:block')
-                document.getElementById('title_ar').setAttribute('style', 'display:none')
-                document.getElementById('title_fr').setAttribute('style', 'display:none')
-                document.getElementById('title_de').setAttribute('style', 'display:none')
-                document.getElementById('keyword_' + local).setAttribute('style', 'display:block')
-                document.getElementById('keyword_ar').setAttribute('style', 'display:none')
-                document.getElementById('keyword_fr').setAttribute('style', 'display:none')
-                document.getElementById('keyword_de').setAttribute('style', 'display:none')
-                document.getElementById('meta_desc_' + local).setAttribute('style', 'display:block')
-                document.getElementById('meta_desc_ar').setAttribute('style', 'display:none')
-                document.getElementById('meta_desc_fr').setAttribute('style', 'display:none')
-                document.getElementById('meta_desc_de').setAttribute('style', 'display:none')
-                document.getElementById('body_' + local).setAttribute('style', 'display:block')
-                document.getElementById('body_ar').setAttribute('style', 'display:none')
-                document.getElementById('body_fr').setAttribute('style', 'display:none')
-                document.getElementById('body_de').setAttribute('style', 'display:none')
+                console.log($('.navbarDarkDropdownMenuLink')[0].innerHTML )
+            }else if (local =="en"){
+                document.getElementById('title_'+local).setAttribute('style','display:block')
+                document.getElementById('title_ar').setAttribute('style','display:none')
+                document.getElementById('title_fr').setAttribute('style','display:none')
+                document.getElementById('title_de').setAttribute('style','display:none')
+                document.getElementById('keyword_'+local).setAttribute('style','display:block')
+                document.getElementById('keyword_ar').setAttribute('style','display:none')
+                document.getElementById('keyword_fr').setAttribute('style','display:none')
+                document.getElementById('keyword_de').setAttribute('style','display:none')
+                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
+                document.getElementById('meta_desc_ar').setAttribute('style','display:none')
+                document.getElementById('meta_desc_fr').setAttribute('style','display:none')
+                document.getElementById('meta_desc_de').setAttribute('style','display:none')
+                // document.getElementById('body_'+local).setAttribute('style','display:block')
+                // document.getElementById('body_ar').setAttribute('style','display:none')
+                // document.getElementById('body_fr').setAttribute('style','display:none')
+                // document.getElementById('body_de').setAttribute('style','display:none')
+                document.getElementById('cke_body_'+local).setAttribute('style','display:block')
+                document.getElementById('cke_body_ar').setAttribute('style','display:none')
+                document.getElementById('cke_body_fr').setAttribute('style','display:none')
+                document.getElementById('cke_body_de').setAttribute('style','display:none')
                 var x = $('.navbarDarkDropdownMenuLink')
-                for (i = 0; i < x.length; i++) {
+                for (i=0 ; i < x.length ;i++){
                     x[i].innerHTML = local
                 }
-            } else if (local == "fr") {
-                document.getElementById('title_' + local).setAttribute('style', 'display:block')
-                document.getElementById('title_en').setAttribute('style', 'display:none')
-                document.getElementById('title_ar').setAttribute('style', 'display:none')
-                document.getElementById('title_de').setAttribute('style', 'display:none')
-                document.getElementById('keyword_' + local).setAttribute('style', 'display:block')
-                document.getElementById('keyword_en').setAttribute('style', 'display:none')
-                document.getElementById('keyword_ar').setAttribute('style', 'display:none')
-                document.getElementById('keyword_de').setAttribute('style', 'display:none')
-                document.getElementById('meta_desc_' + local).setAttribute('style', 'display:block')
-                document.getElementById('meta_desc_en').setAttribute('style', 'display:none')
-                document.getElementById('meta_desc_ar').setAttribute('style', 'display:none')
-                document.getElementById('meta_desc_de').setAttribute('style', 'display:none')
-                document.getElementById('body_' + local).setAttribute('style', 'display:block')
-                document.getElementById('body_en').setAttribute('style', 'display:none')
-                document.getElementById('body_ar').setAttribute('style', 'display:none')
-                document.getElementById('body_de').setAttribute('style', 'display:none')
+            }else if (local == "fr"){
+                document.getElementById('title_'+local).setAttribute('style','display:block')
+                document.getElementById('title_en').setAttribute('style','display:none')
+                document.getElementById('title_ar').setAttribute('style','display:none')
+                document.getElementById('title_de').setAttribute('style','display:none')
+                document.getElementById('keyword_'+local).setAttribute('style','display:block')
+                document.getElementById('keyword_en').setAttribute('style','display:none')
+                document.getElementById('keyword_ar').setAttribute('style','display:none')
+                document.getElementById('keyword_de').setAttribute('style','display:none')
+                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
+                document.getElementById('meta_desc_en').setAttribute('style','display:none')
+                document.getElementById('meta_desc_ar').setAttribute('style','display:none')
+                document.getElementById('meta_desc_de').setAttribute('style','display:none')
+                // document.getElementById('body_'+local).setAttribute('style','display:block')
+                // document.getElementById('body_en').setAttribute('style','display:none')
+                // document.getElementById('body_ar').setAttribute('style','display:none')
+                // document.getElementById('body_de').setAttribute('style','display:none')
+                document.getElementById('cke_body_'+local).setAttribute('style','display:block')
+                document.getElementById('cke_body_en').setAttribute('style','display:none')
+                document.getElementById('cke_body_ar').setAttribute('style','display:none')
+                document.getElementById('cke_body_de').setAttribute('style','display:none')
                 var x = $('.navbarDarkDropdownMenuLink')
-                for (i = 0; i < x.length; i++) {
+                for (i=0 ; i < x.length ;i++){
                     x[i].innerHTML = local
                 }
-            } else if (local == "de") {
-                document.getElementById('title_' + local).setAttribute('style', 'display:block')
-                document.getElementById('title_en').setAttribute('style', 'display:none')
-                document.getElementById('title_ar').setAttribute('style', 'display:none')
-                document.getElementById('title_fr').setAttribute('style', 'display:none')
-                document.getElementById('keyword_' + local).setAttribute('style', 'display:block')
-                document.getElementById('keyword_en').setAttribute('style', 'display:none')
-                document.getElementById('keyword_ar').setAttribute('style', 'display:none')
-                document.getElementById('keyword_fr').setAttribute('style', 'display:none')
-                document.getElementById('meta_desc_' + local).setAttribute('style', 'display:block')
-                document.getElementById('meta_desc_en').setAttribute('style', 'display:none')
-                document.getElementById('meta_desc_ar').setAttribute('style', 'display:none')
-                document.getElementById('meta_desc_fr').setAttribute('style', 'display:none')
-                document.getElementById('body_' + local).setAttribute('style', 'display:block')
-                document.getElementById('body_en').setAttribute('style', 'display:none')
-                document.getElementById('body_ar').setAttribute('style', 'display:none')
-                document.getElementById('body_fr').setAttribute('style', 'display:none')
+            }else if (local == "de"){
+                document.getElementById('title_'+local).setAttribute('style','display:block')
+                document.getElementById('title_en').setAttribute('style','display:none')
+                document.getElementById('title_ar').setAttribute('style','display:none')
+                document.getElementById('title_fr').setAttribute('style','display:none')
+                document.getElementById('keyword_'+local).setAttribute('style','display:block')
+                document.getElementById('keyword_en').setAttribute('style','display:none')
+                document.getElementById('keyword_ar').setAttribute('style','display:none')
+                document.getElementById('keyword_fr').setAttribute('style','display:none')
+                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
+                document.getElementById('meta_desc_en').setAttribute('style','display:none')
+                document.getElementById('meta_desc_ar').setAttribute('style','display:none')
+                document.getElementById('meta_desc_fr').setAttribute('style','display:none')
+                // document.getElementById('body_'+local).setAttribute('style','display:block')
+                // document.getElementById('body_en').setAttribute('style','display:none')
+                // document.getElementById('body_ar').setAttribute('style','display:none')
+                // document.getElementById('body_fr').setAttribute('style','display:none')
+                document.getElementById('cke_body_'+local).setAttribute('style','display:block')
+                document.getElementById('cke_body_en').setAttribute('style','display:none')
+                document.getElementById('cke_body_ar').setAttribute('style','display:none')
+                document.getElementById('cke_body_fr').setAttribute('style','display:none')
                 var x = $('.navbarDarkDropdownMenuLink')
-                for (i = 0; i < x.length; i++) {
+                for (i=0 ; i < x.length ;i++){
                     x[i].innerHTML = local
                 }
             }
