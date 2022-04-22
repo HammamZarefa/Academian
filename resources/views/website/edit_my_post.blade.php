@@ -120,7 +120,7 @@
                         <label>@lang('Desc') <span class="required">*</span></label>
                         @foreach(Config::get('app.available_locales') as $lang)
                             <textarea id="body_{{$lang}}" type="text"
-                                      class="ckeditor form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
+                                      class="summernote form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
                                       name="body[{{$lang}}]"
                                       style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">{{ $post->getTranslation('body',$lang) }}</textarea>
                         @endforeach
@@ -242,8 +242,19 @@
 @endsection
 @push('scripts')
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
+        $(document).ready(function() {
+            var body1 = document.getElementById('body_en')
+            var editor1 = body1.nextElementSibling;
+            editor1.setAttribute('style','display:block');
+            var body2 = document.getElementById('body_ar')
+            var editor2 = body2.nextElementSibling;
+            editor2.setAttribute('style','display:none');
+            var body3 = document.getElementById('body_de')
+            var editor3 = body3.nextElementSibling;
+            editor3.setAttribute('style','display:none');
+            var body4 = document.getElementById('body_fr')
+            var editor4 = body4.nextElementSibling;
+            editor4.setAttribute('style','display:none');
         });
     </script>
     <script>
@@ -289,14 +300,26 @@
                 document.getElementById('meta_desc_en').setAttribute('style','display:none')
                 document.getElementById('meta_desc_fr').setAttribute('style','display:none')
                 document.getElementById('meta_desc_de').setAttribute('style','display:none')
+                var body1 = document.getElementById('body_'+local)
+                var editor1 = body1.nextElementSibling;
+                editor1.setAttribute('style','display:block');
+                var body2 = document.getElementById('body_en')
+                var editor2 = body2.nextElementSibling;
+                editor2.setAttribute('style','display:none');
+                var body3 = document.getElementById('body_de')
+                var editor3 = body3.nextElementSibling;
+                editor3.setAttribute('style','display:none');
+                var body4 = document.getElementById('body_fr')
+                var editor4 = body4.nextElementSibling;
+                editor4.setAttribute('style','display:none');
                 // document.getElementById('body_'+local).setAttribute('style','display:block')
                 // document.getElementById('body_en').setAttribute('style','display:none')
                 // document.getElementById('body_fr').setAttribute('style','display:none')
                 // document.getElementById('body_de').setAttribute('style','display:none')
-                document.getElementById('cke_body_'+local).setAttribute('style','display:block')
-                document.getElementById('cke_body_en').setAttribute('style','display:none')
-                document.getElementById('cke_body_fr').setAttribute('style','display:none')
-                document.getElementById('cke_body_de').setAttribute('style','display:none')
+                // document.getElementById('cke_body_'+local).setAttribute('style','display:block')
+                // document.getElementById('cke_body_en').setAttribute('style','display:none')
+                // document.getElementById('cke_body_fr').setAttribute('style','display:none')
+                // document.getElementById('cke_body_de').setAttribute('style','display:none')
                 var x = $('.navbarDarkDropdownMenuLink')
                 for (i=0 ; i < x.length ;i++){
                     x[i].innerHTML = local
@@ -315,14 +338,26 @@
                 document.getElementById('meta_desc_ar').setAttribute('style','display:none')
                 document.getElementById('meta_desc_fr').setAttribute('style','display:none')
                 document.getElementById('meta_desc_de').setAttribute('style','display:none')
+                var body1 = document.getElementById('body_'+local)
+                var editor1 = body1.nextElementSibling;
+                editor1.setAttribute('style','display:block');
+                var body2 = document.getElementById('body_de')
+                var editor2 = body2.nextElementSibling;
+                editor2.setAttribute('style','display:none');
+                var body3 = document.getElementById('body_ar')
+                var editor3 = body3.nextElementSibling;
+                editor3.setAttribute('style','display:none');
+                var body4 = document.getElementById('body_fr')
+                var editor4 = body4.nextElementSibling;
+                editor4.setAttribute('style','display:none');
                 // document.getElementById('body_'+local).setAttribute('style','display:block')
                 // document.getElementById('body_ar').setAttribute('style','display:none')
                 // document.getElementById('body_fr').setAttribute('style','display:none')
                 // document.getElementById('body_de').setAttribute('style','display:none')
-                document.getElementById('cke_body_'+local).setAttribute('style','display:block')
-                document.getElementById('cke_body_ar').setAttribute('style','display:none')
-                document.getElementById('cke_body_fr').setAttribute('style','display:none')
-                document.getElementById('cke_body_de').setAttribute('style','display:none')
+                // document.getElementById('cke_body_'+local).setAttribute('style','display:block')
+                // document.getElementById('cke_body_ar').setAttribute('style','display:none')
+                // document.getElementById('cke_body_fr').setAttribute('style','display:none')
+                // document.getElementById('cke_body_de').setAttribute('style','display:none')
                 var x = $('.navbarDarkDropdownMenuLink')
                 for (i=0 ; i < x.length ;i++){
                     x[i].innerHTML = local
@@ -340,14 +375,27 @@
                 document.getElementById('meta_desc_en').setAttribute('style','display:none')
                 document.getElementById('meta_desc_ar').setAttribute('style','display:none')
                 document.getElementById('meta_desc_de').setAttribute('style','display:none')
+
+                var body1 = document.getElementById('body_'+local)
+                var editor1 = body1.nextElementSibling;
+                editor1.setAttribute('style','display:block');
+                var body2 = document.getElementById('body_en')
+                var editor2 = body2.nextElementSibling;
+                editor2.setAttribute('style','display:none');
+                var body3 = document.getElementById('body_ar')
+                var editor3 = body3.nextElementSibling;
+                editor3.setAttribute('style','display:none');
+                var body4 = document.getElementById('body_de')
+                var editor4 = body4.nextElementSibling;
+                editor4.setAttribute('style','display:none');
                 // document.getElementById('body_'+local).setAttribute('style','display:block')
                 // document.getElementById('body_en').setAttribute('style','display:none')
                 // document.getElementById('body_ar').setAttribute('style','display:none')
                 // document.getElementById('body_de').setAttribute('style','display:none')
-                document.getElementById('cke_body_'+local).setAttribute('style','display:block')
-                document.getElementById('cke_body_en').setAttribute('style','display:none')
-                document.getElementById('cke_body_ar').setAttribute('style','display:none')
-                document.getElementById('cke_body_de').setAttribute('style','display:none')
+                // document.getElementById('cke_body_'+local).setAttribute('style','display:block')
+                // document.getElementById('cke_body_en').setAttribute('style','display:none')
+                // document.getElementById('cke_body_ar').setAttribute('style','display:none')
+                // document.getElementById('cke_body_de').setAttribute('style','display:none')
                 var x = $('.navbarDarkDropdownMenuLink')
                 for (i=0 ; i < x.length ;i++){
                     x[i].innerHTML = local
@@ -365,14 +413,25 @@
                 document.getElementById('meta_desc_en').setAttribute('style','display:none')
                 document.getElementById('meta_desc_ar').setAttribute('style','display:none')
                 document.getElementById('meta_desc_fr').setAttribute('style','display:none')
-                // document.getElementById('body_'+local).setAttribute('style','display:block')
+                var body1 = document.getElementById('body_'+local)
+                var editor1 = body1.nextElementSibling;
+                editor1.setAttribute('style','display:block');
+                var body2 = document.getElementById('body_en')
+                var editor2 = body2.nextElementSibling;
+                editor2.setAttribute('style','display:none');
+                var body3 = document.getElementById('body_ar')
+                var editor3 = body3.nextElementSibling;
+                editor3.setAttribute('style','display:none');
+                var body4 = document.getElementById('body_fr')
+                var editor4 = body4.nextElementSibling;
+                editor4.setAttribute('style','display:none');
                 // document.getElementById('body_en').setAttribute('style','display:none')
                 // document.getElementById('body_ar').setAttribute('style','display:none')
                 // document.getElementById('body_fr').setAttribute('style','display:none')
-                document.getElementById('cke_body_'+local).setAttribute('style','display:block')
-                document.getElementById('cke_body_en').setAttribute('style','display:none')
-                document.getElementById('cke_body_ar').setAttribute('style','display:none')
-                document.getElementById('cke_body_fr').setAttribute('style','display:none')
+                // document.getElementById('cke_body_'+local).setAttribute('style','display:block')
+                // document.getElementById('cke_body_en').setAttribute('style','display:none')
+                // document.getElementById('cke_body_ar').setAttribute('style','display:none')
+                // document.getElementById('cke_body_fr').setAttribute('style','display:none')
                 var x = $('.navbarDarkDropdownMenuLink')
                 for (i=0 ; i < x.length ;i++){
                     x[i].innerHTML = local

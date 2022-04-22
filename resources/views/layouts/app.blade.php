@@ -10,7 +10,7 @@
      <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
      <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
-
+       <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
        @foreach(Config::get('app.available_locales') as $lang)
            @if($lang != Config::get('app.locale'))
@@ -37,6 +37,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 <!-- <script src="{{ asset('js/theme.min.js') }}"></script> -->
+      <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+      <script src="{{ asset('js/summernote-image-title.js') }}"></script>
 <script>
   $('.language li a').click(function(el){
     var _this = $(this);
@@ -54,6 +56,40 @@
    });
 </script>
 @endif
+      <script>
+          $(document).ready(function() {
+              $('.summernote').summernote({
+                  fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Poppins'],
+                  fontNamesIgnoreCheck: ['Poppins'],
+                  imageTitle: {
+                      specificAltField: true,
+                  },
+                  // lang: 'en-US',
+                  popover: {
+                      image: [
+                          ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                          ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                          ['remove', ['removeMedia']],
+                          ['custom', ['imageTitle']],
+                      ],
+                  },
+              });
+          });
+          // notification count
+          var count = $('#count'), c ;
+          c = parseInt(count.html());
+          // count.html(c+1);
+          // notification style
+          $('.notification').on('click',function(){
+              setTimeout(() => {
+                  count.html(0);
+                  $('.unread').each(function(){
+                      $(this).removeClass('unread');
+                  });
+              }, 3000);
+              //   $.get('MarkAllSeen', function(){});
+          });
+      </script>
 @stack('scripts')
 </body>
 </html>
