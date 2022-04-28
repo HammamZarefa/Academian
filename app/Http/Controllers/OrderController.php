@@ -362,4 +362,11 @@ class OrderController extends Controller
         }
 
     }
+    public function setOrderTotal($id,Request $request)
+    {
+        $order=Order::find($id);
+        $order->total=$request->price;
+        $order->save();
+        return redirect()->back()->withSuccess('Updated Successfully');
+    }
 }

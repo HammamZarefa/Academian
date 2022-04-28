@@ -115,7 +115,7 @@ export default {
                 fixed: 1,
                 perWord: 2,
                 perPage: 3,
-                later: 4
+                // later: 4
             },
             spacingTypes: {
                 double: "double",
@@ -138,10 +138,10 @@ export default {
                     var base_price = parseFloat(serviceModel.price);
                 }
                 // When Price Type is later
-                if (serviceModel.price_type_id == pricingTypes.later) {
-                    var quantity = 1;
-                    var base_price =parseFloat(serviceModel.price);
-                }
+                // if (serviceModel.price_type_id == pricingTypes.later) {
+                //     var quantity = 1;
+                //     var base_price =parseFloat(serviceModel.price);
+                // }
                 // When Price Type is Per Word
                 if (serviceModel.price_type_id == pricingTypes.perWord) {
                     var quantity = parseFloat(form.number_of_words);
@@ -171,10 +171,10 @@ export default {
                 // Calculate Unit Price
                 var unit_price = Number(parseFloat(base_price + work_level_price + urgency_price)).toFixed(2);
                 // Amount before including Additional Services
-                if(serviceModel.price_type_id != pricingTypes.later)
+                // if(serviceModel.price_type_id != pricingTypes.later)
                     var amount = (unit_price * quantity).toFixed(2);
-                else
-                    var amount = 1;
+                // else
+                //     var amount = 1;
                 // Calculate Total Price of Additional Services
                 let additional_services_cost = _.sumBy(form.added_services, function(row) {
                     return parseFloat(row.rate);
