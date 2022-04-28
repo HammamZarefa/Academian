@@ -32,7 +32,7 @@
                             @endif
                 <div class="patterns">
                 <svg width="100%" height="100%">
-                    <text x="50%" y="60%" text-anchor="middle" class="translate" >
+                    <text x="50%" y="60%" text-anchor="middle" >
                     @lang('University Approval')
                     </text>
                 </svg>
@@ -64,7 +64,7 @@
                                 <a href="/instant-quote?Service_Category=2">
                                     @endif
                     <svg width="104%" height="100%">
-                        <text x="50%" y="60%" text-anchor="middle" class="un_text">
+                        <text x="50%" y="60%" text-anchor="middle" class="un_text translate">
                         @lang('Translation Service')
                         </text>
                         {{--<text x="50%" y="70%" text-anchor="middle" class="un_text">--}}

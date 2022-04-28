@@ -63,7 +63,15 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-4 social-mediav text-end"> 
+                    <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Facebook"><i class="icon-facebook"></i></a>
+                    <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Twitter"><i class="icon-twitter"></i></a>
+                    <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Linkedin"><i class="icon-linkedin"></i></a>
+                    <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Youtube"><i class="icon-play"></i></a>
+                    <a href="{{ settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Pinterest"><i class="icon-pinterest"></i></a>
+                    <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Google Plus"><i class="icon-gplus"></i></a>
+                </div>
+            <div class="col-sm-4">
                 <h6 class="footer_right">© 2021 @lang('Yes Soft').</h6>
             </div>
         </div>
