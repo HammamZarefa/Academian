@@ -128,6 +128,17 @@
       <a id="delete_order" class="btn btn-sm btn-danger" href="{{ route('orders_destroy', $order->id) }}">
          <i class="fas fa-trash"></i>@lang('Delete') </a>
       </div>
+          <div>
+              <form action="{{ route('setOrderTotal',$order->id) }}" method="POST" autocomplete="off">
+                  {{ csrf_field()  }}
+                  <label>@lang('New Price')</label>
+                  <input type="hidden" name="order_id" value="{{ $order->id }}">
+                  <input class="form-control {{ showErrorClass($errors, 'price') }}" name="price"></input>
+                  <div class="invalid-feedback d-block">{{ showError($errors, 'message') }}</div>
+                  <br>
+                  <input class="btn btn-success" type="submit" name="submit" value="Submit">
+              </form>
+          </div>
       @endif
 
       @if(!paymentIsPending($order->order_status_id))

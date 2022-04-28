@@ -117,6 +117,7 @@ Route::prefix('orders')->group(function () {
 
     Route::get('{order}/pay', 'CartController@makePaymentForExistingOrder')
         ->name('pay_for_existing_order');
+    Route::post('setOrderTotal/{id}','OrderController@setOrderTotal')->name('setOrderTotal');
 });
 
 

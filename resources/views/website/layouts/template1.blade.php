@@ -33,11 +33,11 @@
 <div id="app">
     @yield('content')
 </div>
-@include('cookieConsent::index')
+{{--@include('cookieConsent::index')--}}
 @include('website.layouts.footer')
 
 <script src="{{ asset('js/theme.min.js') }}"></script>
 
-{!! settings('website_footer_script') !!}
+{{--{!! settings('website_footer_script') !!}--}}
 </body>
 </html>

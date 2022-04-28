@@ -29,7 +29,7 @@
                   <label class="custom-control-label" for="show_archived">@lang('Show Archived')</label>
                 </div>
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" name="show_pending_payment_orders" class="custom-control-input" id="show_pending_payment_orders">
+                  <input type="checkbox" name="show_pending_payment_orders" class="custom-control-input" id="show_pending_payment_orders" checked>
                   <label class="custom-control-label" for="show_pending_payment_orders">@lang('In Abandoned Cart')</label>
                 </div>
                 <div class="custom-control custom-checkbox">

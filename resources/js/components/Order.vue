@@ -139,7 +139,7 @@ export default {
         fixed: 1,
         perWord: 2,
         perPage: 3,
-          later:4
+          // later:4
       },
       activeTab: 1,      
       form: {},
