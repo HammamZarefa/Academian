@@ -87,6 +87,7 @@ header {
 header .navbar {
     margin: 0;
     padding: 0;
+    min-height: 100px;
 }
 iframe {
     border: 0;
@@ -300,6 +301,7 @@ p{
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
+    width: 100%;
 }
 .navbar-default .navbar-nav>li>a:hover{
     color: #027bef;
@@ -342,6 +344,9 @@ p{
     background: url("../img/student2.jpg");
     background-size: cover;
     padding: 100px 0 130px 0;
+}
+#menu-contact{
+    background: url("../img/students.jpg");
 }
 .slider h2, .slider h3,.slider h4 {
     color: #fff;
@@ -1189,6 +1194,7 @@ input::-webkit-inner-spin-button {
     color: #fff;
     transition: .3s;
     font-weight: 500;
+    
 }
 .dropdown-content a:hover{background-color: #f1f1f1;color:#46627e;}
 
@@ -1219,7 +1225,7 @@ input::-webkit-inner-spin-button {
 
 /*  */
 .patterns {
-    background-color: #0909095e;
+    background-color: #09090930;
     border-radius: 5px;
     transition: .3s;
 }
@@ -1237,18 +1243,15 @@ input::-webkit-inner-spin-button {
 svg text {
     font-family: Lora;
     letter-spacing: 2px;
-    stroke: #3791da9f;
     font-size: 4vw;
     font-weight: 700;
     stroke-width: 3;
-    fill:#007ee5
+    stroke: rgba(71, 116, 200, 0.78);
+    fill: rgb(108, 133, 196);
 
 }
 
-svg .Writing ,svg .translate{
-    stroke: rgba(255, 255, 255, 0.541);
-    fill:rgba(255, 255, 255, 0.541)
-}
+
 svg .un_text{
     font-size: 30px;
 }
@@ -1462,7 +1465,7 @@ svg .un_text{
 }
 .slider .botto div{
     width: 49%;
-    background-color: #0909095e;
+    background-color: #09090930;
     border-radius: 5px;
     padding: 10px;
     transition: .3s;
@@ -2321,7 +2324,7 @@ section {
     color: #026bc3;
     text-decoration: none;
     overflow: hidden;
-    padding: 5px 3px;
+    padding: 0 3px;
     border-radius: 5px;
     height: 100%;
     font-size:16px;

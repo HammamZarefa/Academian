@@ -2,7 +2,7 @@
     <div id="loader">
         <!-- Topbar -->
     </div>
-    <section class="top-bar">
+    <!-- <section class="top-bar">
         <div class="container">
             <div class="row ar-row">
                 <div class="col-sm-4 social-mediav text-end"> 
@@ -17,11 +17,14 @@
                     <p><i class="icon-mail"></i> {{ settings('company_email')}}</p>
                     <p><i class="icon-mail"></i> support@academian.com</p>
                 </div>
-               
+                <div class="col-sm-1 sm-lang">
+                @include('website.partials/language_switcher')
+                </div>
+                
             </div>
         </div>
 
-    </section>
+    </section> -->
     <!-- end Topbar -->
     <div class="navbar navbar-default" role="navigation">
         <div class="container ar-con">
@@ -37,10 +40,12 @@
                      width="50px" alt="{{ settings('company_name') }}">
                 </a> -->
                 <a href="{{ route('homepage') }}">  
-                    <div style="width:70px;color: #a2a2a2;
+                    <div style="width:90px;color: #a2a2a2;
                             height: 70px;
                             display: flex;
-                            align-items: center;">
+                            align-items: center;
+                            margin-inline-start: 15px;
+                            margin-top:11px">
                          <img src="{{ get_company_logo() }}" 
                         alt="{{ settings('company_name') }}">
                         

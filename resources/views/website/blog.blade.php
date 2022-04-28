@@ -1,4 +1,4 @@
-@extends('website.layouts.template')
+@extends('website.layouts.template1')
 @section('title')
 Blog - 
 @endsection

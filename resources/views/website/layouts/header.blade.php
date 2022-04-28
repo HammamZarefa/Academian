@@ -2,7 +2,7 @@
     <div id="loader">
         <!-- Topbar -->
     </div>
-    <section class="top-bar">
+    <!-- <section class="top-bar">
         <div class="container">
             <div class="row ar-row">
                 <div class="col-sm-4 social-media">
@@ -20,20 +20,10 @@
                 <div class="col-sm-2 sm-lang">
                 @include('website.partials/language_switcher')
                 </div>
-                <style>
-                /* Small devices (landscape phones, 576px and up) */
-                @media (max-width: 767.98px) {
-                    .sm-lang{
-                        position: absolute;
-                        right: 10px;
-                        top: 10px;
-                    }
-                }
-                </style>
             </div>
         </div>
 
-    </section>
+    </section> -->
     <!-- end Topbar -->
     <div class="navbar navbar-default" role="navigation">
         <div class="container ar-con">
@@ -135,6 +125,19 @@
                 <div class="help">
                     <button class=""><a href="{{ route('instant_quote')}}">@lang('Reqeust Help')</a></button>
                 </div>
+                <div class="col-sm-1 sm-lang">
+                @include('website.partials/language_switcher')
+                </div>
+                <style>
+                /* Small devices (landscape phones, 576px and up) */
+                @media (max-width: 767.98px) {
+                    .sm-lang{
+                        position: absolute;
+                        right: 10px;
+                        top: 80px;
+                    }
+                }
+                </style>
             <!--/.nav-collapse -->
             </div>
             {{--<div class="col-12">--}}
