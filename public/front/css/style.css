@@ -600,7 +600,7 @@ p{
     text-transform: uppercase;
 }
 .top-bar {
-    background: #026bc3;
+    background: #4eaeff;
     line-height: 1;
     padding: 5px 0;
 }
@@ -1237,19 +1237,17 @@ input::-webkit-inner-spin-button {
 svg text {
     font-family: Lora;
     letter-spacing: 2px;
-    stroke: #68b8fa9f;
+    stroke: #3791da9f;
     font-size: 4vw;
     font-weight: 700;
     stroke-width: 3;
-    animation: textAnimate 5s infinite alternate ;
+    fill:#007ee5
 
 }
-svg .translate{
-    animation: textTranslate 4s infinite alternate  ;
-}
-svg .Writing{
-    animation: textWriting 4.5s infinite alternate  ;
+
+svg .Writing ,svg .translate{
     stroke: rgba(255, 255, 255, 0.541);
+    fill:rgba(255, 255, 255, 0.541)
 }
 svg .un_text{
     font-size: 30px;
@@ -1261,51 +1259,7 @@ svg .un_text{
     }
 }
 
-@keyframes textAnimate {
-    0% {
-        stroke-dasharray: 0 50%;
-        stroke-dashoffset:  20%;
-        fill:#007ee5
 
-    }
-
-    100% {
-        stroke-dasharray: 50% 0;
-        stroke-dashoffstet: -20%;
-        fill: #007ee546
-    }
-
-}
-@keyframes textTranslate {
-    0% {
-        stroke-dasharray: 0 50%;
-        stroke-dashoffset:  20%;
-        fill:#027bef;
-
-    }
-
-    100% {
-        stroke-dasharray: 50% 0;
-        stroke-dashoffstet: -20%;
-        fill: #027cef25
-    }
-
-}
-@keyframes textWriting {
-    0% {
-        stroke-dasharray: 0 50%;
-        stroke-dashoffset:  20%;
-        fill:#46627e;
-
-    }
-
-    100% {
-        stroke-dasharray: 50% 0;
-        stroke-dashoffstet: -20%;
-        fill: #46627e3b
-    }
-
-}
 
 .patterns .box {
     width: 100%;

@@ -5,7 +5,7 @@
     <section class="top-bar">
         <div class="container">
             <div class="row ar-row">
-                <div class="col-sm-4 social-media">
+                <div class="col-sm-4 social-mediav text-end"> 
                     <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Facebook"><i class="icon-facebook"></i></a>
                     <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Twitter"><i class="icon-twitter"></i></a>
                     <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Linkedin"><i class="icon-linkedin"></i></a>
@@ -17,19 +17,7 @@
                     <p><i class="icon-mail"></i> {{ settings('company_email')}}</p>
                     <p><i class="icon-mail"></i> support@academian.com</p>
                 </div>
-                <div class="col-sm-2 sm-lang">
-                @include('website.partials/language_switcher')
-                </div>
-                <style>
-                /* Small devices (landscape phones, 576px and up) */
-                @media (max-width: 767.98px) {
-                    .sm-lang{
-                        position: absolute;
-                        right: 10px;
-                        top: 10px;
-                    }
-                }
-                </style>
+               
             </div>
         </div>
 
@@ -49,12 +37,13 @@
                      width="50px" alt="{{ settings('company_name') }}">
                 </a> -->
                 <a href="{{ route('homepage') }}">  
-                    <div style="width:70px;margin-inline-start: 20px;color: #a2a2a2;
+                    <div style="width:70px;color: #a2a2a2;
                             height: 70px;
                             display: flex;
                             align-items: center;">
-                        <img src="{{ get_company_logo() }}"
+                         <img src="{{ get_company_logo() }}" 
                         alt="{{ settings('company_name') }}">
+                        
                     </div>  
                 </a>
             </div>
@@ -144,6 +133,19 @@
                 <div class="help">
                     <button class=""><a href="{{ route('instant_quote')}}">@lang('Reqeust Help')</a></button>
                 </div>
+                <div class="col-sm-1 sm-lang">
+                @include('website.partials/language_switcher')
+                </div>
+                <style>
+                /* Small devices (landscape phones, 576px and up) */
+                @media (max-width: 767.98px) {
+                    .sm-lang{
+                        position: absolute;
+                        right: 10px;
+                        top: 80px;
+                    }
+                }
+                </style>
             <!--/.nav-collapse -->
             </div>
             {{--<div class="col-12">--}}
