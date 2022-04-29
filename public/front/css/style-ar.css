@@ -1062,6 +1062,11 @@ input::-webkit-inner-spin-button {
     align-items: end;
     min-height: 315px;
 }
+.blogs .blog_post .container_copy {
+    display: grid;
+    height: 100%;
+    align-items: center;
+}
 .blogs .blog_post .container_copy p {
     margin: 0;
 }
@@ -1085,7 +1090,7 @@ input::-webkit-inner-spin-button {
     border-radius: 100%;
     position: absolute;
     right: 0;
-    top: 5px;
+    top: -20px;
     transform: translateY(-50%);
 }
 
