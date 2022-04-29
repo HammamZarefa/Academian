@@ -39,7 +39,7 @@
                 return this.urgencies.filter((el) => {
                       return  el.id == this.params.urgency;
                 }); -->
-      <a class="button" >{{passParam == true ? filteredServicesParam[0].name[locale] :  filteredServices[0].name[locale]}}</a>
+      <a class="button" >{{chosenServType == true ? form.service_model.name[locale] : filteredServices[0].name[locale] }}</a>
       <i class="fas fa-caret-down"></i> 
     </summary>
     <ul>
@@ -356,6 +356,7 @@ export default {
             lev:false,
             urgen:false,
             passParam:false,
+            chosenServType:false,
             params : {},
             hasError:false,
             show_worklevel:true,
@@ -383,8 +384,8 @@ export default {
         // console.log('spacing_type:',this.form.spacing_type);
         // console.log('filteredlevels:',JSON.stringify(this.filteredlevels));
         // console.log('passParam:',this.passParam);
-        console.log('service_categories:',this.service_categories);
-        console.log('services:',this.services);
+        // console.log('service_categories:',this.service_categories);
+        console.log('filteredServicesParam:',this.filteredServicesParam);
         // console.log('service_categories_model:',this.form.service_categories_model);
         // console.log('service_model:',this.form.service_model);
         // console.log('filteredServices_categories[0]:',this.filteredServices_categories[0]);
@@ -498,6 +499,7 @@ export default {
     methods: {
         setServicesType(t){
             this.form.service_model = t;
+            this.chosenServType = true;
            document.getElementById("dropdown").removeAttribute("open"); 
         },
         setServices(){

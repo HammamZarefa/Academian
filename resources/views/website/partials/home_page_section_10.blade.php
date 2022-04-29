@@ -18,9 +18,14 @@
                   <li class="d-flex align-items-center"><i class="icon-clock"></i> <a href="{{route('blogshow',$post->slug)}}"><time datetime="2020-01-01">{{$post->created_at->format('Y-m-d')}}</time></a></li>
                   <li class="d-flex align-items-center"><i class="icon-comment"></i> <a href="{{ URL::current()}}#disqus_thread">@lang('Comments')</a></li>
                 </ul>
-            <p>{!! Str::limit($post->body, 60) !!}...</p>
+                <div class="entry-content">
+                <p>
+                  {{ Str::limit( strip_tags( $post->body ), 150 ) }}
+                </p>
+                <div class="text-center" style="margin-top: 10px;"> <a class="btn_primary" href="{{route('blogshow',$post->slug)}}">@lang('Read More')</a></div>
+              </div>
             </div>
-           <div class="text-center"> <a class="btn_primary" href="{{route('blogshow',$post->slug)}}">@lang('Read More')</a></div>
+         
         </div>
         @endforeach
     </div>

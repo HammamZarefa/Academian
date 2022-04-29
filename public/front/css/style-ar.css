@@ -377,9 +377,24 @@ p{
     height: 50px;
 }
 .slider{
-    background: url("../img/student2.jpg");
-    padding: 100px 0 130px 0;
     background-size: cover;
+    padding: 100px 0 130px 0;
+    position: relative;
+}
+.slider .contain{
+    position: relative;
+    z-index: 2;
+}
+#menu-slider::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: url("../img/student2.jpg");
+    top: 0;
+    left: 0;
+    opacity: .8;
+    background-size: 100%;
 }
 #menu-contact{
     background: url("../img/students.jpg");
@@ -1070,7 +1085,7 @@ input::-webkit-inner-spin-button {
     border-radius: 100%;
     position: absolute;
     right: 0;
-    top: 10px;
+    top: 5px;
     transform: translateY(-50%);
 }
 
@@ -1295,8 +1310,7 @@ svg text {
     font-size: 4vw;
     font-weight: 700;
     stroke-width: 3;
-    stroke: rgba(71, 116, 200, 0.78);
-    fill: rgb(108, 133, 196);
+    fill: #396ac0;
 
 }
 
