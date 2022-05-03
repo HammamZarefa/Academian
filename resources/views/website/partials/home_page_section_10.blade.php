@@ -18,7 +18,9 @@
                   <li class="d-flex align-items-center"><i class="icon-clock"></i> <a href="{{route('blogshow',$post->slug)}}"><time datetime="2020-01-01">{{$post->created_at->format('Y-m-d')}}</time></a></li>
                   <li class="d-flex align-items-center"><i class="icon-comment"></i> <a href="{{ URL::current()}}#disqus_thread">@lang('Comments')</a></li>
                 </ul>
-            <p>{!! Str::limit($post->body, 60) !!}...</p>
+                <p>
+                    {{ Str::limit( strip_tags( $post->body ), 250 ) }}
+                </p>
             </div>
            <div class="text-center"> <a class="btn_primary" href="{{route('blogshow',$post->slug)}}">@lang('Read More')</a></div>
         </div>

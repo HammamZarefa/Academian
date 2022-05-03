@@ -16,7 +16,7 @@
          {{--</a>--}}
       {{--</div>--}}
    {{--</div>--}}
-   {{--<a class="nav-link" href="{{ route('admin.testi') }}">@lang('Reviews')</a>--}}
+   <a class="nav-link" href="{{ route('admin.testi') }}">@lang('Reviews')</a>
 
 
    {{--<a class="nav-link" href="{{ route('settings_main_page') }}">@lang('General')</a>--}}
