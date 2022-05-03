@@ -4,7 +4,7 @@
         <div class="row title">
             <div class="col-sm-12">
                 <h2>@lang('Select your price')</h2>
-                <p>@lang('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse')
+                <p>@lang('Explore some services through real calculation method beforemoving to payment step')
                     .</p>
             </div>
         </div>
@@ -12,7 +12,7 @@
             <div class="col-sm-3">
                 <ul class="table-list">
                     <li class="table-header">@lang('Essay')</li>
-                    <li class="table-price">£555.00,<sup>00</sup></li>
+                    <li class="table-price">£60,<sup>00</sup></li>
                     <li>500 @lang('words')</li>
                     <li>@lang('Degree')</li>
                     <li>@lang('7 Days')</li>
@@ -32,7 +32,7 @@
             <div class="col-sm-3">
                 <ul class="table-list">
                     <li class="table-header">@lang('Assignment')</li>
-                    <li class="table-price">£48,<sup>00</sup></li>
+                    <li class="table-price">£60,<sup>00</sup></li>
                     <li>400 @lang('Words')</li>
                     <li>@lang('Masters')</li>
                     <li>@lang('7 Days') </li>
@@ -52,7 +52,7 @@
             <div class="col-sm-3">
                 <ul class="table-list">
                     <li class="table-header">@lang('Presentation')</li>
-                    <li class="table-price">£22,<sup>20</sup></li>
+                    <li class="table-price">£32,<sup>00</sup></li>
                     <li>10 @lang('Pages')</li>
                     <li>@lang('Double spaced')</li>
                     <li>@lang('Master') </li>
@@ -68,12 +68,12 @@
             </div>
             <div class="col-sm-3">
                 <ul class="table-list">
-                    <li class="table-header">@lang('Resume Writing')</li>
-                    <li class="table-price">£12,<sup>18</sup></li>
-                    <li>@lang('Resume Writing')</li>
-                    <li>@lang('English')</li>
+                    <li class="table-header">@lang('Report')</li>
+                    <li class="table-price">£80,<sup>00</sup></li>
+                    <li>500@lang('Words')</li>
                     <li>@lang('Ph.D')</li>
-                    <li>7 @lang('Days') </li>
+                    <li>7@lang('Days')</li>
+                    <li> @lang('Arabic') </li>
                     <li class="table-button">
                         @if(auth()->check())
                             <a class="btn btn-default" href="/orders/create?service=47&&Service_Category=6&&urgency=7&&work_level=4">

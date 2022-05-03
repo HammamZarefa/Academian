@@ -3,9 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h3>@lang('A better way to')</h3>
-                <h2>@lang('Success')</h2>
-                <h4>@lang('Lorem ipsum dolor sit amet'), <br/>@lang('ei vis sint persecuti') .</h4>
+                <h3>@lang('Academic writing services')</h3>
+                <h2>@lang('For')</h2>
+                <h4>@lang('all struggling students'), <br/>@lang('ei vis sint persecuti') .</h4>
                 <hr />
                 <h4>@lang('Suscribe to the form and get all the')<br/> @lang('information that you need')</h4>
             </div>
@@ -19,9 +19,10 @@
                         <input type="text" class="form-control" placeholder="Message" name="phone">
                         <select class="form-control" name="program">
                             <option>@lang('Select degree program')</option>
-                            <option>@lang('Degree')</option>
+                            <option>@lang('Foundation')</option>
+                            <option>@lang('Bachelor')</option>
                             <option>@lang('Master')</option>
-                            <option>@lang('PhD')</option>
+                            <option>@lang('PHD')</option>
                         </select>
                     </div>
                     <div class="text-center">

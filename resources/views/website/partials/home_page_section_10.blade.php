@@ -5,7 +5,7 @@
         <h2> @lang('Blog') </h2>
     </div>
     <div class="Blog-container">
-    @foreach ($posts->slice(0, 3) as $post)
+    @foreach ($posts->slice(0, 6) as $post)
         <div class="blog_post">
             <div class="img_pod">
             <img  src="{{asset(Storage::url($post->cover))}}" alt="">
