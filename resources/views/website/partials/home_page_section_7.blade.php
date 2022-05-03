@@ -4,7 +4,7 @@
         <div class="row title">
             <div class="col-sm-12">
                 <h2>@lang('Meet the Teachers')</h2>
-                <p>@lang('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse').</p>
+                <p>@lang('To strengthen the academic legitimacy and expertise with which the academic service is offered, meet our professional staff.').</p>
             </div>
         </div>
         <div class="row">

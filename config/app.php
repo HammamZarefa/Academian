@@ -83,9 +83,7 @@ return [
     'locale' => 'en',
     'available_locales' => [
         'English' => 'en',
-        'عربي' => 'ar',
-        'French' => 'fr',
-        'Dutch' => 'de'
+        'عربي' => 'ar'
 
     ],
 
