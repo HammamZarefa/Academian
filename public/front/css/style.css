@@ -341,13 +341,55 @@ p{
     height: 50px;
 }
 .slider{
-    background: url("../img/student2.jpg");
     background-size: cover;
     padding: 100px 0 130px 0;
+    position: relative;
+}
+.slider .contain{
+    position: relative;
+    z-index: 2;
+}
+
+
+#menu-slider::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: url("../img/student2.jpg");
+    top: 0;
+    left: 0;
+    opacity: .8;
+    background-size: cover;
 }
 #menu-contact{
     background: url("../img/students.jpg");
 }
+/* @media (max-width: 575.98px) {
+    #menu-slide{
+        overflow-y: scroll;
+        height: 290px;
+        scrollbar-width: none;
+        min-height: 290px;
+    }
+    .slider .contain{
+        top: 300px;
+    }
+    #menu-slider::after{
+        position: fixed;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: url("../img/student2.jpg");
+    background-repeat: repeat;
+    background-size: auto;
+    top: 100px;
+    left: 0;
+    opacity: .8;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    }
+} */
 .slider h2, .slider h3,.slider h4 {
     color: #fff;
 }
@@ -1002,13 +1044,17 @@ input::-webkit-inner-spin-button {
     box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
     margin: 30px 0;
     min-height: 265px;
-    display: grid;
-    align-items: end;
     min-height: 315px;
+}
+.blogs .blog_post .container_copy {
+    display: grid;
+    height: 100%;
+    align-items: center;
 }
 .blogs .blog_post .container_copy p {
     margin: 0;
 }
+
 .blogs .blog_post .container_copy ul{
     padding: 0;
     list-style: none;
@@ -1029,7 +1075,7 @@ input::-webkit-inner-spin-button {
     border-radius: 100%;
     position: absolute;
     left: 0;
-    top: 10px;
+    top: -20px;
     transform: translateY(-50%);
 }
 
@@ -1246,8 +1292,7 @@ svg text {
     font-size: 4vw;
     font-weight: 700;
     stroke-width: 3;
-    stroke: rgba(71, 116, 200, 0.78);
-    fill: rgb(108, 133, 196);
+    fill: #396ac0;
 
 }
 
