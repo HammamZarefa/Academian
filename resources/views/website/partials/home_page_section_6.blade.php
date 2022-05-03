@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h2>@lang('Our Services')</h2>
-                <p>@lang('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse')
+                <p>@lang('Academian.co.uk provides an outstanding level of academic writing for all study levels and all specialties. Professional writers help straggling students to step up forward')
                     .</p>
             </div>
             <!-- <div id="carousel-example-generic" class="carousel slide col-sm-3" data-ride="carousel">

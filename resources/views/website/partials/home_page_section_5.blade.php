@@ -9,16 +9,16 @@
             <div class="patterns big">
                 <svg width="100%">
                     <text x="50%" y="60%" text-anchor="middle">
-                        @lang('writing Service')
+                        @lang('Writing Service')
                         <div class="box">
                             <div class="title">
                                 <span class="block"></span>
-                                <h1>@lang('Profesional')<span></span></h1>
+                                <h1>@lang('Professional Services For struggling Students')<span></span></h1>
                             </div>
-                            <div class="role">
-                                <div class="block"></div>
-                                <p>@lang('500 Clients')</p>
-                            </div>
+                            {{--<div class="role">--}}
+                                {{--<div class="block"></div>--}}
+                                {{--<p>@lang('500 Clients')</p>--}}
+                            {{--</div>--}}
                         </div>
                     </text>
                 </svg>
@@ -33,13 +33,13 @@
                 <div class="patterns">
                 <svg width="100%" height="100%">
                     <text x="50%" y="60%" text-anchor="middle" >
-                    @lang('University Approval')
+                    @lang('University Acceptance')
                     </text>
                 </svg>
                     <div class="box">
                         <div class="title">
                             <span class="block translat" ></span>
-                            <h1 >@lang('in four country')<span></span></h1>
+                            <h1 >@lang('Unconditional Offers From United Kingdom Universities')<span></span></h1>
                         </div>
 
                     </div>
