@@ -33,7 +33,7 @@
                 <div class="patterns">
                 <svg width="100%" height="100%">
                     <text x="50%" y="60%" text-anchor="middle" >
-                    @lang('University Acceptance')
+                    @lang('University Approval')
                     </text>
                 </svg>
                     <div class="box">

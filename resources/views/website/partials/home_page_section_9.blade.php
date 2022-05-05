@@ -4,7 +4,7 @@
         <div class="row title">
             <div class="col-sm-12">
                 <h2>@lang('Reviews')</h2>
-                <p>@lang('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse').</p>
+                <p>@lang('All clients reviews are very important and really help to improve the quality of work').</p>
             </div>
         </div>
         @foreach($reviews->slice(0, 3) as $review)
