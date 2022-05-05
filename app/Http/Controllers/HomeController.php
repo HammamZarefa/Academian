@@ -159,4 +159,35 @@ class HomeController extends Controller
         return view('website.blog',compact('categories','lpost','posts','query','recent','tags'));
     }
 
+    public function sendmail(Request $request)
+    {
+        $to="info@academian.co.uk";/*Your Email*/
+        $subject=$request['subject'];
+
+        $date=date("l, F jS, Y");
+        $time=date("h:i A");
+
+        $name        = $request['name'];
+        $email       = $request['email'];
+        $phone       = $request['phone'];
+        $program     = $request['program'];
+
+        $msg="
+		Message sent from website form on date  $date, hour: $time.\n	
+		Name: $name\n
+		Phone Number: $phone\n
+		Email: $email\n	
+		Program selection: $program
+		";
+        if($email=="") {
+            echo "<div class='alert alert-danger'>
+			  <a class='close' data-dismiss='alert'>×</a>
+			  <strong>Warning!</strong> Please fill all the fields.
+		  </div>";
+        } else {
+//            mail($to,$subject,$msg,"From:".$email);
+            return back()->with('success', 'Message Sent');
+        }
+    }
+
 }

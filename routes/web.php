@@ -73,4 +73,5 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         \Illuminate\Support\Facades\Artisan::call('optimize:clear');
     });
 
+    Route::post('sendmail','HomeController@sendmail')->name('sendmail');
 });
