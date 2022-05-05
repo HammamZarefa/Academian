@@ -1276,13 +1276,11 @@ input::-webkit-inner-spin-button {
     transition: .3s;
 }
 /* Extra small devices (portrait phones, less than 576px) */
-@media (min-width: 575.98px) {
+@media (min-width: 798.98px) {
     .patterns.big{
-        height: 410px;
+        height: 400px;
     }
-    .patterns.big svg{
-        height: 60%;
-    }
+   
 
 }
 
@@ -1508,23 +1506,27 @@ svg .un_text{
     justify-content: space-between;
     margin-top: 20px;
 }
-.slider .botto div{
+.slider .botto .bot{
     width: 49%;
     background-color: #09090930;
     border-radius: 5px;
     padding: 10px;
     transition: .3s;
 }
-.slider .botto div:hover{
+.slider .botto .bot:hover{
     transform: rotatez(-3deg);
 }
-.slider .botto div h4{
+.slider .patterns h4{
     font-weight: bold;
-    transition: .3s;
+    padding: 5px 10px;
 }
-.slider .botto div:hover h4{
+ .slider .botto .bot h4{
+    font-weight: bold;
+    padding: 5px 10px;
+}
+/*.slider .botto .bot:hover h4{
     color: hsl(189, 44%, 51%);
-}
+} */
 /* Small devices (landscape phones, 576px and up) */
 @media  (max-width: 767.98px) {
     .slider .contain{
@@ -1540,18 +1542,27 @@ svg .un_text{
     .slider .contain .right a{
         width: 100%;
     }
-    .slider .botto div{
+    .slider .botto .bot{
         width: 100%;
     }
     .slider .botto{
         flex-direction: column;
     }
-    .slider .botto div{
+    .slider .botto .bot{
         width: 100%;
         margin-bottom: 20px;
     }
+    
+     
 }
-
+@media  (max-width: 568.98px) {
+    .slider .patterns svg,.slider .botto svg{
+        height: 100px;
+     }
+     .slider .patterns h4,.slider .botto .bot h4{
+        font-size: 20px;
+    }
+}
 
 
 /* Slider Button Styling // Gallery */

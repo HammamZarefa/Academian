@@ -58,7 +58,7 @@
                 return this.urgencies.filter((el) => {
                       return  el.id == this.params.urgency;
                 }); -->
-      <a class="button" >{{passParam == true ? filteredServicesParam[0].name[locale] :  filteredServices[0].name[locale]}}</a>
+      <a class="button" >{{passParam == true ? filteredServices[0].name[locale] :  filteredServices[0].name[locale]}}</a>
       <i class="">{{ $t('Selected') }}</i> 
     </summary>
   
@@ -358,14 +358,15 @@ export default {
             passParam:false,
             chosenServType:false,
             params : {},
+            params_service:null,
             hasError:false,
             show_worklevel:true,
-            active_services:this.filteredServices_categories == undefined ? this.service_categories[0].id : this.filteredServices_categories[0].id,
+            active_services: this.service_categories[0].id ,
             errors: {},
             additional_services: [],
             form: {
                 service_model:this.services? this.services[0]: {},
-                service_categories_model:  this.filteredServices_categories == undefined? this.service_categories[0] : this.filteredServices_categories[0],
+                service_categories_model:  this.service_categories[0],
                 urgency_model: this.urgencies ? this.urgencies[0] : {},
                 work_level_model: this.levels ? this.levels[0] : {},
                 work_level_id: this.levels ? this.levels[0].id : 1,
@@ -385,11 +386,11 @@ export default {
         // console.log('filteredlevels:',JSON.stringify(this.filteredlevels));
         // console.log('passParam:',this.passParam);
         // console.log('service_categories:',this.service_categories);
-        console.log('filteredServicesParam:',this.filteredServicesParam);
+        // console.log('filteredServicesParam:',this.filteredServicesParam);
         // console.log('service_categories_model:',this.form.service_categories_model);
         // console.log('service_model:',this.form.service_model);
         // console.log('filteredServices_categories[0]:',this.filteredServices_categories[0]);
-        // console.log('filteredServices:',this.filteredServices);
+        console.log('filteredServices:',this.filteredServices);
         window.location.search.slice(1).split('&').forEach(elm => {
             if (elm === '') return;
             let spl = elm.split('=');
@@ -402,15 +403,14 @@ export default {
                  this.passParam = false;
             }
         });
-        if(typeof(this.params.Service_Category) == 'string'){
-               this.active_services = this.filteredServices_categories[0].id;
-               this.form.service_categories_model =  this.filteredServices_categories[0];
-        }
-        if(typeof(this.params.Service_Category) == 'string'){
-               this.active_services = this.filteredServices_categories[0].id;
-               this.form.service_categories_model =  this.filteredServices_categories[0];
-        }
-        
+        // if(typeof(this.params.Service_Category) == 'string'){
+        //        this.active_services = this.filteredServices_categories[0].id;
+        //        this.form.service_categories_model =  this.filteredServices_categories[0];
+        // }   
+        if(typeof(this.params.service) == 'string'){
+             console.log('params.service:',this.params.service);
+             this.params_service = this.params.service;
+         }    
         if(typeof(this.params.work_level) == 'string'){
             this.lev = true;
             this.form.work_level_model = this.filteredlevels[0];
@@ -435,18 +435,18 @@ export default {
  
     },
        computed: {
-        filteredServices_categories() {
-            if (this.passParam == true) {
-                if(this.service_categories.some(item => item.id ==  this.params.Service_Category)){
-                return this.levels.filter((el) => {
-                      return  el.id == this.params.Service_Category;
-                });
-                }
-                else {
-                return this.service_categories;
-                }
-            } 
-         },
+        // filteredServices_categories() {
+        //     if (this.passParam == true) {
+        //         if(this.service_categories.some(item => item.id ==  this.params.Service_Category)){
+        //         return this.levels.filter((el) => {
+        //               return  el.id == this.params.Service_Category;
+        //         });
+        //         }
+        //         else {
+        //         return this.service_categories;
+        //         }
+        //     } 
+        //  },
         filteredlevels() {
             if (this.lev == true) {
                 if(this.levels.some(item => item.id ==  this.params.work_level)){
@@ -478,9 +478,9 @@ export default {
             }
         },
         filteredServices() {
-            if (this.form.service_categories_model.length != 0) {
+            if (this.params_service != null) {
                 return this.services.filter((el) => {
-                    return el.service_category_id == this.form.service_categories_model.id;
+                    return el.id == this.params_service;
                 });
             } else {
                 return this.services;

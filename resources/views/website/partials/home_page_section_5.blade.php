@@ -7,20 +7,11 @@
             <a href="/instant-quote?Service_Category=1">
         @endif
             <div class="patterns big">
-                <svg width="100%">
+                <svg width="100%" height="60%">
                     <text x="50%" y="60%" text-anchor="middle">
                         @lang('Writing Service')
-                        <div class="box">
-                            <div class="title">
-                                <span class="block"></span>
-                                <h1>@lang('Professional Services For struggling Students')<span></span></h1>
-                            </div>
-                            {{--<div class="role">--}}
-                                {{--<div class="block"></div>--}}
-                                {{--<p>@lang('500 Clients')</p>--}}
-                            {{--</div>--}}
-                        </div>
                     </text>
+                    <h4>@lang('professional Service in English and Arabic')</h4>
                 </svg>
             </div>
         </a>
@@ -35,38 +26,36 @@
                     <text x="50%" y="60%" text-anchor="middle" >
                     @lang('University Approval')
                     </text>
+                    <h4 >@lang('Unconditional Offers From United Kingdom Universities ')</h4>
                 </svg>
-                    <div class="box">
-                        <div class="title">
-                            <span class="block translat" ></span>
-                            <h1 >@lang('Unconditional Offers From United Kingdom Universities')<span></span></h1>
-                        </div>
-
-                    </div>
+                    
                 </div>
             </a>
             <div class="botto">
-                <div>@if(auth()->check())
+                <div class="bot">@if(auth()->check())
                         <a href="/orders/create?Service_Category=6">
                             @else
                                 <a href="/instant-quote?Service_Category=6">
                                     @endif
-                    <svg width="100%" height="100%">
+                    <svg width="100%" height="60%">
                         <text x="50%" y="60%" text-anchor="middle" class="un_text Writing">
                         @lang('CV Writing')
                         </text>
+                        <h4 >@lang('professional Service in English and Arabic')</h4>
                     </svg>
+                    
                 </a>
                 </div>
-                <div>@if(auth()->check())
+                <div class="bot">@if(auth()->check())
                         <a href="/orders/create?Service_Category=2">
                             @else
                                 <a href="/instant-quote?Service_Category=2">
                                     @endif
-                    <svg width="104%" height="100%">
+                    <svg width="104%" height="60%">
                         <text x="50%" y="60%" text-anchor="middle" class="un_text translate">
                         @lang('Translation Service')
                         </text>
+                        <h4 >@lang('English and Arabic Documents ')</h4>
                         {{--<text x="50%" y="70%" text-anchor="middle" class="un_text">--}}
                         {{--@lang('Approval')--}}
                         {{--</text>--}}
