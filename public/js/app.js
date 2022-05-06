@@ -96649,7 +96649,8 @@ var render = function() {
     _vm._v(" "),
     _c("div"),
     _vm._v(" "),
-    _vm.form.service_model.price_type_id == _vm.pricingTypes.perPage
+    _vm.form.service_model.price_type_id == _vm.pricingTypes.perPage ||
+    typeof _vm.params.pages == "string"
       ? _c("div", { staticClass: "form-row" }, [
           _c("div", { staticClass: "form-group col-md-4" }, [
             _c("label", [_vm._v(_vm._s(_vm.$t("Number of pages")))]),
@@ -96800,7 +96801,8 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "form-row" }, [
-      _vm.form.service_model.price_type_id == _vm.pricingTypes.perWord
+      _vm.form.service_model.price_type_id == _vm.pricingTypes.perWord ||
+      typeof _vm.params.words == "string"
         ? _c("div", { staticClass: "form-group col-md-6" }, [
             _c("label", [_vm._v(_vm._s(_vm.$t("Number of Words")))]),
             _vm._v(" "),
@@ -110676,11 +110678,11 @@ module.exports = JSON.parse("{\"Home\":\"Principal\",\"About\":\"\",\"Service\":
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\theme.scss */"./resources/sass/theme.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
-module.exports = __webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
+__webpack_require__(/*! E:\Academian\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\Academian\resources\sass\theme.scss */"./resources/sass/theme.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
+module.exports = __webpack_require__(/*! E:\Academian\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
 
 
 /***/ })
