@@ -94,7 +94,7 @@
 
         </div>
 
-        <div class="form-row" v-if="form.service_model.price_type_id == pricingTypes.perPage">
+        <div class="form-row" v-if="form.service_model.price_type_id == pricingTypes.perPage || typeof(params.pages) == 'string'">
             <div class="form-group col-md-4">
                 <label>{{ $t('Number of pages') }}</label>
                 <div class="input-group mb-3">
@@ -161,7 +161,7 @@
         <div class="form-row">
             <div
                 class="form-group col-md-6"
-                v-if="form.service_model.price_type_id == pricingTypes.perWord"
+                v-if="form.service_model.price_type_id == pricingTypes.perWord || typeof(params.words) == 'string'"
             >
                 <label>{{ $t('Number of Words') }}</label>
                 <div class="input-group mb-3">
