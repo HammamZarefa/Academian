@@ -7,6 +7,7 @@
          <h4>@lang('List of') {{ $data['entity'] }}</h4>
          <br>
       </div>
+       <a href="{{ route('users_list', ['type' => 'staff']) }}">staff</a>
       <div class="col-md-6">
          @if(in_array($data['type'],['admin', 'staff']))
          {{--<a href="{{ route('user_invitation', ['type' => $data['type']])}}" class="btn btn-success float-md-right">--}}
