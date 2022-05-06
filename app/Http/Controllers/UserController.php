@@ -283,6 +283,7 @@ class UserController extends Controller
     {
 
         $users=User::all();
+        $writers=[];
         foreach ($users as $user)
         {
             if($user->hasRole('staff'))
