@@ -20,10 +20,10 @@
                     <li class="table-button">
                         @if(auth()->check())
                             <a class="btn btn-default"
-                               href="/orders/create?service=21&&Service_Category=1&&words=2000&urgency=7&&work_level=2">
+                               href="/orders/create?service=21&&Service_Category=1&&words=2000&urgency=9&&work_level=2">
                                 @else
                                     <a class="btn btn-default"
-                                       href="/instant-quote?service=21&&Service_Category=1&&words=2000&urgency=7&&work_level=2">
+                                       href="/instant-quote?service=21&&Service_Category=1&&words=2000&urgency=9&&work_level=2">
                                         @endif
 
                                         <i class="icon-basket"></i>@lang('Order Now')</a></li>
@@ -40,9 +40,9 @@
 
                     <li class="table-button">
                         @if(auth()->check())
-                          <a class="btn btn-default" href="/orders/create?service=7&&Service_Category=1&&words=2000&&urgency=7&&work_level=4">
+                          <a class="btn btn-default" href="/orders/create?service=7&&Service_Category=1&&words=2000&&urgency=9&&work_level=4">
                         @else
-                          <a class="btn btn-default" href="/instant-quote?service=7&&Service_Category=1&&words=2000&&urgency=7&&work_level=4">
+                          <a class="btn btn-default" href="/instant-quote?service=7&&Service_Category=1&&words=2000&&urgency=9&&work_level=4">
                         @endif
                                         <i class="icon-basket">
 
@@ -76,9 +76,9 @@
                     <li> @lang('Arabic') </li>
                     <li class="table-button">
                         @if(auth()->check())
-                            <a class="btn btn-default" href="/orders/create?service=35&&Service_Category=1&&words=2000&&urgency=7&&work_level=4">
+                            <a class="btn btn-default" href="/orders/create?service=35&&Service_Category=1&&words=2000&&urgency=9&&work_level=4">
                         @else
-                            <a class="btn btn-default" href="/instant-quote?service=35&&Service_Category=1&&words=2000&&urgency=7&&work_level=4">
+                            <a class="btn btn-default" href="/instant-quote?service=35&&Service_Category=1&&words=2000&&urgency=9&&work_level=4">
                         @endif
                             <i class="icon-basket"></i>@lang('Order Now')</a></li>
                 </ul>
