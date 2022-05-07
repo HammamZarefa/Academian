@@ -12,7 +12,7 @@
     <div class="form-group">
       <label>{{ $t('Service Category') }}</label>
               <div class="service_category">
-       <div class="base"  v-for="(item,index) in service_categories" :key="index"
+       <div class="base"  v-for="(item,index) in filteredServices_categories" :key="index"
         @click="setServices3(item,item.id,item.worklevel)" :class="[active_services == item.id? 'active':'']">
          <input class="option-input" :id="`d${item.id}`" type="radio" name="options" style="opacity:0" 
           :value="item" v-model="form.service_categories_model"  @change="setServices" />
@@ -358,6 +358,7 @@ export default {
             passParam:false,
             chosenServType:false,
             params : {},
+            params_service_catg:null,
             params_service:null,
             hasError:false,
             show_worklevel:true,
@@ -392,7 +393,7 @@ export default {
         // console.log('service_model:',this.form.service_model);
         // console.log('filteredServices_categories[0]:',this.filteredServices_categories[0]);
         // console.log('filteredServices:',this.filteredServices);
-        console.log('7/5/2022 02:30');
+        // console.log('7/5/2022 10:00');
         window.location.search.slice(1).split('&').forEach(elm => {
             if (elm === '') return;
             let spl = elm.split('=');
@@ -409,7 +410,11 @@ export default {
         //        this.active_services = this.filteredServices_categories[0].id;
         //        this.form.service_categories_model =  this.filteredServices_categories[0];
         // }   
-      
+        if(typeof(this.params.Service_Category) == 'string'){
+            
+             this.params_service_catg = this.params.Service_Category;
+             
+        }   
       
         if(typeof(this.params.service) == 'string'){
             //  console.log('params.service:',this.params.service);
@@ -452,6 +457,16 @@ export default {
         //         }
         //     } 
         //  },
+           filteredServices_categories() {
+            if (this.params_service_catg != null) {
+                return this.service_categories.filter((el) => {
+                      return  el.id == this.params_service_catg;
+                });
+            } 
+            else{
+              return  this.service_categories
+            }
+         },
         filteredlevels() {
             if (this.lev == true) {
                 if(this.levels.some(item => item.id ==  this.params.work_level)){
@@ -488,7 +503,10 @@ export default {
                     return el.id == this.params_service;
                 });
             } else {
-                return this.services;
+                // return this.services;
+                return this.services.filter((el) => {
+                    return el.service_category_id == this.form.service_categories_model.id
+                });
             }
         },
         filteredServicesParam(){
