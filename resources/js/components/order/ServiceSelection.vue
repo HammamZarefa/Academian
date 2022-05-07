@@ -366,6 +366,7 @@ export default {
             additional_services: [],
             form: {
                 service_model:this.services? this.services[0]: {},
+                // service_model:this.params_service != null ? this.filteredServices[0]: this.services[0],
                 service_categories_model:  this.service_categories[0],
                 urgency_model: this.urgencies ? this.urgencies[0] : {},
                 work_level_model: this.levels ? this.levels[0] : {},
@@ -390,7 +391,8 @@ export default {
         // console.log('service_categories_model:',this.form.service_categories_model);
         // console.log('service_model:',this.form.service_model);
         // console.log('filteredServices_categories[0]:',this.filteredServices_categories[0]);
-        console.log('filteredServices:',this.filteredServices);
+        // console.log('filteredServices:',this.filteredServices);
+        console.log('7/5/2022 02:30');
         window.location.search.slice(1).split('&').forEach(elm => {
             if (elm === '') return;
             let spl = elm.split('=');
@@ -407,9 +409,12 @@ export default {
         //        this.active_services = this.filteredServices_categories[0].id;
         //        this.form.service_categories_model =  this.filteredServices_categories[0];
         // }   
+      
+      
         if(typeof(this.params.service) == 'string'){
-             console.log('params.service:',this.params.service);
+            //  console.log('params.service:',this.params.service);
              this.params_service = this.params.service;
+             this.form.service_model = this.filteredServices[0];
          }    
         if(typeof(this.params.work_level) == 'string'){
             this.lev = true;
