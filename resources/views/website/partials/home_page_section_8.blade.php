@@ -59,9 +59,9 @@
                     <li>@lang('English')</li>
                     <li class="table-button">
                         @if(auth()->check())
-                            <a class="btn btn-default" href="/orders/create?service=30&&Service_Category=1&&pages=15&&spacing_type=double&&work_level=4">
+                            <a class="btn btn-default" href="/orders/create?service=30&&Service_Category=1&&urgency=9&&pages=15&&spacing_type=double&&work_level=4">
                         @else
-                            <a class="btn btn-default" href="/instant-quote?service=30&&Service_Category=1&&pages=15&&spacing_type=double&&work_level=4">
+                            <a class="btn btn-default" href="/instant-quote?service=30&&Service_Category=1&&urgency=9&&pages=15&&spacing_type=double&&work_level=4">
                         @endif
                             <i class="icon-basket"></i>@lang('Order Now')</a></li>
                 </ul>
@@ -76,9 +76,9 @@
                     <li> @lang('Arabic') </li>
                     <li class="table-button">
                         @if(auth()->check())
-                            <a class="btn btn-default" href="/orders/create?service=35&&Service_Category=1&&words=2000&&urgency=9&&work_level=4">
+                            <a class="btn btn-default" href="/orders/create?service=35&&Service_Category=1&&words=2000&&urgency=9&&work_level=5">
                         @else
-                            <a class="btn btn-default" href="/instant-quote?service=35&&Service_Category=1&&words=2000&&urgency=9&&work_level=4">
+                            <a class="btn btn-default" href="/instant-quote?service=35&&Service_Category=1&&words=2000&&urgency=9&&work_level=5">
                         @endif
                             <i class="icon-basket"></i>@lang('Order Now')</a></li>
                 </ul>
