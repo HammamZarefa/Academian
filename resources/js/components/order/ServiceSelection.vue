@@ -393,7 +393,12 @@ export default {
         // console.log('service_model:',this.form.service_model);
         // console.log('filteredServices_categories[0]:',this.filteredServices_categories[0]);
         // console.log('filteredServices:',this.filteredServices);
-        // console.log('7/5/2022 10:00');
+        window.onload = () => {
+           this.form.service_model = this.filteredServices[0];
+            };
+        console.log('7/5/2022 11:30');
+        // console.log(this.service_categories);
+        
         window.location.search.slice(1).split('&').forEach(elm => {
             if (elm === '') return;
             let spl = elm.split('=');
@@ -412,7 +417,8 @@ export default {
         // }   
         if(typeof(this.params.Service_Category) == 'string'){
             
-             this.params_service_catg = this.params.Service_Category;
+            this.params_service_catg = this.params.Service_Category;
+            this.active_services = this.params.Service_Category;
              
         }   
       
@@ -498,14 +504,21 @@ export default {
             }
         },
         filteredServices() {
-            if (this.params_service != null) {
+            if ( this.params_service != null) {
                 return this.services.filter((el) => {
                     return el.id == this.params_service;
                 });
-            } else {
+            }
+            else if(this.params_service_catg !=null && this.params_service == null){
+            // return this.services;
+                return this.services.filter((el) => {
+                    return el.service_category_id == this.params_service_catg;
+                });
+            }
+             else {
                 // return this.services;
                 return this.services.filter((el) => {
-                    return el.service_category_id == this.form.service_categories_model.id
+                    return el.service_category_id == this.form.service_categories_model.id;
                 });
             }
         },
@@ -794,7 +807,9 @@ a.button:active {
   margin: 20px 0 0 0;
   padding:  0;
   width: 100%;
-  height: 215px;
+//   height: 215px;
+  height: auto;
+  max-height: 215px;
   overflow-y: scroll;
   left: 0;
   top: 42px;

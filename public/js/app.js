@@ -3943,7 +3943,12 @@ __webpack_require__.r(__webpack_exports__);
     // console.log('service_model:',this.form.service_model);
     // console.log('filteredServices_categories[0]:',this.filteredServices_categories[0]);
     // console.log('filteredServices:',this.filteredServices);
-    // console.log('7/5/2022 10:00');
+    window.onload = function () {
+      _this.form.service_model = _this.filteredServices[0];
+    };
+
+    console.log('7/5/2022 11:30'); // console.log(this.service_categories);
+
     window.location.search.slice(1).split('&').forEach(function (elm) {
       if (elm === '') return;
       var spl = elm.split('=');
@@ -3962,6 +3967,7 @@ __webpack_require__.r(__webpack_exports__);
 
     if (typeof this.params.Service_Category == 'string') {
       this.params_service_catg = this.params.Service_Category;
+      this.active_services = this.params.Service_Category;
     }
 
     if (typeof this.params.service == 'string') {
@@ -4057,6 +4063,11 @@ __webpack_require__.r(__webpack_exports__);
       if (this.params_service != null) {
         return this.services.filter(function (el) {
           return el.id == _this5.params_service;
+        });
+      } else if (this.params_service_catg != null && this.params_service == null) {
+        // return this.services;
+        return this.services.filter(function (el) {
+          return el.service_category_id == _this5.params_service_catg;
         });
       } else {
         // return this.services;
@@ -14036,7 +14047,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".service_category[data-v-5fbbe9ba] {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}\n.service_category .base[data-v-5fbbe9ba] {\n  position: relative;\n  display: grid;\n  grid-template-columns: repeat(30, 1fr);\n  grid-template-rows: repeat(10, 1fr);\n  width: 150px;\n  height: 50px;\n  border-radius: 0.3rem;\n  margin-bottom: 15px;\n  color: #fff;\n  background: #a9afb0;\n  cursor: pointer;\n  transition: 0.3s;\n  font: 700 16px sans-serif;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);\n}\n.service_category .base[data-v-5fbbe9ba]:hover {\n  background: #5e72e4;\n}\n.service_category .base.active[data-v-5fbbe9ba] {\n  background: #5e72e4;\n  box-shadow: 0 8px 16px #5e72e4;\n}\n.service_category .bg[data-v-5fbbe9ba] {\n  position: absolute;\n  z-index: 10;\n  left: 0;\n  top: 0;\n  display: grid;\n  place-content: center;\n  width: 100%;\n  height: 100%;\n  grid-column: 1/span 30;\n  grid-row: 1/span 10;\n  transition: opacity 0.3s;\n  pointer-events: none;\n  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);\n}\n\n/* Follow me for more pens like this! */\n/* Tweak to change the look and feel */\n/* Boring button styles */\na.button[data-v-5fbbe9ba] {\n  /* Frame */\n  display: inline-block;\n  padding: 3px 15px;\n  border-radius: 5px;\n  box-sizing: border-box;\n  /* Style */\n  border: none;\n  background: #fff;\n  color: #5e6e7e;\n  font-size: 18px;\n  cursor: pointer;\n}\na.button[data-v-5fbbe9ba]:active {\n  -webkit-filter: brightness(75%);\n          filter: brightness(75%);\n}\n\n/* Dropdown styles */\n.dropdown[data-v-5fbbe9ba] {\n  position: relative;\n  padding: 0;\n  height: 40px;\n  border: 1px solid #ececec;\n  border-radius: 5px;\n}\n\n/* Dropdown triangle */\n.dropdown summary[data-v-5fbbe9ba] {\n  list-style: none;\n  list-style-type: none;\n  position: relative;\n}\n.dropdown summary i[data-v-5fbbe9ba] {\n  position: absolute;\n  right: 14px;\n  top: 10px;\n  color: #999999;\n}\n.dropdown > summary[data-v-5fbbe9ba]::-webkit-details-marker {\n  display: none;\n}\n.dropdown summary[data-v-5fbbe9ba]:focus {\n  outline: none;\n}\n.dropdown summary:focus a.button[data-v-5fbbe9ba] {\n  border: 2px solid white;\n}\n.dropdown summary[data-v-5fbbe9ba]:focus {\n  outline: none;\n}\n.dropdown ul[data-v-5fbbe9ba] {\n  position: absolute;\n  margin: 20px 0 0 0;\n  padding: 0;\n  width: 100%;\n  height: 215px;\n  overflow-y: scroll;\n  left: 0;\n  top: 42px;\n  margin: 0;\n  box-sizing: border-box;\n  z-index: 3;\n  border: 1px solid #ececec;\n  background: #fff;\n  border-radius: 5px;\n  list-style: none;\n}\n.dropdown ul li[data-v-5fbbe9ba] {\n  padding: 0;\n  margin: 0;\n}\n.dropdown ul li a[data-v-5fbbe9ba]:link, .dropdown ul li a[data-v-5fbbe9ba]:visited {\n  display: inline-block;\n  padding: 6px 0.8rem;\n  width: 100%;\n  box-sizing: border-box;\n  color: black;\n  text-decoration: none;\n}\n.dropdown ul li a[data-v-5fbbe9ba]:hover {\n  background-color: #2caf72;\n  color: #fff;\n}\n.dropdown ul li a.active[data-v-5fbbe9ba]:hover {\n  background-color: #fa4f61;\n  color: #fff;\n}\n\n/* Close the dropdown with outside clicks */\n.dropdown > summary[data-v-5fbbe9ba]::before {\n  display: none;\n}\n.dropdown[open] > summary[data-v-5fbbe9ba]::before {\n  content: \" \";\n  display: block;\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  z-index: 1;\n}\nbutton i[data-v-5fbbe9ba] {\n  margin: 0 5px;\n}", ""]);
+exports.push([module.i, ".service_category[data-v-5fbbe9ba] {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}\n.service_category .base[data-v-5fbbe9ba] {\n  position: relative;\n  display: grid;\n  grid-template-columns: repeat(30, 1fr);\n  grid-template-rows: repeat(10, 1fr);\n  width: 150px;\n  height: 50px;\n  border-radius: 0.3rem;\n  margin-bottom: 15px;\n  color: #fff;\n  background: #a9afb0;\n  cursor: pointer;\n  transition: 0.3s;\n  font: 700 16px sans-serif;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);\n}\n.service_category .base[data-v-5fbbe9ba]:hover {\n  background: #5e72e4;\n}\n.service_category .base.active[data-v-5fbbe9ba] {\n  background: #5e72e4;\n  box-shadow: 0 8px 16px #5e72e4;\n}\n.service_category .bg[data-v-5fbbe9ba] {\n  position: absolute;\n  z-index: 10;\n  left: 0;\n  top: 0;\n  display: grid;\n  place-content: center;\n  width: 100%;\n  height: 100%;\n  grid-column: 1/span 30;\n  grid-row: 1/span 10;\n  transition: opacity 0.3s;\n  pointer-events: none;\n  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);\n}\n\n/* Follow me for more pens like this! */\n/* Tweak to change the look and feel */\n/* Boring button styles */\na.button[data-v-5fbbe9ba] {\n  /* Frame */\n  display: inline-block;\n  padding: 3px 15px;\n  border-radius: 5px;\n  box-sizing: border-box;\n  /* Style */\n  border: none;\n  background: #fff;\n  color: #5e6e7e;\n  font-size: 18px;\n  cursor: pointer;\n}\na.button[data-v-5fbbe9ba]:active {\n  -webkit-filter: brightness(75%);\n          filter: brightness(75%);\n}\n\n/* Dropdown styles */\n.dropdown[data-v-5fbbe9ba] {\n  position: relative;\n  padding: 0;\n  height: 40px;\n  border: 1px solid #ececec;\n  border-radius: 5px;\n}\n\n/* Dropdown triangle */\n.dropdown summary[data-v-5fbbe9ba] {\n  list-style: none;\n  list-style-type: none;\n  position: relative;\n}\n.dropdown summary i[data-v-5fbbe9ba] {\n  position: absolute;\n  right: 14px;\n  top: 10px;\n  color: #999999;\n}\n.dropdown > summary[data-v-5fbbe9ba]::-webkit-details-marker {\n  display: none;\n}\n.dropdown summary[data-v-5fbbe9ba]:focus {\n  outline: none;\n}\n.dropdown summary:focus a.button[data-v-5fbbe9ba] {\n  border: 2px solid white;\n}\n.dropdown summary[data-v-5fbbe9ba]:focus {\n  outline: none;\n}\n.dropdown ul[data-v-5fbbe9ba] {\n  position: absolute;\n  margin: 20px 0 0 0;\n  padding: 0;\n  width: 100%;\n  height: auto;\n  max-height: 215px;\n  overflow-y: scroll;\n  left: 0;\n  top: 42px;\n  margin: 0;\n  box-sizing: border-box;\n  z-index: 3;\n  border: 1px solid #ececec;\n  background: #fff;\n  border-radius: 5px;\n  list-style: none;\n}\n.dropdown ul li[data-v-5fbbe9ba] {\n  padding: 0;\n  margin: 0;\n}\n.dropdown ul li a[data-v-5fbbe9ba]:link, .dropdown ul li a[data-v-5fbbe9ba]:visited {\n  display: inline-block;\n  padding: 6px 0.8rem;\n  width: 100%;\n  box-sizing: border-box;\n  color: black;\n  text-decoration: none;\n}\n.dropdown ul li a[data-v-5fbbe9ba]:hover {\n  background-color: #2caf72;\n  color: #fff;\n}\n.dropdown ul li a.active[data-v-5fbbe9ba]:hover {\n  background-color: #fa4f61;\n  color: #fff;\n}\n\n/* Close the dropdown with outside clicks */\n.dropdown > summary[data-v-5fbbe9ba]::before {\n  display: none;\n}\n.dropdown[open] > summary[data-v-5fbbe9ba]::before {\n  content: \" \";\n  display: block;\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  z-index: 1;\n}\nbutton i[data-v-5fbbe9ba] {\n  margin: 0 5px;\n}", ""]);
 
 // exports
 
@@ -110700,11 +110711,11 @@ module.exports = JSON.parse("{\"Home\":\"Principal\",\"About\":\"\",\"Service\":
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\theme.scss */"./resources/sass/theme.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
-module.exports = __webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
+__webpack_require__(/*! E:\Academian\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\Academian\resources\sass\theme.scss */"./resources/sass/theme.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
+module.exports = __webpack_require__(/*! E:\Academian\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
 
 
 /***/ })
