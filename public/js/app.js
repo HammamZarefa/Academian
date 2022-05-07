@@ -3907,6 +3907,7 @@ __webpack_require__.r(__webpack_exports__);
       passParam: false,
       chosenServType: false,
       params: {},
+      params_service_catg: null,
       params_service: null,
       hasError: false,
       show_worklevel: true,
@@ -3942,7 +3943,7 @@ __webpack_require__.r(__webpack_exports__);
     // console.log('service_model:',this.form.service_model);
     // console.log('filteredServices_categories[0]:',this.filteredServices_categories[0]);
     // console.log('filteredServices:',this.filteredServices);
-    console.log('7/5/2022 02:30');
+    // console.log('7/5/2022 10:00');
     window.location.search.slice(1).split('&').forEach(function (elm) {
       if (elm === '') return;
       var spl = elm.split('=');
@@ -3958,6 +3959,10 @@ __webpack_require__.r(__webpack_exports__);
     //        this.active_services = this.filteredServices_categories[0].id;
     //        this.form.service_categories_model =  this.filteredServices_categories[0];
     // }   
+
+    if (typeof this.params.Service_Category == 'string') {
+      this.params_service_catg = this.params.Service_Category;
+    }
 
     if (typeof this.params.service == 'string') {
       //  console.log('params.service:',this.params.service);
@@ -4001,15 +4006,26 @@ __webpack_require__.r(__webpack_exports__);
     //         }
     //     } 
     //  },
-    filteredlevels: function filteredlevels() {
+    filteredServices_categories: function filteredServices_categories() {
       var _this2 = this;
+
+      if (this.params_service_catg != null) {
+        return this.service_categories.filter(function (el) {
+          return el.id == _this2.params_service_catg;
+        });
+      } else {
+        return this.service_categories;
+      }
+    },
+    filteredlevels: function filteredlevels() {
+      var _this3 = this;
 
       if (this.lev == true) {
         if (this.levels.some(function (item) {
-          return item.id == _this2.params.work_level;
+          return item.id == _this3.params.work_level;
         })) {
           return this.levels.filter(function (el) {
-            return el.id == _this2.params.work_level;
+            return el.id == _this3.params.work_level;
           });
         } else {
           return this.levels;
@@ -4019,14 +4035,14 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     filteredurgency: function filteredurgency() {
-      var _this3 = this;
+      var _this4 = this;
 
       if (this.urgen == true) {
         if (this.urgencies.some(function (item) {
-          return item.id == _this3.params.urgency;
+          return item.id == _this4.params.urgency;
         })) {
           return this.urgencies.filter(function (el) {
-            return el.id == _this3.params.urgency;
+            return el.id == _this4.params.urgency;
           });
         } else {
           return this.urgencies;
@@ -4036,22 +4052,25 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     filteredServices: function filteredServices() {
-      var _this4 = this;
+      var _this5 = this;
 
       if (this.params_service != null) {
         return this.services.filter(function (el) {
-          return el.id == _this4.params_service;
+          return el.id == _this5.params_service;
         });
       } else {
-        return this.services;
+        // return this.services;
+        return this.services.filter(function (el) {
+          return el.service_category_id == _this5.form.service_categories_model.id;
+        });
       }
     },
     filteredServicesParam: function filteredServicesParam() {
-      var _this5 = this;
+      var _this6 = this;
 
       if (this.passParam == true) {
         return this.services.filter(function (el) {
-          return el.id == _this5.params.service;
+          return el.id == _this6.params.service;
         });
       } else {
         return this.services;
@@ -96414,7 +96433,7 @@ var render = function() {
       _c(
         "div",
         { staticClass: "service_category" },
-        _vm._l(_vm.service_categories, function(item, index) {
+        _vm._l(_vm.filteredServices_categories, function(item, index) {
           return _c(
             "div",
             {
