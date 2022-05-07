@@ -17,9 +17,9 @@
         </a>
         <div class="right">
             @if(auth()->check())
-                <a href="/orders/create?Service_Category=3">
+                <a href="/orders/create?Service_Category=2">
                     @else
-                        <a href="/instant-quote?Service_Category=3">
+                        <a href="/instant-quote?Service_Category=2">
                             @endif
                 <div class="patterns">
                 <svg width="100%" height="100%">
@@ -47,9 +47,9 @@
                 </a>
                 </div>
                 <div class="bot">@if(auth()->check())
-                        <a href="/orders/create?Service_Category=2">
+                        <a href="/orders/create?Service_Category=3">
                             @else
-                                <a href="/instant-quote?Service_Category=2">
+                                <a href="/instant-quote?Service_Category=3">
                                     @endif
                     <svg width="104%" height="60%">
                         <text x="50%" y="60%" text-anchor="middle" class="un_text translate">
