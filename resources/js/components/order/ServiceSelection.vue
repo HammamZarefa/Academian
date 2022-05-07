@@ -396,8 +396,8 @@ export default {
         window.onload = () => {
            this.form.service_model = this.filteredServices[0];
             };
-        console.log('7/5/2022 10:00');
-        console.log(this.service_categories);
+        console.log('7/5/2022 11:30');
+        // console.log(this.service_categories);
         
         window.location.search.slice(1).split('&').forEach(elm => {
             if (elm === '') return;

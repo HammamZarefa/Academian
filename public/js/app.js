@@ -3947,8 +3947,8 @@ __webpack_require__.r(__webpack_exports__);
       _this.form.service_model = _this.filteredServices[0];
     };
 
-    console.log('7/5/2022 10:00');
-    console.log(this.service_categories);
+    console.log('7/5/2022 11:30'); // console.log(this.service_categories);
+
     window.location.search.slice(1).split('&').forEach(function (elm) {
       if (elm === '') return;
       var spl = elm.split('=');
@@ -110711,11 +110711,11 @@ module.exports = JSON.parse("{\"Home\":\"Principal\",\"About\":\"\",\"Service\":
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\theme.scss */"./resources/sass/theme.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
-module.exports = __webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
+__webpack_require__(/*! E:\Academian\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\Academian\resources\sass\theme.scss */"./resources/sass/theme.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
+module.exports = __webpack_require__(/*! E:\Academian\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
 
 
 /***/ })
