@@ -42,7 +42,7 @@ class HomeController extends Controller
         $writers= $this->userController->getWriters();
         $reviews=Testimonial::where('status','PUBLISH')->get();
         $posts = Post::where('status','=','PUBLISH')->orderBy('id','desc')->limit(6)->get();
-        $videos = Video::orderBy('id', 'desc')->limit(4)->get();
+        $videos = Video::orderBy('id', 'desc')->limit(100)->get();
         return view('website.index', compact('services','service_categories','writers','reviews','posts','videos'));
     }
 
