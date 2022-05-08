@@ -5,9 +5,9 @@
             <ul>
                 @foreach($available_locales as $locale_name => $available_locale)
                 @if($available_locale === $current_locale)
-                <li  class="active`"><a href="language/{{$available_locale}}"> {{ $locale_name }}</a></li>
+                <li  class="active`"><a style="padding: 0 3px;" href="language/{{$available_locale}}"> {{ $locale_name }}</a></li>
                 @else
-                <li ><a href="{{route('language',$available_locale)}}"> {{ $locale_name }}</a></li>
+                <li ><a style="padding: 0 3px;" href="{{route('language',$available_locale)}}"> {{ $locale_name }}</a></li>
                 @endif
                 @endforeach
             </ul>
