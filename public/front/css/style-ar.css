@@ -1243,7 +1243,7 @@ input::-webkit-inner-spin-button {
     background-color: #46627e;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 500;
     border-radius: 3px;
 }
 .dropdown-content::after{
@@ -1604,9 +1604,9 @@ svg .un_text{
 #gallery-images{
     direction: ltr !important;
 }
-#gallery-images iframe{
+/* #gallery-images iframe{
     width: 100%;
-}
+} */
 /* Slider Button Styling // Gallery */
 .gallery {
     position: relative;
