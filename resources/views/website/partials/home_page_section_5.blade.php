@@ -41,7 +41,7 @@
                         <text x="50%" y="60%" text-anchor="middle" class="un_text Writing">
                         @lang('CV Writing')
                         </text>
-                        <h4 >@lang('professional Service in English and Arabic')</h4>
+                        <h4 >@lang('Professional Service in English and Arabic')</h4>
                     </svg>
                     
                 </a>
@@ -55,7 +55,7 @@
                         <text x="50%" y="60%" text-anchor="middle" class="un_text translate">
                         @lang('Translation Service')
                         </text>
-                        <h4 >@lang('English and Arabic Documents ')</h4>
+                        <h4 >@lang('English and Arabic Documents')</h4>
                         {{--<text x="50%" y="70%" text-anchor="middle" class="un_text">--}}
                         {{--@lang('Approval')--}}
                         {{--</text>--}}

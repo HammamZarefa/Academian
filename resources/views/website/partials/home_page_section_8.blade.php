@@ -11,19 +11,19 @@
         <div class="row">
             <div class="col-sm-3">
                 <ul class="table-list">
-                    <li class="table-header">@lang('Essay')</li>
-                    <li class="table-price">£240,<sup>00</sup></li>
+                    <li class="table-header">@lang('Proofreading')</li>
+                    <li class="table-price">£100,<sup>00</sup></li>
                     <li>2000 @lang('words')</li>
                     <li>@lang('Degree')</li>
-                    <li>@lang('7 Days')</li>
+                    <li>@lang('9 Days')</li>
                     <li>@lang('English') </li>
                     <li class="table-button">
                         @if(auth()->check())
                             <a class="btn btn-default"
-                               href="/orders/create?service=21&&Service_Category=1&&words=2000&urgency=9&&work_level=2">
+                               href="/orders/create?service=33&&Service_Category=1&&words=2000&urgency=7&&work_level=2">
                                 @else
                                     <a class="btn btn-default"
-                                       href="/instant-quote?service=21&&Service_Category=1&&words=2000&urgency=9&&work_level=2">
+                                       href="/instant-quote?service=33&&Service_Category=1&&words=2000&urgency=7&&work_level=2">
                                         @endif
 
                                         <i class="icon-basket"></i>@lang('Order Now')</a></li>
@@ -32,17 +32,17 @@
             <div class="col-sm-3">
                 <ul class="table-list">
                     <li class="table-header">@lang('Assignment')</li>
-                    <li class="table-price">£300,<sup>00</sup></li>
+                    <li class="table-price">£200,<sup>00</sup></li>
                     <li>2000 @lang('Words')</li>
-                    <li>@lang('Masters')</li>
-                    <li>@lang('7 Days') </li>
-                    <li>@lang('English') ,@lang('French'), @lang('or Arabic') </li>
+                    <li>@lang('Degree')</li>
+                    <li>@lang('9 Days') </li>
+                    <li>@lang('English') , @lang('or Arabic') </li>
 
                     <li class="table-button">
                         @if(auth()->check())
-                          <a class="btn btn-default" href="/orders/create?service=7&&Service_Category=1&&words=2000&&urgency=9&&work_level=4">
+                          <a class="btn btn-default" href="/orders/create?service=7&&Service_Category=1&&words=2000&&urgency=7&&work_level=2">
                         @else
-                          <a class="btn btn-default" href="/instant-quote?service=7&&Service_Category=1&&words=2000&&urgency=9&&work_level=4">
+                          <a class="btn btn-default" href="/instant-quote?service=7&&Service_Category=1&&words=2000&&urgency=7&&work_level=2">
                         @endif
                                         <i class="icon-basket">
 
@@ -68,17 +68,17 @@
             </div>
             <div class="col-sm-3">
                 <ul class="table-list">
-                    <li class="table-header">@lang('Report')</li>
-                    <li class="table-price">£320,<sup>00</sup></li>
+                    <li class="table-header">@lang('Editing')</li>
+                    <li class="table-price">£80,<sup>00</sup></li>
                     <li>2000 @lang('Words')</li>
-                    <li>@lang('Ph.D')</li>
-                    <li>7 @lang('Days')</li>
+                    <li>@lang('Degree')</li>
+                    <li>9 @lang('Days')</li>
                     <li> @lang('Arabic') </li>
                     <li class="table-button">
                         @if(auth()->check())
-                            <a class="btn btn-default" href="/orders/create?service=35&&Service_Category=1&&words=2000&&urgency=9&&work_level=5">
+                            <a class="btn btn-default" href="/orders/create?service=20&&Service_Category=1&&words=2000&&urgency=7&&work_level=2">
                         @else
-                            <a class="btn btn-default" href="/instant-quote?service=35&&Service_Category=1&&words=2000&&urgency=9&&work_level=5">
+                            <a class="btn btn-default" href="/instant-quote?service=20&&Service_Category=1&&words=2000&&urgency=7&&work_level=2">
                         @endif
                             <i class="icon-basket"></i>@lang('Order Now')</a></li>
                 </ul>
