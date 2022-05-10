@@ -69,7 +69,7 @@
             <div class="col-sm-3">
                 <ul class="table-list">
                     <li class="table-header">@lang('Editing')</li>
-                    <li class="table-price">£80,<sup>00</sup></li>
+                    <li class="table-price">£160,<sup>00</sup></li>
                     <li>2000 @lang('Words')</li>
                     <li>@lang('Degree')</li>
                     <li>9 @lang('Days')</li>
