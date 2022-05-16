@@ -61,7 +61,16 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="form-group">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    is Featured?  <input type="checkbox" id="feature" name="feature" value="1" >
+                </div>
+            </div>
 
+        </div>
     </div>
     <input type="submit" name="submit" class="btn btn-success" value="@lang('Submit')"/>
 </form>

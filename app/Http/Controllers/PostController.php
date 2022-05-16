@@ -134,7 +134,7 @@ class PostController extends Controller
             "meta_desc" => "required"
         ])->validate();
         $data = $request->all();
-        $data['feature'] ? $request->feature : 0 ;
+        $data['feature'] = isset($request->feature)?$request->feature  : 0 ;
         $data['slug'] = \Str::slug($request->title['en']);
         $data['category_id'] = request('category');
         $data['status'] = 'PUBLISH';

@@ -1321,8 +1321,8 @@ input::-webkit-inner-spin-button {
 
 }
 svg text {
-    font-family: Lora;
-    letter-spacing: 2px;
+    /*font-family: Lora;*/
+    /*letter-spacing: 2px;*/
     font-size: 4vw;
     font-weight: 700;
     stroke-width: 3;
