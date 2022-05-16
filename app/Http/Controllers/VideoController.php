@@ -47,6 +47,7 @@ class VideoController extends Controller
             "url" => "required"
         ])->validate();
         $data = $request->all();
+        $data['feature'] = isset($request->feature)?$request->feature  : 0 ;
 //        dd($data);
         $video = Video::create($data);
 
@@ -99,7 +100,7 @@ class VideoController extends Controller
 
         $video = Video::findOrFail($id);
         $data = $request->all();
-
+        $data['feature'] = isset($request->feature)?$request->feature  : 0 ;
 
         $update = $video->update($data);
 
