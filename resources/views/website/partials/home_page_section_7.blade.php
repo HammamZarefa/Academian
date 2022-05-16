@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row title">
             <div class="col-sm-12">
-                <h2>@lang('Meet the Teachers')</h2>
-                <p>@lang('To strengthen the academic legitimacy and expertise with which the academic service is offered, meet our professional staff.').</p>
+                <h2>@lang('Meet our Academic specialists')</h2>
+                <p>@lang('To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists').</p>
             </div>
         </div>
         <div class="row">
