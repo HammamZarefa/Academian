@@ -13,7 +13,7 @@ class Post extends Model
 
     protected $guarded = [];
 
-    protected $fillable = ['category_id','author_id','title','slug','cover','body','keyword','meta_desc','views','status'];
+    protected $fillable = ['category_id','author_id','title','slug','cover','body','keyword','meta_desc','views','status','feature'];
 
     public $translatable = ['title', 'body','keyword','meta_desc'];
 

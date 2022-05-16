@@ -135,6 +135,7 @@
                 </div>
             </div>
         </div>
+
         <div class="form-group">
             <div class="container">
                 <div class="row">
@@ -206,6 +207,7 @@
                         </ul>
                     </div>
                 </div>
+                <div>is Featured?  <input type="checkbox" id="feature" name="feature" value="1" ></div>
             </div>
         </div>
         <input type="submit" name="submit" class="btn btn-success" value="@lang('Submit')"/>

@@ -190,6 +190,7 @@
                     </ul>
                 </div>
             </div>
+            <div>is Featured?  <input type="checkbox" id="feature" name="feature"  {{$post->feature ? "checked" : ""}} value="1"></div>
         </div>
     </div>
     <input type="submit" name="submit" class="btn btn-success" value="@lang('Submit')"/>

@@ -134,6 +134,7 @@ class PostController extends Controller
             "meta_desc" => "required"
         ])->validate();
         $data = $request->all();
+        $data['feature'] ? $request->feature : 0 ;
         $data['slug'] = \Str::slug($request->title['en']);
         $data['category_id'] = request('category');
         $data['status'] = 'PUBLISH';
@@ -257,7 +258,6 @@ class PostController extends Controller
      */
     public function update(Request $request,$post)
     {
-//        dd($request);
         \Validator::make($request->all(), [
             "title" => "required",
             "body" => "required",
@@ -269,6 +269,7 @@ class PostController extends Controller
 
         $post = Post::findOrFail($post);
         $data = $request->all();
+        $data['feature'] = isset($request->feature)?$request->feature  : 0 ;
         $data['slug'] = \Str::slug($request->title['en']);
         $data['category_id'] = request('category');
         $cover = $request->file('cover');
