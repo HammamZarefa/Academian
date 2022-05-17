@@ -702,7 +702,7 @@ p{
 
 
 body {
-    font-family: 'Roboto', sans-serif,'Arial';
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 300;
     color: #888;
@@ -1580,9 +1580,9 @@ svg .un_text{
 
 
 /* Slider Button Styling // Gallery */
-/* #gallery-images iframe{
-    width: 100%;
-} */
+#gallery-images iframe{
+    border-image: url('/media/examples/border-diamonds.png') 30;
+}
 .gallery {
     position: relative;
     padding: 50px 0;
@@ -1591,7 +1591,19 @@ svg .un_text{
     cursor: pointer;
 }
 .gallery .owl-item{
-    width: 40%;
+    display: flex;
+justify-content: center;
+}
+.gallery .owl-item .item{
+    width: 420px;
+}
+@media (max-width:568px) {
+    .gallery .owl-item .item{
+        width: 90%;
+    }
+}
+.gallery .owl-item .item iframe{
+    width: 100%;
 }
 .owl-controls {
     text-align:center;
