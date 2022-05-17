@@ -1616,7 +1616,19 @@ svg .un_text{
     cursor: pointer;
 }
 .gallery .owl-item{
-    width: 40%;
+    display: flex;
+justify-content: center;
+}
+.gallery .owl-item .item{
+    width: 420px;
+}
+@media (max-width:568px) {
+    .gallery .owl-item .item{
+        width: 90%;
+    }
+}
+.gallery .owl-item .item iframe{
+    width: 100%;
 }
 .owl-controls {
     text-align:center;
