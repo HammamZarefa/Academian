@@ -44,11 +44,12 @@
       <div class="item">
       <!-- <iframe width="440" height="315" src="http://www.youtube.com/embed/qpv7sEjx52Y?"></iframe>  -->
         <!-- <iframe width="440" height="315" src="{{ $video->title}}"></iframe>  {{$video->url}} -->
-        <iframe class="vid"  height="315" src="http://www.youtube.com/embed/qpv7sEjx52Y?" frameborder="0" allowfullscreen></iframe>
+        <iframe class="vid"  height="315" src="{{$video->url}}" frameborder="0" allowfullscreen></iframe>
         </div>
             {{--<iframe width="900" height="506" src="{{ $video->desc}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
             @endforeach
     </div>
+
 </section>
 <!-- /Gallery Section -->
 </div>
