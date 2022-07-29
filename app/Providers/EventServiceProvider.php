@@ -63,6 +63,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\PaymentDisapprovedEvent' => [
             'App\Listeners\PaymentDisapprovedListener',
         ],
+        'App\Events\PlagiarsmCountRequestEvent' => [
+            'App\Listeners\PlagiarsmCountRequestListener',
+        ],
     ];
 
     /**
