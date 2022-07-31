@@ -388,5 +388,6 @@
                 }
             }
         }
+
     </script>
 @endpush

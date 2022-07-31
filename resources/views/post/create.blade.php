@@ -102,12 +102,12 @@
         <div class="form-group">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10">
-                        <label>@lang('Desc') <span class="required">*</span></label>
-                        @foreach(Config::get('app.available_locales') as $lang)
-                            <textarea id="body_{{$lang}}" type="text" class="summernote form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
-                                      name="body[{{$lang}}]">{{ old_set('body['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
-                        @endforeach
+                    <div class="col-md-10" >
+                        <label>@lang('Desc') <span class="required" >*</span></label>
+                        {{--@foreach(Config::get('app.available_locales') as $lang)--}}
+                            <textarea id="summernote" type="text" class="summernote form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
+                                      name="body">{{ old_set('body['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
+                        {{--@endforeach--}}
                         <div class="invalid-feedback d-block">{{ showError($errors, 'body.*') }}</div>
                     </div>
                     <div class="col-md-2">
@@ -408,5 +408,39 @@
                 }
             }
         }
+        $(document).ready(function() {
+            console.log('ready')
+        $('#summernote').summernote({
+            placeholder: 'Write here',
+            tabsize: 2,
+            height: 500,
+            callbacks: {
+                onImageUpload: function(image) {
+                    uploadImage(image[0]);
+                }
+            }
+        }});
+
+        function uploadImage(image) {
+            var data = new FormData();
+            data.append("image", image);
+            console.log('called successufly');
+            $.ajax({
+                url: "/my_flask_endpoint",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: data,
+                type: "POST",
+                success: function(filename) {
+                    var image = $('<img>').attr('src', '/route/to/images/' + filename).addClass("img-fluid");
+                    $('#summernote').summernote("insertNode", image[0]);
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        }
+
     </script>
 @endpush
