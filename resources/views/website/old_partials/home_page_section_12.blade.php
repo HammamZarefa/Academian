@@ -1,14 +1,15 @@
 <!-- Slider -->
-<section class="contact-us">
+<section class="slider" id="menu-contact">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <h2 class="title">@lang('Get in touch with us today to learn more.')</h2>
+            <div class="col-sm-6">
+                <h3>@lang('Academic writing services')</h3>
+                <h2>@lang('For')</h2>
+                <h4>@lang('all struggling students'), <br/>@lang('and all level of study') .</h4>
+                <hr />
+                <h4>@lang('Suscribe to the form and get all the')<br/> @lang('information that you need')</h4>
             </div>
-            <div class="col-sm-6 con1">
-                <img src="{{ asset('front/img/Home Page Last Image.jpg') }}" alt="">
-            </div>
-            <div class="col-sm-6 con2">
+            <div class="col-sm-6">
                 <form id="request" class="row suscribe" action="{{route('sendmail')}}" method="post" accept-charset="utf-8">
                     {{ csrf_field()  }}
                     <div class="col-sm-12">
@@ -25,8 +26,8 @@
                             <option>@lang('PHD')</option>
                         </select>
                     </div>
-                    <div class="col-sm-12 text-center">
-                        <button type="submit" class="btn btn-default text-center">@lang('Submit') </button>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-default text-center"><i class="icon-info"></i>@lang('Request Information') </button>
                     </div>
                 </form>
             </div>

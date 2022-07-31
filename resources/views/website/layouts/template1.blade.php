@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link href="{{ asset('front/font/fontello.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('front/swiper-bundle.min.css') }}" rel="stylesheet">
    @if(session()->get('locale')==='ar')
      <link href="{{ asset('front/css/style-ar.css') }}" rel="stylesheet">
       @else
@@ -37,7 +38,66 @@
 @include('website.layouts.footer')
 
 <script src="{{ asset('js/theme.min.js') }}"></script>
+<script src="{{ asset('js/new.js') }}"></script>
+<script src="{{ asset('front/swiper-bundle.min.js') }}"></script>
+<script>
+        var swiper2 = new Swiper('.swiper1', {
+    // Optional parameters
+    direction: 'horizontal',
+    speed: 1000,
+    loop: true,
 
+    breakpoints: {
+
+      300: {  // when window width from 300px to 576px
+        slidesPerView: 1,
+        spaceBetween: 50
+      },
+      576: {  // when window width from 576px to 767px
+        slidesPerView: 1,
+        spaceBetween: 50
+      },
+      767: { // when window width from 767px to 991px
+        slidesPerView: 2,
+        spaceBetween: 50
+      },
+
+      991: { // when window width from 991px to 1200px
+        slidesPerView: 3,
+        spaceBetween: 50
+      },
+      1200: { // when window width from 1200px to higher
+        slidesPerView: 3,
+        spaceBetween: 50
+      },
+    },
+    // Navigation arrows
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+
+
+  });
+
+  var swiper2 = new Swiper('.swiper2', {
+    // Optional parameters
+    direction: 'vertical',
+    speed: 1000,
+    loop: true,
+
+    slidesPerView: 2,
+    // Navigation arrows
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+
+
+  });
+    </script>
 {{--{!! settings('website_footer_script') !!}--}}
 </body>
 </html>

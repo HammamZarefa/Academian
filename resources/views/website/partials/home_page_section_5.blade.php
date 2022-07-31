@@ -1,70 +1,38 @@
 <!-- Slider -->
-<section class="slider" id="menu-slider">
-    <div class="contain">
-        @if(auth()->check())
-            <a href="/orders/create?Service_Category=1">
-        @else
-            <a href="/instant-quote?Service_Category=1">
-        @endif
-            <div class="patterns big">
-                <svg width="100%" height="60%">
-                    <text x="50%" y="60%" text-anchor="middle">
-                        @lang('Academic Writing')
-                    </text>
-                    <h4>@lang('Professional Services For struggling Students')</h4>
-                </svg>
-            </div>
-        </a>
-        <div class="right">
-            @if(auth()->check())
-                <a href="/orders/create?Service_Category=2">
-                    @else
-                        <a href="/instant-quote?Service_Category=2">
-                            @endif
-                <div class="patterns">
-                <svg width="100%" height="100%">
-                    <text x="50%" y="60%" text-anchor="middle" >
-                    @lang('University Approval')
-                    </text>
-                    <h4 >@lang('Unconditional Offers From United Kingdom Universities')</h4>
-                </svg>
-                    
-                </div>
-            </a>
-            <div class="botto">
-                <div class="bot">@if(auth()->check())
-                        <a href="/orders/create?Service_Category=6">
-                            @else
-                                <a href="/instant-quote?Service_Category=6">
-                                    @endif
-                    <svg width="100%" height="60%">
-                        <text x="50%" y="60%" text-anchor="middle" class="un_text Writing">
-                        @lang('CV Writing')
-                        </text>
-                        <h4 >@lang('Professional Service in English and Arabic')</h4>
-                    </svg>
-                    
+<section class="About-us">
+ <div class="container">
+     <div class="row contain">
+         <div class="col-sm-6 info">
+            <h1>@lang('Academian')</h1>
+            <p>
+            @lang('Academian.co.uk provides an outstanding level of academic writing for all study levels and all specialties. Professional writers help struggling students to step up forward.')
+            </p>
+            <button class="main-button">
+                <a href="">
+                    @lang('Get Quote') <i class="fas fa-arrow-right"></i>
                 </a>
-                </div>
-                <div class="bot">@if(auth()->check())
-                        <a href="/orders/create?Service_Category=3">
-                            @else
-                                <a href="/instant-quote?Service_Category=3">
-                                    @endif
-                    <svg width="104%" height="60%">
-                        <text x="50%" y="60%" text-anchor="middle" class="un_text translate">
-                        @lang('Translation Service')
-                        </text>
-                        <h4 >@lang('English and Arabic Documents')</h4>
-                        {{--<text x="50%" y="70%" text-anchor="middle" class="un_text">--}}
-                        {{--@lang('Approval')--}}
-                        {{--</text>--}}
-
-                    </svg>
-                </a></div>
+            </button>
+         </div>
+         <div class="col-sm-6 pic">
+             <img src="{{ asset('front/img/Home Page 1st Image.jpg') }}" alt="">
+         </div>      
+     </div>
+     <div class="row contain contain2">
+            <div class="col-sm-4 pic">
+                <img src="{{ asset('front/img/Home Page 2nd Image.jpg') }}" alt="">
             </div>
-            
-        </div>
-    </div>
+            <div class="col-sm-8 info">
+                <h3>@lang('The Best Service to Help Students with their Homework')</h3>
+                <p class="p2">
+                @lang('Academian.co.uk is the best essay writing service that provides high-quality essays, research papers and term papers to students all around the United Kingdom. Our professional writers offer a wide range of writing services, whether it was an essay, a research paper, a dissertation, or even a PhD thesis we got it. Recruit the most talented writers, who will work hard to meet your deadlines. Place your order and enjoy our essay help by our qualified writers.')
+                </p>
+                <button class="main-button">
+                    <a href="">
+                        @lang('Get Quote') <i class="fas fa-arrow-right"></i>
+                    </a>
+                </button>
+            </div>
+         </div>
+ </div>
 </section>
 <!-- end Slider -->
