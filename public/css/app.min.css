@@ -15139,6 +15139,10 @@ a h5:hover {
   border-radius: 50% !important;
 }
 
+.page-container {
+  margin-bottom: 150px;
+}
+
 .navbar-background {
   /*background: #591E8B !important;*/
   /* background-color: #6e00ff !important;*/
@@ -15232,6 +15236,7 @@ a {
 }
 
 .page-container {
+  margin-bottom: 20%;
   margin-top: 40px;
 }
 

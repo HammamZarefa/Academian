@@ -1,0 +1,112 @@
+.pad20{
+  padding: 0 20px;
+}
+.pay-contain .card-title{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #06243E;
+}
+.pay-contain .small{
+  font-size: 18px;
+  font-weight: 501;
+}
+.pay-contain h6{
+  font-weight: 501;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  color: #06243E;
+}
+.pay-contain .card-pay{
+  border: 2px solid #87A2B9;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.pay-contain .total{
+  padding: 16px;
+  background-color: #3667BF;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.pay-contain .order_number{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #06243E;
+}
+.pay-contain .order_number a{
+  font-weight: 501;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  color: #3667BF;
+}
+.pay-contain hr{
+  background-color: #06243E;
+  width: calc(100% - 20px);
+  margin: 10px auto;
+}
+.pay-contain .pay-list{
+  margin-top: 20px;
+}
+.pay-contain .pay-list p{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #06243E;
+}
+.pay-contain .pay-list .pay-item{
+  display: block;
+  padding: 10px 20px;
+  transition: .5s;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #3667BF;
+  margin: 5px 20px;
+  border-radius: 5px;
+}
+.pay-contain .pay-list .pay-item i{
+  margin-inline-end: 10px;
+}
+.pay-contain .pay-list .pay-item:hover{
+  color: #06243E;
+  background-color: #C4DEF4;
+}
+.back_to{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.back_to button,.back_to a{
+  width: 48%;
+  margin: 10px 0;
+}
+.back_to a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #3667BF;
+  border-radius: 4px;
+}
+.back_to a:hover{
+  color: #06243E;
+  background-color: #87A2B9;;
+}
+.btn-Create{
+  background-color: #3667BF;
+  color: #fff;
+}
+.btn-Create:hover{
+  background-color: #06243E;
+}

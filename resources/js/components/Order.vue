@@ -2,9 +2,9 @@
   <div>
     <form v-on:submit.prevent>
       <div class="row">
-        <div class="col-md-7">
-          <div class="card">
-            <div class="card-body">
+        <div class="col-md-6">
+          <div class="">
+            <div class="">
               <div v-if="isActiveTab(1)">
                 <ServiceSelection
                   :pricingTypes="pricingTypes"
@@ -31,7 +31,7 @@
             </div>
           </div>
         </div>
-        <div class="offset-md-1 col-md-4">
+        <div class="offset-md-1 col-md-5">
           <div class="sticky-top">
             <OrderSummary :form="dataForOrderSummary" @dataChanged="handleCalculatedData($event)"></OrderSummary>           
           </div>

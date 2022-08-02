@@ -3211,6 +3211,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     upload_attachment_url: {
@@ -3307,10 +3308,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -3811,6 +3808,80 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3899,8 +3970,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
-    var locale = localStorage.getItem('locale') || 'en';
+    var locale = localStorage.getItem("locale") || "en";
     return {
+      seclector1: false,
       locale: locale,
       lev: false,
       urgen: false,
@@ -3939,7 +4011,7 @@ __webpack_require__.r(__webpack_exports__);
     // console.log('passParam:',this.passParam);
     // console.log('service_categories:',this.service_categories);
     // console.log('filteredServicesParam:',this.filteredServicesParam);
-    // console.log('service_categories_model:',this.form.service_categories_model);
+    // console.log("service_categories_model:",this.form.service_categories_model);
     // console.log('service_model:',this.form.service_model);
     // console.log('filteredServices_categories[0]:',this.filteredServices_categories[0]);
     // console.log('filteredServices:',this.filteredServices);
@@ -3947,11 +4019,11 @@ __webpack_require__.r(__webpack_exports__);
       _this.form.service_model = _this.filteredServices[0];
     };
 
-    console.log('7/5/2022 11:30'); // console.log(this.service_categories);
+    console.log("7/5/2022 11:30"); // console.log(this.service_categories);
 
-    window.location.search.slice(1).split('&').forEach(function (elm) {
-      if (elm === '') return;
-      var spl = elm.split('=');
+    window.location.search.slice(1).split("&").forEach(function (elm) {
+      if (elm === "") return;
+      var spl = elm.split("=");
       var d = decodeURIComponent;
       _this.params[d(spl[0])] = spl.length >= 2 ? d(spl[1]) : true;
 
@@ -3963,39 +4035,39 @@ __webpack_require__.r(__webpack_exports__);
     }); // if(typeof(this.params.Service_Category) == 'string'){
     //        this.active_services = this.filteredServices_categories[0].id;
     //        this.form.service_categories_model =  this.filteredServices_categories[0];
-    // }   
+    // }
 
-    if (typeof this.params.Service_Category == 'string') {
+    if (typeof this.params.Service_Category == "string") {
       this.params_service_catg = this.params.Service_Category;
       this.active_services = this.params.Service_Category;
     }
 
-    if (typeof this.params.service == 'string') {
+    if (typeof this.params.service == "string") {
       //  console.log('params.service:',this.params.service);
       this.params_service = this.params.service;
       this.form.service_model = this.filteredServices[0];
     }
 
-    if (typeof this.params.work_level == 'string') {
+    if (typeof this.params.work_level == "string") {
       this.lev = true;
       this.form.work_level_model = this.filteredlevels[0];
       this.form.work_level_id = this.filteredlevels[0].id;
     }
 
-    if (typeof this.params.urgency == 'string') {
+    if (typeof this.params.urgency == "string") {
       this.urgen = true;
       this.form.urgency_model = this.filteredurgency[0];
     }
 
-    if (typeof this.params.pages == 'string') {
+    if (typeof this.params.pages == "string") {
       this.form.number_of_pages = this.params.pages;
     }
 
-    if (typeof this.params.spacing_type == 'string') {
+    if (typeof this.params.spacing_type == "string") {
       this.form.spacing_type = this.params.spacing_type;
     }
 
-    if (typeof this.params.words == 'string') {
+    if (typeof this.params.words == "string") {
       this.form.number_of_words = this.params.words;
     }
   },
@@ -4010,7 +4082,7 @@ __webpack_require__.r(__webpack_exports__);
     //         else {
     //         return this.service_categories;
     //         }
-    //     } 
+    //     }
     //  },
     filteredServices_categories: function filteredServices_categories() {
       var _this2 = this;
@@ -4154,28 +4226,28 @@ __webpack_require__.r(__webpack_exports__);
     validateNumberOfWords: function validateNumberOfWords() {
       if (this.form.number_of_words < this.form.service_model.minimum_order_quantity) {
         var minimum_order_quantity = this.form.service_model.minimum_order_quantity;
-        this.$set(this.errors, "number_of_words", ['Minium order quantity is ' + minimum_order_quantity]);
+        this.$set(this.errors, "number_of_words", ["Minium order quantity is " + minimum_order_quantity]);
       } else {
-        this.$delete(this.errors, 'number_of_words');
+        this.$delete(this.errors, "number_of_words");
       }
 
-      this.$delete(this.errors, 'number_of_pages');
+      this.$delete(this.errors, "number_of_pages");
     },
     validateNumberOfPages: function validateNumberOfPages() {
       if (this.form.number_of_pages < this.form.service_model.minimum_order_quantity) {
         var minimum_order_quantity = this.form.service_model.minimum_order_quantity;
-        this.$set(this.errors, "number_of_pages", ['Minium order quantity is ' + minimum_order_quantity]);
+        this.$set(this.errors, "number_of_pages", ["Minium order quantity is " + minimum_order_quantity]);
       } else {
-        this.$delete(this.errors, 'number_of_pages');
+        this.$delete(this.errors, "number_of_pages");
       }
 
-      this.$delete(this.errors, 'number_of_words');
+      this.$delete(this.errors, "number_of_words");
     },
     getAdditionalServices: function getAdditionalServices(service_model) {
       // Clear the errors
       this.errors = {}; // Clear the added services
 
-      this.$set(this.form, 'added_services', []);
+      this.$set(this.form, "added_services", []);
       var service_id = service_model.id;
       var minimum_order_quantity = service_model.minimum_order_quantity;
 
@@ -4235,7 +4307,6 @@ __webpack_require__.r(__webpack_exports__);
 
       if (charCode > 31 && (charCode < 48 || charCode > 57)) {
         evt.preventDefault();
-        ;
       } else {
         return true;
       }
@@ -14035,6 +14106,44 @@ function isnan (val) {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/Instruction.vue?vue&type=style&index=0&id=6cbf11f2&lang=scss&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--10-2!./node_modules/sass-loader/dist/cjs.js??ref--10-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/order/Instruction.vue?vue&type=style&index=0&id=6cbf11f2&lang=scss&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".card-title[data-v-6cbf11f2] {\n  font-weight: 600;\n  font-size: 18px;\n  line-height: 24px;\n  letter-spacing: 0.1px;\n  color: #06243E;\n}\n.small[data-v-6cbf11f2] {\n  font-size: 18px;\n  font-weight: 501;\n}\nh6[data-v-6cbf11f2] {\n  font-weight: 501;\n  font-size: 16px;\n  line-height: 22px;\n  letter-spacing: 0.5px;\n  color: #06243E;\n}\n.btn-Create[data-v-6cbf11f2] {\n  background-color: #3667BF;\n  color: #fff;\n}\n.btn-Create[data-v-6cbf11f2]:hover {\n  background-color: #06243E;\n}\n.btn-Quest[data-v-6cbf11f2] {\n  background-color: #fff;\n  color: #3667BF;\n}\n.btn-Quest[data-v-6cbf11f2]:hover {\n  background-color: #C4DEF4;\n  color: #06243E;\n}\n.con-butt[data-v-6cbf11f2] {\n  display: flex;\n  justify-content: space-between;\n}\n.con-butt button[data-v-6cbf11f2] {\n  width: 48%;\n}\n@media (max-width: 768px) {\n.con-butt[data-v-6cbf11f2] {\n    flex-direction: column;\n}\n.con-butt button[data-v-6cbf11f2] {\n    width: 100%;\n    margin: 10px 0;\n}\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/OrderSummary.vue?vue&type=style&index=0&id=7607ea78&lang=scss&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--10-2!./node_modules/sass-loader/dist/cjs.js??ref--10-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/order/OrderSummary.vue?vue&type=style&index=0&id=7607ea78&lang=scss&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "p[data-v-7607ea78] {\n  margin: 0;\n}\nspan[data-v-7607ea78] {\n  font-weight: 501;\n  font-size: 16px;\n  line-height: 22px;\n  letter-spacing: 0.5px;\n  color: #06243E;\n}\n.summary-card[data-v-7607ea78] {\n  border: 1px solid #87A2B9;\n  border-radius: 16px;\n  overflow: hidden;\n}\n.summary-card .card-title[data-v-7607ea78] {\n  font-weight: 600;\n  font-size: 24px;\n  line-height: 32px;\n  color: #06243E;\n  margin: 20px 0;\n}\n.pad-20[data-v-7607ea78] {\n  padding: 0 20px;\n}\n.total[data-v-7607ea78] {\n  background-color: #3667BF;\n  color: #fff;\n  padding: 15px 20px;\n  display: flex;\n  justify-content: space-between;\n  font-weight: 600;\n  font-size: 24px;\n  line-height: 32px;\n}\ntable[data-v-7607ea78] {\n  margin: 0;\n}\ntr[data-v-7607ea78] {\n  background-color: #C4DEF4;\n}\ntr th[data-v-7607ea78], tr td[data-v-7607ea78] {\n  padding: 10px 20px;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/ServiceSelection.vue?vue&type=style&index=0&id=5fbbe9ba&lang=scss&scoped=true&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--10-2!./node_modules/sass-loader/dist/cjs.js??ref--10-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/order/ServiceSelection.vue?vue&type=style&index=0&id=5fbbe9ba&lang=scss&scoped=true& ***!
@@ -14047,7 +14156,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".service_category[data-v-5fbbe9ba] {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}\n.service_category .base[data-v-5fbbe9ba] {\n  position: relative;\n  display: grid;\n  grid-template-columns: repeat(30, 1fr);\n  grid-template-rows: repeat(10, 1fr);\n  width: 150px;\n  height: 50px;\n  border-radius: 0.3rem;\n  margin-bottom: 15px;\n  color: #fff;\n  background: #a9afb0;\n  cursor: pointer;\n  transition: 0.3s;\n  font: 700 16px sans-serif;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);\n}\n.service_category .base[data-v-5fbbe9ba]:hover {\n  background: #5e72e4;\n}\n.service_category .base.active[data-v-5fbbe9ba] {\n  background: #5e72e4;\n  box-shadow: 0 8px 16px #5e72e4;\n}\n.service_category .bg[data-v-5fbbe9ba] {\n  position: absolute;\n  z-index: 10;\n  left: 0;\n  top: 0;\n  display: grid;\n  place-content: center;\n  width: 100%;\n  height: 100%;\n  grid-column: 1/span 30;\n  grid-row: 1/span 10;\n  transition: opacity 0.3s;\n  pointer-events: none;\n  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);\n}\n\n/* Follow me for more pens like this! */\n/* Tweak to change the look and feel */\n/* Boring button styles */\na.button[data-v-5fbbe9ba] {\n  /* Frame */\n  display: inline-block;\n  padding: 3px 15px;\n  border-radius: 5px;\n  box-sizing: border-box;\n  /* Style */\n  border: none;\n  background: #fff;\n  color: #5e6e7e;\n  font-size: 18px;\n  cursor: pointer;\n}\na.button[data-v-5fbbe9ba]:active {\n  -webkit-filter: brightness(75%);\n          filter: brightness(75%);\n}\n\n/* Dropdown styles */\n.dropdown[data-v-5fbbe9ba] {\n  position: relative;\n  padding: 0;\n  height: 40px;\n  border: 1px solid #ececec;\n  border-radius: 5px;\n}\n\n/* Dropdown triangle */\n.dropdown summary[data-v-5fbbe9ba] {\n  list-style: none;\n  list-style-type: none;\n  position: relative;\n}\n.dropdown summary i[data-v-5fbbe9ba] {\n  position: absolute;\n  right: 14px;\n  top: 10px;\n  color: #999999;\n}\n.dropdown > summary[data-v-5fbbe9ba]::-webkit-details-marker {\n  display: none;\n}\n.dropdown summary[data-v-5fbbe9ba]:focus {\n  outline: none;\n}\n.dropdown summary:focus a.button[data-v-5fbbe9ba] {\n  border: 2px solid white;\n}\n.dropdown summary[data-v-5fbbe9ba]:focus {\n  outline: none;\n}\n.dropdown ul[data-v-5fbbe9ba] {\n  position: absolute;\n  margin: 20px 0 0 0;\n  padding: 0;\n  width: 100%;\n  height: auto;\n  max-height: 215px;\n  overflow-y: scroll;\n  left: 0;\n  top: 42px;\n  margin: 0;\n  box-sizing: border-box;\n  z-index: 3;\n  border: 1px solid #ececec;\n  background: #fff;\n  border-radius: 5px;\n  list-style: none;\n}\n.dropdown ul li[data-v-5fbbe9ba] {\n  padding: 0;\n  margin: 0;\n}\n.dropdown ul li a[data-v-5fbbe9ba]:link, .dropdown ul li a[data-v-5fbbe9ba]:visited {\n  display: inline-block;\n  padding: 6px 0.8rem;\n  width: 100%;\n  box-sizing: border-box;\n  color: black;\n  text-decoration: none;\n}\n.dropdown ul li a[data-v-5fbbe9ba]:hover {\n  background-color: #2caf72;\n  color: #fff;\n}\n.dropdown ul li a.active[data-v-5fbbe9ba]:hover {\n  background-color: #fa4f61;\n  color: #fff;\n}\n\n/* Close the dropdown with outside clicks */\n.dropdown > summary[data-v-5fbbe9ba]::before {\n  display: none;\n}\n.dropdown[open] > summary[data-v-5fbbe9ba]::before {\n  content: \" \";\n  display: block;\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  z-index: 1;\n}\nbutton i[data-v-5fbbe9ba] {\n  margin: 0 5px;\n}", ""]);
+exports.push([module.i, ".btn-Create[data-v-5fbbe9ba] {\n  background-color: #3667BF;\n  color: #fff;\n}\n.btn-Create[data-v-5fbbe9ba]:hover {\n  background-color: #06243E;\n}\n.btn-Quest[data-v-5fbbe9ba] {\n  background-color: #fff;\n  color: #3667BF;\n}\n.btn-Quest[data-v-5fbbe9ba]:hover {\n  background-color: #C4DEF4;\n  color: #06243E;\n}\n.card-title[data-v-5fbbe9ba] {\n  font-weight: 600;\n  font-size: 18px;\n  line-height: 24px;\n  letter-spacing: 0.1px;\n  color: #06243E;\n}\n.small[data-v-5fbbe9ba] {\n  font-size: 18px;\n  font-weight: 501;\n}\nh6[data-v-5fbbe9ba] {\n  font-weight: 501;\n  font-size: 16px;\n  line-height: 22px;\n  letter-spacing: 0.5px;\n  color: #06243E;\n}\n\n/* Boring button styles */\na.button[data-v-5fbbe9ba] {\n  /* Frame */\n  display: inline-block;\n  padding: 3px 15px;\n  border-radius: 5px;\n  box-sizing: border-box;\n  /* Style */\n  border: none;\n  background: #fff;\n  color: #5e6e7e;\n  font-size: 18px;\n  cursor: pointer;\n}\na.button[data-v-5fbbe9ba]:active {\n  -webkit-filter: brightness(75%);\n          filter: brightness(75%);\n}\n\n/* Dropdown styles */\n.dropdown[data-v-5fbbe9ba] {\n  position: relative;\n  padding: 10px 0;\n  height: 55px;\n  border: 1px solid #a8a8a8;\n  border-radius: 5px;\n}\n\n/* Dropdown triangle */\n.dropdown summary[data-v-5fbbe9ba] {\n  list-style: none;\n  list-style-type: none;\n  position: relative;\n}\n.dropdown summary i[data-v-5fbbe9ba] {\n  position: absolute;\n  right: 14px;\n  top: 10px;\n  color: #999999;\n}\n.dropdown > summary[data-v-5fbbe9ba]::-webkit-details-marker {\n  display: none;\n}\n.dropdown summary[data-v-5fbbe9ba]:focus {\n  outline: none;\n}\n.dropdown summary:focus a.button[data-v-5fbbe9ba] {\n  border: 2px solid white;\n}\n.dropdown summary[data-v-5fbbe9ba]:focus {\n  outline: none;\n}\n.dropdown ul[data-v-5fbbe9ba] {\n  position: absolute;\n  margin: 20px 0 0 0;\n  padding: 0;\n  width: 100%;\n  height: auto;\n  max-height: 215px;\n  overflow-y: scroll;\n  left: 0;\n  top: 42px;\n  margin: 0;\n  box-sizing: border-box;\n  z-index: 3;\n  border: 1px solid #ececec;\n  background: #fff;\n  border-radius: 5px;\n  list-style: none;\n}\n.dropdown ul li[data-v-5fbbe9ba] {\n  padding: 0;\n  margin: 0;\n}\n.dropdown ul li a[data-v-5fbbe9ba]:link,\n.dropdown ul li a[data-v-5fbbe9ba]:visited {\n  display: inline-block;\n  padding: 6px 0.8rem;\n  width: 100%;\n  box-sizing: border-box;\n  color: black;\n  text-decoration: none;\n}\n.dropdown ul li a[data-v-5fbbe9ba]:hover {\n  background-color: #2caf72;\n  color: #fff;\n}\n.dropdown ul li a.active[data-v-5fbbe9ba]:hover {\n  background-color: #fa4f61;\n  color: #fff;\n}\n\n/* Close the dropdown with outside clicks */\n.dropdown > summary[data-v-5fbbe9ba]::before {\n  display: none;\n}\n.dropdown[open] > summary[data-v-5fbbe9ba]::before {\n  content: \" \";\n  display: block;\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  z-index: 1;\n}\nbutton i[data-v-5fbbe9ba] {\n  margin: 0 5px;\n}", ""]);
 
 // exports
 
@@ -86413,6 +86522,66 @@ S2.define('jquery.select2',[
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/Instruction.vue?vue&type=style&index=0&id=6cbf11f2&lang=scss&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--10-2!./node_modules/sass-loader/dist/cjs.js??ref--10-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/order/Instruction.vue?vue&type=style&index=0&id=6cbf11f2&lang=scss&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--10-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--10-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Instruction.vue?vue&type=style&index=0&id=6cbf11f2&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/Instruction.vue?vue&type=style&index=0&id=6cbf11f2&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/OrderSummary.vue?vue&type=style&index=0&id=7607ea78&lang=scss&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--10-2!./node_modules/sass-loader/dist/cjs.js??ref--10-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/order/OrderSummary.vue?vue&type=style&index=0&id=7607ea78&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--10-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--10-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./OrderSummary.vue?vue&type=style&index=0&id=7607ea78&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/OrderSummary.vue?vue&type=style&index=0&id=7607ea78&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/ServiceSelection.vue?vue&type=style&index=0&id=5fbbe9ba&lang=scss&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--10-2!./node_modules/sass-loader/dist/cjs.js??ref--10-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/order/ServiceSelection.vue?vue&type=style&index=0&id=5fbbe9ba&lang=scss&scoped=true& ***!
@@ -95671,9 +95840,9 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-7" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", {}, [
+              _c("div", {}, [
                 _vm.isActiveTab(1)
                   ? _c(
                       "div",
@@ -95736,7 +95905,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "offset-md-1 col-md-4" }, [
+          _c("div", { staticClass: "offset-md-1 col-md-5" }, [
             _c(
               "div",
               { staticClass: "sticky-top" },
@@ -95945,10 +96114,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/Instruction.vue?vue&type=template&id=6cbf11f2&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/order/Instruction.vue?vue&type=template&id=6cbf11f2& ***!
-  \********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/Instruction.vue?vue&type=template&id=6cbf11f2&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/order/Instruction.vue?vue&type=template&id=6cbf11f2&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -95965,13 +96134,12 @@ var render = function() {
     [
       _c("h5", { staticClass: "card-title" }, [
         _vm._v("\n   " + _vm._s(_vm.$t("step")) + "\n    "),
-        _c("b", [_vm._v("2")]),
-        _vm._v("/\n    "),
-        _c("span", { staticClass: "small" }, [_vm._v("3")]),
-        _vm._v(_vm._s(_vm.$t("ADDITIONAL PAPER DETAILS")) + " \n  ")
+        _c("b", [_vm._v("2 ")]),
+        _vm._v(_vm._s(_vm.$t("Of")) + "\n    "),
+        _c("span", { staticClass: "small" }, [_vm._v("3")])
       ]),
       _vm._v(" "),
-      _c("hr"),
+      _c("h6", [_vm._v(_vm._s(_vm.$t("ADDITIONAL PAPER DETAILS")) + " ")]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
         _vm._m(0),
@@ -95986,6 +96154,7 @@ var render = function() {
             }
           ],
           staticClass: "form-control",
+          staticStyle: { height: "55px" },
           attrs: { type: "text" },
           domProps: { value: _vm.form.title },
           on: {
@@ -96079,24 +96248,6 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c(
-        "a",
-        {
-          attrs: { href: "#" },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.changeTab(1)
-            }
-          }
-        },
-        [_vm._v(_vm._s(_vm.$t("Previous")))]
-      ),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
       _c("div", { staticClass: "custom-control custom-checkbox" }, [
         _c("input", {
           directives: [
@@ -96163,23 +96314,36 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-success btn-lg btn-block",
-          attrs: { disabled: !_vm.agreedToTermsChecked },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.submit()
+      _c("div", { staticClass: "con-butt" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-Quest btn-lg",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.changeTab(1)
+              }
             }
-          }
-        },
-        [
-          _c("i", { staticClass: "far fa-check-circle" }),
-          _vm._v(_vm._s(_vm.$t("Pay now")) + " \n  ")
-        ]
-      )
+          },
+          [_vm._v("\n    " + _vm._s(_vm.$t("Previous")) + " \n  ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-Create btn-lg",
+            attrs: { disabled: !_vm.agreedToTermsChecked },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.submit()
+              }
+            }
+          },
+          [_vm._v("\n    " + _vm._s(_vm.$t("Pay now")) + " \n  ")]
+        )
+      ])
     ],
     1
   )
@@ -96201,10 +96365,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/OrderSummary.vue?vue&type=template&id=7607ea78&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/order/OrderSummary.vue?vue&type=template&id=7607ea78& ***!
-  \*********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/OrderSummary.vue?vue&type=template&id=7607ea78&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/order/OrderSummary.vue?vue&type=template&id=7607ea78&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -96217,105 +96381,133 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "summary-card" }, [
       !_vm.isObjectEmpty(_vm.form)
-        ? _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [
+        ? _c("div", {}, [
+            _c("h5", { staticClass: "card-title pad-20" }, [
               _vm._v(_vm._s(_vm.$t("Order Summary")))
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "mb-4" }, [
-              _c("p", [
-                _c("b", [_vm._v(_vm._s(_vm.$t("Service")))]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(_vm.form.service_model.name.en) +
-                    "\n                    "
-                ),
-                _c("br")
-              ]),
+            _c("div", {}, [
+              _c(
+                "p",
+                { staticClass: "d-flex justify-content-between pad-20 mb-3" },
+                [
+                  _c("span", [_vm._v(_vm._s(_vm.$t("Service")) + ":")]),
+                  _vm._v(" "),
+                  _c("span", [
+                    _vm._v("  " + _vm._s(_vm.form.service_model.name.en))
+                  ])
+                ]
+              ),
               _vm._v(" "),
-              _c("div", [
-                _c("b", [_vm._v(_vm._s(_vm.$t("Urgency")))]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(_vm.form.urgency_model.name) +
-                    "\n                "
-                )
-              ]),
+              _c(
+                "div",
+                { staticClass: "d-flex justify-content-between pad-20 mb-3" },
+                [
+                  _c("span", [_vm._v(_vm._s(_vm.$t("Urgency")) + ":")]),
+                  _vm._v(" "),
+                  _c("span", [
+                    _vm._v(" " + _vm._s(_vm.form.urgency_model.name))
+                  ])
+                ]
+              ),
               _vm._v(" "),
               _vm.form.service_model.price_type_id == _vm.pricingTypes.fixed
                 ? _c("div", [
-                    _c("div", [
-                      _c("b", [_vm._v(_vm._s(_vm.$t("Rate")))]),
-                      _vm._v(
-                        "\n                        :\n                        " +
-                          _vm._s(_vm._f("formatMoney")(_vm.form.unit_price)) +
-                          "\n                    "
-                      )
-                    ])
+                    _c(
+                      "div",
+                      { staticClass: "d-flex justify-content-between pad-20" },
+                      [
+                        _c("span", [_vm._v(_vm._s(_vm.$t("Rate")) + ":")]),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v(
+                            " " +
+                              _vm._s(_vm._f("formatMoney")(_vm.form.unit_price))
+                          )
+                        ])
+                      ]
+                    )
                   ])
                 : _vm._e(),
               _vm._v(" "),
               _vm.form.service_model.price_type_id == _vm.pricingTypes.perWord
                 ? _c("div", [
-                    _c("div", [
-                      _c("b", [_vm._v(_vm._s(_vm.$t("Number of words")))]),
-                      _vm._v(
-                        "\n                        :\n                        " +
-                          _vm._s(_vm.form.number_of_words) +
-                          "\n                    "
-                      )
-                    ]),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "d-flex justify-content-between pad-20 mb-3"
+                      },
+                      [
+                        _c("span", [
+                          _vm._v(_vm._s(_vm.$t("Number of words")) + " :")
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v(" " + _vm._s(_vm.form.number_of_words))
+                        ])
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("div", [
-                      _c("b", [_vm._v(_vm._s(_vm.$t("Rate")))]),
-                      _vm._v(
-                        "\n                        :\n                        " +
-                          _vm._s(_vm.form.unit_price) +
-                          "\n                    "
-                      )
-                    ])
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "d-flex justify-content-between pad-20 mb-3"
+                      },
+                      [
+                        _c("span", [_vm._v(_vm._s(_vm.$t("Rate")) + ":")]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(_vm.form.unit_price))])
+                      ]
+                    )
                   ])
                 : _vm._e(),
               _vm._v(" "),
               _vm.form.service_model.price_type_id == _vm.pricingTypes.perPage
                 ? _c("div", [
-                    _c("div", [
-                      _c("b", [_vm._v(_vm._s(_vm.$t("Spacing Type")))]),
-                      _vm._v(
-                        "\n                        :\n                        " +
-                          _vm._s(_vm.form.spacing_type) +
-                          "\n                    "
-                      )
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "d-flex justify-content-between pad-20" },
+                      [
+                        _c("span", [
+                          _vm._v(_vm._s(_vm.$t("Spacing Type")) + ":")
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(_vm.form.spacing_type))])
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("div", [
-                      _c("b", [_vm._v(_vm._s(_vm.$t("Pages")))]),
-                      _vm._v(
-                        "\n                        :\n                        " +
-                          _vm._s(_vm.form.number_of_pages) +
-                          "\n                    "
-                      )
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "d-flex justify-content-between pad-20" },
+                      [
+                        _c("span", [_vm._v(_vm._s(_vm.$t("Pages")) + ":")]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(_vm.form.number_of_pages))])
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("div", [
-                      _c("b", [_vm._v(_vm._s(_vm.$t("Rate")))]),
-                      _vm._v(
-                        "\n                        :\n                        " +
-                          _vm._s(_vm._f("formatMoney")(_vm.form.unit_price)) +
-                          "\n                    "
-                      )
-                    ])
+                    _c(
+                      "div",
+                      { staticClass: "d-flex justify-content-between pad-20" },
+                      [
+                        _c("span", [_vm._v(_vm._s(_vm.$t("Rate")) + ":")]),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v(
+                            _vm._s(_vm._f("formatMoney")(_vm.form.unit_price))
+                          )
+                        ])
+                      ]
+                    )
                   ])
                 : _vm._e()
             ]),
             _vm._v(" "),
-            _c("table", { staticClass: "table table-sm" }, [
+            _c("table", { staticClass: "table table-sm " }, [
               _c("tbody", [
                 _c("tr", [
                   _c(
@@ -96378,25 +96570,14 @@ var render = function() {
                         )
                       ])
                     ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("tr", [
-                  _c(
-                    "th",
-                    { staticStyle: { width: "30%" }, attrs: { scope: "row" } },
-                    [_vm._v(_vm._s(_vm.$t("Total")))]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "td",
-                    {
-                      staticClass: "text-right",
-                      staticStyle: { width: "80%" }
-                    },
-                    [_vm._v(_vm._s(_vm.calculateTotal))]
-                  )
-                ])
+                  : _vm._e()
               ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "total" }, [
+              _c("div", [_vm._v(_vm._s(_vm.$t("Total")))]),
+              _vm._v(" "),
+              _c("div", [_vm._v(_vm._s(_vm.calculateTotal))])
             ])
           ])
         : _vm._e()
@@ -96425,101 +96606,83 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "row" }, [
     _c("h5", { staticClass: "card-title" }, [
-      _vm._v("\n    " + _vm._s(_vm.$t("step")) + "\n      "),
-      _c("b", [_vm._v("1")]),
-      _vm._v("/\n      "),
-      _c("span", { staticClass: "small" }, [_vm._v("3")]),
-      _vm._v(" " + _vm._s(_vm.$t("TYPE OF WORK AND DEADLINE")) + "\n    ")
+      _vm._v("\n    " + _vm._s(_vm.$t("Step")) + "\n    "),
+      _c("b", [_vm._v("1 ")]),
+      _vm._v(_vm._s(_vm.$t("Of")) + "\n    "),
+      _c("span", { staticClass: "small" }, [_vm._v("3")])
     ]),
     _vm._v(" "),
-    _c("hr"),
+    _c("h6", [_vm._v(_vm._s(_vm.$t("TYPE OF WORK AND DEADLINE")))]),
     _vm._v(" "),
     _c("div"),
     _vm._v(" "),
-    _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v(_vm._s(_vm.$t("Service Category")))]),
+    _c("div", { staticClass: "form-group col-md-12" }, [
+      _c("label", [
+        _vm._v(_vm._s(_vm.$t("Services"))),
+        _c("span", { staticClass: "required" }, [_vm._v("*")])
+      ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "service_category" },
-        _vm._l(_vm.filteredServices_categories, function(item, index) {
-          return _c(
-            "div",
-            {
-              key: index,
-              staticClass: "base",
-              class: [_vm.active_services == item.id ? "active" : ""],
-              on: {
-                click: function($event) {
-                  return _vm.setServices3(item, item.id, item.worklevel)
-                }
-              }
-            },
-            [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.service_categories_model,
-                    expression: "form.service_categories_model"
-                  }
-                ],
-                staticClass: "option-input",
-                staticStyle: { opacity: "0" },
-                attrs: { id: "d" + item.id, type: "radio", name: "options" },
-                domProps: {
-                  value: item,
-                  checked: _vm._q(_vm.form.service_categories_model, item)
-                },
+      _c("details", { staticClass: "dropdown", attrs: { id: "dropdown" } }, [
+        _c("summary", { attrs: { role: "button" } }, [
+          _c("a", { staticClass: "button" }, [
+            _vm._v(
+              "\n          " +
+                _vm._s(_vm.form.service_categories_model.name[_vm.locale]) +
+                "\n        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-caret-down" })
+        ]),
+        _vm._v(" "),
+        _c(
+          "ul",
+          _vm._l(_vm.filteredServices_categories, function(item, index) {
+            return _c(
+              "li",
+              {
+                key: index,
                 on: {
-                  change: [
-                    function($event) {
-                      return _vm.$set(
-                        _vm.form,
-                        "service_categories_model",
-                        item
-                      )
-                    },
-                    _vm.setServices
-                  ]
+                  click: function($event) {
+                    return _vm.setServices3(item, item.id, item.worklevel)
+                  },
+                  change: _vm.setServices
                 }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "bg",
-                  attrs: {
-                    for: "d" + item.id,
-                    label: item.name,
-                    type: "radio",
-                    name: "service_categories"
-                  }
-                },
-                [
-                  _vm._v(
-                    "\n           " +
-                      _vm._s(
-                        item.name[_vm.locale] == null
-                          ? item.name["en"]
-                          : item.name[_vm.locale]
-                      ) +
-                      "\n\n          "
-                  )
-                ]
-              )
-            ]
-          )
-        }),
-        0
-      )
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    class: [_vm.active_services == item.id ? "active" : ""],
+                    attrs: { href: "#" }
+                  },
+                  [
+                    _vm._v(
+                      "\n            " +
+                        _vm._s(
+                          item.name[_vm.locale] == null
+                            ? item.name["en"]
+                            : item.name[_vm.locale]
+                        ) +
+                        "\n          "
+                    )
+                  ]
+                )
+              ]
+            )
+          }),
+          0
+        )
+      ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v(_vm._s(_vm.$t("Service Type")))]),
+    _c("div", { staticClass: "form-group col-md-12" }, [
+      _c("label", [
+        _vm._v(_vm._s(_vm.$t("ServiceType"))),
+        _c("span", { staticClass: "required" }, [_vm._v("*")])
+      ]),
       _vm._v(" "),
       _vm.filteredServices.length > 1
         ? _c(
@@ -96565,13 +96728,13 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n           " +
+                            "\n            " +
                               _vm._s(
                                 item.name[_vm.locale] == null
                                   ? item.name["en"]
                                   : item.name[_vm.locale]
                               ) +
-                              "    \n              "
+                              "\n          "
                           )
                         ]
                       )
@@ -96604,89 +96767,82 @@ var render = function() {
     ]),
     _vm._v(" "),
     _vm.show_worklevel
-      ? _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v(_vm._s(_vm.$t("Work Level")))]),
+      ? _c("div", { staticClass: "form-group col-md-12" }, [
+          _c("label", [
+            _vm._v(_vm._s(_vm.$t("Work Level"))),
+            _c("span", { staticClass: "required" }, [_vm._v("*")])
+          ]),
           _vm._v(" "),
-          _c("div", [
-            _c(
-              "div",
-              {
-                staticClass: "btn-group btn-group-toggle flex-wrap",
-                attrs: { "data-toggle": "buttons" }
-              },
-              _vm._l(_vm.filteredlevels, function(workLevel, index) {
-                return _c(
-                  "label",
-                  {
-                    key: index,
-                    staticClass: "btn btn-outline-primary",
-                    class:
-                      _vm.form.work_level_id === Number(workLevel.id)
-                        ? "active"
-                        : "",
-                    on: {
-                      click: function($event) {
-                        return _vm.workLevelChanged(workLevel.id, index)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.work_level_id,
-                          expression: "form.work_level_id"
-                        }
-                      ],
-                      staticClass: "btn-group-toggle",
-                      attrs: {
-                        type: "radio",
-                        id: "workLevel_" + index,
-                        autocomplete: "off"
-                      },
-                      domProps: {
-                        value: workLevel.id,
-                        checked: _vm._q(_vm.form.work_level_id, workLevel.id)
-                      },
+          _c(
+            "details",
+            { staticClass: "dropdown", attrs: { id: "dropdown" } },
+            [
+              _c("summary", { attrs: { role: "button" } }, [
+                _c("a", { staticClass: "button" }, [
+                  _vm._v(
+                    "\n          " +
+                      _vm._s(_vm.form.work_level_model.name[_vm.locale]) +
+                      "\n        "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("i", { staticClass: "fas fa-caret-down" })
+              ]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                _vm._l(_vm.filteredlevels, function(workLevel, index) {
+                  return _c(
+                    "li",
+                    {
+                      key: index,
                       on: {
-                        change: function($event) {
-                          return _vm.$set(
-                            _vm.form,
-                            "work_level_id",
-                            workLevel.id
-                          )
+                        click: function($event) {
+                          return _vm.workLevelChanged(workLevel.id, index)
                         }
                       }
-                    }),
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(
-                          workLevel.name[_vm.locale] == null
-                            ? workLevel.name["en"]
-                            : workLevel.name[_vm.locale]
-                        ) +
-                        "   \n          "
-                    )
-                  ]
-                )
-              }),
-              0
-            )
-          ])
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          class: [
+                            _vm.form.work_level_id === Number(workLevel.id)
+                              ? "active"
+                              : ""
+                          ],
+                          attrs: { href: "#" }
+                        },
+                        [
+                          _vm._v(
+                            "\n           " +
+                              _vm._s(
+                                workLevel.name[_vm.locale] == null
+                                  ? workLevel.name["en"]
+                                  : workLevel.name[_vm.locale]
+                              ) +
+                              "\n          "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            ]
+          )
         ])
       : _vm._e(),
-    _vm._v(" "),
-    _c("hr"),
-    _vm._v(" "),
-    _c("div"),
     _vm._v(" "),
     _vm.form.service_model.price_type_id == _vm.pricingTypes.perPage ||
     typeof _vm.params.pages == "string"
       ? _c("div", { staticClass: "form-row" }, [
-          _c("div", { staticClass: "form-group col-md-4" }, [
-            _c("label", [_vm._v(_vm._s(_vm.$t("Number of pages")))]),
+          _c("div", { staticClass: "form-group col-md-6" }, [
+            _c("label", [
+              _vm._v(_vm._s(_vm.$t("Number of pages"))),
+              _c("span", { staticClass: "required" }, [_vm._v("*")])
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "input-group mb-3" }, [
               _c("div", { staticClass: "input-group-prepend" }, [
@@ -96701,7 +96857,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("-")]
+                  [_vm._v("\n            -\n          ")]
                 )
               ]),
               _vm._v(" "),
@@ -96744,7 +96900,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("+")]
+                    [_vm._v("\n              +\n            ")]
                   )
                 ])
               ])
@@ -96752,18 +96908,20 @@ var render = function() {
             _vm._v(" "),
             _vm.errors.number_of_pages
               ? _c("div", { staticClass: "invalid-feedback d-block" }, [
-                  _vm._v(_vm._s(_vm.errors.number_of_pages[0]))
+                  _vm._v(
+                    "\n        " +
+                      _vm._s(_vm.errors.number_of_pages[0]) +
+                      "\n      "
+                  )
                 ])
               : _vm._e()
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group col-md-8" }, [
+          _c("div", { staticClass: "form-group col-md-6" }, [
             _c("label", [
-              _vm._v(
-                "\n                  " +
-                  _vm._s(_vm.$t("Spacing")) +
-                  " \n                    "
-              ),
+              _vm._v("\n        " + _vm._s(_vm.$t("Spacing"))),
+              _c("span", { staticClass: "required" }, [_vm._v("*")]),
+              _vm._v(" "),
               _vm._m(0)
             ]),
             _vm._v(" "),
@@ -96819,9 +96977,7 @@ var render = function() {
                         }
                       }),
                       _vm._v(
-                        "\n                            " +
-                          _vm._s(spacing.name) +
-                          "\n                        "
+                        "\n            " + _vm._s(spacing.name) + "\n          "
                       )
                     ]
                   )
@@ -96837,7 +96993,10 @@ var render = function() {
       _vm.form.service_model.price_type_id == _vm.pricingTypes.perWord ||
       typeof _vm.params.words == "string"
         ? _c("div", { staticClass: "form-group col-md-6" }, [
-            _c("label", [_vm._v(_vm._s(_vm.$t("Number of Words")))]),
+            _c("label", [
+              _vm._v(_vm._s(_vm.$t("Number of Words"))),
+              _c("span", { staticClass: "required" }, [_vm._v("*")])
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "input-group mb-3" }, [
               _c("div", { staticClass: "input-group-prepend" }, [
@@ -96852,7 +97011,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("-")]
+                  [_vm._v("\n            -\n          ")]
                 )
               ]),
               _vm._v(" "),
@@ -96895,7 +97054,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("+")]
+                    [_vm._v("\n              +\n            ")]
                   )
                 ])
               ])
@@ -96903,7 +97062,11 @@ var render = function() {
             _vm._v(" "),
             _vm.errors.number_of_words
               ? _c("div", { staticClass: "invalid-feedback d-block" }, [
-                  _vm._v(_vm._s(_vm.errors.number_of_words[0]))
+                  _vm._v(
+                    "\n        " +
+                      _vm._s(_vm.errors.number_of_words[0]) +
+                      "\n      "
+                  )
                 ])
               : _vm._e()
           ])
@@ -96921,7 +97084,10 @@ var render = function() {
           }
         },
         [
-          _c("label", [_vm._v(_vm._s(_vm.$t("Urgency")))]),
+          _c("label", [
+            _vm._v(_vm._s(_vm.$t("Urgency"))),
+            _c("span", { staticClass: "required" }, [_vm._v("*")])
+          ]),
           _vm._v(" "),
           _c("multiselect", {
             attrs: {
@@ -97005,7 +97171,7 @@ var render = function() {
                                         }),
                                         _vm._v(
                                           _vm._s(_vm.$t("Added")) +
-                                            " \n                  "
+                                            "\n                "
                                         )
                                       ])
                                     : _c("span", [
@@ -97013,15 +97179,15 @@ var render = function() {
                                         _vm._v(
                                           " " +
                                             _vm._s(_vm.$t("Add")) +
-                                            " \n                  "
+                                            "\n                "
                                         )
                                       ]),
                                   _vm._v(
-                                    "\n                                    " +
+                                    "\n                " +
                                       _vm._s(
                                         _vm._f("formatMoney")(addi_serv.rate)
                                       ) +
-                                      "\n                                "
+                                      "\n              "
                                   )
                                 ]
                               )
@@ -97044,7 +97210,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "btn btn-success btn-lg btn-block",
+              staticClass: "btn btn-Create btn-lg btn-block",
               attrs: { disabled: _vm.hasError, type: "button" },
               on: {
                 click: function($event) {
@@ -97055,7 +97221,7 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-arrow-circle-right" }),
-              _vm._v(_vm._s(_vm.$t("Next")) + " \n            ")
+              _vm._v(_vm._s(_vm.$t("Next")) + "\n    ")
             ]
           )
         ])
@@ -97074,39 +97240,31 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "fas fa-sign-in-alt" }),
-              _vm._v(
-                _vm._s(_vm.$t("Sign in to place your order")) +
-                  "  \n            "
-              )
+              _vm._v(_vm._s(_vm.$t("Sign in to place your order")) + "\n    ")
             ]
           ),
           _vm._v(" "),
           _c(
             "a",
             {
-              staticClass: "btn btn btn-info btn-lg btn-block",
+              staticClass: "btn btn-Create btn-lg btn-block",
               attrs: { href: _vm.create_account_url }
             },
             [
               _c("i", { staticClass: "fas fa-user-plus" }),
-              _vm._v(
-                " " + _vm._s(_vm.$t("Create account")) + "  \n            "
-              )
+              _vm._v(" " + _vm._s(_vm.$t("Create account")) + "\n    ")
             ]
           ),
           _vm._v(" "),
           _c(
             "a",
             {
-              staticClass: "btn btn  btn-lg btn-block",
-              staticStyle: { background: "#3969c6", color: "#fff" },
+              staticClass: "btn btn-Quest btn-lg btn-block",
               attrs: { href: _vm.quest_order_url }
             },
             [
               _c("i", { staticClass: "fas fa-user-plus" }),
-              _vm._v(
-                " " + _vm._s(_vm.$t("Continue as Quest")) + "  \n            "
-              )
+              _vm._v(" " + _vm._s(_vm.$t("Continue as Quest")) + "\n    ")
             ]
           )
         ])
@@ -109720,9 +109878,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Instruction_vue_vue_type_template_id_6cbf11f2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Instruction.vue?vue&type=template&id=6cbf11f2& */ "./resources/js/components/order/Instruction.vue?vue&type=template&id=6cbf11f2&");
+/* harmony import */ var _Instruction_vue_vue_type_template_id_6cbf11f2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Instruction.vue?vue&type=template&id=6cbf11f2&scoped=true& */ "./resources/js/components/order/Instruction.vue?vue&type=template&id=6cbf11f2&scoped=true&");
 /* harmony import */ var _Instruction_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Instruction.vue?vue&type=script&lang=js& */ "./resources/js/components/order/Instruction.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _Instruction_vue_vue_type_style_index_0_id_6cbf11f2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Instruction.vue?vue&type=style&index=0&id=6cbf11f2&lang=scss&scoped=true& */ "./resources/js/components/order/Instruction.vue?vue&type=style&index=0&id=6cbf11f2&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -109730,13 +109890,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Instruction_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Instruction_vue_vue_type_template_id_6cbf11f2___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Instruction_vue_vue_type_template_id_6cbf11f2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Instruction_vue_vue_type_template_id_6cbf11f2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Instruction_vue_vue_type_template_id_6cbf11f2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "6cbf11f2",
   null
   
 )
@@ -109762,19 +109922,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/order/Instruction.vue?vue&type=template&id=6cbf11f2&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/order/Instruction.vue?vue&type=template&id=6cbf11f2& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/components/order/Instruction.vue?vue&type=style&index=0&id=6cbf11f2&lang=scss&scoped=true&":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/components/order/Instruction.vue?vue&type=style&index=0&id=6cbf11f2&lang=scss&scoped=true& ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_10_2_node_modules_sass_loader_dist_cjs_js_ref_10_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Instruction_vue_vue_type_style_index_0_id_6cbf11f2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--10-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--10-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Instruction.vue?vue&type=style&index=0&id=6cbf11f2&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/Instruction.vue?vue&type=style&index=0&id=6cbf11f2&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_10_2_node_modules_sass_loader_dist_cjs_js_ref_10_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Instruction_vue_vue_type_style_index_0_id_6cbf11f2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_10_2_node_modules_sass_loader_dist_cjs_js_ref_10_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Instruction_vue_vue_type_style_index_0_id_6cbf11f2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_10_2_node_modules_sass_loader_dist_cjs_js_ref_10_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Instruction_vue_vue_type_style_index_0_id_6cbf11f2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_10_2_node_modules_sass_loader_dist_cjs_js_ref_10_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Instruction_vue_vue_type_style_index_0_id_6cbf11f2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_10_2_node_modules_sass_loader_dist_cjs_js_ref_10_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Instruction_vue_vue_type_style_index_0_id_6cbf11f2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/order/Instruction.vue?vue&type=template&id=6cbf11f2&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/order/Instruction.vue?vue&type=template&id=6cbf11f2&scoped=true& ***!
+  \**************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Instruction_vue_vue_type_template_id_6cbf11f2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Instruction.vue?vue&type=template&id=6cbf11f2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/Instruction.vue?vue&type=template&id=6cbf11f2&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Instruction_vue_vue_type_template_id_6cbf11f2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Instruction_vue_vue_type_template_id_6cbf11f2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Instruction.vue?vue&type=template&id=6cbf11f2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/Instruction.vue?vue&type=template&id=6cbf11f2&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Instruction_vue_vue_type_template_id_6cbf11f2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Instruction_vue_vue_type_template_id_6cbf11f2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Instruction_vue_vue_type_template_id_6cbf11f2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -109789,9 +109965,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _OrderSummary_vue_vue_type_template_id_7607ea78___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OrderSummary.vue?vue&type=template&id=7607ea78& */ "./resources/js/components/order/OrderSummary.vue?vue&type=template&id=7607ea78&");
+/* harmony import */ var _OrderSummary_vue_vue_type_template_id_7607ea78_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OrderSummary.vue?vue&type=template&id=7607ea78&scoped=true& */ "./resources/js/components/order/OrderSummary.vue?vue&type=template&id=7607ea78&scoped=true&");
 /* harmony import */ var _OrderSummary_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OrderSummary.vue?vue&type=script&lang=js& */ "./resources/js/components/order/OrderSummary.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _OrderSummary_vue_vue_type_style_index_0_id_7607ea78_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OrderSummary.vue?vue&type=style&index=0&id=7607ea78&lang=scss&scoped=true& */ "./resources/js/components/order/OrderSummary.vue?vue&type=style&index=0&id=7607ea78&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -109799,13 +109977,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _OrderSummary_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _OrderSummary_vue_vue_type_template_id_7607ea78___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _OrderSummary_vue_vue_type_template_id_7607ea78___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _OrderSummary_vue_vue_type_template_id_7607ea78_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _OrderSummary_vue_vue_type_template_id_7607ea78_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "7607ea78",
   null
   
 )
@@ -109831,19 +110009,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/order/OrderSummary.vue?vue&type=template&id=7607ea78&":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/components/order/OrderSummary.vue?vue&type=template&id=7607ea78& ***!
-  \***************************************************************************************/
+/***/ "./resources/js/components/order/OrderSummary.vue?vue&type=style&index=0&id=7607ea78&lang=scss&scoped=true&":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/components/order/OrderSummary.vue?vue&type=style&index=0&id=7607ea78&lang=scss&scoped=true& ***!
+  \******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_10_2_node_modules_sass_loader_dist_cjs_js_ref_10_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderSummary_vue_vue_type_style_index_0_id_7607ea78_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--10-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--10-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./OrderSummary.vue?vue&type=style&index=0&id=7607ea78&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/OrderSummary.vue?vue&type=style&index=0&id=7607ea78&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_10_2_node_modules_sass_loader_dist_cjs_js_ref_10_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderSummary_vue_vue_type_style_index_0_id_7607ea78_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_10_2_node_modules_sass_loader_dist_cjs_js_ref_10_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderSummary_vue_vue_type_style_index_0_id_7607ea78_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_10_2_node_modules_sass_loader_dist_cjs_js_ref_10_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderSummary_vue_vue_type_style_index_0_id_7607ea78_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_10_2_node_modules_sass_loader_dist_cjs_js_ref_10_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderSummary_vue_vue_type_style_index_0_id_7607ea78_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_10_2_node_modules_sass_loader_dist_cjs_js_ref_10_3_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderSummary_vue_vue_type_style_index_0_id_7607ea78_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/order/OrderSummary.vue?vue&type=template&id=7607ea78&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/order/OrderSummary.vue?vue&type=template&id=7607ea78&scoped=true& ***!
+  \***************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderSummary_vue_vue_type_template_id_7607ea78___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./OrderSummary.vue?vue&type=template&id=7607ea78& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/OrderSummary.vue?vue&type=template&id=7607ea78&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderSummary_vue_vue_type_template_id_7607ea78___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderSummary_vue_vue_type_template_id_7607ea78_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./OrderSummary.vue?vue&type=template&id=7607ea78&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/order/OrderSummary.vue?vue&type=template&id=7607ea78&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderSummary_vue_vue_type_template_id_7607ea78_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderSummary_vue_vue_type_template_id_7607ea78___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OrderSummary_vue_vue_type_template_id_7607ea78_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -110608,10 +110802,10 @@ $(function () {
 /*!********************************!*\
   !*** ./resources/lang/ar.json ***!
   \********************************/
-/*! exports provided: Home, About, Service, Blog, Vlog, Contact, Account, Exquisite Of Social Media Marketing, Get Started Now, Dashboard, Services, Applicant, Referrer, Note, Change, Search, Applicant Number, Brief summary about you, optional, Resume (PDF file), Job Applicants, Job Applicants Profile, Resume, Referral Source, Application Date, Invite to join, Delete, Sign In, Sign in to your account to continue, Don't have an account?, Sign up, Paid, Unpaid, Bill To, Date, Item, Quantity, Rate, Sub Total, Total, Number, Bill Number, From, Request for payment, Submit Payout Request, Your Name, Your Address, Your Invoice Number, Sorry, there is no unbilled work by you, Unpaid Balance, Staff Invoice Number, My payment requests, Balance Due, Mark as unpaid, Payment Date,  Mark as paid, Successfully completed!, Pay with, Allowed file types, Maximum file size:10 MB, Confirm Payment, Select a payment method, Offline, Wallet- Balance, Pay using your wallet, Dear, We are pleased to inform you that your application for joining us as a Writer has been approved, You can use the following credentials to log in to our system, Please make sure to change your password after you log in, Login, Thanks, Hi, Congratulation! You have been invited to join, Please click the button below to confirm your joining, Join Now, Order Summary, Service Item, Work level, Urgency, Spacing Type, Additional Services, Subtotal, Congratulation! Your email is configured correctly, Toggle navigation, Contact US, Reviews, My Account, log in, Reqeust Help, writing Service, Profesional, 500 Clients, Translation Service, between two languges, CV Writing, University Approval, Our Services, Assignment, Essay, Reports, Reflection Reports, Presentations, Desertations, Proposals, Projects, Calculate your order, Read More, Meet the Teachers, Mathematics, Marketing, web designer, SEO, Select your price, Words, word, English, Master Degree of Design, 7 Days, Master, Order Now, Degree, Arabic, Project, Pages, Documentation, Days, April, Title, views, keyword, Payment System, A better way to, Success, Suscribe to the form and get all the, information that you need, Select degree program, PhD, Request Information, Get in Touch, Send, Pricing, New Customers, Last 7 days, Orders, In progress, Bill Paid, Last 30 days, Profit, Activity Log, See All, Most recent 5 activities, No activity, Database Information, App Base URL, Base URL must not have space and it should end with a trailing slash, Database Host, Database Name, Database User Name, Database Password, Back, Database Connected, After login, please go through the, After-Installation, For support please send us an email at, with your purchase code, Go to Login page, Installation in progress, Please wait while we install your application, Customers, Payments, Pending Approval, Payments List, Wallet Transactions, Tag, Trash, Income Statement, Total Wallet Balance, Browse Work, My Tasks, Payment Request, List of payment requests, My Orders, New Order, My Wallet, Change password, New password, Retype Password, Change photo, Bio, Max character, Area of expertise, Preferred method for receiving payment, Payment method details, Timzeone, Upload & Crop Image, Uploading, Crop & Upload Image, Wallet Balance, Wallet Topup, Edit Profile, Archived, Service Type, Assigned To, full_name, Posted, Deadline, Applicable after payment, Due Date, Order Number, Display by nearest due date, My Payments, Reference, feedback from clients, Skills, Roles, Joined, Feedback from clients, View order, Current Balance, Choose payment option, My Transactions, Type, Your Notifications, Place your first order, Assignee, Payment Amount, Budget, Accept this work, Conversations, Sorted based on most recent comment, Client, Team Member, Admin, Request for revision, Download, Accept, A downlodable link will apprear here when your order is ready, Payout Budget, spacing, None, Attachments, Revision Requested, Unfollow, Follow, Unarchive, Archive, Financial, Base Price, % of Base Price, Staff Payment, No payment has been made, Wallet payment, Your Message, Order Information, Messages, Submitted Works, Rating, Comment, Rate our service, Order Date, Show Archived, Posted at, Start Working, Company, Customer, Attachment, No work has been submitted yet, Pending Payment Approval, Disapprove, Payment Information, Financial Summary, Payments pending for approval, Reason, Upload Cover, keywords, Keyword, Slug, Tell us about your experience, We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better, Your rating, Your comment, Delete Logs, Causer, Date Range, to, Sales Revenue, Expenses, Payments to staffs, Net Income, No record found, Currently, The following amount is the summation of wallet balances of all the users, Balance in wallets are advance payments and they do not reflect in your income statement, Inactive, Save record, General, Employees, Recruitment, Services & Pricing, Services Category, Urgencies, Work Levels, View Generated Prices, Configuration, Send Test Email, Logo, Website Content, Homepage, Social Links, How it works, FAQ, Money Back Guarantee, Privacy Policy, Revision Policy, Disclaimer, Terms & Condition, Google Analytics, Website SEO, Custom Script, Clear Cache, Tags, Payments Gateways, Offline Payment Methods, System Update, Message to display after submitting the payment request, Instruction to customer, e.g bank name, account number, swift code etc, Requires Evidence, Transaction number, Field name to display for entering transaction number, Requires Uploading attachment, Field name to display for attachment uploading, After your client submits payment request via offline methods, you have to manually approve the payment from, List, Price Type, Service Category, Single Spacing Price, Double Spacing Price, Minimum Order Quantity, Desc, Need Work Level, Image, Duration and Type, Percentage of base price of a service, Enter the percentage of base price of a service that should add up with the total of an order, Currency Symbol, Currency Code, Digit Grouping, Decimal Symbol, Thousand Seperator, Send email using, Queue Connection, Email From Address, Mailgun Domain, Mailgun Key, Smtp Host, SMTP Port, Email Encryption, SMTP Username, Smtp Password, Company Name, Number of times a customer can request for revision of their work, Enter -1 for unlimited times, Email for receiving notifications, Hide Website, Tracking Code, Website Frontend, Version, Suggested image dimension: 154x36 pixel, Upload & Crop Logo, Crop & Upload Logo, Show link to Writer\'s Application page, on website\'s top menu, Writer\'s application page link - Menu Title, Writer\'s application page title, Writer\'s application Form title, Writer\'s application Form subtitle, Message to show after after successful form submission, Content for Writer\'s application page, Allow staffs to browse work, Staff payment type, Staff payment amount, You are running Prowriters version, Please make sure to create a backup copy of your database before running the upgrade, Upgrade to v, Enter an email address to test the email configutation, Header Script, Codes inserted below will be injected between the header tag, during run time, Footer Script, Codes inserted below will be injected in the footer section, during run time, Activites, Tasks, Orders Placed, Assigned Tasks, Download Resume, Most recent, Name or Email, List of, Send an Invitation, Email Address, Request to join as, Manager, Staff, Writer, Send Invitation, This website uses cookies to ensure you get the best experience on our website, Got it, All rights reserved., Editing, Resume Writing, TYPE OF WORK AND DEADLINE, Pending Post, Posts pending for approval, step, Work Level, Number of pages, Spacing, Number of Words, Next, Sign in to place your order, Create account, Continue as Quest, Amount, Added, Add, ADDITIONAL PAPER DETAILS, Specific Instructions, Previous, I agree to the, Terms and Conditions, and, Pay now, Type of Service, Submit your work, only, Submit, My Posts, An assignment is a task or piece of work assigned to student as part of the course. The course is assessed through written assignments and practical examinations., An essay is a piece of writing that presents the author's own argument. Essays are frequently used to express literary criticism, political manifestos, learned arguments, observations., A report is created with a specific aim in mind and for a certain audience. Specific data and facts are provided, analysed, and applied to a specific issue or situation., A Reflective Report is a piece of writing in which a student summarises his or her critical reflection on a particular subject. Individual Reflective Reports can be used to document each student's participation to a collaborative effort., A presentation is a way for a speaker to convey information to an audience. Presentations are often demos, introductions, lectures, or speeches intended to educate, convince, inspire, motivate, foster goodwill, or introduce a new idea/product., A dissertation is a lengthy writing on a certain subject, typically produced for the purpose of earning a university degree or credential. A treatise that advances a new point of view as a consequence of research., Editing is the process of preparing written content for publication by correcting, condensing, or changing it in some way. the process of altering a text, selecting what should be deleted and what should be retained, in order to prepare it for printing., A project is an individual or team activity that students meticulously plan and research. At schools, educational institutions, and universities, a project is a research assignment assigned to a student that typically needs more effort and work., To strengthen the academic legitimacy and expertise with which the academic service is offered, meet our professional staff., Writing Service, Translation, English and Arabic Documents, CV Writings, Professional Service in English and Arabic, University Acceptance, Unconditional Offers From United Kingdom Universities, Professional Services For struggling Students, Academic Writing, Academian.co.uk provides an outstanding level of academic writing for all study levels and all specialties. Professional writers help straggling students to step up forward, Our services, Explore some services through real calculation method beforemoving to payment step, Academic writing services, all struggling students, and all level of study, For, Foundation, Bachelor, PHD, All clients reviews are very important and really help to improve the quality of work, Name, Email, Message, Videos, Meet our Academic specialists, To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists, default */
+/*! exports provided: Home, About, Service, Blog, Vlog, Contact, Account, Exquisite Of Social Media Marketing, Get Started Now, Dashboard, Services, Step, ServiceType, Applicant, Referrer, Note, Change, Search, Applicant Number, Brief summary about you, optional, Resume (PDF file), Job Applicants, Job Applicants Profile, Resume, Referral Source, Application Date, Invite to join, Delete, Sign In, Sign in to your account to continue, Don't have an account?, Sign up, Paid, Unpaid, Bill To, Date, Item, Quantity, Rate, Sub Total, Total, Number, Bill Number, From, Request for payment, Submit Payout Request, Your Name, Your Address, Your Invoice Number, Sorry, there is no unbilled work by you, Unpaid Balance, Staff Invoice Number, My payment requests, Balance Due, Mark as unpaid, Payment Date,  Mark as paid, Successfully completed!, Pay with, Allowed file types, Maximum file size:10 MB, Confirm Payment, Select a payment method, Offline, Wallet- Balance, Pay using your wallet, Dear, We are pleased to inform you that your application for joining us as a Writer has been approved, You can use the following credentials to log in to our system, Please make sure to change your password after you log in, Login, Thanks, Hi, Congratulation! You have been invited to join, Please click the button below to confirm your joining, Join Now, Order Summary, Service Item, Work level, Urgency, Spacing Type, Additional Services, Subtotal, Congratulation! Your email is configured correctly, Toggle navigation, Contact US, Reviews, My Account, log in, Reqeust Help, writing Service, Profesional, 500 Clients, Translation Service, between two languges, CV Writing, University Approval, Our Services, Assignment, Essay, Reports, Reflection Reports, Presentations, Desertations, Proposals, Projects, Calculate your order, Read More, Meet the Teachers, Mathematics, Marketing, web designer, SEO, Select your price, Words, word, English, Master Degree of Design, 7 Days, Master, Order Now, Degree, Arabic, Project, Pages, Documentation, Days, April, Title, views, keyword, Payment System, A better way to, Success, Suscribe to the form and get all the, information that you need, Select degree program, PhD, Request Information, Get in Touch, Send, Pricing, New Customers, Last 7 days, Orders, In progress, Bill Paid, Last 30 days, Profit, Activity Log, See All, Most recent 5 activities, No activity, Database Information, App Base URL, Base URL must not have space and it should end with a trailing slash, Database Host, Database Name, Database User Name, Database Password, Back, Database Connected, After login, please go through the, After-Installation, For support please send us an email at, with your purchase code, Go to Login page, Installation in progress, Please wait while we install your application, Customers, Payments, Pending Approval, Payments List, Wallet Transactions, Tag, Trash, Income Statement, Total Wallet Balance, Browse Work, My Tasks, Payment Request, List of payment requests, My Orders, New Order, My Wallet, Change password, New password, Retype Password, Change photo, Bio, Max character, Area of expertise, Preferred method for receiving payment, Payment method details, Timzeone, Upload & Crop Image, Uploading, Crop & Upload Image, Wallet Balance, Wallet Topup, Edit Profile, Archived, Service Type, Assigned To, full_name, Posted, Deadline, Applicable after payment, Due Date, Order Number, Display by nearest due date, My Payments, Reference, feedback from clients, Skills, Roles, Joined, Feedback from clients, View order, Current Balance, Choose payment option, My Transactions, Type, Your Notifications, Place your first order, Assignee, Payment Amount, Budget, Accept this work, Conversations, Sorted based on most recent comment, Client, Team Member, Admin, Request for revision, Download, Accept, A downlodable link will apprear here when your order is ready, Payout Budget, spacing, None, Attachments, Revision Requested, Unfollow, Follow, Unarchive, Archive, Financial, Base Price, % of Base Price, Staff Payment, No payment has been made, Wallet payment, Your Message, Order Information, Messages, Submitted Works, Rating, Comment, Rate our service, Order Date, Show Archived, Posted at, Start Working, Company, Customer, Attachment, No work has been submitted yet, Pending Payment Approval, Disapprove, Payment Information, Financial Summary, Payments pending for approval, Reason, Upload Cover, keywords, Keyword, Slug, Tell us about your experience, We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better, Your rating, Your comment, Delete Logs, Causer, Date Range, to, Sales Revenue, Expenses, Payments to staffs, Net Income, No record found, Currently, The following amount is the summation of wallet balances of all the users, Balance in wallets are advance payments and they do not reflect in your income statement, Inactive, Save record, General, Employees, Recruitment, Services & Pricing, Services Category, Urgencies, Work Levels, View Generated Prices, Configuration, Send Test Email, Logo, Website Content, Homepage, Social Links, How it works, FAQ, Money Back Guarantee, Privacy Policy, Revision Policy, Disclaimer, Terms & Condition, Google Analytics, Website SEO, Custom Script, Clear Cache, Tags, Payments Gateways, Offline Payment Methods, System Update, Message to display after submitting the payment request, Instruction to customer, e.g bank name, account number, swift code etc, Requires Evidence, Transaction number, Field name to display for entering transaction number, Requires Uploading attachment, Field name to display for attachment uploading, After your client submits payment request via offline methods, you have to manually approve the payment from, List, Price Type, Service Category, Single Spacing Price, Double Spacing Price, Minimum Order Quantity, Desc, Need Work Level, Image, Duration and Type, Percentage of base price of a service, Enter the percentage of base price of a service that should add up with the total of an order, Currency Symbol, Currency Code, Digit Grouping, Decimal Symbol, Thousand Seperator, Send email using, Queue Connection, Email From Address, Mailgun Domain, Mailgun Key, Smtp Host, SMTP Port, Email Encryption, SMTP Username, Smtp Password, Company Name, Number of times a customer can request for revision of their work, Enter -1 for unlimited times, Email for receiving notifications, Hide Website, Tracking Code, Website Frontend, Version, Suggested image dimension: 154x36 pixel, Upload & Crop Logo, Crop & Upload Logo, Show link to Writer\'s Application page, on website\'s top menu, Writer\'s application page link - Menu Title, Writer\'s application page title, Writer\'s application Form title, Writer\'s application Form subtitle, Message to show after after successful form submission, Content for Writer\'s application page, Allow staffs to browse work, Staff payment type, Staff payment amount, You are running Prowriters version, Please make sure to create a backup copy of your database before running the upgrade, Upgrade to v, Enter an email address to test the email configutation, Header Script, Codes inserted below will be injected between the header tag, during run time, Footer Script, Codes inserted below will be injected in the footer section, during run time, Activites, Tasks, Orders Placed, Assigned Tasks, Download Resume, Most recent, Name or Email, List of, Send an Invitation, Email Address, Request to join as, Manager, Staff, Writer, Send Invitation, This website uses cookies to ensure you get the best experience on our website, Got it, All rights reserved., Editing, Resume Writing, TYPE OF WORK AND DEADLINE, Pending Post, Posts pending for approval, step, Work Level, Number of pages, Spacing, Number of Words, Next, Sign in to place your order, Create account, Continue as Quest, Amount, Added, Add, ADDITIONAL PAPER DETAILS, Specific Instructions, Previous, I agree to the, Terms and Conditions, and, Pay now, Type of Service, Submit your work, only, Submit, My Posts, An assignment is a task or piece of work assigned to student as part of the course. The course is assessed through written assignments and practical examinations., An essay is a piece of writing that presents the author's own argument. Essays are frequently used to express literary criticism, political manifestos, learned arguments, observations., A report is created with a specific aim in mind and for a certain audience. Specific data and facts are provided, analysed, and applied to a specific issue or situation., A Reflective Report is a piece of writing in which a student summarises his or her critical reflection on a particular subject. Individual Reflective Reports can be used to document each student's participation to a collaborative effort., A presentation is a way for a speaker to convey information to an audience. Presentations are often demos, introductions, lectures, or speeches intended to educate, convince, inspire, motivate, foster goodwill, or introduce a new idea/product., A dissertation is a lengthy writing on a certain subject, typically produced for the purpose of earning a university degree or credential. A treatise that advances a new point of view as a consequence of research., Editing is the process of preparing written content for publication by correcting, condensing, or changing it in some way. the process of altering a text, selecting what should be deleted and what should be retained, in order to prepare it for printing., A project is an individual or team activity that students meticulously plan and research. At schools, educational institutions, and universities, a project is a research assignment assigned to a student that typically needs more effort and work., To strengthen the academic legitimacy and expertise with which the academic service is offered, meet our professional staff., Writing Service, Translation, English and Arabic Documents, CV Writings, Professional Service in English and Arabic, University Acceptance, Unconditional Offers From United Kingdom Universities, Professional Services For struggling Students, Academic Writing, Academian.co.uk provides an outstanding level of academic writing for all study levels and all specialties. Professional writers help straggling students to step up forward, Our services, Explore some services through real calculation method beforemoving to payment step, Academic writing services, all struggling students, and all level of study, For, Foundation, Bachelor, PHD, All clients reviews are very important and really help to improve the quality of work, Name, Email, Message, Videos, Meet our Academic specialists, To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"Home\":\"الرئيسية\",\"About\":\" حول\",\"Service\":\" خدمة\",\"Blog\":\" مدونة\",\"Vlog\":\" مدونة فيديو\",\"Contact\":\" اتصال\",\"Account\":\" حساب\",\"Exquisite Of Social Media Marketing\":\" مختار بعناية في التسويق عبر وسائل التواصل الاجتماعي \",\"Get Started Now\":\" ابدأ الآن\",\"Dashboard\":\" لوحة التحكم\",\"Services\":\"الخدمات\",\"Applicant\":\" مقدم الطلب \",\"Referrer\":\" المرجع \",\"Note\":\"ملاجظة\",\"Change\":\"تغيير\",\"Search\":\"بحث\",\"Applicant Number\":\" رقم مقدم الطلب\",\"Brief summary about you\":\" ملخص موجز عنك \",\"optional\":\"اختياري\",\"Resume (PDF file)\":\" سيرة ذاتية\",\"Job Applicants\":\" المتقدمون للوظيفة\",\"Job Applicants Profile\":\" الملف الشخصي للمتقدمين للوظيفة\",\"Resume\":\"سيرة ذاتية\",\"Referral Source\":\" مصدر مرجعي\",\"Application Date\":\" تاريخ تقديم الطلب\",\"Invite to join\":\" دعوة للانضمام\",\"Delete\":\"حذف\",\"Sign In\":\"تسجيل الدخول\",\"Sign in to your account to continue\":\"تسجيل الدخول للمتابعة\",\"Don't have an account?\":\"ليس لديك حساب؟\",\"Sign up\":\" اشتراك\",\"Paid\":\" مدفوع\",\"Unpaid\":\" غير مدفوع\",\"Bill To\":\" فاتورة الى\",\"Date\":\" تاريخ\",\"Item\":\" بند\",\"Quantity\":\"كمية\",\"Rate\":\"معدل\",\"Sub Total\":\" المبلغ الاجمالي\",\"Total\":\"المجموع\",\"Number\":\" عدد\",\"Bill Number\":\" رقم الفاتورة\",\"From\":\"من\",\"Request for payment\":\"مطلوب للدفع\",\"Submit Payout Request\":\" إرسال طلب الدفع\",\"Your Name\":\"اسمك\",\"Your Address\":\"عنوانك\",\"Your Invoice Number\":\" رقم الفاتورة الخاصة بك\",\"Sorry, there is no unbilled work by you\":\" عذرا ، ليس هناك عمل غير مفوتر بواسطتك\",\"Unpaid Balance\":\" رصيد غير مدفوع\",\"Staff Invoice Number\":\" رقم فاتورة فريق العمل\",\"My payment requests\":\" طلبات الدفع الخاصة بي\",\"Balance Due\":\" الرصيد المستحق\",\"Mark as unpaid\":\" وضع علامة غير مدفوعة الأجر\",\"Payment Date\":\"تاريخ الدفع\",\" Mark as paid\":\" وضع علامة مدفوعة الأجر \",\"Successfully completed!\":\" تم الانتهاء بنجاح\",\"Pay with\":\" ادفع من خلال\",\"Allowed file types\":\" أنواع الملفات المسموحة\",\"Maximum file size:10 MB\":\" الحد الأقصى لحجم الملف: 10 ميجا بايت\",\"Confirm Payment\":\" تأكيد الدفع\",\"Select a payment method\":\" اختيار طريقة الدفع\",\"Offline\":\" غير متصل على الانترنت\",\"Wallet- Balance\":\" رصيد المحفظة\",\"Pay using your wallet\":\" ادفع باستخدام محفظتك\",\"Dear\":\" عزيزي\",\"We are pleased to inform you that your application for joining us as a Writer has been approved\":\" يسعدنا إبلاغك بالموافقة على طلبك للانضمام إلينا ككاتب \",\"You can use the following credentials to log in to our system\":\" يمكنك استخدام بيانات الاعتماد التالية لتسجيل الدخول إلى نظامنا \",\"Please make sure to change your password after you log in\":\" يرجى التأكد من تغيير كلمة المرور الخاصة بك بعد تسجيل الدخول \",\"Login\":\" تسجيل الدخول\",\"Thanks\":\" شكرًا\",\"Hi\":\" مرحبا\",\"Congratulation! You have been invited to join\":\" تهانينا لك! لقد تمت دعوتك للاشتراك \",\"Please click the button below to confirm your joining\":\" الرجاء الضغط على الزر أدناه لتأكيد اشتراكك \",\"Join Now\":\" إشترك الآن \",\"Order Summary\":\"ملخص الطلب\",\"Service Item\":\" بند الخدمة\",\"Work level\":\" مستوى العمل\",\"Urgency\":\"الاستعجال\",\"Spacing Type\":\"نوع التباعد\",\"Additional Services\":\" خدمات إضافية\",\"Subtotal\":\" المبلغ الاجمالي\",\"Congratulation! Your email is configured correctly\":\" تهانينا لك! تمت تهيئة بريدك الإلكتروني بشكل صحيح \",\"Toggle navigation\":\" تبديل التنقل\",\"Contact US\":\"تواصل معنا\",\"Reviews\":\"آراء العملاء\",\"My Account\":\"حسابي\",\"log in\":\"تسجيل الدخول\",\"Reqeust Help\":\"طلب خدمة\",\"writing Service\":\"خدمات كتابة\",\"Profesional\":\"احترافية\",\"500 Clients\":\"500 عميل\",\"Translation Service\":\"خدمات الترجمة\",\"between two languges\":\"بين لغتين\",\"CV Writing\":\"كتابة السيرة الذاتية\",\"University Approval\":\"قبولات جامعية\",\"Our Services\":\"خدماتنا\",\"Assignment\":\" مهمة\",\"Essay\":\"مقالة\",\"Reports\":\"تقارير\",\"Reflection Reports\":\" تقارير تقييمية\",\"Presentations\":\"العروض التقديمية\",\"Desertations\":\"أطروحات التخرج\",\"Proposals\":\"مقترحات\",\"Projects\":\"مشاريع\",\"Calculate your order\":\"حساب قيمة طلبك\",\"Read More\":\"رؤية المزيد\",\"Meet the Teachers\":\"تعرف على المدرسين\",\"Mathematics\":\" الرياضيات\",\"Marketing\":\" تسويق\",\"web designer\":\" مصمم مواقع\",\"SEO\":\" تحسين محركات البحث\",\"Select your price\":\"إختر السعر المناسب\",\"Words\":\"كلمات\",\"word\":\"كلمة\",\"English\":\"إنكليزي\",\"Master Degree of Design\":\"ماجستير في التصميم\",\"7 Days\":\"اسبوع\",\"Master\":\" ماجستير\",\"Order Now\":\"اطلب الآن\",\"Degree\":\" بكالوريوس\",\"Arabic\":\" اللغة العربية\",\"Project\":\"مشروع\",\"Pages\":\"صفحة\",\"Documentation\":\"توثيق\",\"Days\":\" أيام\",\"April\":\" نيسان\",\"Title\":\" عنوان\",\"views\":\" مشاهدات\",\"keyword\":\" كلمة مفتاحية\",\"Payment System\":\" نظام الدفع\",\"A better way to\":\"طريقك الأفضل \",\"Success\":\"للنجاح\",\"Suscribe to the form and get all the\":\"اشترك عن طريق تعبئة النموذج \",\"information that you need\":\"لتصلك المعلومات التي تحتاجها\",\"Select degree program\":\" حدد برنامج الدراسة\",\"PhD\":\"دكتوراه\",\"Request Information\":\"طلب المعلومات\",\"Get in Touch\":\" ابقى على تواصل\",\"Send\":\" إرسال\",\"Pricing\":\" التسعير\",\"New Customers\":\" عملاء جدد\",\"Last 7 days\":\" اخر 7 ايام\",\"Orders\":\" الطلبات\",\"In progress\":\" قيد التنفيذ \",\"Bill Paid\":\" فاتورة مدفوعة\",\"Last 30 days\":\" آخر 30 يومًا\",\"Profit\":\" ربح\",\"Activity Log\":\" سجل النشاطات\",\"See All\":\" اظهار الكل\",\"Most recent 5 activities\":\" أحدث 5 أنشطة\",\"No activity\":\" لا يوجد نشاط\",\"Database Information\":\" معلومات قاعدة البيانات\",\"App Base URL\":\" عنوان الموقع الأساسي للتطبيق\",\"Base URL must not have space and it should end with a trailing slash\":\" يجب ألا يحتوي عنوان الموقع الأساسي على مسافة ويجب أن ينتهي بشرطة مائلة لاحقة\",\"Database Host\":\" مضيف قاعدة البيانات\",\"Database Name\":\" اسم قاعدة البيانات\",\"Database User Name\":\" اسم مستخدم قاعدة البيانات\",\"Database Password\":\" كلمة مرور قاعدة البيانات\",\"Back\":\" رجوع\",\"Database Connected\":\" قاعدة البيانات متصلة\",\"After login, please go through the\":\" بعد تسجيل الدخول ، يرجى الذهاب من خلال\",\"After-Installation\":\" بعد التثبيت \",\"For support please send us an email at\":\" للحصول على الدعم ، يرجى إرسال بريد إلكتروني إلينا على العنوان\",\"with your purchase code\":\" مع رمز الشراء الخاص بك\",\"Go to Login page\":\" الذهاب إلى صفحة تسجيل الدخول\",\"Installation in progress\":\" جاري التثبيت\",\"Please wait while we install your application\":\" يرجى الانتظار بينما نقوم بتثبيت التطبيق الخاص بك \",\"Customers\":\" عملاء\",\"Payments\":\" دفعات\",\"Pending Approval\":\" في انتظار الموافقة\",\"Payments List\":\"قائمة المدفوعات\",\"Wallet Transactions\":\" معاملات المحفظة\",\"Tag\":\" بطاقة شعار\",\"Trash\":\" سلة المهملات\",\"Income Statement\":\" بيانات الدخل\",\"Total Wallet Balance\":\" رصيد المحفظة الإجمالي\",\"Browse Work\":\" استعرض العمل\",\"My Tasks\":\" المهام الخاصة بي\",\"Payment Request\":\" طلب الدفع\",\"List of payment requests\":\" قائمة طلبات الدفع\",\"My Orders\":\"طلباتي\",\"New Order\":\" طلب جديد\",\"My Wallet\":\" محفظتى\",\"Change password\":\" تغيير كلمة المرور\",\"New password\":\" كلمة مرور جديدة\",\"Retype Password\":\" إعادة إدخال كلمة المرور\",\"Change photo\":\" تغيير الصورة\",\"Bio\":\" السيرة الذاتية\",\"Max character\":\" الحد الأقصى لعدد الأحرف\",\"Area of expertise\":\" مجال الخبرة\",\"Preferred method for receiving payment\":\" الطريقة المفضلة لاستلام المدفوعات\",\"Payment method details\":\" تفاصيل طريقة الدفع\",\"Timzeone\":\" المنطقة الزمنية\",\"Upload & Crop Image\":\" تحميل واقتصاص الصورة\",\"Uploading\":\" جاري التحميل\",\"Crop & Upload Image\":\" اقتصاص وتحميل الصورة\",\"Wallet Balance\":\" رصيد المحفظة\",\"Wallet Topup\":\" شحن رصيد المحفظة\",\"Edit Profile\":\" تعديل الملف الشخصي\",\"Archived\":\" المؤرشف\",\"Service Type\":\"نوع الخدمة\",\"Assigned To\":\" مخصص ل\",\"full_name\":\" الاسم الكامل\",\"Posted\":\" تم النشر\",\"Deadline\":\" موعد التسليم\",\"Applicable after payment\":\" قابل للتطبيق بعد الدفع\",\"Due Date\":\" تاريخ التسليم\",\"Order Number\":\" رقم الطلب\",\"Display by nearest due date\":\" العرض حسب أقرب موعد للتسليم\",\"My Payments\":\" المدفوعات الخاصة بي\",\"Reference\":\" مرجع\",\"feedback from clients\":\" ملاحظات من العملاء\",\"Skills\":\" مهارات\",\"Roles\":\" أدوار\",\"Joined\":\" تم الاشتراك\",\"Feedback from clients\":\" ملاحظات من العملاء\",\"View order\":\" مشاهدة الطلب\",\"Current Balance\":\" الرصيد الحالي\",\"Choose payment option\":\" اختر طريقة الدفع\",\"My Transactions\":\" المعاملات الخاصة بي\",\"Type\":\" نوع\",\"Your Notifications\":\" التنبيهات الواردة\",\"Place your first order\":\" ضع أول طلب لك\",\"Assignee\":\" المحال إليه\",\"Payment Amount\":\" مبلغ الدفع\",\"Budget\":\" ميزانية\",\"Accept this work\":\" قبول هذا الطلبية\",\"Conversations\":\" المحادثات\",\"Sorted based on most recent comment\":\"\",\"Client\":\" مرتبة بناءً على أحدث تعليق\",\"Team Member\":\" أعضاء الفريق\",\"Admin\":\" مسؤول\",\"Request for revision\":\" طلب مراجعة\",\"Download\":\" تحميل\",\"Accept\":\" قبول\",\"A downlodable link will apprear here when your order is ready\":\" سيظهر رابط قابل للتنزيل هنا عندما يكون طلبك جاهزًا\",\"Payout Budget\":\" ميزانية المدفوعات\",\"spacing\":\" تباعد\",\"None\":\" بلا\",\"Attachments\":\" المرفقات\",\"Revision Requested\":\" طلب مراجعة\",\"Unfollow\":\" الغاء المتابعة\",\"Follow\":\" متابعة\",\"Unarchive\":\" غير مؤرشفة\",\"Archive\":\" أرشيف\",\"Financial\":\" مالي\",\"Base Price\":\" السعر الأساسي\",\"% of Base Price\":\"٪ من السعر الأساسي \",\"Staff Payment\":\" مدفوعات الموظفين\",\"No payment has been made\":\" لم يتم الدفع\",\"Wallet payment\":\" دفعة المحفظة\",\"Your Message\":\"رسالتك\",\"Order Information\":\" معلومات الطلب\",\"Messages\":\" الرسائل\",\"Submitted Works\":\" الطلبات المقدمة\",\"Rating\":\" تقييم\",\"Comment\":\" تعليق\",\"Rate our service\":\" تقييم خدمتنا\",\"Order Date\":\" تاريخ الطلب\",\"Show Archived\":\" إظهار المؤرشف\",\"Posted at\":\" تم النشر في\",\"Start Working\":\"بدء العمل\",\"Company\":\" شركة\",\"Customer\":\" عميل\",\"Attachment\":\"المرفق\",\"No work has been submitted yet\":\" لم يتم تقديم أي طلب حتى الآن\",\"Pending Payment Approval\":\" في انتظار الموافقة على الدفع\",\"Disapprove\":\" غير موافق عليه\",\"Payment Information\":\" معلومات الدفع\",\"Financial Summary\":\" ملخص مالي\",\"Payments pending for approval\":\"الدفعات بانتظار الموافقة\",\"Reason\":\"سبب\",\"Upload Cover\":\" رفع الغلاف\",\"keywords\":\" كلمات مفتاحية\",\"Keyword\":\" كلمة مفتاحية\",\"Slug\":\"\",\"Tell us about your experience\":\"أخبرنا عن تجربتك\",\"We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better\":\" لدينا استطلاع قصير نقدر حقًا ملؤه. إنه حتى نتمكن من معرفة ما نقوم به بشكل جيد ، وما نحتاج إلى القيام به بشكل أفضل\",\"Your rating\":\"تقييمك\",\"Your comment\":\"تعليقك\",\"Delete Logs\":\"حذف السجلات\",\"Causer\":\"مسبب\",\"Date Range\":\" النطاق الزمني\",\"to\":\"إلى\",\"Sales Revenue\":\" ايرادات المبيعات\",\"Expenses\":\" مصروفات\",\"Payments to staffs\":\"دفعات للموظفين\",\"Net Income\":\" الدخل الصافي\",\"No record found\":\" لا يوجد سجلات\",\"Currently\":\" حالياً\",\"The following amount is the summation of wallet balances of all the users\":\" المبلغ التالي هو مجموع أرصدة المحفظة لجميع المستخدمين \",\"Balance in wallets are advance payments and they do not reflect in your income statement\":\" الرصيد في المحافظ عبارة عن مدفوعات مسبقة ولا تنعكس في بيان الدخل الخاص بك\",\"Inactive\":\"غير فعال\",\"Save record\":\" حفظ السجل\",\"General\":\"عام\",\"Employees\":\" الموظفين\",\"Recruitment\":\" التوظيف\",\"Services & Pricing\":\" الخدمات والتسعير\",\"Services Category\":\" تصنيف الخدمات\",\"Urgencies\":\"مستعجل\",\"Work Levels\":\"مستوى العمل\",\"View Generated Prices\":\" عرض الأسعار الناتجة\",\"Configuration\":\" إعدادات\",\"Send Test Email\":\"ارسال بريد الكتروني للاختبار\",\"Logo\":\" شعار\",\"Website Content\":\" محتوى الموقع الإلكتروني\",\"Homepage\":\" الصفحة الرئيسية\",\"Social Links\":\" روابط اجتماعية\",\"How it works\":\" كيف تعمل \",\"FAQ\":\" التعليمات\",\"Money Back Guarantee\":\" ضمان استعادة الاموال\",\"Privacy Policy\":\"سياسة الخصوصية\",\"Revision Policy\":\" سياسة المراجعة\",\"Disclaimer\":\" إخلاء المسئولية\",\"Terms & Condition\":\" الشروط والأحكام\",\"Google Analytics\":\"تحليلات غوغل\",\"Website SEO\":\" تحسين محركات البحث على الموقع الالكتروني\",\"Custom Script\":\" نص مخصص\",\"Clear Cache\":\" مسح ذاكرة التخزين المؤقت\",\"Tags\":\" العلامات\",\"Payments Gateways\":\" بوابات المدفوعات\",\"Offline Payment Methods\":\" طرق الدفع دون اتصال بالإنترنت\",\"System Update\":\" تحديث النظام\",\"Message to display after submitting the payment request\":\" رسالة ليتم عرضها بعد تقديم طلب الدفع \",\"Instruction to customer\":\" تعليمات للعميل\",\"e.g bank name, account number, swift code etc\":\" مثل اسم البنك ورقم الحساب ورمز سويفت وما إلى ذلك \",\"Requires Evidence\":\" يتطلب الدليل\",\"Transaction number\":\" رقم التحويلة\",\"Field name to display for entering transaction number\":\" اسم الحقل المراد عرضه لإدخال رقم المعاملة \",\"Requires Uploading attachment\":\" يتطلب رفع المرفقات\",\"Field name to display for attachment uploading\":\" اسم الحقل المراد عرضه لتحميل المرفقات\",\"After your client submits payment request via offline methods, you have to manually approve the payment from\":\" بعد أن يرسل العميل طلب الدفع عبر طرق غير متصلة بالإنترنت ، يجب عليك الموافقة يدويًا على الدفع من \",\"List\":\"قائمة\",\"Price Type\":\" نوع السعر\",\"Service Category\":\"فئة الخدمة\",\"Single Spacing Price\":\" سعر التباعد الفردي\",\"Double Spacing Price\":\" سعر التباعد المزدوج\",\"Minimum Order Quantity\":\" الحد الأدنى لكمية الطلب\",\"Desc\":\" تنازلي \",\"Need Work Level\":\" بحاجة الى مستوى العمل\",\"Image\":\"صورة\",\"Duration and Type\":\" المدة والنوع\",\"Percentage of base price of a service\":\" النسبة المئوية للسعر الأساسي للخدمة\",\"Enter the percentage of base price of a service that should add up with the total of an order\":\" أدخل النسبة المئوية للسعر الأساسي للخدمة التي يجب إضافتها مع إجمالي الطلب\",\"Currency Symbol\":\" شعار العملة\",\"Currency Code\":\"رمز العملة\",\"Digit Grouping\":\" التجميع الرقمي\",\"Decimal Symbol\":\" الرمز العشري\",\"Thousand Seperator\":\"فاصل ألف\",\"Send email using\":\" إرسال بريد إلكتروني باستخدام\",\"Queue Connection\":\" اتصال قائمة الانتظار\",\"Email From Address\":\" البريد الإلكتروني من العنوان\",\"Mailgun Domain\":\" مجال Mailgun \",\"Mailgun Key\":\" مفتاح Mailgun \",\"Smtp Host\":\" مضيف SMTP \",\"SMTP Port\":\" منفذ SMTP\",\"Email Encryption\":\" تشفير البريد الإلكتروني\",\"SMTP Username\":\" اسم مستخدم SMTP \",\"Smtp Password\":\" كلمة مرور smtp \",\"Company Name\":\"اسم الشركة\",\"Number of times a customer can request for revision of their work\":\" عدد المرات التي يمكن للعميل أن يطلب فيها مراجعة عمله \",\"Enter -1 for unlimited times\":\" أدخل -1 لمرات غير محدودة\",\"Email for receiving notifications\":\" البريد الإلكتروني لتلقي الاشعارات \",\"Hide Website\":\" إخفاء الموقع الإلكتروني\",\"Tracking Code\":\" رمز التتبع\",\"Website Frontend\":\" الواجهة الأمامية للموقع الالكتروني\",\"Version\":\" الإصدار\",\"Suggested image dimension: 154x36 pixel\":\" أبعاد الصورة المقترحة: 154 × 36 بكسل\",\"Upload & Crop Logo\":\" تحميل واقتصاص الشعار\",\"Crop & Upload Logo\":\" قص وتحميل الشعار\",\"Show link to Writer\\\\'s Application page, on website\\\\'s top menu\":\"\",\"Writer\\\\'s application page link - Menu Title\":\"\",\"Writer\\\\'s application page title\":\"\",\"Writer\\\\'s application Form title\":\"\",\"Writer\\\\'s application Form subtitle\":\"\",\"Message to show after after successful form submission\":\" رسالة لإظهارها بعد تقديم النموذج الناجح \",\"Content for Writer\\\\'s application page\":\"\",\"Allow staffs to browse work\":\" السماح للموظفين لتصفح العمل\",\"Staff payment type\":\" نوع مدفوعات الموظفين\",\"Staff payment amount\":\" مبلغ مدفوعات الموظفين\",\"You are running Prowriters version\":\" أنت تقوم بتشغيل إصدار كتّاب محترفين\",\"Please make sure to create a backup copy of your database before running the upgrade\":\" يرجى التأكد من إنشاء نسخة احتياطية من قاعدة البيانات الخاصة بك قبل تشغيل الترقية \",\"Upgrade to v\":\"\",\"Enter an email address to test the email configutation\":\" أدخل عنوان بريد إلكتروني لاختبار تكوين البريد الإلكتروني \",\"Header Script\":\" نص الرأس\",\"Codes inserted below will be injected between the header tag, during run time\":\" سيتم إدخال الرموز المدرجة أدناه بين علامة الرأس ، أثناء وقت التشغيل \",\"Footer Script\":\" نص التذييل\",\"Codes inserted below will be injected in the footer section, during run time\":\" سيتم إدخال الرموز المدرجة أدناه في قسم التذييل ، أثناء وقت التشغيل \",\"Activites\":\"نشاطات\",\"Tasks\":\" مهام \",\"Orders Placed\":\" تم تصنيف الطلبات\",\"Assigned Tasks\":\" المهام المعينة\",\"Download Resume\":\" تحميل السيرة الذاتية\",\"Most recent\":\" الأحدث\",\"Name or Email\":\" الاسم أو البريد الإلكتروني\",\"List of\":\" قائمة ب\",\"Send an Invitation\":\" أرسل دعوة\",\"Email Address\":\" عنوان بريد الكتروني\",\"Request to join as\":\" طلب الإنضمام كـ\",\"Manager\":\" مدير\",\"Staff\":\" فريق العمل\",\"Writer\":\" كاتب\",\"Send Invitation\":\" إرسال دعوة\",\"This website uses cookies to ensure you get the best experience on our website\":\" يستخدم هذا الموقع ملفات تعريف الارتباط لضمان حصولك على أفضل تجربة على موقعنا \",\"Got it\":\"حصلت عليه\",\"All rights reserved.\":\" كل الحقوق محفوظة\",\"Editing\":\" تعديل\",\"Resume Writing\":\" كتابة السيرة الذاتية\",\"TYPE OF WORK AND DEADLINE\":\"نوع العمل والموعد النهائي\",\"Pending Post\":\" منشور قيد الموافقة\",\"Posts pending for approval\":\" المنشورات في انتظار الموافقة\",\"step\":\"الخطوة\",\"Work Level\":\"مستوى العمل\",\"Number of pages\":\"عدد الصفحات\",\"Spacing\":\"تباعد\",\"Number of Words\":\"عدد الكلمات\",\"Next\":\"التالي\",\"Sign in to place your order\":\"تسجيل الدخول لتقديم طلبك\",\"Create account\":\"إنشاء حساب\",\"Continue as Quest\":\"المتابعة كزائر\",\"Amount\":\"مقدار\",\"Added\":\"اضافت\",\"Add\":\"اضافة\",\"ADDITIONAL PAPER DETAILS\":\"تفاصيل ورق إضافية\",\"Specific Instructions\":\"تعليمات محددة\",\"Previous\":\"سابق\",\"I agree to the\":\"أنا أوافق على\",\"Terms and Conditions\":\"الأحكام والشروط\",\"and\":\"و\",\"Pay now\":\"ادفع الآن\",\"Type of Service\":\"نوع الخدمة\",\"Submit your work\":\"أرسل عملك\",\"only\":\"فقط\",\"Submit\":\"إرسال\",\"My Posts\":\"مقالاتي\",\"An assignment is a task or piece of work assigned to student as part of the course. The course is assessed through written assignments and practical examinations.\":\"المهمة هي تكليف أو جزء من العمل يتم تعيينه للطالب كجزء من الدورة التدريبية.  يتم تقييم الدورة من خلال المهام الكتابية والامتحانات العملية.\",\"An essay is a piece of writing that presents the author's own argument. Essays are frequently used to express literary criticism, political manifestos, learned arguments, observations.\":\"المقالة هي قطعة من الكتابة تقدم حجة المؤلف الخاصة. كثيرا ما تستخدم المقالات للتعبير عن النقد الأدبي ، والبيانات السياسية ، والحجج المكتسبة ، والملاحظات. \",\"A report is created with a specific aim in mind and for a certain audience. Specific data and facts are provided, analysed, and applied to a specific issue or situation.\":\"يتم إنشاء التقرير بهدف محدد في الاعتبار ولجمهور معين. يتم توفير بيانات وحقائق محددة وتحليلها وتطبيقها على قضية أو موقف معين.\",\"A Reflective Report is a piece of writing in which a student summarises his or her critical reflection on a particular subject. Individual Reflective Reports can be used to document each student's participation to a collaborative effort.\":\"التقرير التأملي هو جزء من الكتابة يلخص فيه الطالب تفكيره النقدي في موضوع معين. يمكن استخدام التقارير العاكسة الفردية لتوثيق مشاركة كل طالب في جهد تعاوني.\",\"A presentation is a way for a speaker to convey information to an audience. Presentations are often demos, introductions, lectures, or speeches intended to educate, convince, inspire, motivate, foster goodwill, or introduce a new idea/product.\":\"العرض هو وسيلة للمتحدث لنقل المعلومات إلى الجمهور. غالبًا ما تكون العروض التقديمية عبارة عن عروض توضيحية أو مقدمات أو محاضرات أو خطابات تهدف إلى تثقيف أو إقناع أو إلهام أو تحفيز أو تعزيز النوايا الحسنة أو تقديم فكرة / منتج جديد.\",\"A dissertation is a lengthy writing on a certain subject, typically produced for the purpose of earning a university degree or credential. A treatise that advances a new point of view as a consequence of research.\":\"‎الأطروحة عبارة عن كتابة مطولة حول موضوع معين ، وعادة ما يتم إنتاجها بغرض الحصول على شهادة جامعية أو اعتماد. أطروحة تقدم وجهة نظر جديدة كنتيجة للبحث .\",\"Editing is the process of preparing written content for publication by correcting, condensing, or changing it in some way. the process of altering a text, selecting what should be deleted and what should be retained, in order to prepare it for printing.\":\"التحرير هو عملية إعداد المحتوى المكتوب للنشر عن طريق تصحيحه أو تكثيفه أو تغييره بطريقة ما. عملية تعديل النص واختيار ما يجب حذفه والاحتفاظ به لتجهيزه للطباعة.\",\"A project is an individual or team activity that students meticulously plan and research. At schools, educational institutions, and universities, a project is a research assignment assigned to a student that typically needs more effort and work.\":\"المشروع هو نشاط فردي أو جماعي يخطط الطلاب ويبحثون فيه بدقة. في المدارس والمؤسسات التعليمية والجامعات ، يعد المشروع مهمة بحثية مخصصة للطالب الذي يحتاج عادةً إلى مزيد من الجهد والعمل.\",\"To strengthen the academic legitimacy and expertise with which the academic service is offered, meet our professional staff.\":\"لتعزيز الشرعية الأكاديمية والخبرة التي يتم من خلالها تقديم الخدمة الأكاديمية ، قابل موظفينا المحترفين.\",\"Writing Service\":\"كتابة أكاديمية\",\"Translation\":\"ترجمة\",\"English and Arabic Documents\":\"وثائق باللغتين الانكليزية و العربية\",\"CV Writings\":\"كتابة السيرة الذاتية\",\"Professional Service in English and Arabic\":\"خدمة احترافية باللغتين الإنجليزية والعربية\",\"University Acceptance\":\"قبول جامعات في المملكة المتحدة\",\"Unconditional Offers From United Kingdom Universities\":\"عروض غير مشروطة من جامعات المملكة المتحدة\",\"Professional Services For struggling Students\":\"خدمات احترافية للطلاب المتعثرين\",\"Academic Writing\":\"كتابة أكاديمية \",\"Academian.co.uk provides an outstanding level of academic writing for all study levels and all specialties. Professional writers help straggling students to step up forward\":\"يوفر Academian.co.uk مستوى متميزًا من الكتابة الأكاديمية لجميع مستويات الدراسة وجميع التخصصات.  يساعد الكتاب المحترفون الطلاب المتعثرين على التقدم إلى الأمام\",\"Our services\":\"خدماتنا\",\"Explore some services through real calculation method beforemoving to payment step\":\"اكتشف بعض الخدمات من خلال طريقة الحساب الحقيقية قبل الانتقال إلى خطوة الدفع\",\"Academic writing services\":\"خدمات الكتابة الأكاديمية\",\"all struggling students\":\"جميع الطلاب المتعثرين\",\"and all level of study\":\"وجميع مستويات الدراسة\",\"For\":\"ل \",\"Foundation\":\"تأسيسي\",\"Bachelor\":\"البكالوريوس \",\"PHD\":\"الدكتوراه\",\"All clients reviews are very important and really help to improve the quality of work\":\"جميع تقييمات العملاء مهمة جدًا وتساعد حقًا في تحسين جودة العمل\",\"Name\":\"الإسم\",\"Email\":\"الإيميل\",\"Message\":\"الرسالة\",\"Videos\":\"الفيديو\",\"Meet our Academic specialists\":\"قابل المتخصصين الأكاديميين\",\"To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists\":\"لزيادة الشفافية المهنية و لتعزيز الثقة في أداء الخدمات الأكاديمية لدى العملاء، قابل أكاديميينا\"}");
+module.exports = JSON.parse("{\"Home\":\"الرئيسية\",\"About\":\" حول\",\"Service\":\" خدمة\",\"Blog\":\" مدونة\",\"Vlog\":\" مدونة فيديو\",\"Contact\":\" اتصال\",\"Account\":\" حساب\",\"Exquisite Of Social Media Marketing\":\" مختار بعناية في التسويق عبر وسائل التواصل الاجتماعي \",\"Get Started Now\":\" ابدأ الآن\",\"Dashboard\":\" لوحة التحكم\",\"Services\":\"الخدمات\",\"Step\":\"الخطوة\",\"ServiceType\":\"نوع الخدمة\",\"Applicant\":\" مقدم الطلب \",\"Referrer\":\" المرجع \",\"Note\":\"ملاجظة\",\"Change\":\"تغيير\",\"Search\":\"بحث\",\"Applicant Number\":\" رقم مقدم الطلب\",\"Brief summary about you\":\" ملخص موجز عنك \",\"optional\":\"اختياري\",\"Resume (PDF file)\":\" سيرة ذاتية\",\"Job Applicants\":\" المتقدمون للوظيفة\",\"Job Applicants Profile\":\" الملف الشخصي للمتقدمين للوظيفة\",\"Resume\":\"سيرة ذاتية\",\"Referral Source\":\" مصدر مرجعي\",\"Application Date\":\" تاريخ تقديم الطلب\",\"Invite to join\":\" دعوة للانضمام\",\"Delete\":\"حذف\",\"Sign In\":\"تسجيل الدخول\",\"Sign in to your account to continue\":\"تسجيل الدخول للمتابعة\",\"Don't have an account?\":\"ليس لديك حساب؟\",\"Sign up\":\" اشتراك\",\"Paid\":\" مدفوع\",\"Unpaid\":\" غير مدفوع\",\"Bill To\":\" فاتورة الى\",\"Date\":\" تاريخ\",\"Item\":\" بند\",\"Quantity\":\"كمية\",\"Rate\":\"معدل\",\"Sub Total\":\" المبلغ الاجمالي\",\"Total\":\"المجموع\",\"Number\":\" عدد\",\"Bill Number\":\" رقم الفاتورة\",\"From\":\"من\",\"Request for payment\":\"مطلوب للدفع\",\"Submit Payout Request\":\" إرسال طلب الدفع\",\"Your Name\":\"اسمك\",\"Your Address\":\"عنوانك\",\"Your Invoice Number\":\" رقم الفاتورة الخاصة بك\",\"Sorry, there is no unbilled work by you\":\" عذرا ، ليس هناك عمل غير مفوتر بواسطتك\",\"Unpaid Balance\":\" رصيد غير مدفوع\",\"Staff Invoice Number\":\" رقم فاتورة فريق العمل\",\"My payment requests\":\" طلبات الدفع الخاصة بي\",\"Balance Due\":\" الرصيد المستحق\",\"Mark as unpaid\":\" وضع علامة غير مدفوعة الأجر\",\"Payment Date\":\"تاريخ الدفع\",\" Mark as paid\":\" وضع علامة مدفوعة الأجر \",\"Successfully completed!\":\" تم الانتهاء بنجاح\",\"Pay with\":\" ادفع من خلال\",\"Allowed file types\":\" أنواع الملفات المسموحة\",\"Maximum file size:10 MB\":\" الحد الأقصى لحجم الملف: 10 ميجا بايت\",\"Confirm Payment\":\" تأكيد الدفع\",\"Select a payment method\":\" اختيار طريقة الدفع\",\"Offline\":\" غير متصل على الانترنت\",\"Wallet- Balance\":\" رصيد المحفظة\",\"Pay using your wallet\":\" ادفع باستخدام محفظتك\",\"Dear\":\" عزيزي\",\"We are pleased to inform you that your application for joining us as a Writer has been approved\":\" يسعدنا إبلاغك بالموافقة على طلبك للانضمام إلينا ككاتب \",\"You can use the following credentials to log in to our system\":\" يمكنك استخدام بيانات الاعتماد التالية لتسجيل الدخول إلى نظامنا \",\"Please make sure to change your password after you log in\":\" يرجى التأكد من تغيير كلمة المرور الخاصة بك بعد تسجيل الدخول \",\"Login\":\" تسجيل الدخول\",\"Thanks\":\" شكرًا\",\"Hi\":\" مرحبا\",\"Congratulation! You have been invited to join\":\" تهانينا لك! لقد تمت دعوتك للاشتراك \",\"Please click the button below to confirm your joining\":\" الرجاء الضغط على الزر أدناه لتأكيد اشتراكك \",\"Join Now\":\" إشترك الآن \",\"Order Summary\":\"ملخص الطلب\",\"Service Item\":\" بند الخدمة\",\"Work level\":\" مستوى العمل\",\"Urgency\":\"الاستعجال\",\"Spacing Type\":\"نوع التباعد\",\"Additional Services\":\" خدمات إضافية\",\"Subtotal\":\" المبلغ الاجمالي\",\"Congratulation! Your email is configured correctly\":\" تهانينا لك! تمت تهيئة بريدك الإلكتروني بشكل صحيح \",\"Toggle navigation\":\" تبديل التنقل\",\"Contact US\":\"تواصل معنا\",\"Reviews\":\"آراء العملاء\",\"My Account\":\"حسابي\",\"log in\":\"تسجيل الدخول\",\"Reqeust Help\":\"طلب خدمة\",\"writing Service\":\"خدمات كتابة\",\"Profesional\":\"احترافية\",\"500 Clients\":\"500 عميل\",\"Translation Service\":\"خدمات الترجمة\",\"between two languges\":\"بين لغتين\",\"CV Writing\":\"كتابة السيرة الذاتية\",\"University Approval\":\"قبولات جامعية\",\"Our Services\":\"خدماتنا\",\"Assignment\":\" مهمة\",\"Essay\":\"مقالة\",\"Reports\":\"تقارير\",\"Reflection Reports\":\" تقارير تقييمية\",\"Presentations\":\"العروض التقديمية\",\"Desertations\":\"أطروحات التخرج\",\"Proposals\":\"مقترحات\",\"Projects\":\"مشاريع\",\"Calculate your order\":\"حساب قيمة طلبك\",\"Read More\":\"رؤية المزيد\",\"Meet the Teachers\":\"تعرف على المدرسين\",\"Mathematics\":\" الرياضيات\",\"Marketing\":\" تسويق\",\"web designer\":\" مصمم مواقع\",\"SEO\":\" تحسين محركات البحث\",\"Select your price\":\"إختر السعر المناسب\",\"Words\":\"كلمات\",\"word\":\"كلمة\",\"English\":\"إنكليزي\",\"Master Degree of Design\":\"ماجستير في التصميم\",\"7 Days\":\"اسبوع\",\"Master\":\" ماجستير\",\"Order Now\":\"اطلب الآن\",\"Degree\":\" بكالوريوس\",\"Arabic\":\" اللغة العربية\",\"Project\":\"مشروع\",\"Pages\":\"صفحة\",\"Documentation\":\"توثيق\",\"Days\":\" أيام\",\"April\":\" نيسان\",\"Title\":\" عنوان\",\"views\":\" مشاهدات\",\"keyword\":\" كلمة مفتاحية\",\"Payment System\":\" نظام الدفع\",\"A better way to\":\"طريقك الأفضل \",\"Success\":\"للنجاح\",\"Suscribe to the form and get all the\":\"اشترك عن طريق تعبئة النموذج \",\"information that you need\":\"لتصلك المعلومات التي تحتاجها\",\"Select degree program\":\" حدد برنامج الدراسة\",\"PhD\":\"دكتوراه\",\"Request Information\":\"طلب المعلومات\",\"Get in Touch\":\" ابقى على تواصل\",\"Send\":\" إرسال\",\"Pricing\":\" التسعير\",\"New Customers\":\" عملاء جدد\",\"Last 7 days\":\" اخر 7 ايام\",\"Orders\":\" الطلبات\",\"In progress\":\" قيد التنفيذ \",\"Bill Paid\":\" فاتورة مدفوعة\",\"Last 30 days\":\" آخر 30 يومًا\",\"Profit\":\" ربح\",\"Activity Log\":\" سجل النشاطات\",\"See All\":\" اظهار الكل\",\"Most recent 5 activities\":\" أحدث 5 أنشطة\",\"No activity\":\" لا يوجد نشاط\",\"Database Information\":\" معلومات قاعدة البيانات\",\"App Base URL\":\" عنوان الموقع الأساسي للتطبيق\",\"Base URL must not have space and it should end with a trailing slash\":\" يجب ألا يحتوي عنوان الموقع الأساسي على مسافة ويجب أن ينتهي بشرطة مائلة لاحقة\",\"Database Host\":\" مضيف قاعدة البيانات\",\"Database Name\":\" اسم قاعدة البيانات\",\"Database User Name\":\" اسم مستخدم قاعدة البيانات\",\"Database Password\":\" كلمة مرور قاعدة البيانات\",\"Back\":\" رجوع\",\"Database Connected\":\" قاعدة البيانات متصلة\",\"After login, please go through the\":\" بعد تسجيل الدخول ، يرجى الذهاب من خلال\",\"After-Installation\":\" بعد التثبيت \",\"For support please send us an email at\":\" للحصول على الدعم ، يرجى إرسال بريد إلكتروني إلينا على العنوان\",\"with your purchase code\":\" مع رمز الشراء الخاص بك\",\"Go to Login page\":\" الذهاب إلى صفحة تسجيل الدخول\",\"Installation in progress\":\" جاري التثبيت\",\"Please wait while we install your application\":\" يرجى الانتظار بينما نقوم بتثبيت التطبيق الخاص بك \",\"Customers\":\" عملاء\",\"Payments\":\" دفعات\",\"Pending Approval\":\" في انتظار الموافقة\",\"Payments List\":\"قائمة المدفوعات\",\"Wallet Transactions\":\" معاملات المحفظة\",\"Tag\":\" بطاقة شعار\",\"Trash\":\" سلة المهملات\",\"Income Statement\":\" بيانات الدخل\",\"Total Wallet Balance\":\" رصيد المحفظة الإجمالي\",\"Browse Work\":\" استعرض العمل\",\"My Tasks\":\" المهام الخاصة بي\",\"Payment Request\":\" طلب الدفع\",\"List of payment requests\":\" قائمة طلبات الدفع\",\"My Orders\":\"طلباتي\",\"New Order\":\" طلب جديد\",\"My Wallet\":\" محفظتى\",\"Change password\":\" تغيير كلمة المرور\",\"New password\":\" كلمة مرور جديدة\",\"Retype Password\":\" إعادة إدخال كلمة المرور\",\"Change photo\":\" تغيير الصورة\",\"Bio\":\" السيرة الذاتية\",\"Max character\":\" الحد الأقصى لعدد الأحرف\",\"Area of expertise\":\" مجال الخبرة\",\"Preferred method for receiving payment\":\" الطريقة المفضلة لاستلام المدفوعات\",\"Payment method details\":\" تفاصيل طريقة الدفع\",\"Timzeone\":\" المنطقة الزمنية\",\"Upload & Crop Image\":\" تحميل واقتصاص الصورة\",\"Uploading\":\" جاري التحميل\",\"Crop & Upload Image\":\" اقتصاص وتحميل الصورة\",\"Wallet Balance\":\" رصيد المحفظة\",\"Wallet Topup\":\" شحن رصيد المحفظة\",\"Edit Profile\":\" تعديل الملف الشخصي\",\"Archived\":\" المؤرشف\",\"Service Type\":\"نوع الخدمة\",\"Assigned To\":\" مخصص ل\",\"full_name\":\" الاسم الكامل\",\"Posted\":\" تم النشر\",\"Deadline\":\" موعد التسليم\",\"Applicable after payment\":\" قابل للتطبيق بعد الدفع\",\"Due Date\":\" تاريخ التسليم\",\"Order Number\":\" رقم الطلب\",\"Display by nearest due date\":\" العرض حسب أقرب موعد للتسليم\",\"My Payments\":\" المدفوعات الخاصة بي\",\"Reference\":\" مرجع\",\"feedback from clients\":\" ملاحظات من العملاء\",\"Skills\":\" مهارات\",\"Roles\":\" أدوار\",\"Joined\":\" تم الاشتراك\",\"Feedback from clients\":\" ملاحظات من العملاء\",\"View order\":\" مشاهدة الطلب\",\"Current Balance\":\" الرصيد الحالي\",\"Choose payment option\":\" اختر طريقة الدفع\",\"My Transactions\":\" المعاملات الخاصة بي\",\"Type\":\" نوع\",\"Your Notifications\":\" التنبيهات الواردة\",\"Place your first order\":\" ضع أول طلب لك\",\"Assignee\":\" المحال إليه\",\"Payment Amount\":\" مبلغ الدفع\",\"Budget\":\" ميزانية\",\"Accept this work\":\" قبول هذا الطلبية\",\"Conversations\":\" المحادثات\",\"Sorted based on most recent comment\":\"\",\"Client\":\" مرتبة بناءً على أحدث تعليق\",\"Team Member\":\" أعضاء الفريق\",\"Admin\":\" مسؤول\",\"Request for revision\":\" طلب مراجعة\",\"Download\":\" تحميل\",\"Accept\":\" قبول\",\"A downlodable link will apprear here when your order is ready\":\" سيظهر رابط قابل للتنزيل هنا عندما يكون طلبك جاهزًا\",\"Payout Budget\":\" ميزانية المدفوعات\",\"spacing\":\" تباعد\",\"None\":\" بلا\",\"Attachments\":\" المرفقات\",\"Revision Requested\":\" طلب مراجعة\",\"Unfollow\":\" الغاء المتابعة\",\"Follow\":\" متابعة\",\"Unarchive\":\" غير مؤرشفة\",\"Archive\":\" أرشيف\",\"Financial\":\" مالي\",\"Base Price\":\" السعر الأساسي\",\"% of Base Price\":\"٪ من السعر الأساسي \",\"Staff Payment\":\" مدفوعات الموظفين\",\"No payment has been made\":\" لم يتم الدفع\",\"Wallet payment\":\" دفعة المحفظة\",\"Your Message\":\"رسالتك\",\"Order Information\":\" معلومات الطلب\",\"Messages\":\" الرسائل\",\"Submitted Works\":\" الطلبات المقدمة\",\"Rating\":\" تقييم\",\"Comment\":\" تعليق\",\"Rate our service\":\" تقييم خدمتنا\",\"Order Date\":\" تاريخ الطلب\",\"Show Archived\":\" إظهار المؤرشف\",\"Posted at\":\" تم النشر في\",\"Start Working\":\"بدء العمل\",\"Company\":\" شركة\",\"Customer\":\" عميل\",\"Attachment\":\"المرفق\",\"No work has been submitted yet\":\" لم يتم تقديم أي طلب حتى الآن\",\"Pending Payment Approval\":\" في انتظار الموافقة على الدفع\",\"Disapprove\":\" غير موافق عليه\",\"Payment Information\":\" معلومات الدفع\",\"Financial Summary\":\" ملخص مالي\",\"Payments pending for approval\":\"الدفعات بانتظار الموافقة\",\"Reason\":\"سبب\",\"Upload Cover\":\" رفع الغلاف\",\"keywords\":\" كلمات مفتاحية\",\"Keyword\":\" كلمة مفتاحية\",\"Slug\":\"\",\"Tell us about your experience\":\"أخبرنا عن تجربتك\",\"We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better\":\" لدينا استطلاع قصير نقدر حقًا ملؤه. إنه حتى نتمكن من معرفة ما نقوم به بشكل جيد ، وما نحتاج إلى القيام به بشكل أفضل\",\"Your rating\":\"تقييمك\",\"Your comment\":\"تعليقك\",\"Delete Logs\":\"حذف السجلات\",\"Causer\":\"مسبب\",\"Date Range\":\" النطاق الزمني\",\"to\":\"إلى\",\"Sales Revenue\":\" ايرادات المبيعات\",\"Expenses\":\" مصروفات\",\"Payments to staffs\":\"دفعات للموظفين\",\"Net Income\":\" الدخل الصافي\",\"No record found\":\" لا يوجد سجلات\",\"Currently\":\" حالياً\",\"The following amount is the summation of wallet balances of all the users\":\" المبلغ التالي هو مجموع أرصدة المحفظة لجميع المستخدمين \",\"Balance in wallets are advance payments and they do not reflect in your income statement\":\" الرصيد في المحافظ عبارة عن مدفوعات مسبقة ولا تنعكس في بيان الدخل الخاص بك\",\"Inactive\":\"غير فعال\",\"Save record\":\" حفظ السجل\",\"General\":\"عام\",\"Employees\":\" الموظفين\",\"Recruitment\":\" التوظيف\",\"Services & Pricing\":\" الخدمات والتسعير\",\"Services Category\":\" تصنيف الخدمات\",\"Urgencies\":\"مستعجل\",\"Work Levels\":\"مستوى العمل\",\"View Generated Prices\":\" عرض الأسعار الناتجة\",\"Configuration\":\" إعدادات\",\"Send Test Email\":\"ارسال بريد الكتروني للاختبار\",\"Logo\":\" شعار\",\"Website Content\":\" محتوى الموقع الإلكتروني\",\"Homepage\":\" الصفحة الرئيسية\",\"Social Links\":\" روابط اجتماعية\",\"How it works\":\" كيف تعمل \",\"FAQ\":\" التعليمات\",\"Money Back Guarantee\":\" ضمان استعادة الاموال\",\"Privacy Policy\":\"سياسة الخصوصية\",\"Revision Policy\":\" سياسة المراجعة\",\"Disclaimer\":\" إخلاء المسئولية\",\"Terms & Condition\":\" الشروط والأحكام\",\"Google Analytics\":\"تحليلات غوغل\",\"Website SEO\":\" تحسين محركات البحث على الموقع الالكتروني\",\"Custom Script\":\" نص مخصص\",\"Clear Cache\":\" مسح ذاكرة التخزين المؤقت\",\"Tags\":\" العلامات\",\"Payments Gateways\":\" بوابات المدفوعات\",\"Offline Payment Methods\":\" طرق الدفع دون اتصال بالإنترنت\",\"System Update\":\" تحديث النظام\",\"Message to display after submitting the payment request\":\" رسالة ليتم عرضها بعد تقديم طلب الدفع \",\"Instruction to customer\":\" تعليمات للعميل\",\"e.g bank name, account number, swift code etc\":\" مثل اسم البنك ورقم الحساب ورمز سويفت وما إلى ذلك \",\"Requires Evidence\":\" يتطلب الدليل\",\"Transaction number\":\" رقم التحويلة\",\"Field name to display for entering transaction number\":\" اسم الحقل المراد عرضه لإدخال رقم المعاملة \",\"Requires Uploading attachment\":\" يتطلب رفع المرفقات\",\"Field name to display for attachment uploading\":\" اسم الحقل المراد عرضه لتحميل المرفقات\",\"After your client submits payment request via offline methods, you have to manually approve the payment from\":\" بعد أن يرسل العميل طلب الدفع عبر طرق غير متصلة بالإنترنت ، يجب عليك الموافقة يدويًا على الدفع من \",\"List\":\"قائمة\",\"Price Type\":\" نوع السعر\",\"Service Category\":\"فئة الخدمة\",\"Single Spacing Price\":\" سعر التباعد الفردي\",\"Double Spacing Price\":\" سعر التباعد المزدوج\",\"Minimum Order Quantity\":\" الحد الأدنى لكمية الطلب\",\"Desc\":\" تنازلي \",\"Need Work Level\":\" بحاجة الى مستوى العمل\",\"Image\":\"صورة\",\"Duration and Type\":\" المدة والنوع\",\"Percentage of base price of a service\":\" النسبة المئوية للسعر الأساسي للخدمة\",\"Enter the percentage of base price of a service that should add up with the total of an order\":\" أدخل النسبة المئوية للسعر الأساسي للخدمة التي يجب إضافتها مع إجمالي الطلب\",\"Currency Symbol\":\" شعار العملة\",\"Currency Code\":\"رمز العملة\",\"Digit Grouping\":\" التجميع الرقمي\",\"Decimal Symbol\":\" الرمز العشري\",\"Thousand Seperator\":\"فاصل ألف\",\"Send email using\":\" إرسال بريد إلكتروني باستخدام\",\"Queue Connection\":\" اتصال قائمة الانتظار\",\"Email From Address\":\" البريد الإلكتروني من العنوان\",\"Mailgun Domain\":\" مجال Mailgun \",\"Mailgun Key\":\" مفتاح Mailgun \",\"Smtp Host\":\" مضيف SMTP \",\"SMTP Port\":\" منفذ SMTP\",\"Email Encryption\":\" تشفير البريد الإلكتروني\",\"SMTP Username\":\" اسم مستخدم SMTP \",\"Smtp Password\":\" كلمة مرور smtp \",\"Company Name\":\"اسم الشركة\",\"Number of times a customer can request for revision of their work\":\" عدد المرات التي يمكن للعميل أن يطلب فيها مراجعة عمله \",\"Enter -1 for unlimited times\":\" أدخل -1 لمرات غير محدودة\",\"Email for receiving notifications\":\" البريد الإلكتروني لتلقي الاشعارات \",\"Hide Website\":\" إخفاء الموقع الإلكتروني\",\"Tracking Code\":\" رمز التتبع\",\"Website Frontend\":\" الواجهة الأمامية للموقع الالكتروني\",\"Version\":\" الإصدار\",\"Suggested image dimension: 154x36 pixel\":\" أبعاد الصورة المقترحة: 154 × 36 بكسل\",\"Upload & Crop Logo\":\" تحميل واقتصاص الشعار\",\"Crop & Upload Logo\":\" قص وتحميل الشعار\",\"Show link to Writer\\\\'s Application page, on website\\\\'s top menu\":\"\",\"Writer\\\\'s application page link - Menu Title\":\"\",\"Writer\\\\'s application page title\":\"\",\"Writer\\\\'s application Form title\":\"\",\"Writer\\\\'s application Form subtitle\":\"\",\"Message to show after after successful form submission\":\" رسالة لإظهارها بعد تقديم النموذج الناجح \",\"Content for Writer\\\\'s application page\":\"\",\"Allow staffs to browse work\":\" السماح للموظفين لتصفح العمل\",\"Staff payment type\":\" نوع مدفوعات الموظفين\",\"Staff payment amount\":\" مبلغ مدفوعات الموظفين\",\"You are running Prowriters version\":\" أنت تقوم بتشغيل إصدار كتّاب محترفين\",\"Please make sure to create a backup copy of your database before running the upgrade\":\" يرجى التأكد من إنشاء نسخة احتياطية من قاعدة البيانات الخاصة بك قبل تشغيل الترقية \",\"Upgrade to v\":\"\",\"Enter an email address to test the email configutation\":\" أدخل عنوان بريد إلكتروني لاختبار تكوين البريد الإلكتروني \",\"Header Script\":\" نص الرأس\",\"Codes inserted below will be injected between the header tag, during run time\":\" سيتم إدخال الرموز المدرجة أدناه بين علامة الرأس ، أثناء وقت التشغيل \",\"Footer Script\":\" نص التذييل\",\"Codes inserted below will be injected in the footer section, during run time\":\" سيتم إدخال الرموز المدرجة أدناه في قسم التذييل ، أثناء وقت التشغيل \",\"Activites\":\"نشاطات\",\"Tasks\":\" مهام \",\"Orders Placed\":\" تم تصنيف الطلبات\",\"Assigned Tasks\":\" المهام المعينة\",\"Download Resume\":\" تحميل السيرة الذاتية\",\"Most recent\":\" الأحدث\",\"Name or Email\":\" الاسم أو البريد الإلكتروني\",\"List of\":\" قائمة ب\",\"Send an Invitation\":\" أرسل دعوة\",\"Email Address\":\" عنوان بريد الكتروني\",\"Request to join as\":\" طلب الإنضمام كـ\",\"Manager\":\" مدير\",\"Staff\":\" فريق العمل\",\"Writer\":\" كاتب\",\"Send Invitation\":\" إرسال دعوة\",\"This website uses cookies to ensure you get the best experience on our website\":\" يستخدم هذا الموقع ملفات تعريف الارتباط لضمان حصولك على أفضل تجربة على موقعنا \",\"Got it\":\"حصلت عليه\",\"All rights reserved.\":\" كل الحقوق محفوظة\",\"Editing\":\" تعديل\",\"Resume Writing\":\" كتابة السيرة الذاتية\",\"TYPE OF WORK AND DEADLINE\":\"نوع العمل والموعد النهائي\",\"Pending Post\":\" منشور قيد الموافقة\",\"Posts pending for approval\":\" المنشورات في انتظار الموافقة\",\"step\":\"الخطوة\",\"Work Level\":\"مستوى العمل\",\"Number of pages\":\"عدد الصفحات\",\"Spacing\":\"تباعد\",\"Number of Words\":\"عدد الكلمات\",\"Next\":\"التالي\",\"Sign in to place your order\":\"تسجيل الدخول لتقديم طلبك\",\"Create account\":\"إنشاء حساب\",\"Continue as Quest\":\"المتابعة كزائر\",\"Amount\":\"مقدار\",\"Added\":\"اضافت\",\"Add\":\"اضافة\",\"ADDITIONAL PAPER DETAILS\":\"تفاصيل ورق إضافية\",\"Specific Instructions\":\"تعليمات محددة\",\"Previous\":\"سابق\",\"I agree to the\":\"أنا أوافق على\",\"Terms and Conditions\":\"الأحكام والشروط\",\"and\":\"و\",\"Pay now\":\"ادفع الآن\",\"Type of Service\":\"نوع الخدمة\",\"Submit your work\":\"أرسل عملك\",\"only\":\"فقط\",\"Submit\":\"إرسال\",\"My Posts\":\"مقالاتي\",\"An assignment is a task or piece of work assigned to student as part of the course. The course is assessed through written assignments and practical examinations.\":\"المهمة هي تكليف أو جزء من العمل يتم تعيينه للطالب كجزء من الدورة التدريبية.  يتم تقييم الدورة من خلال المهام الكتابية والامتحانات العملية.\",\"An essay is a piece of writing that presents the author's own argument. Essays are frequently used to express literary criticism, political manifestos, learned arguments, observations.\":\"المقالة هي قطعة من الكتابة تقدم حجة المؤلف الخاصة. كثيرا ما تستخدم المقالات للتعبير عن النقد الأدبي ، والبيانات السياسية ، والحجج المكتسبة ، والملاحظات. \",\"A report is created with a specific aim in mind and for a certain audience. Specific data and facts are provided, analysed, and applied to a specific issue or situation.\":\"يتم إنشاء التقرير بهدف محدد في الاعتبار ولجمهور معين. يتم توفير بيانات وحقائق محددة وتحليلها وتطبيقها على قضية أو موقف معين.\",\"A Reflective Report is a piece of writing in which a student summarises his or her critical reflection on a particular subject. Individual Reflective Reports can be used to document each student's participation to a collaborative effort.\":\"التقرير التأملي هو جزء من الكتابة يلخص فيه الطالب تفكيره النقدي في موضوع معين. يمكن استخدام التقارير العاكسة الفردية لتوثيق مشاركة كل طالب في جهد تعاوني.\",\"A presentation is a way for a speaker to convey information to an audience. Presentations are often demos, introductions, lectures, or speeches intended to educate, convince, inspire, motivate, foster goodwill, or introduce a new idea/product.\":\"العرض هو وسيلة للمتحدث لنقل المعلومات إلى الجمهور. غالبًا ما تكون العروض التقديمية عبارة عن عروض توضيحية أو مقدمات أو محاضرات أو خطابات تهدف إلى تثقيف أو إقناع أو إلهام أو تحفيز أو تعزيز النوايا الحسنة أو تقديم فكرة / منتج جديد.\",\"A dissertation is a lengthy writing on a certain subject, typically produced for the purpose of earning a university degree or credential. A treatise that advances a new point of view as a consequence of research.\":\"‎الأطروحة عبارة عن كتابة مطولة حول موضوع معين ، وعادة ما يتم إنتاجها بغرض الحصول على شهادة جامعية أو اعتماد. أطروحة تقدم وجهة نظر جديدة كنتيجة للبحث .\",\"Editing is the process of preparing written content for publication by correcting, condensing, or changing it in some way. the process of altering a text, selecting what should be deleted and what should be retained, in order to prepare it for printing.\":\"التحرير هو عملية إعداد المحتوى المكتوب للنشر عن طريق تصحيحه أو تكثيفه أو تغييره بطريقة ما. عملية تعديل النص واختيار ما يجب حذفه والاحتفاظ به لتجهيزه للطباعة.\",\"A project is an individual or team activity that students meticulously plan and research. At schools, educational institutions, and universities, a project is a research assignment assigned to a student that typically needs more effort and work.\":\"المشروع هو نشاط فردي أو جماعي يخطط الطلاب ويبحثون فيه بدقة. في المدارس والمؤسسات التعليمية والجامعات ، يعد المشروع مهمة بحثية مخصصة للطالب الذي يحتاج عادةً إلى مزيد من الجهد والعمل.\",\"To strengthen the academic legitimacy and expertise with which the academic service is offered, meet our professional staff.\":\"لتعزيز الشرعية الأكاديمية والخبرة التي يتم من خلالها تقديم الخدمة الأكاديمية ، قابل موظفينا المحترفين.\",\"Writing Service\":\"كتابة أكاديمية\",\"Translation\":\"ترجمة\",\"English and Arabic Documents\":\"وثائق باللغتين الانكليزية و العربية\",\"CV Writings\":\"كتابة السيرة الذاتية\",\"Professional Service in English and Arabic\":\"خدمة احترافية باللغتين الإنجليزية والعربية\",\"University Acceptance\":\"قبول جامعات في المملكة المتحدة\",\"Unconditional Offers From United Kingdom Universities\":\"عروض غير مشروطة من جامعات المملكة المتحدة\",\"Professional Services For struggling Students\":\"خدمات احترافية للطلاب المتعثرين\",\"Academic Writing\":\"كتابة أكاديمية \",\"Academian.co.uk provides an outstanding level of academic writing for all study levels and all specialties. Professional writers help straggling students to step up forward\":\"يوفر Academian.co.uk مستوى متميزًا من الكتابة الأكاديمية لجميع مستويات الدراسة وجميع التخصصات.  يساعد الكتاب المحترفون الطلاب المتعثرين على التقدم إلى الأمام\",\"Our services\":\"خدماتنا\",\"Explore some services through real calculation method beforemoving to payment step\":\"اكتشف بعض الخدمات من خلال طريقة الحساب الحقيقية قبل الانتقال إلى خطوة الدفع\",\"Academic writing services\":\"خدمات الكتابة الأكاديمية\",\"all struggling students\":\"جميع الطلاب المتعثرين\",\"and all level of study\":\"وجميع مستويات الدراسة\",\"For\":\"ل \",\"Foundation\":\"تأسيسي\",\"Bachelor\":\"البكالوريوس \",\"PHD\":\"الدكتوراه\",\"All clients reviews are very important and really help to improve the quality of work\":\"جميع تقييمات العملاء مهمة جدًا وتساعد حقًا في تحسين جودة العمل\",\"Name\":\"الإسم\",\"Email\":\"الإيميل\",\"Message\":\"الرسالة\",\"Videos\":\"الفيديو\",\"Meet our Academic specialists\":\"قابل المتخصصين الأكاديميين\",\"To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists\":\"لزيادة الشفافية المهنية و لتعزيز الثقة في أداء الخدمات الأكاديمية لدى العملاء، قابل أكاديميينا\"}");
 
 /***/ }),
 
@@ -110634,14 +110828,14 @@ module.exports = JSON.parse("{\"Home\":\"Hoofd\",\"About\":\"\",\"Service\":\"\"
 /*!********************************!*\
   !*** ./resources/lang/en.json ***!
   \********************************/
-/*! exports provided: Home, About, Service, Blog, Contact, Account, Exquisite Of Social Media Marketing, Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam., Get Started Now, Dashboard, Services, Applicant, Referrer, Note, Change, Search, Applicant Number, Search &nbsp &nbsp &nbsp, Brief summary about you, optional, Resume (PDF file), Job Applicants, Job Applicants Profile, Resume, Referral Source, Application Date, Invite to join, Delete, Sign In, Sign in to your account to continue, Don't have an account?, Sign up, Paid, Unpaid, Bill To, Date, Item, Quantity, Rate, Sub Total, Total, Number, Bill Number, From, Request for payment, Submit Payout Request, Your Name, Your Address, Your Invoice Number, Sorry, there is no unbilled work by you, Unpaid Balance, Staff Invoice Number, My payment requests, Balance Due, Mark as unpaid, Payment Date, Mark as paid, Successfully completed!, Pay with, Allowed file types, Maximum file size:10 MB, Confirm Payment, Select a payment method, Offline, Wallet- Balance, Pay using your wallet, Dear, We are pleased to inform you that your application for joining us as a Writer has been approved, You can use the following credentials to log in to our system, Please
+/*! exports provided: Home, About, Service, Blog, Contact, Account, Exquisite Of Social Media Marketing, Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam., Get Started Now, Dashboard, Services, Step, Applicant, Referrer, Note, Change, Search, Applicant Number, Search &nbsp &nbsp &nbsp, Brief summary about you, optional, Resume (PDF file), Job Applicants, Job Applicants Profile, Resume, Referral Source, Application Date, Invite to join, Delete, Sign In, Sign in to your account to continue, Don't have an account?, Sign up, Paid, Unpaid, Bill To, Date, Item, Quantity, Rate, Sub Total, Total, Number, Bill Number, From, Request for payment, Submit Payout Request, Your Name, Your Address, Your Invoice Number, Sorry, there is no unbilled work by you, Unpaid Balance, Staff Invoice Number, My payment requests, Balance Due, Mark as unpaid, Payment Date, Mark as paid, Successfully completed!, Pay with, Allowed file types, Maximum file size:10 MB, Confirm Payment, Select a payment method, Offline, Wallet- Balance, Pay using your wallet, Dear, We are pleased to inform you that your application for joining us as a Writer has been approved, You can use the following credentials to log in to our system, Please
 make sure to change your password after you log in, Login, Thanks, Hi, Congratulation! You have been invited to join, Please click the button below to confirm your joining, Join Now, Order Summary, Service Item, Work level, Urgency, Spacing Type, Additional Services, Subtotal, Congratulation! Your email is configured correctly, Toggle navigation, Contact US, Reviews, My Account, log in, Reqeust Help, writing Service, Profesional, 500 Clients, Translation Service, between 4 languges, CV Writing, University Approval, Our Services, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse, Assignment, Essay, Reports, Reflection Reports, Presentations, Desertations, Proposals, Projects, Calculate your order, Read More, Meet the Teachers, Jason Smith, Mathematics, Lorem ipsum dolor sit amet, consectetur adipisicing elit, JAKE VALINER, Marketing, Tom Reedert, web designer, Max Smithson, SEO, Select your price, Words, words, English, Master Degree of Design, 7 Days, Master, Order Now, Degree, French, or Arabic, Project, Pages, Arabic, Documentation, Days, April, Title, views, jun, keyword, Payment System, Yes Soft, A better way to, Success, Lorem ipsum dolor sit amet, ei vis sint persecuti, Suscribe to the form and get all the, information that you need, Select degree program, PhD, Request Information, Get in Touch, Send, Pricing, New Customers, Last 7 days, Orders, In progress, Bill Paid, Last 30 days, Profit, Activity Log, See All, Most recent 5 activities, has, No activity, Database Information, App Base URL, Base URL must not have space and it should end with a trailing slash, Database Host, Database Name, Database User Name, Database Password, Back, Database Connected, After login, please go through the, After-Installation, setup instructions on our documentation page and make sure to follow them all. Configure
 						 everything one by one, for example, Email, Currency, Services setup, etc	, Note that, If you start using the application before configuring 
 						your settings, you might run into error pages. So please make sure 
 						to set up everything before you start using the application., For support please send us an email at, with your purchase code, Go to Login page, Installation in progress, Please wait while we install your application, Install Microelephant App, Customers, Payments, Pending Approval, Payments List, Wallet Transactions, Tag, Trash, Income Statement, Total Wallet Balance, Browse Work, My Tasks, Payment Request, List of payment requests, My Orders, New Order, My Wallet, Change password, New password, Retype Password, Change photo, Bio, Max character, Area of expertise, Preferred method for receiving payment, Payment method details, Timzeone, Upload & Crop Image, Uploading, Crop & Upload Image, Wallet Balance, Wallet Topup, Edit Profile, Archived, Service Type, Assigned To, full_name, Posted, Deadline, Applicable after payment, Due Date, Order Number, Display by nearest due date, &nbsp &nbsp &nbsp, My Payments, Reference, feedback from clients, Skills, Roles, Joined, Feedback from clients, View order, Current Balance, Choose payment option, My Transactions, Type, Your Notifications, Place your first order, Assignee, Payment Amount, Budget, Accept this work, Conversations, Sorted based on most recent comment, Client, Team Member, Admin, Request for revision, Download, Accept, A downlodable link will apprear here when your order is ready, Payout Budget, spacing, None, Attachments, Revision Requested, Unfollow, Follow, Unarchive, Archive, Financial, Base Price, % of Base Price, Staff Payment, No payment has been made, Wallet payment, Your Message, Order Information, Messages, Submitted Works, Rating, Comment, Rate our service, Order Date, Show Archived, In Abandoned Cart, Posted at, Start Working, Sl#, Company, Customer, Attachment, No work has been submitted yet, &nbsp &nbsp &nbsp &nbsp Submit &nbsp &nbsp &nbsp &nbsp, Pending Payment Approval, Disapprove, Payment Information, Financial Summary, Payments pending for approval, Reason, Upload Cover, Meta Desc, keywords, Keyword, lang, Slug, Tell us about your experience, We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better, Your rating, Your comment, Delete Logs, Causer, Date Range, &nbsp &nbsp , &nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp, Report generated based on all the orders that are marked with status "Complete", to, Sales Revenue, Expenses, Payments to staffs, Net Income, No record found, Currently, The following amount is the summation of wallet balances of all the users, Balance in wallets are advance payments and they do not reflect in your income statement, Inactive, Save record, General, Employees, Recruitment, Services & Pricing, Services Category, Urgencies, Work Levels, View Generated Prices, Configuration, Send Test Email, Logo, Website Content, Homepage, Social Links, How it works, FAQ, Money Back Guarantee, Privacy Policy, Revision Policy, Disclaimer, Terms & Condition, Google Analytics, Website SEO, Custom Script, Clear Cache, Tags, Payments Gateways, Offline Payment Methods, System Update, Message to display after submitting the payment request, Instruction to customer, e.g bank name, account number, swift code etc, Requires Evidence, Transaction number, Field name to display for entering transaction number, Requires Uploading attachment, Field name to display for attachment uploading, After your client submits payment request via offline methods, you have to manually approve the payment from, List, Price Type, Service Category, Single Spacing Price, Double Spacing Price, Minimum Order Quantity, Service Category<, Desc, Need Work Level, Image, Duration and Type, Percentage of base price of a service, Enter the percentage of base price of a service that should add up with the total of an order, Currency Symbol, Currency Code, Digit Grouping, Decimal Symbol, Thousand Seperator, Send email using, Queue Connection, Email From Address, Mailgun Domain, Mailgun Key, Smtp Host, SMTP Port, Email Encryption, SMTP Username, Smtp Password, Company Name, Number of times a customer can request for revision of their work, Enter -1 for unlimited times, Email for receiving notifications, Hide Website, Tracking Code, Website Frontend, Version, Suggested image dimension: 154x36 pixel, Upload & Crop Logo, Disable "Writer\'s Application", Crop & Upload Logo, Show link to Writer\'s Application page, on website\'s top menu, Writer\'s application page link - Menu Title, Writer\'s application page title, Writer\'s application Form title, Writer\'s application Form subtitle, Message to show after after successful form submission, Content for Writer\'s application page, Allow staffs to browse work, Staff payment type, Staff payment amount, You are running Prowriters version, Please make sure to create a backup copy of your database before running the upgrade, Upgrade to v, Enter an email address to test the email configutation, Please note that if you want to add a css/js code you have to include the css/js tag as well, Header Script, Codes inserted below will be injected between the header tag, during run time, Footer Script, Codes inserted below will be injected in the footer section, during run time, Activites, Tasks, Orders Placed, Assigned Tasks, Download Resume, Most recent, Name or Email, List of, Send an Invitation, Email Address, Request to join as, Manager, Staff, Writer, Send Invitation, This website uses cookies to ensure you get the best experience on our website, Got it, All rights reserved., Editing, Resume Writing, Pending Post, Posts pending for approval, An assignment is a task or piece of work assigned to student as part of the course. The course is assessed through written assignments and practical examinations., An essay is a piece of writing that presents the author's own argument. Essays are frequently used to express literary criticism, political manifestos, learned arguments, observations., A report is created with a specific aim in mind and for a certain audience. Specific data and facts are provided, analysed, and applied to a specific issue or situation., A Reflective Report is a piece of writing in which a student summarises his or her critical reflection on a particular subject. Individual Reflective Reports can be used to document each student's participation to a collaborative effort., A presentation is a way for a speaker to convey information to an audience. Presentations are often demos, introductions, lectures, or speeches intended to educate, convince, inspire, motivate, foster goodwill, or introduce a new idea/product., A dissertation is a lengthy writing on a certain subject, typically produced for the purpose of earning a university degree or credential. A treatise that advances a new point of view as a consequence of research., Editing is the process of preparing written content for publication by correcting, condensing, or changing it in some way. the process of altering a text, selecting what should be deleted and what should be retained, in order to prepare it for printing., A project is an individual or team activity that students meticulously plan and research. At schools, educational institutions, and universities, a project is a research assignment assigned to a student that typically needs more effort and work., To strengthen the academic legitimacy and expertise with which the academic service is offered, meet our professional staff., To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists, Meet our Academic specialists, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"Home\":\"Home\",\"About\":\"About\",\"Service\":\"Service\",\"Blog\":\"Blog\",\"Contact\":\"Contact\",\"Account\":\"Account\",\"Exquisite Of Social Media Marketing\":\"Exquisite Of Social Media Marketing\",\"Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam.\":\"Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam.\",\"Get Started Now\":\"Get Started Now\",\"Dashboard\":\"\",\"Services\":\"Services\",\"Applicant\":\"Applicant\",\"Referrer\":\"Referrer\",\"Note\":\"Note\",\"Change\":\"Change\",\"Search\":\"Search\",\"Applicant Number\":\"Applicant Number\",\"Search &nbsp &nbsp &nbsp\":\"Search &nbsp &nbsp &nbsp\",\"Brief summary about you\":\"Brief summary about you\",\"optional\":\"optional\",\"Resume (PDF file)\":\"Resume (PDF file)\",\"Job Applicants\":\"Job Applicants\",\"Job Applicants Profile\":\"Job Applicants Profile\",\"Resume\":\"Resume\",\"Referral Source\":\"Referral Source\",\"Application Date\":\"Application Date\",\"Invite to join\":\"Invite to join\",\"Delete\":\"Delete\",\"Sign In\":\"Sign In\",\"Sign in to your account to continue\":\"Sign in to your account to continue\",\"Don't have an account?\":\"Don't have an account?\",\"Sign up\":\"Sign up\",\"Paid\":\"Paid\",\"Unpaid\":\"Unpaid\",\"Bill To\":\"Bill To\",\"Date\":\"Date\",\"Item\":\"Item\",\"Quantity\":\"Quantity\",\"Rate\":\"Rate\",\"Sub Total\":\"Sub Total\",\"Total\":\"Total\",\"Number\":\"Number\",\"Bill Number\":\"Bill Number\",\"From\":\"From\",\"Request for payment\":\"Request for payment\",\"Submit Payout Request\":\"Submit Payout Request\",\"Your Name\":\"Your Name\",\"Your Address\":\"Your Address\",\"Your Invoice Number\":\"Your Invoice Number\",\"Sorry, there is no unbilled work by you\":\"Sorry, there is no unbilled work by you\",\"Unpaid Balance\":\"Unpaid Balance\",\"Staff Invoice Number\":\"Staff Invoice Number\",\"My payment requests\":\"My payment requests\",\"Balance Due\":\"Balance Due\",\"Mark as unpaid\":\"Mark as unpaid\",\"Payment Date\":\"Payment Date\",\"Mark as paid\":\"Mark as paid\",\"Successfully completed!\":\"Successfully completed!\",\"Pay with\":\"Pay with\",\"Allowed file types\":\"Allowed file types\",\"Maximum file size:10 MB\":\"Maximum file size:10 MB\",\"Confirm Payment\":\"Confirm Payment\",\"Select a payment method\":\"Select a payment method\",\"Offline\":\"Offline\",\"Wallet- Balance\":\"Wallet- Balance\",\"Pay using your wallet\":\"Pay using your wallet\",\"Dear\":\"Dear\",\"We are pleased to inform you that your application for joining us as a Writer has been approved\":\"We are pleased to inform you that your application for joining us as a Writer has been approved\",\"You can use the following credentials to log in to our system\":\"You can use the following credentials to log in to our system\",\"Please\\nmake sure to change your password after you log in\":\"Please\\nmake sure to change your password after you log in\",\"Login\":\"Login\",\"Thanks\":\"Thanks\",\"Hi\":\"Hi\",\"Congratulation! You have been invited to join\":\"Congratulation! You have been invited to join\",\"Please click the button below to confirm your joining\":\"Please click the button below to confirm your joining\",\"Join Now\":\"Join Now\",\"Order Summary\":\"Order Summary\",\"Service Item\":\"Service Item\",\"Work level\":\"Work level\",\"Urgency\":\"Urgency\",\"Spacing Type\":\"Spacing Type\",\"Additional Services\":\"Additional Services'\",\"Subtotal\":\"Subtotal\",\"Congratulation! Your email is configured correctly\":\"\",\"Toggle navigation\":\"\",\"Contact US\":\"\",\"Reviews\":\"\",\"My Account\":\"\",\"log in\":\"Login\",\"Reqeust Help\":\"\",\"writing Service\":\"\",\"Profesional\":\"\",\"500 Clients\":\"\",\"Translation Service\":\"\",\"between 4 languges\":\"\",\"CV Writing\":\"\",\"University Approval\":\"\",\"Our Services\":\"\",\"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse\":\"\",\"Assignment\":\"\",\"Essay\":\"\",\"Reports\":\"\",\"Reflection Reports\":\"\",\"Presentations\":\"\",\"Desertations\":\"\",\"Proposals\":\"\",\"Projects\":\"\",\"Calculate your order\":\"\",\"Read More\":\"\",\"Meet the Teachers\":\"\",\"Jason Smith\":\"\",\"Mathematics\":\"\",\"Lorem ipsum dolor sit amet, consectetur adipisicing elit\":\"\",\"JAKE VALINER\":\"\",\"Marketing\":\"\",\"Tom Reedert\":\"\",\"web designer\":\"\",\"Max Smithson\":\"\",\"SEO\":\"\",\"Select your price\":\"\",\"Words\":\"\",\"words\":\"\",\"English\":\"\",\"Master Degree of Design\":\"\",\"7 Days\":\"\",\"Master\":\"\",\"Order Now\":\"\",\"Degree\":\"\",\"French\":\"\",\"or Arabic\":\"\",\"Project\":\"\",\"Pages\":\"Pages\",\"Arabic\":\"\",\"Documentation\":\"\",\"Days\":\"\",\"April\":\"\",\"Title\":\"\",\"views\":\"\",\"jun\":\"\",\"keyword\":\"\",\"Payment System\":\"\",\"Yes Soft\":\"\",\"A better way to\":\"\",\"Success\":\"\",\"Lorem ipsum dolor sit amet\":\"\",\"ei vis sint persecuti\":\"\",\"Suscribe to the form and get all the\":\"\",\"information that you need\":\"\",\"Select degree program\":\"\",\"PhD\":\"\",\"Request Information\":\"\",\"Get in Touch\":\"\",\"Send\":\"\",\"Pricing\":\"\",\"New Customers\":\"\",\"Last 7 days\":\"\",\"Orders\":\"\",\"In progress\":\"\",\"Bill Paid\":\"\",\"Last 30 days\":\"\",\"Profit\":\"\",\"Activity Log\":\"\",\"See All\":\"\",\"Most recent 5 activities\":\"\",\"has\":\"\",\"No activity\":\"\",\"Database Information\":\"\",\"App Base URL\":\"\",\"Base URL must not have space and it should end with a trailing slash\":\"\",\"Database Host\":\"\",\"Database Name\":\"\",\"Database User Name\":\"\",\"Database Password\":\"\",\"Back\":\"\",\"Database Connected\":\"\",\"After login, please go through the\":\"\",\"After-Installation\":\"\",\"setup instructions on our documentation page and make sure to follow them all. Configure\\n\\t\\t\\t\\t\\t\\t everything one by one, for example, Email, Currency, Services setup, etc\\t\":\"\",\"Note that, If you start using the application before configuring \\n\\t\\t\\t\\t\\t\\tyour settings, you might run into error pages. So please make sure \\n\\t\\t\\t\\t\\t\\tto set up everything before you start using the application.\":\"\",\"For support please send us an email at\":\"\",\"with your purchase code\":\"\",\"Go to Login page\":\"\",\"Installation in progress\":\"\",\"Please wait while we install your application\":\"\",\"Install Microelephant App\":\"\",\"Customers\":\"\",\"Payments\":\"\",\"Pending Approval\":\"\",\"Payments List\":\"\",\"Wallet Transactions\":\"\",\"Tag\":\"\",\"Trash\":\"\",\"Income Statement\":\"\",\"Total Wallet Balance\":\"\",\"Browse Work\":\"\",\"My Tasks\":\"\",\"Payment Request\":\"\",\"List of payment requests\":\"\",\"My Orders\":\"\",\"New Order\":\"\",\"My Wallet\":\"\",\"Change password\":\"\",\"New password\":\"\",\"Retype Password\":\"\",\"Change photo\":\"\",\"Bio\":\"\",\"Max character\":\"\",\"Area of expertise\":\"\",\"Preferred method for receiving payment\":\"\",\"Payment method details\":\"\",\"Timzeone\":\"\",\"Upload & Crop Image\":\"\",\"Uploading\":\"\",\"Crop & Upload Image\":\"\",\"Wallet Balance\":\"\",\"Wallet Topup\":\"\",\"Edit Profile\":\"\",\"Archived\":\"\",\"Service Type\":\"\",\"Assigned To\":\"\",\"full_name\":\"\",\"Posted\":\"\",\"Deadline\":\"\",\"Applicable after payment\":\"\",\"Due Date\":\"\",\"Order Number\":\"\",\"Display by nearest due date\":\"\",\"&nbsp &nbsp &nbsp\":\"\",\"My Payments\":\"\",\"Reference\":\"\",\"feedback from clients\":\"\",\"Skills\":\"\",\"Roles\":\"\",\"Joined\":\"\",\"Feedback from clients\":\"\",\"View order\":\"\",\"Current Balance\":\"\",\"Choose payment option\":\"\",\"My Transactions\":\"\",\"Type\":\"\",\"Your Notifications\":\"\",\"Place your first order\":\"\",\"Assignee\":\"\",\"Payment Amount\":\"\",\"Budget\":\"\",\"Accept this work\":\"\",\"Conversations\":\"\",\"Sorted based on most recent comment\":\"\",\"Client\":\"\",\"Team Member\":\"\",\"Admin\":\"\",\"Request for revision\":\"\",\"Download\":\"\",\"Accept\":\"\",\"A downlodable link will apprear here when your order is ready\":\"\",\"Payout Budget\":\"\",\"spacing\":\"\",\"None\":\"\",\"Attachments\":\"\",\"Revision Requested\":\"\",\"Unfollow\":\"\",\"Follow\":\"\",\"Unarchive\":\"\",\"Archive\":\"\",\"Financial\":\"\",\"Base Price\":\"\",\"% of Base Price\":\"\",\"Staff Payment\":\"\",\"No payment has been made\":\"\",\"Wallet payment\":\"\",\"Your Message\":\"\",\"Order Information\":\"\",\"Messages\":\"\",\"Submitted Works\":\"\",\"Rating\":\"\",\"Comment\":\"\",\"Rate our service\":\"\",\"Order Date\":\"\",\"Show Archived\":\"\",\"In Abandoned Cart\":\"\",\"Posted at\":\"\",\"Start Working\":\"\",\"Sl#\":\"\",\"Company\":\"\",\"Customer\":\"\",\"Attachment\":\"\",\"No work has been submitted yet\":\"\",\"&nbsp &nbsp &nbsp &nbsp Submit &nbsp &nbsp &nbsp &nbsp\":\"\",\"Pending Payment Approval\":\"\",\"Disapprove\":\"\",\"Payment Information\":\"\",\"Financial Summary\":\"\",\"Payments pending for approval\":\"\",\"Reason\":\"\",\"Upload Cover\":\"\",\"Meta Desc\":\"\",\"keywords\":\"\",\"Keyword\":\"\",\"lang\":\"\",\"Slug\":\"\",\"Tell us about your experience\":\"\",\"We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better\":\"\",\"Your rating\":\"\",\"Your comment\":\"\",\"Delete Logs\":\"\",\"Causer\":\"\",\"Date Range\":\"\",\"&nbsp &nbsp \":\"\",\"&nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp\":\"\",\"Report generated based on all the orders that are marked with status \\\"Complete\\\"\":\"\",\"to\":\"\",\"Sales Revenue\":\"\",\"Expenses\":\"\",\"Payments to staffs\":\"\",\"Net Income\":\"\",\"No record found\":\"\",\"Currently\":\"\",\"The following amount is the summation of wallet balances of all the users\":\"\",\"Balance in wallets are advance payments and they do not reflect in your income statement\":\"\",\"Inactive\":\"\",\"Save record\":\"\",\"General\":\"\",\"Employees\":\"\",\"Recruitment\":\"\",\"Services & Pricing\":\"\",\"Services Category\":\"\",\"Urgencies\":\"\",\"Work Levels\":\"\",\"View Generated Prices\":\"\",\"Configuration\":\"\",\"Send Test Email\":\"\",\"Logo\":\"\",\"Website Content\":\"\",\"Homepage\":\"\",\"Social Links\":\"\",\"How it works\":\"\",\"FAQ\":\"\",\"Money Back Guarantee\":\"\",\"Privacy Policy\":\"\",\"Revision Policy\":\"\",\"Disclaimer\":\"\",\"Terms & Condition\":\"\",\"Google Analytics\":\"\",\"Website SEO\":\"\",\"Custom Script\":\"\",\"Clear Cache\":\"\",\"Tags\":\"\",\"Payments Gateways\":\"\",\"Offline Payment Methods\":\"\",\"System Update\":\"\",\"Message to display after submitting the payment request\":\"\",\"Instruction to customer\":\"\",\"e.g bank name, account number, swift code etc\":\"\",\"Requires Evidence\":\"\",\"Transaction number\":\"\",\"Field name to display for entering transaction number\":\"\",\"Requires Uploading attachment\":\"\",\"Field name to display for attachment uploading\":\"\",\"After your client submits payment request via offline methods, you have to manually approve the payment from\":\"\",\"List\":\"\",\"Price Type\":\"\",\"Service Category\":\"\",\"Single Spacing Price\":\"\",\"Double Spacing Price\":\"\",\"Minimum Order Quantity\":\"\",\"Service Category<\":\"\",\"Desc\":\"\",\"Need Work Level\":\"\",\"Image\":\"\",\"Duration and Type\":\"\",\"Percentage of base price of a service\":\"\",\"Enter the percentage of base price of a service that should add up with the total of an order\":\"\",\"Currency Symbol\":\"\",\"Currency Code\":\"\",\"Digit Grouping\":\"\",\"Decimal Symbol\":\"\",\"Thousand Seperator\":\"\",\"Send email using\":\"\",\"Queue Connection\":\"\",\"Email From Address\":\"\",\"Mailgun Domain\":\"\",\"Mailgun Key\":\"\",\"Smtp Host\":\"\",\"SMTP Port\":\"\",\"Email Encryption\":\"\",\"SMTP Username\":\"\",\"Smtp Password\":\"\",\"Company Name\":\"\",\"Number of times a customer can request for revision of their work\":\"\",\"Enter -1 for unlimited times\":\"\",\"Email for receiving notifications\":\"\",\"Hide Website\":\"\",\"Tracking Code\":\"\",\"Website Frontend\":\"\",\"Version\":\"\",\"Suggested image dimension: 154x36 pixel\":\"\",\"Upload & Crop Logo\":\"\",\"Disable \\\"Writer\\\\'s Application\\\"\":\"\",\"Crop & Upload Logo\":\"\",\"Show link to Writer\\\\'s Application page, on website\\\\'s top menu\":\"\",\"Writer\\\\'s application page link - Menu Title\":\"\",\"Writer\\\\'s application page title\":\"\",\"Writer\\\\'s application Form title\":\"\",\"Writer\\\\'s application Form subtitle\":\"\",\"Message to show after after successful form submission\":\"\",\"Content for Writer\\\\'s application page\":\"\",\"Allow staffs to browse work\":\"\",\"Staff payment type\":\"\",\"Staff payment amount\":\"\",\"You are running Prowriters version\":\"\",\"Please make sure to create a backup copy of your database before running the upgrade\":\"\",\"Upgrade to v\":\"\",\"Enter an email address to test the email configutation\":\"\",\"Please note that if you want to add a css/js code you have to include the css/js tag as well\":\"\",\"Header Script\":\"\",\"Codes inserted below will be injected between the header tag, during run time\":\"\",\"Footer Script\":\"\",\"Codes inserted below will be injected in the footer section, during run time\":\"\",\"Activites\":\"\",\"Tasks\":\"\",\"Orders Placed\":\"\",\"Assigned Tasks\":\"\",\"Download Resume\":\"\",\"Most recent\":\"\",\"Name or Email\":\"\",\"List of\":\"\",\"Send an Invitation\":\"\",\"Email Address\":\"\",\"Request to join as\":\"\",\"Manager\":\"\",\"Staff\":\"\",\"Writer\":\"\",\"Send Invitation\":\"\",\"This website uses cookies to ensure you get the best experience on our website\":\"\",\"Got it\":\"\",\"All rights reserved.\":\"\",\"Editing\":\"\",\"Resume Writing\":\"\",\"Pending Post\":\"\",\"Posts pending for approval\":\"\",\"An assignment is a task or piece of work assigned to student as part of the course. The course is assessed through written assignments and practical examinations.\":\"An assignment is a task or piece of work assigned to student as part of the course. The course is assessed through written assignments and practical examinations.\",\"An essay is a piece of writing that presents the author's own argument. Essays are frequently used to express literary criticism, political manifestos, learned arguments, observations.\":\"An essay is a piece of writing that presents the author's own argument. Essays are frequently used to express literary criticism, political manifestos, learned arguments, observations.\",\"A report is created with a specific aim in mind and for a certain audience. Specific data and facts are provided, analysed, and applied to a specific issue or situation.\":\"A report is created with a specific aim in mind and for a certain audience. Specific data and facts are provided, analysed, and applied to a specific issue or situation.\",\"A Reflective Report is a piece of writing in which a student summarises his or her critical reflection on a particular subject. Individual Reflective Reports can be used to document each student's participation to a collaborative effort.\":\"A Reflective Report is a piece of writing in which a student summarises his or her critical reflection on a particular subject. Individual Reflective Reports can be used to document each student's participation to a collaborative effort.\",\"A presentation is a way for a speaker to convey information to an audience. Presentations are often demos, introductions, lectures, or speeches intended to educate, convince, inspire, motivate, foster goodwill, or introduce a new idea/product.\":\"A presentation is a way for a speaker to convey information to an audience. Presentations are often demos, introductions, lectures, or speeches intended to educate, convince, inspire, motivate, foster goodwill, or introduce a new idea/product.\",\"A dissertation is a lengthy writing on a certain subject, typically produced for the purpose of earning a university degree or credential. A treatise that advances a new point of view as a consequence of research.\":\"A dissertation is a lengthy writing on a certain subject, typically produced for the purpose of earning a university degree or credential. A treatise that advances a new point of view as a consequence of research.\",\"Editing is the process of preparing written content for publication by correcting, condensing, or changing it in some way. the process of altering a text, selecting what should be deleted and what should be retained, in order to prepare it for printing.\":\"Editing is the process of preparing written content for publication by correcting, condensing, or changing it in some way. the process of altering a text, selecting what should be deleted and what should be retained, in order to prepare it for printing.\",\"A project is an individual or team activity that students meticulously plan and research. At schools, educational institutions, and universities, a project is a research assignment assigned to a student that typically needs more effort and work.\":\"A project is an individual or team activity that students meticulously plan and research. At schools, educational institutions, and universities, a project is a research assignment assigned to a student that typically needs more effort and work.\",\"To strengthen the academic legitimacy and expertise with which the academic service is offered, meet our professional staff.\":\"To strengthen the academic legitimacy and expertise with which the academic service is offered, meet our professional staff.\",\"To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists\":\"To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists\",\"Meet our Academic specialists\":\"Meet our Academic specialists\"}");
+module.exports = JSON.parse("{\"Home\":\"Home\",\"About\":\"About\",\"Service\":\"Service\",\"Blog\":\"Blog\",\"Contact\":\"Contact\",\"Account\":\"Account\",\"Exquisite Of Social Media Marketing\":\"Exquisite Of Social Media Marketing\",\"Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam.\":\"Quam fringillaPraesent quis. Magnriluquam frlla donec sit. Sed velit augue sem diam neque placerat eu urna nam.\",\"Get Started Now\":\"Get Started Now\",\"Dashboard\":\"\",\"Services\":\"Services\",\"Step\":\"Step\",\"Applicant\":\"Applicant\",\"Referrer\":\"Referrer\",\"Note\":\"Note\",\"Change\":\"Change\",\"Search\":\"Search\",\"Applicant Number\":\"Applicant Number\",\"Search &nbsp &nbsp &nbsp\":\"Search &nbsp &nbsp &nbsp\",\"Brief summary about you\":\"Brief summary about you\",\"optional\":\"optional\",\"Resume (PDF file)\":\"Resume (PDF file)\",\"Job Applicants\":\"Job Applicants\",\"Job Applicants Profile\":\"Job Applicants Profile\",\"Resume\":\"Resume\",\"Referral Source\":\"Referral Source\",\"Application Date\":\"Application Date\",\"Invite to join\":\"Invite to join\",\"Delete\":\"Delete\",\"Sign In\":\"Sign In\",\"Sign in to your account to continue\":\"Sign in to your account to continue\",\"Don't have an account?\":\"Don't have an account?\",\"Sign up\":\"Sign up\",\"Paid\":\"Paid\",\"Unpaid\":\"Unpaid\",\"Bill To\":\"Bill To\",\"Date\":\"Date\",\"Item\":\"Item\",\"Quantity\":\"Quantity\",\"Rate\":\"Rate\",\"Sub Total\":\"Sub Total\",\"Total\":\"Total\",\"Number\":\"Number\",\"Bill Number\":\"Bill Number\",\"From\":\"From\",\"Request for payment\":\"Request for payment\",\"Submit Payout Request\":\"Submit Payout Request\",\"Your Name\":\"Your Name\",\"Your Address\":\"Your Address\",\"Your Invoice Number\":\"Your Invoice Number\",\"Sorry, there is no unbilled work by you\":\"Sorry, there is no unbilled work by you\",\"Unpaid Balance\":\"Unpaid Balance\",\"Staff Invoice Number\":\"Staff Invoice Number\",\"My payment requests\":\"My payment requests\",\"Balance Due\":\"Balance Due\",\"Mark as unpaid\":\"Mark as unpaid\",\"Payment Date\":\"Payment Date\",\"Mark as paid\":\"Mark as paid\",\"Successfully completed!\":\"Successfully completed!\",\"Pay with\":\"Pay with\",\"Allowed file types\":\"Allowed file types\",\"Maximum file size:10 MB\":\"Maximum file size:10 MB\",\"Confirm Payment\":\"Confirm Payment\",\"Select a payment method\":\"Select a payment method\",\"Offline\":\"Offline\",\"Wallet- Balance\":\"Wallet- Balance\",\"Pay using your wallet\":\"Pay using your wallet\",\"Dear\":\"Dear\",\"We are pleased to inform you that your application for joining us as a Writer has been approved\":\"We are pleased to inform you that your application for joining us as a Writer has been approved\",\"You can use the following credentials to log in to our system\":\"You can use the following credentials to log in to our system\",\"Please\\nmake sure to change your password after you log in\":\"Please\\nmake sure to change your password after you log in\",\"Login\":\"Login\",\"Thanks\":\"Thanks\",\"Hi\":\"Hi\",\"Congratulation! You have been invited to join\":\"Congratulation! You have been invited to join\",\"Please click the button below to confirm your joining\":\"Please click the button below to confirm your joining\",\"Join Now\":\"Join Now\",\"Order Summary\":\"Order Summary\",\"Service Item\":\"Service Item\",\"Work level\":\"Work level\",\"Urgency\":\"Urgency\",\"Spacing Type\":\"Spacing Type\",\"Additional Services\":\"Additional Services'\",\"Subtotal\":\"Subtotal\",\"Congratulation! Your email is configured correctly\":\"\",\"Toggle navigation\":\"\",\"Contact US\":\"\",\"Reviews\":\"\",\"My Account\":\"\",\"log in\":\"Login\",\"Reqeust Help\":\"\",\"writing Service\":\"\",\"Profesional\":\"\",\"500 Clients\":\"\",\"Translation Service\":\"\",\"between 4 languges\":\"\",\"CV Writing\":\"\",\"University Approval\":\"\",\"Our Services\":\"\",\"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, distinctioptatem eligendi dolore numquam dolor quis ex velit esse\":\"\",\"Assignment\":\"\",\"Essay\":\"\",\"Reports\":\"\",\"Reflection Reports\":\"\",\"Presentations\":\"\",\"Desertations\":\"\",\"Proposals\":\"\",\"Projects\":\"\",\"Calculate your order\":\"\",\"Read More\":\"\",\"Meet the Teachers\":\"\",\"Jason Smith\":\"\",\"Mathematics\":\"\",\"Lorem ipsum dolor sit amet, consectetur adipisicing elit\":\"\",\"JAKE VALINER\":\"\",\"Marketing\":\"\",\"Tom Reedert\":\"\",\"web designer\":\"\",\"Max Smithson\":\"\",\"SEO\":\"\",\"Select your price\":\"\",\"Words\":\"\",\"words\":\"\",\"English\":\"\",\"Master Degree of Design\":\"\",\"7 Days\":\"\",\"Master\":\"\",\"Order Now\":\"\",\"Degree\":\"\",\"French\":\"\",\"or Arabic\":\"\",\"Project\":\"\",\"Pages\":\"Pages\",\"Arabic\":\"\",\"Documentation\":\"\",\"Days\":\"\",\"April\":\"\",\"Title\":\"\",\"views\":\"\",\"jun\":\"\",\"keyword\":\"\",\"Payment System\":\"\",\"Yes Soft\":\"\",\"A better way to\":\"\",\"Success\":\"\",\"Lorem ipsum dolor sit amet\":\"\",\"ei vis sint persecuti\":\"\",\"Suscribe to the form and get all the\":\"\",\"information that you need\":\"\",\"Select degree program\":\"\",\"PhD\":\"\",\"Request Information\":\"\",\"Get in Touch\":\"\",\"Send\":\"\",\"Pricing\":\"\",\"New Customers\":\"\",\"Last 7 days\":\"\",\"Orders\":\"\",\"In progress\":\"\",\"Bill Paid\":\"\",\"Last 30 days\":\"\",\"Profit\":\"\",\"Activity Log\":\"\",\"See All\":\"\",\"Most recent 5 activities\":\"\",\"has\":\"\",\"No activity\":\"\",\"Database Information\":\"\",\"App Base URL\":\"\",\"Base URL must not have space and it should end with a trailing slash\":\"\",\"Database Host\":\"\",\"Database Name\":\"\",\"Database User Name\":\"\",\"Database Password\":\"\",\"Back\":\"\",\"Database Connected\":\"\",\"After login, please go through the\":\"\",\"After-Installation\":\"\",\"setup instructions on our documentation page and make sure to follow them all. Configure\\n\\t\\t\\t\\t\\t\\t everything one by one, for example, Email, Currency, Services setup, etc\\t\":\"\",\"Note that, If you start using the application before configuring \\n\\t\\t\\t\\t\\t\\tyour settings, you might run into error pages. So please make sure \\n\\t\\t\\t\\t\\t\\tto set up everything before you start using the application.\":\"\",\"For support please send us an email at\":\"\",\"with your purchase code\":\"\",\"Go to Login page\":\"\",\"Installation in progress\":\"\",\"Please wait while we install your application\":\"\",\"Install Microelephant App\":\"\",\"Customers\":\"\",\"Payments\":\"\",\"Pending Approval\":\"\",\"Payments List\":\"\",\"Wallet Transactions\":\"\",\"Tag\":\"\",\"Trash\":\"\",\"Income Statement\":\"\",\"Total Wallet Balance\":\"\",\"Browse Work\":\"\",\"My Tasks\":\"\",\"Payment Request\":\"\",\"List of payment requests\":\"\",\"My Orders\":\"\",\"New Order\":\"\",\"My Wallet\":\"\",\"Change password\":\"\",\"New password\":\"\",\"Retype Password\":\"\",\"Change photo\":\"\",\"Bio\":\"\",\"Max character\":\"\",\"Area of expertise\":\"\",\"Preferred method for receiving payment\":\"\",\"Payment method details\":\"\",\"Timzeone\":\"\",\"Upload & Crop Image\":\"\",\"Uploading\":\"\",\"Crop & Upload Image\":\"\",\"Wallet Balance\":\"\",\"Wallet Topup\":\"\",\"Edit Profile\":\"\",\"Archived\":\"\",\"Service Type\":\"\",\"Assigned To\":\"\",\"full_name\":\"\",\"Posted\":\"\",\"Deadline\":\"\",\"Applicable after payment\":\"\",\"Due Date\":\"\",\"Order Number\":\"\",\"Display by nearest due date\":\"\",\"&nbsp &nbsp &nbsp\":\"\",\"My Payments\":\"\",\"Reference\":\"\",\"feedback from clients\":\"\",\"Skills\":\"\",\"Roles\":\"\",\"Joined\":\"\",\"Feedback from clients\":\"\",\"View order\":\"\",\"Current Balance\":\"\",\"Choose payment option\":\"\",\"My Transactions\":\"\",\"Type\":\"\",\"Your Notifications\":\"\",\"Place your first order\":\"\",\"Assignee\":\"\",\"Payment Amount\":\"\",\"Budget\":\"\",\"Accept this work\":\"\",\"Conversations\":\"\",\"Sorted based on most recent comment\":\"\",\"Client\":\"\",\"Team Member\":\"\",\"Admin\":\"\",\"Request for revision\":\"\",\"Download\":\"\",\"Accept\":\"\",\"A downlodable link will apprear here when your order is ready\":\"\",\"Payout Budget\":\"\",\"spacing\":\"\",\"None\":\"\",\"Attachments\":\"\",\"Revision Requested\":\"\",\"Unfollow\":\"\",\"Follow\":\"\",\"Unarchive\":\"\",\"Archive\":\"\",\"Financial\":\"\",\"Base Price\":\"\",\"% of Base Price\":\"\",\"Staff Payment\":\"\",\"No payment has been made\":\"\",\"Wallet payment\":\"\",\"Your Message\":\"\",\"Order Information\":\"\",\"Messages\":\"\",\"Submitted Works\":\"\",\"Rating\":\"\",\"Comment\":\"\",\"Rate our service\":\"\",\"Order Date\":\"\",\"Show Archived\":\"\",\"In Abandoned Cart\":\"\",\"Posted at\":\"\",\"Start Working\":\"\",\"Sl#\":\"\",\"Company\":\"\",\"Customer\":\"\",\"Attachment\":\"\",\"No work has been submitted yet\":\"\",\"&nbsp &nbsp &nbsp &nbsp Submit &nbsp &nbsp &nbsp &nbsp\":\"\",\"Pending Payment Approval\":\"\",\"Disapprove\":\"\",\"Payment Information\":\"\",\"Financial Summary\":\"\",\"Payments pending for approval\":\"\",\"Reason\":\"\",\"Upload Cover\":\"\",\"Meta Desc\":\"\",\"keywords\":\"\",\"Keyword\":\"\",\"lang\":\"\",\"Slug\":\"\",\"Tell us about your experience\":\"\",\"We’ve got a short survey that we’d really appreciate you filling out. It’s so we can know what we’re doing well, and what we need to do better\":\"\",\"Your rating\":\"\",\"Your comment\":\"\",\"Delete Logs\":\"\",\"Causer\":\"\",\"Date Range\":\"\",\"&nbsp &nbsp \":\"\",\"&nbsp &nbsp &nbsp &nbsp Get Report &nbsp &nbsp &nbsp &nbsp\":\"\",\"Report generated based on all the orders that are marked with status \\\"Complete\\\"\":\"\",\"to\":\"\",\"Sales Revenue\":\"\",\"Expenses\":\"\",\"Payments to staffs\":\"\",\"Net Income\":\"\",\"No record found\":\"\",\"Currently\":\"\",\"The following amount is the summation of wallet balances of all the users\":\"\",\"Balance in wallets are advance payments and they do not reflect in your income statement\":\"\",\"Inactive\":\"\",\"Save record\":\"\",\"General\":\"\",\"Employees\":\"\",\"Recruitment\":\"\",\"Services & Pricing\":\"\",\"Services Category\":\"\",\"Urgencies\":\"\",\"Work Levels\":\"\",\"View Generated Prices\":\"\",\"Configuration\":\"\",\"Send Test Email\":\"\",\"Logo\":\"\",\"Website Content\":\"\",\"Homepage\":\"\",\"Social Links\":\"\",\"How it works\":\"\",\"FAQ\":\"\",\"Money Back Guarantee\":\"\",\"Privacy Policy\":\"\",\"Revision Policy\":\"\",\"Disclaimer\":\"\",\"Terms & Condition\":\"\",\"Google Analytics\":\"\",\"Website SEO\":\"\",\"Custom Script\":\"\",\"Clear Cache\":\"\",\"Tags\":\"\",\"Payments Gateways\":\"\",\"Offline Payment Methods\":\"\",\"System Update\":\"\",\"Message to display after submitting the payment request\":\"\",\"Instruction to customer\":\"\",\"e.g bank name, account number, swift code etc\":\"\",\"Requires Evidence\":\"\",\"Transaction number\":\"\",\"Field name to display for entering transaction number\":\"\",\"Requires Uploading attachment\":\"\",\"Field name to display for attachment uploading\":\"\",\"After your client submits payment request via offline methods, you have to manually approve the payment from\":\"\",\"List\":\"\",\"Price Type\":\"\",\"Service Category\":\"\",\"Single Spacing Price\":\"\",\"Double Spacing Price\":\"\",\"Minimum Order Quantity\":\"\",\"Service Category<\":\"\",\"Desc\":\"\",\"Need Work Level\":\"\",\"Image\":\"\",\"Duration and Type\":\"\",\"Percentage of base price of a service\":\"\",\"Enter the percentage of base price of a service that should add up with the total of an order\":\"\",\"Currency Symbol\":\"\",\"Currency Code\":\"\",\"Digit Grouping\":\"\",\"Decimal Symbol\":\"\",\"Thousand Seperator\":\"\",\"Send email using\":\"\",\"Queue Connection\":\"\",\"Email From Address\":\"\",\"Mailgun Domain\":\"\",\"Mailgun Key\":\"\",\"Smtp Host\":\"\",\"SMTP Port\":\"\",\"Email Encryption\":\"\",\"SMTP Username\":\"\",\"Smtp Password\":\"\",\"Company Name\":\"\",\"Number of times a customer can request for revision of their work\":\"\",\"Enter -1 for unlimited times\":\"\",\"Email for receiving notifications\":\"\",\"Hide Website\":\"\",\"Tracking Code\":\"\",\"Website Frontend\":\"\",\"Version\":\"\",\"Suggested image dimension: 154x36 pixel\":\"\",\"Upload & Crop Logo\":\"\",\"Disable \\\"Writer\\\\'s Application\\\"\":\"\",\"Crop & Upload Logo\":\"\",\"Show link to Writer\\\\'s Application page, on website\\\\'s top menu\":\"\",\"Writer\\\\'s application page link - Menu Title\":\"\",\"Writer\\\\'s application page title\":\"\",\"Writer\\\\'s application Form title\":\"\",\"Writer\\\\'s application Form subtitle\":\"\",\"Message to show after after successful form submission\":\"\",\"Content for Writer\\\\'s application page\":\"\",\"Allow staffs to browse work\":\"\",\"Staff payment type\":\"\",\"Staff payment amount\":\"\",\"You are running Prowriters version\":\"\",\"Please make sure to create a backup copy of your database before running the upgrade\":\"\",\"Upgrade to v\":\"\",\"Enter an email address to test the email configutation\":\"\",\"Please note that if you want to add a css/js code you have to include the css/js tag as well\":\"\",\"Header Script\":\"\",\"Codes inserted below will be injected between the header tag, during run time\":\"\",\"Footer Script\":\"\",\"Codes inserted below will be injected in the footer section, during run time\":\"\",\"Activites\":\"\",\"Tasks\":\"\",\"Orders Placed\":\"\",\"Assigned Tasks\":\"\",\"Download Resume\":\"\",\"Most recent\":\"\",\"Name or Email\":\"\",\"List of\":\"\",\"Send an Invitation\":\"\",\"Email Address\":\"\",\"Request to join as\":\"\",\"Manager\":\"\",\"Staff\":\"\",\"Writer\":\"\",\"Send Invitation\":\"\",\"This website uses cookies to ensure you get the best experience on our website\":\"\",\"Got it\":\"\",\"All rights reserved.\":\"\",\"Editing\":\"\",\"Resume Writing\":\"\",\"Pending Post\":\"\",\"Posts pending for approval\":\"\",\"An assignment is a task or piece of work assigned to student as part of the course. The course is assessed through written assignments and practical examinations.\":\"An assignment is a task or piece of work assigned to student as part of the course. The course is assessed through written assignments and practical examinations.\",\"An essay is a piece of writing that presents the author's own argument. Essays are frequently used to express literary criticism, political manifestos, learned arguments, observations.\":\"An essay is a piece of writing that presents the author's own argument. Essays are frequently used to express literary criticism, political manifestos, learned arguments, observations.\",\"A report is created with a specific aim in mind and for a certain audience. Specific data and facts are provided, analysed, and applied to a specific issue or situation.\":\"A report is created with a specific aim in mind and for a certain audience. Specific data and facts are provided, analysed, and applied to a specific issue or situation.\",\"A Reflective Report is a piece of writing in which a student summarises his or her critical reflection on a particular subject. Individual Reflective Reports can be used to document each student's participation to a collaborative effort.\":\"A Reflective Report is a piece of writing in which a student summarises his or her critical reflection on a particular subject. Individual Reflective Reports can be used to document each student's participation to a collaborative effort.\",\"A presentation is a way for a speaker to convey information to an audience. Presentations are often demos, introductions, lectures, or speeches intended to educate, convince, inspire, motivate, foster goodwill, or introduce a new idea/product.\":\"A presentation is a way for a speaker to convey information to an audience. Presentations are often demos, introductions, lectures, or speeches intended to educate, convince, inspire, motivate, foster goodwill, or introduce a new idea/product.\",\"A dissertation is a lengthy writing on a certain subject, typically produced for the purpose of earning a university degree or credential. A treatise that advances a new point of view as a consequence of research.\":\"A dissertation is a lengthy writing on a certain subject, typically produced for the purpose of earning a university degree or credential. A treatise that advances a new point of view as a consequence of research.\",\"Editing is the process of preparing written content for publication by correcting, condensing, or changing it in some way. the process of altering a text, selecting what should be deleted and what should be retained, in order to prepare it for printing.\":\"Editing is the process of preparing written content for publication by correcting, condensing, or changing it in some way. the process of altering a text, selecting what should be deleted and what should be retained, in order to prepare it for printing.\",\"A project is an individual or team activity that students meticulously plan and research. At schools, educational institutions, and universities, a project is a research assignment assigned to a student that typically needs more effort and work.\":\"A project is an individual or team activity that students meticulously plan and research. At schools, educational institutions, and universities, a project is a research assignment assigned to a student that typically needs more effort and work.\",\"To strengthen the academic legitimacy and expertise with which the academic service is offered, meet our professional staff.\":\"To strengthen the academic legitimacy and expertise with which the academic service is offered, meet our professional staff.\",\"To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists\":\"To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists\",\"Meet our Academic specialists\":\"Meet our Academic specialists\"}");
 
 /***/ }),
 
@@ -110711,11 +110905,11 @@ module.exports = JSON.parse("{\"Home\":\"Principal\",\"About\":\"\",\"Service\":
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\theme.scss */"./resources/sass/theme.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
-module.exports = __webpack_require__(/*! G:\ProWriters v1.7 - Sell Writing Services Online\ProWriters v1.7 - Sell Writing Services Online\prowriters\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
+__webpack_require__(/*! E:\Academian\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\Academian\resources\sass\theme.scss */"./resources/sass/theme.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Academian\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
+module.exports = __webpack_require__(/*! E:\Academian\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
 
 
 /***/ })

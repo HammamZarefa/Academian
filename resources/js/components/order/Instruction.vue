@@ -2,14 +2,13 @@
   <div>
     <h5 class="card-title">
      {{ $t('step') }}
-      <b>2</b>/
-      <span class="small">3</span>{{ $t('ADDITIONAL PAPER DETAILS') }} 
+      <b>2 </b>{{ $t('Of') }}
+      <span class="small">3</span>
     </h5>
-    <hr />
-
+    <h6>{{ $t('ADDITIONAL PAPER DETAILS') }} </h6>
     <div class="form-group">
       <label>Title <span class="required">*</span></label>
-      <input type="text" class="form-control" v-model="form.title" />
+      <input type="text" class="form-control" v-model="form.title" style="height: 55px;" />
       <div class="invalid-feedback d-block" v-if="errors.title">{{ errors.title[0] }}</div>
     </div>
     <div class="form-group">
@@ -43,9 +42,7 @@
     <!--  <button :disabled="!filesDataForUpload.length" @click="uploadFiles($event)">
                      Upload {{ filesDataForUpload.length }} files
     </button>-->
-    <br />
-    <a href="#" v-on:click.prevent="changeTab(1)">{{ $t('Previous') }}</a>
-    <br />
+    <!-- <a href="#" v-on:click.prevent="changeTab(1)">{{ $t('Previous') }}</a> -->
     <br />
     <div class="custom-control custom-checkbox">
       <input  :value="1" type="checkbox" class="custom-control-input" id="termsCheckBox" v-model="agreedToTermsChecked">
@@ -55,10 +52,14 @@
       </label>
     </div>
     <br>
-
-    <button :disabled="!agreedToTermsChecked" class="btn btn-success btn-lg btn-block" v-on:click.prevent="submit()">
-      <i class="far fa-check-circle"></i>{{ $t('Pay now') }} 
+   <div class="con-butt">
+      <button v-on:click.prevent="changeTab(1)" class="btn btn-Quest btn-lg" >
+      {{ $t('Previous') }} 
     </button>
+    <button :disabled="!agreedToTermsChecked" class="btn btn-Create btn-lg" v-on:click.prevent="submit()">
+      {{ $t('Pay now') }} 
+    </button>
+   </div>
   </div>
 </template>
 
@@ -157,3 +158,54 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.card-title{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #06243E;
+}
+.small{
+    font-size: 18px;
+    font-weight: 501;
+}
+h6{
+    font-weight: 501;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    color: #06243E;
+}
+.btn-Create{
+    background-color: #3667BF;
+    color: #fff;
+}
+.btn-Create:hover{
+    background-color: #06243E;
+}
+.btn-Quest{
+    background-color: #fff;
+    color: #3667BF;
+}
+.btn-Quest:hover{
+    background-color: #C4DEF4;
+    color: #06243E;
+}
+.con-butt{
+  display: flex;
+  justify-content: space-between;
+}
+.con-butt button{
+      width: 48%;
+}
+@media (max-width:768px) {
+  .con-butt{
+  flex-direction: column;
+}
+.con-butt button{
+      width: 100%;
+      margin: 10px 0;
+}
+}
+</style>

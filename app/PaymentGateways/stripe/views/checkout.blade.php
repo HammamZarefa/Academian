@@ -1,36 +1,41 @@
 @extends('layouts.app')
 @section('title', 'Pay with '. $data['gateway_name'])
 @section('content')
-<div class="container page-container">
+<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+<div class="container page-container pay-contain">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 mb-4">
       <h3>Pay with {{ $data['gateway_name'] }}</h3>
-      <hr>
     </div>
-    <div class="col-md-6 d-none d-lg-block">
-      <div class="checkout-image-cover">
-        <img src="{{ asset('images/payment.svg') }}" class="img-fluid">
-      </div>
-    </div>
-    <div class="col-md-6">
-      @include('checkout.back_to_payment_options')
-      <div class="card">
-        <div class="card-body">        
-          <div class="d-flex justify-content-between">            
+   
+    <div class="col-md-7">
+      
+      <div class="card-pay">
+        <div class="">        
+          <div class="d-flex justify-content-between total">            
             <h4 class="h4">Total</h4>
             <div class="h4">{{ format_money($data['total']) }}</div>
           </div>
           <hr>
           <form id='payment-form' style="display: none;">
-            <div class="mb-3">
-              <label for="card-element">Credit or debit card</label>
+            <div class="mb-3 pad20">
+              <label for="card-element ">Credit or debit card</label>
               <div id="card-element"></div>
               <div id="card-errors" class="invalid-feedback d-block"></div>
             </div>
-            <button type="submit" class="btn btn-success btn-lg btn-block confirm-button" disabled><i class="fas fa-shopping-cart"></i> Confirm Payment</button>
+            <div class="back_to">
+            @include('checkout.back_to_payment_options')
+            <button type="submit" class="btn btn-Create btn-lg btn-block confirm-button" disabled><i class="fas fa-shopping-cart"></i> Confirm Payment</button>
+            </div>
+           
           </form>
           <div class="text-center" id="loading">Please wait ...</div>
         </div>
+      </div>
+    </div>
+    <div class="col-md-5 d-none d-lg-block">
+      <div class="checkout-image-cover">
+        <img src="{{ asset('images/payment.svg') }}" class="img-fluid">
       </div>
     </div>
   </div>
