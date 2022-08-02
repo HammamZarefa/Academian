@@ -17,13 +17,17 @@
                     </div>
                     <div class="col-sm-12">
                         <input type="text" class="form-control" placeholder="@lang('Message')" name="phone">
-                        <select class="form-control" name="program">
-                            <option>@lang('Select degree program')</option>
-                            <option>@lang('Foundation')</option>
-                            <option>@lang('Bachelor')</option>
-                            <option>@lang('Master')</option>
-                            <option>@lang('PHD')</option>
-                        </select>
+                        <div class="seclector" style="margin: 0 0 0 auto;margin-bottom: 0px;width: 401px;margin-bottom: 25px;">
+                            <div style="font-weight: bold;">Select degree program</div>
+                            <i class="fas fa-angle-down"></i>
+                                <ul class="option">
+                                <li>Select degree program</li>
+                                <li>Foundation</li>
+                                <li>Bachelor</li>
+                                <li>Master</li>
+                                <li>PHD</li>
+                                </ul>
+                        </div>
                     </div>
                     <div class="col-sm-12 text-center">
                         <button type="submit" class="btn btn-default text-center">@lang('Submit') </button>

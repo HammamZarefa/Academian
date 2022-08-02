@@ -73,14 +73,14 @@
 }
 
 .input-group-merge .form-control:not(:first-child):not(.is-valid):not(.is-invalid) {
-  border-left: 0;
-  padding-left: 0;
+  border-right: 0;
+  padding-right: 0;
 }
 
 .input-group > .form-control:not(:first-child),
 .input-group > .custom-select:not(:first-child) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .input-group-merge .form-control {
@@ -145,6 +145,10 @@ h6,
 /* **************************** login **************************** */
 .login{
   text-align: start;
+  direction: rtl;
+}
+.login input{
+  padding-inline-start: 1.25rem !important;
 }
 .login h6{
   font-weight: 700;

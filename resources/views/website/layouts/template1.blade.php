@@ -13,9 +13,12 @@
     <link href="{{ asset('front/font/fontello.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('front/swiper-bundle.min.css') }}" rel="stylesheet">
+    
    @if(session()->get('locale')==='ar')
+     <!-- <link href="{{ asset('front/css/old_style-ar.css') }}" rel="stylesheet"> -->
      <link href="{{ asset('front/css/style-ar.css') }}" rel="stylesheet">
       @else
+      <!-- <link href="{{ asset('front/css/old_style.css') }}" rel="stylesheet"> -->
       <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
     @endif
     {{--<link href="{{ asset('front/css/style-ar.css') }}" rel="stylesheet">--}}

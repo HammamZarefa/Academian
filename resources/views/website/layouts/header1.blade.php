@@ -45,9 +45,10 @@
                         </div>
                     </li>
                     <div class="cover-acount"></div>
-                    <li><a href="#">@lang('About US')</a></li>
+                    <li><a href="#">@lang('About')</a></li>
+                    <li><a href="#">@lang('Gallery')</a></li>
                     <li><a href="{{route('blog')}}">@lang('Blog')</a></li>
-                    <li><a href="#menu-contact">@lang('Contact US')</a></li>
+                    <li><a href="#menu-contact">@lang('Contact')</a></li>
                     <li><a href="#menu-testimonials">@lang('Reviews')</a></li>
                     <li>
                                 @auth     

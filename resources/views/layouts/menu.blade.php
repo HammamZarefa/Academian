@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md shadow-sm navbar-background">
+<nav class="navbar navbar-expand-md navbar-background">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img class="logo" src="{{ get_company_logo() }}" alt="{{ config('app.name', 'Academian') }}" height="50px" width="50px">

@@ -26,6 +26,44 @@
           }
           
           });
+          // *****************************************************
+          $(".seclector").on("click", function() {
+            if ( $(this).hasClass("active")) {
+              $(this).removeClass("active");
+            }
+            else{
+              $(this).addClass("active");
+            }
+            });
+            // ***************************************************
+            $("#add-review").on("click", function() {
+              if ( $(".form-cover").hasClass("active")) {
+                $(".form-cover").removeClass("active");
+                $(".form-review").removeClass("active");
+              }
+              else{
+                $(".form-cover").addClass("active");
+                $(".form-review").addClass("active");
+              }
+              });
+              
+            // ***************************************************
+              $(".form-cover").on("click", function() {
+                if ( $(".form-cover").hasClass("active")) {
+                  $(".form-cover").removeClass("active");
+                  $(".form-review").removeClass("active");
+                }
+                else{
+                  $(".form-cover").addClass("active");
+                  $(".form-review").addClass("active");
+                }
+                });
+            // ***************************************************
+            $("#shapes span").on("click", function() {
+              $("#shapes span").removeClass("active");
+              $(this).addClass("active");
+              });
+
     
   });
 
