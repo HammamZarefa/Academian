@@ -1,6 +1,6 @@
 @extends('website.layouts.template1')
 @section('title')
-Blog - 
+Blog -
 @endsection
 
 @section('content')
@@ -39,10 +39,22 @@ Blog -
 
             @foreach ($posts as $post)
             <article class="entry" data-aos="fade-up">
-
+                @if($post->body_type == 0)
               <div class="entry-img">
                 <img src="{{ asset('storage/'.$post->cover) }}" alt="{{ $post->title }}" class="img-fluid">
               </div>
+                @else
+                    <!-- 4:3 aspect ratio -->
+{{--                    <div class="embed-responsive embed-responsive-4by3">--}}
+{{--                        <iframe class="embed-responsive-item" src="{{asset('images/blog/'.$post->body)}}"></iframe>--}}
+{{--                    </div>--}}
+                    <div class="entry-img">
+                    <object data="{{asset('images/blog/'.$post->body)}}" type="application/pdf" width="750 px" height="700 px%">
+                        <p>Alternative text - include a link <a href="{{asset('images/blog/'.$post->body)}}">to the PDF!</a></p>
+                    </object>
+                    </div>
+
+                @endif
 
               <h2 class="entry-title">
                 <a href="{{ route('blogshow',$post->slug) }}">{{ $post->title }}</a>
@@ -55,7 +67,7 @@ Blog -
                   <li class="d-flex align-items-center"><i class="icon-eye"></i> <a href="{{route('blogshow',$post->slug)}}">{{ $post->views }} Views</a></li>
                 </ul>
               </div>
-
+                @if($post->body_type == 0)
               <div class="entry-content">
                 <p>
                   {{ Str::limit( strip_tags( $post->body ), 250 ) }}
@@ -64,6 +76,7 @@ Blog -
                   <a href="{{ route('blogshow',$post->slug) }}">@lang('Read More') </a>
                 </div>
               </div>
+                @endif
 
             </article><!-- End blog entry -->
             @endforeach
@@ -95,7 +108,7 @@ Blog -
                   @foreach ($categories as $category)
                   <li><a href="{{ route('category',$category->slug) }}">{{ $category->name }} <span>({{ $category->count() }})</span></a></li>
                   @endforeach
-                  
+
                 </ul>
 
               </div><!-- End sidebar categories-->
@@ -105,12 +118,16 @@ Blog -
 
                 @foreach ($recent as $recent)
                 <div class="post-item clearfix">
+                    @if($recent->body_type==1)
+                        <img src="{{ asset('img/pdf-80.png') }}" alt="">
+                    @else
                   <img src="{{ asset('storage/'.$recent->cover) }}" alt="">
+                    @endif
                   <h4><a href="{{route('blogshow',$recent->slug)}}">{{ $recent->title }}</a></h4>
                   <time datetime="2020-01-01">{{ Carbon\Carbon::parse($recent->created_at)->format("d F, Y") }}</time>
                 </div>
                 @endforeach
- 
+
               </div><!-- End sidebar recent posts-->
 
               <h3 class="sidebar-title">@lang('Tags') </h3>
@@ -118,7 +135,7 @@ Blog -
                 <ul>
                   @foreach ($tags as $tag)
                    <li><a href="{{ route('tag',$tag->slug) }}">{{ $tag->name }}</a></li>
-                  @endforeach 
+                  @endforeach
                 </ul>
 
               </div><!-- End sidebar tags-->

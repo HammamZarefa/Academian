@@ -5,7 +5,7 @@
     <!-- <section class="top-bar">
         <div class="container">
             <div class="row ar-row">
-                <div class="col-sm-4 social-mediav text-end"> 
+                <div class="col-sm-4 social-mediav text-end">
                     <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Facebook"><i class="icon-facebook"></i></a>
                     <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Twitter"><i class="icon-twitter"></i></a>
                     <a href="{{  settings('company_name') }}" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Linkedin"><i class="icon-linkedin"></i></a>
@@ -19,12 +19,12 @@
                 </div>
                 <div class="col-sm-1 sm-lang">
                 @include('website.partials/language_switcher')
-                </div>
-                
-            </div>
-        </div>
+    </div>
 
-    </section> -->
+</div>
+</div>
+
+</section> -->
     <!-- end Topbar -->
     <div class="navbar navbar-default" role="navigation">
         <div class="container ar-con">
@@ -39,17 +39,17 @@
                     <img src="{{ get_company_logo() }}" height="50px"
                      width="50px" alt="{{ settings('company_name') }}">
                 </a> -->
-                <a href="{{ route('homepage') }}">  
+                <a href="{{ route('homepage') }}">
                     <div style="width:90px;color: #a2a2a2;
                             height: 70px;
                             display: flex;
                             align-items: center;
                             margin-inline-start: 15px;
                             margin-top:11px">
-                         <img src="{{ get_company_logo() }}" 
-                        alt="{{ settings('company_name') }}">
-                        
-                    </div>  
+                        <img src="{{ get_company_logo() }}"
+                             alt="{{ settings('company_name') }}">
+
+                    </div>
                 </a>
             </div>
             <div class="navbar-collapse collapse">
@@ -57,13 +57,13 @@
                     {{--<li><a class="{{ is_active_menu('homepage') }}" href="{{ route('homepage') }}">Home</a></li>--}}
                     {{--<li><a class="{{ is_active_menu('pricing') }}" href="{{ route('pricing') }}">Pricing</a></li>--}}
                     {{--<li><a class="{{ is_active_menu('how_it_works') }}" href="{{ route('how_it_works') }}">How it--}}
-                            {{--works</a></li>--}}
+                    {{--works</a></li>--}}
                     {{--<li><a class="{{ is_active_menu('faq') }}" href="{{ route('faq') }}">FAQ</a></li>--}}
                     {{--<li><a class="{{ is_active_menu('contact') }}" href="{{ route('contact') }}">Contact</a></li>--}}
                     {{--@if(!settings('disable_writer_application') && settings('show_writer_application_link_website_top_menu'))--}}
-                        {{--<li>--}}
-                            {{--<a href="{{ route('writer_application_page') }}">{{ settings('writer_application_page_link_title') }}</a>--}}
-                        {{--</li>--}}
+                    {{--<li>--}}
+                    {{--<a href="{{ route('writer_application_page') }}">{{ settings('writer_application_page_link_title') }}</a>--}}
+                    {{--</li>--}}
                     {{--@endif--}}
                     {{--<li><a class="{{ is_active_menu('order_page') }}" href="{{ route('order_page') }}">Order Now</a>--}}
                     {{--</li>--}}
@@ -73,85 +73,100 @@
                         <a class="dropbtn">@lang('Services')</a>
                         <div class="dropdown-content">
                             @if(isset($service_categories))
-                            @foreach($service_categories as $service_category)
-                            <a href="{{ route('instant_quote')}}">
-                                {{$service_category->name}}
-                                <div class="men-fs">
-                                    @foreach($service_category->services as $service)
-                                    <div>{{$service->name}}</div>
-                                   @endforeach
-                                </div>
+                                @foreach($service_categories as $service_category)
+                                    <a href="{{ route('instant_quote')}}">
+                                        {{$service_category->name}}
+                                        <div class="men-fs">
+                                            @foreach($service_category->services as $service)
+                                                <div>{{$service->name}}</div>
+                                            @endforeach
+                                        </div>
+                                    </a>
+                                @endforeach
+                            @endif
+                            <a href="{{ route('post.add')}}">
+                                @lang('Add Blog')
                             </a>
-                            @endforeach
-                                @endif
-                                <a href="{{ route('post.add')}}">
-                                    @lang('Add Blog')
-                                </a>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropbtn">@lang('Online Services')</a>
+                        <div class="dropdown-content">
+                            <a href="{{ route('summarize')}}">
+                                    <div>@lang('Summarize')</div>
+                            </a>
+                            <a href="{{ route('paraphrase')}}">
+                                    <div>@lang('Paraphrase')</div>
+                            </a>
+                            <a href="{{ route('plagiarism')}}">
+                                    @lang('Plagiarism')
+                            </a>
                         </div>
                     </li>
                     {{--<li class="sec-center">--}}
-                        {{--<input class="dropdown" type="checkbox" id="dropdown" name="dropdown"/>--}}
-                        {{--<label class="for-dropdown" for="dropdown">Services<i class="icon-down"></i></label>--}}
-                        {{--<div class="section-dropdown">--}}
-                            {{--@foreach($service_categories as $service_category)--}}
-                            {{--<input class="dropdown-sub" type="checkbox" id="swe" name="swe"/>--}}
-                            {{--<label class="for-dropdown-sub" for="swe">{{$service_category->name}}<i class="icon-plus"></i></label>--}}
-                            {{--<div class="section-dropdown-sub" >--}}
-                                {{--@foreach($service_category->services as $service)--}}
-                                {{--<a  class="gotowizrd">{{$service->name}}</a>--}}
-                                {{--@endforeach--}}
-                            {{--</div>--}}
-                            {{--@endforeach--}}
-                            {{--<input class="dropdown-sub1" type="checkbox" id="dropdown-sub2" name="dropdown-sub2"/>--}}
-                            {{--<label class="for-dropdown-sub" for="dropdown-sub2">University Approval<i class="icon-plus"></i></label>--}}
-                            {{--<div class="section-dropdown-sub1">--}}
-                                {{--<a  class="gotowizrd">Dropdown Link</a>--}}
-                                {{--<a class="gotowizrd">Dropdown Link </a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                    {{--<input class="dropdown" type="checkbox" id="dropdown" name="dropdown"/>--}}
+                    {{--<label class="for-dropdown" for="dropdown">Services<i class="icon-down"></i></label>--}}
+                    {{--<div class="section-dropdown">--}}
+                    {{--@foreach($service_categories as $service_category)--}}
+                    {{--<input class="dropdown-sub" type="checkbox" id="swe" name="swe"/>--}}
+                    {{--<label class="for-dropdown-sub" for="swe">{{$service_category->name}}<i class="icon-plus"></i></label>--}}
+                    {{--<div class="section-dropdown-sub" >--}}
+                    {{--@foreach($service_category->services as $service)--}}
+                    {{--<a  class="gotowizrd">{{$service->name}}</a>--}}
+                    {{--@endforeach--}}
+                    {{--</div>--}}
+                    {{--@endforeach--}}
+                    {{--<input class="dropdown-sub1" type="checkbox" id="dropdown-sub2" name="dropdown-sub2"/>--}}
+                    {{--<label class="for-dropdown-sub" for="dropdown-sub2">University Approval<i class="icon-plus"></i></label>--}}
+                    {{--<div class="section-dropdown-sub1">--}}
+                    {{--<a  class="gotowizrd">Dropdown Link</a>--}}
+                    {{--<a class="gotowizrd">Dropdown Link </a>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
                     {{--</li>--}}
                     <li><a href="#menu-contact">@lang('Contact US')</a></li>
                     <li><a href="#menu-testimonials">@lang('Reviews')</a></li>
                     <li><a href="{{route('blog')}}">@lang('Blog')</a></li>
                     <li>
-                                @auth
-                                    <a href="{{ route(get_default_route_by_user(auth()->user())) }}" class="login">
-                                        <i class="flaticon-user"></i>
-                                        <span>@lang('My Account')</span>
-                                    </a>
-                                @endauth
-                                @guest
-                                    <a href="{{ route('login') }}" class="login">
-                                        <i class="flaticon-user"></i>
-                                        <span>@lang('log in')</span>
-                                    </a>
-                                @endguest
-                                {{--<div class="live_chat_btn">--}}
-                                {{--<a class="boxed_btn_orange" href="#">--}}
-                                {{--<i class="fa fa-phone"></i>--}}
-                                {{--<span>{!! Purifier::clean(settings('company_phone')) !!}</span>--}}
-                                {{--</a>--}}
-                                {{--</div>--}}
+                        @auth
+                            <a href="{{ route(get_default_route_by_user(auth()->user())) }}" class="login">
+                                <i class="flaticon-user"></i>
+                                <span>@lang('My Account')</span>
+                            </a>
+                        @endauth
+                        @guest
+                            <a href="{{ route('login') }}" class="login">
+                                <i class="flaticon-user"></i>
+                                <span>@lang('log in')</span>
+                            </a>
+                        @endguest
+                        {{--<div class="live_chat_btn">--}}
+                        {{--<a class="boxed_btn_orange" href="#">--}}
+                        {{--<i class="fa fa-phone"></i>--}}
+                        {{--<span>{!! Purifier::clean(settings('company_phone')) !!}</span>--}}
+                        {{--</a>--}}
+                        {{--</div>--}}
 
-                        </li>
+                    </li>
                 </ul>
                 <div class="help">
                     <button class=""><a href="{{ route('instant_quote')}}">@lang('Reqeust Help')</a></button>
                 </div>
                 <div class="col-sm-1 sm-lang">
-                @include('website.partials/language_switcher')
+                    @include('website.partials/language_switcher')
                 </div>
                 <style>
-                /* Small devices (landscape phones, 576px and up) */
-                @media (max-width: 767.98px) {
-                    .sm-lang{
-                        position: absolute;
-                        right: 10px;
-                        top: 80px;
+                    /* Small devices (landscape phones, 576px and up) */
+                    @media (max-width: 767.98px) {
+                        .sm-lang {
+                            position: absolute;
+                            right: 10px;
+                            top: 80px;
+                        }
                     }
-                }
                 </style>
-            <!--/.nav-collapse -->
+                <!--/.nav-collapse -->
             </div>
             {{--<div class="col-12">--}}
             {{--<div class="mobile_menu d-block d-lg-none"></div>--}}
