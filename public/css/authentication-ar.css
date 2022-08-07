@@ -209,3 +209,31 @@ h6,
     margin-inline-start: 8.33333333%;
   }
 }
+/* **************************** Header Dashboard **************************** */
+.navbar {
+  direction: rtl;
+}
+.dash-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline-start: auto;
+}
+#navbarDropdown{
+  display: flex;
+  align-items: center;
+}
+#navbarDropdown i{
+  font-size: 25px;
+}
+.dash-nav .nav-link{
+  font-weight: 501;
+}
+@media (max-width:768px) {
+  .dash-nav{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+

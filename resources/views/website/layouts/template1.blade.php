@@ -44,34 +44,33 @@
 <script src="{{ asset('js/new.js') }}"></script>
 <script src="{{ asset('front/swiper-bundle.min.js') }}"></script>
 <script>
-        var swiper2 = new Swiper('.swiper1', {
+        var swiper1 = new Swiper('.swiper1', {
     // Optional parameters
     direction: 'horizontal',
     speed: 1000,
-    loop: true,
-
+    // loop: true,
     breakpoints: {
 
       300: {  // when window width from 300px to 576px
         slidesPerView: 1,
-        spaceBetween: 50
+        spaceBetween: 10
       },
       576: {  // when window width from 576px to 767px
         slidesPerView: 1,
-        spaceBetween: 50
+        spaceBetween: 10
       },
       767: { // when window width from 767px to 991px
         slidesPerView: 2,
-        spaceBetween: 50
+        spaceBetween: 10
       },
 
       991: { // when window width from 991px to 1200px
         slidesPerView: 3,
-        spaceBetween: 50
+        spaceBetween: 10
       },
       1200: { // when window width from 1200px to higher
         slidesPerView: 3,
-        spaceBetween: 50
+        spaceBetween: 10
       },
     },
     // Navigation arrows
