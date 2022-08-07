@@ -138,11 +138,15 @@
       <library name="PHARS">
         <CLASSES>
           <root url="phar://$MODULE_DIR$/vendor/paypal/paypal-checkout-sdk/composer.phar/" />
+          <root url="phar://$MODULE_DIR$/Academian/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
+          <root url="phar://$MODULE_DIR$/Academian/vendor/paypal/paypal-checkout-sdk/composer.phar/" />
         </CLASSES>
         <SOURCES>
           <root url="phar://$MODULE_DIR$/vendor/paypal/paypal-checkout-sdk/composer.phar/" />
+          <root url="phar://$MODULE_DIR$/Academian/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
+          <root url="phar://$MODULE_DIR$/Academian/vendor/paypal/paypal-checkout-sdk/composer.phar/" />
         </SOURCES>
       </library>
     </orderEntry>
