@@ -8,7 +8,7 @@
             <i class="fas fa-bars" style="color:#ddd"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto" >
+            <ul class="navbar-nav dash-nav">
                 @role('admin')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard') }}">@lang('Dashboard')</a> 
@@ -125,13 +125,8 @@
                     {{--</li>--}}
                     @endunlessrole
                 @endauth
-            </ul>
-{{--            <div class="col-sm-2 sm-lang">--}}
-{{--                @include('website.partials/language_switcher')--}}
-{{--            </div>--}}
-            <ul class="navbar-nav ml-auto" style="display: flex;
-flex-direction: row;
-justify-content: space-between;">
+
+                <!-- ****************************************** -->
                 @guest
                     @if(!settings('disable_writer_application'))
                         <li class="nav-item">
@@ -148,7 +143,7 @@ justify-content: space-between;">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
-                @else
+                     @else
                     @hasanyrole('staff|admin')
                     <li class="nav-item dropdown" style="z-index: 2000 !important;">
                         @include('layouts.notification_bell')
@@ -158,7 +153,9 @@ justify-content: space-between;">
                     <li class="nav-item dropdown" style="z-index: 2000 !important;">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->first_name }} <span class="caret"></span>
+                            {{-- Auth::user()->first_name --}} 
+                            <i class="fas fa-user-circle" style="color:#87A2B9"></i>
+                            <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
@@ -185,12 +182,14 @@ justify-content: space-between;">
                     </li>
                 @endguest
                 <li class="nav-item">
-                    <div class="sm-lang" style="margin-top: 10px;">
                         @include('website.partials/language_switcher')
-                    </div>
                 </li>
-
+                <!-- ****************************************** -->
             </ul>
+{{--            <div class="col-sm-2 sm-lang">--}}
+{{--                @include('website.partials/language_switcher')--}}
+{{--            </div>--}}
+           
         </div>
     </div>
 </nav>

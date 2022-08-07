@@ -68,7 +68,7 @@
                                             </a>  
                                         </li>
                                         <li>
-                                            <a href="{{ route('instant_quote')}}">
+                                            <a href="{{ route('logout') }}">
                                             @lang('Log Out')
                                             </a>  
                                         </li>

@@ -1,10 +1,12 @@
 // site loader
  window.onload = function() {
-   document.getElementById("siteLoader").style.display = "none";
+ 
    document.getElementById("loader").style.visibility = "visible";
    $('#loader_helper').empty();
 }
-
+setTimeout(() => {
+	document.getElementById("siteLoader").style.display = "none";
+   }, 3000);
  $(document).ready(function() {
 
 /*---------------------------------------------------------------- One Page Navigation ----------------------------*/
