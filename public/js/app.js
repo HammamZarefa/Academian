@@ -95905,7 +95905,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "offset-md-1 col-md-5" }, [
+          _c("div", { staticClass: "col-md-6" }, [
             _c(
               "div",
               { staticClass: "sticky-top" },

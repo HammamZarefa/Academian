@@ -13,7 +13,12 @@
        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-       @foreach(Config::get('app.available_locales') as $lang)
+     @if(session()->get('locale')==='ar')
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/authentication-ar.css') }}">
+      @else
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/authentication.css') }}">
+    @endif
+     @foreach(Config::get('app.available_locales') as $lang)
            @if($lang != Config::get('app.locale'))
            <style>
            #cke_body_{{$lang}} {
@@ -26,8 +31,12 @@
    </head>
    <body class="body d-flex flex-column h-100">
       <div id="app" class="flex-grow-1">
-         @include('layouts.menu')
-         <main>@yield('content')</main>
+        @include('layouts.menu')
+        @if(session()->get('locale')==='ar')
+          <main style="direction: rtl;text-align: start;">@yield('content')</main>
+        @else
+          <main >@yield('content')</main>
+        @endif
       </div>
       @include('layouts.footer')
 

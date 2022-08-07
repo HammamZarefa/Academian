@@ -1,9 +1,4 @@
 @prepend('stylesheets')
-   @if(session()->get('locale')==='ar')
-      <link rel="stylesheet" type="text/css" href="{{ asset('css/authentication-ar.css') }}">
-      @else
-      <link rel="stylesheet" type="text/css" href="{{ asset('css/authentication.css') }}">
-    @endif
 @endprepend
 @extends('layouts.app')
 @section('title', 'Login')
