@@ -53,24 +53,24 @@
 
       300: {  // when window width from 300px to 576px
         slidesPerView: 1,
-        spaceBetween: 10
+        spaceBetween: 30
       },
       576: {  // when window width from 576px to 767px
         slidesPerView: 1,
-        spaceBetween: 10
+        spaceBetween: 30
       },
       767: { // when window width from 767px to 991px
         slidesPerView: 2,
-        spaceBetween: 10
+        spaceBetween: 30
       },
 
       991: { // when window width from 991px to 1200px
         slidesPerView: 3,
-        spaceBetween: 10
+        spaceBetween: 30
       },
       1200: { // when window width from 1200px to higher
-        slidesPerView: 3,
-        spaceBetween: 10
+        slidesPerView: 3.7,
+        spaceBetween: 30
       },
     },
     // Navigation arrows
@@ -87,9 +87,9 @@
     // Optional parameters
     direction: 'vertical',
     speed: 1000,
-    loop: true,
+    // loop: true,
 
-    slidesPerView: 2,
+    slidesPerView: 2.5,
     // Navigation arrows
     pagination: {
         el: '.swiper-pagination',

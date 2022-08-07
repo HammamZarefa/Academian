@@ -199,6 +199,9 @@ p{
 header{
     direction: rtl;
 }
+#header{
+    background-color: #fff;
+}
 .navbar {
     margin: 0;
     padding: 10px 0;

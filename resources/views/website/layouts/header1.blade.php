@@ -1,4 +1,4 @@
-<header>
+<header id="header">
     <div id="loader">
         <!-- Topbar -->
     </div>
@@ -25,7 +25,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#menu-slider">@lang('Home')</a></li>
                     <li class="dropdown">
-                        <span class="dropbtn">@lang('Services')</span>
+                        <span class="dropbtn" style="padding:10px 15px">@lang('Services')</span>
                         <div class="dropdown-content">
                             @if(isset($service_categories))
                             @foreach($service_categories as $service_category)

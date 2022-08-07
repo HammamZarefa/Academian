@@ -9,6 +9,7 @@ use App\Payment;
 
 class PaymentController extends Controller
 {
+    //payment getway controlles and views located in  Http/Controllers/Payments/PaymentController.php
     public function index()
     {
         return view('payment.index');

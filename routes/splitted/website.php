@@ -1,7 +1,9 @@
 <?php
 //if(!env('DISABLE_WEBSITE'))
 //{
-    Route::get('/', 'HomeController@index')->name('homepage');
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', 'HomeController@index')->name('homepage');
 //}
 //else
 //{
@@ -26,6 +28,17 @@ Route::get('blog/search', 'HomeController@search')->name('search');
 Route::get('blog/{slug}', 'HomeController@blogshow')->name('blogshow');
 Route::get('categories/{category:slug}', 'HomeController@category')->name('category');
 Route::get('tags/{tag:slug}', 'HomeController@tag')->name('tag');
+//Route::group(['middleware' => []], function () {
 
+    Route::get('plagiarism1/', 'PlagiarismController@index')->name('plagiarism');
+    Route::post('plagiarism1/detect', 'PlagiarismController@detect')->name('detect');
+    Route::get('paraphrase/', 'parphrazersController@index')->name('paraphrase');
+    Route::post('paraphrase/result', 'parphrazersController@detect')->name('paraphrase.result');
+    Route::get('summarize/', 'SummarizesController@index')->name('summarize');
+    Route::post('summarize/result', 'SummarizesController@detect')->name('summarize.result');
+    Route::get('subscripe/', 'PlagiarismController@subscripeShow')->name('subscripe');
+//});
+
+//P@ssw0rd
 
 

@@ -7,6 +7,8 @@ use App\PostCategory;
 use App\PostTag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
 
 class PostController extends Controller
 {
@@ -83,10 +85,9 @@ class PostController extends Controller
      */
     public function storeBlog(Request $request)
     {
-//        dd($request);
         \Validator::make($request->all(), [
             "title" => "required",
-            "cover" => "required",
+//            "cover" => "required",
             "body" => "required",
             "category" => "required",
             "tags" => "array|required",
@@ -94,14 +95,35 @@ class PostController extends Controller
             "meta_desc" => "required"
         ])->validate();
         $data = $request->all();
+        $data['title'] = \Str::slug($request->title['en']);
+        $data['body']=$this->base64ToUrl($request->body);
         $data['slug'] = \Str::slug($request->title['en']);
         $data['category_id'] = request('category');
         $data['status'] = 'PENDING';
         $data['author_id'] = Auth::user()->id;
+        $data['keyword'] = $request->keyword;
+        $data['meta_desc'] = $request->meta_desc;
         $cover = $request->file('cover');
         if ($cover) {
             $cover_path = $cover->store('images/blog', 'public');
             $data['cover'] = $cover_path;
+        }
+        if($request->body){
+            $body =$request-> file('body');
+            if ($body) {
+                $folder = public_path('images/blog/');
+                $filename = time() . '.' . $body->getClientOriginalName();
+                if (!File::exists($folder)) {
+                    File::makeDirectory($folder, 0775, true, true);
+                }
+                $body->move($folder, $filename);
+                $data['body'] = $filename;
+                $data['body_type']=1;
+            }else{
+                $data['body'] = $request->body;
+                $data['body_type']=0;
+
+            }
         }
         $post = Post::create($data);
         $post->tags()->attach(request('tag'));
@@ -126,14 +148,16 @@ class PostController extends Controller
 //        dd($request);
         \Validator::make($request->all(), [
             "title" => "required",
-            "cover" => "required",
+//            "cover" => "required",
             "body" => "required",
             "category" => "required",
             "tags" => "array|required",
             "keyword" => "required",
             "meta_desc" => "required"
         ])->validate();
+
         $data = $request->all();
+        $data['body']=$this->base64ToUrl($request->body);
         $data['feature'] = isset($request->feature)?$request->feature  : 0 ;
         $data['slug'] = \Str::slug($request->title['en']);
         $data['category_id'] = request('category');
@@ -144,6 +168,24 @@ class PostController extends Controller
             $cover_path = $cover->store('images/blog', 'public');
             $data['cover'] = $cover_path;
         }
+        if($request->body){
+            $body =$request-> file('body');
+            if ($body) {
+                $folder = public_path('images/blog/');
+                $filename = time() . '.' . $body->getClientOriginalName();
+                if (!File::exists($folder)) {
+                    File::makeDirectory($folder, 0775, true, true);
+                }
+                $body->move($folder, $filename);
+                $data['body'] = $filename;
+                $data['body_type']=1;
+            }else{
+                $data['body'] = $request->body;
+                $data['body_type']=0;
+
+            }
+        }
+
         $post = Post::create($data);
         $post->tags()->attach(request('tags'));
         if($request->category != 25){
@@ -221,6 +263,7 @@ class PostController extends Controller
 
         $post = Post::findOrFail($post);
         $data = $request->all();
+        $data['body']=$this->base64ToUrl($request->body);
         $data['slug'] = \Str::slug($request->title['en']);
         $data['category_id'] = request('category');
         $cover = $request->file('cover');
@@ -269,6 +312,8 @@ class PostController extends Controller
 
         $post = Post::findOrFail($post);
         $data = $request->all();
+
+        $data['body']=$this->base64ToUrl($request->body);
         $data['feature'] = isset($request->feature)?$request->feature  : 0 ;
         $data['slug'] = \Str::slug($request->title['en']);
         $data['category_id'] = request('category');
@@ -384,6 +429,35 @@ class PostController extends Controller
         $tags = PostTag::get();
         $video = PostCategory::where('slug','video')->first();
         return view('video.edit', compact('post' , 'tags','video'));
+    }
+
+    public function base64ToUrl($body)
+    {
+
+       if(is_array($body))
+        $content =implode(",",$body);
+       else $content=$body;
+        $dom = new \DomDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHtml('<?xml encoding="utf-8" ?>'.$content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $imageFile = $dom->getElementsByTagName('img');
+        foreach ($imageFile as $item => $image) {
+            $data = $image->getAttribute('src');
+            if (substr($data, 0, 5) == 'data:') {
+                list(, $data) = explode(';', $data);
+                list(, $data) = explode(',', $data);
+                $imgeData = base64_decode($data);
+                $image_name = time() . $item . '.png';
+                $path = storage_path() . '/app/public/images/blog/' . $image_name;
+                file_put_contents($path, $imgeData);
+                $image_name = '/images/blog/' . $image_name;
+                $image->removeAttribute('src');
+                $image->setAttribute('src', asset('storage' . $image_name));
+            }
+        }
+        $content = $dom->saveHTML();
+
+        return $content;
     }
 
 }

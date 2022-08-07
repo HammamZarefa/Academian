@@ -63,7 +63,7 @@
         </div>
 
       <div class="row">
-        <div class="col-sm-5 con-sw">
+        <div class="col-md-5 con-sw">
         <div class="swiper2">
           <div class="swiper-wrapper">
             <!-- ****** item ****** -->
@@ -87,7 +87,7 @@
           <div class="swiper-pagination"></div>
         </div>
         </div>
-        <div class="col-sm-6 con-sf">
+        <div class="col-md-6 con-sf">
           <h2> Our Clients Words Matter To Us</h2>
           <p>Here’s what our clients think about us and about the experience they had while trying our services.</p>
           <button class="main-button">

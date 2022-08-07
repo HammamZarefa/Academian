@@ -33,7 +33,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-    
+
     /**
      * Create a new controller instance.
      *
@@ -59,11 +59,11 @@ class RegisterController extends Controller
 
             if(!Invite::isValid($token))
             {
-                abort(404);        
-            } 
-            
-            $invitation = Invite::get($token); 
-            
+                abort(404);
+            }
+
+            $invitation = Invite::get($token);
+
             $request->session()->put('email', $invitation->email);
             $data['user_token'] = $request->c;
             $data['user_role']  = ($invitation->role_name == 'admin') ? 'as an admin' : 'as a writer';
@@ -93,14 +93,14 @@ class RegisterController extends Controller
 
             if(Invite::isValid($token))
             {
-                $invitation = Invite::get($token); 
-                array_push($rules['email'], 'in:'. $invitation->email);            
+                $invitation = Invite::get($token);
+                array_push($rules['email'], 'in:'. $invitation->email);
             }
             else
             {
                 abort(404);
-            }   
-            
+            }
+
         }
 
         $messages = [
@@ -116,7 +116,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    
+
     protected function create(array $data)
     {
 
@@ -133,8 +133,8 @@ class RegisterController extends Controller
 
             // Assign the role
             $user->assignRole($invitation->role_name);
-            
-            // Delete the invitation            
+
+            // Delete the invitation
             $invitation->delete();
         }
         else
@@ -151,6 +151,6 @@ class RegisterController extends Controller
         return view('auth.guest');
 
     }
-    
-   
+
+
 }

@@ -11,6 +11,12 @@
       action="{{ (isset($post->id)) ? route( 'post.edit', $post->id) : route('post.storeBlog') }}" method="post"
       autocomplete="off" style="margin-top: 25px;">
     {{ csrf_field()  }}
+    {{--   check if the post is pdf     --}}
+    <div class="form-check">
+        <input class="xcheck" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+            Is PDF
+        </label>
     <div class="form-group">
         <div class="container">
             <div class="row">
@@ -113,10 +119,11 @@
             </div>
         </div>
     </div>
+
     <div class="form-group">
         <div class="container">
             <div class="row">
-                <div class="col-md-10">
+                <div class="textdesc">
                     <label>@lang('Desc') <span class="required">*</span></label>
                     @foreach(Config::get('app.available_locales') as $lang)
                         <textarea id="body_{{$lang}}" type="text"
@@ -124,6 +131,13 @@
                                   name="body[{{$lang}}]"
                                   style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">{{ old_set('body['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
                     @endforeach
+                    </div>
+                <div class="pdf" style="display: none">
+                    <label>@lang('Desc') <span class="required">*</span></label>
+                    <div class="mb-3">
+                        <input class="form-control" type="file" id="formFile" name="body">
+                    </div>
+                    </div>
                     <div class="invalid-feedback d-block">{{ showError($errors, 'body.*') }}</div>
                 </div>
                 <div class="col-md-1">
@@ -154,6 +168,7 @@
             </div>
         </div>
     </div>
+
     <div class="form-group">
         <div class="container">
             <div class="row">
@@ -254,6 +269,7 @@
 @push('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
+
             var body1 = document.getElementById('body_en')
             var editor1 = body1.nextElementSibling;
             editor1.setAttribute('style','display:block');
@@ -267,6 +283,40 @@
             var editor4 = body4.nextElementSibling;
             editor4.setAttribute('style','display:none');
         });
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            $(".xcheck").click(
+            function (event) {
+                var x = $(this).is(':checked');
+                if(x==true){
+                    $(this).parents(".form-check").find(".pdf").show();
+                    $(this).parents(".form-check").find(".textdesc").hide();
+                    $(this).parents(".form-check").find(".picture-container").hide();
+                }else {
+                    $(this).parents(".form-check").find(".textdesc").show();
+                    $(this).parents(".form-check").find(".pdf").hide();
+
+                }
+
+            }
+        )});
+        if($("#flexCheckDefault").checked){
+            var body1 = document.getElementById('body_en')
+            var editor1 = body1.nextElementSibling;
+            editor1.setAttribute('style','display:block');
+            var body2 = document.getElementById('body_ar')
+            var editor2 = body2.nextElementSibling;
+            editor2.setAttribute('style','display:none');
+            var body3 = document.getElementById('body_de')
+            var editor3 = body3.nextElementSibling;
+            editor3.setAttribute('style','display:none');
+            var body4 = document.getElementById('body_fr')
+            var editor4 = body4.nextElementSibling;
+            editor4.setAttribute('style','display:none');
+        }
+        else{
+        };
     </script>
     <script>
         $("#wizard-picture").change(function () {
