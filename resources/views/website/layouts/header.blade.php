@@ -110,7 +110,7 @@
                                 @guest
                                     <a href="{{ route('login') }}" class="login">
                                         <i class="flaticon-user"></i>
-                                        <span>@lang('log in')</span>
+                                        <span>@lang('Login')</span>
                                     </a>
                                 @endguest
                                 {{--<div class="live_chat_btn">--}}

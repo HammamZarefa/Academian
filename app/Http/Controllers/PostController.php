@@ -7,6 +7,8 @@ use App\PostCategory;
 use App\PostTag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
 
 class PostController extends Controller
 {
@@ -83,25 +85,44 @@ class PostController extends Controller
      */
     public function storeBlog(Request $request)
     {
-//        dd($request);
         \Validator::make($request->all(), [
             "title" => "required",
-            "cover" => "required",
+//            "cover" => "required",
             "body" => "required",
             "category" => "required",
             "tags" => "array|required",
             "keyword" => "required",
             "meta_desc" => "required"
         ])->validate();
-        $data = $request->all();
+//        return $data = $request->all();
+        $data['title'] = \Str::slug($request->title['en']);
         $data['slug'] = \Str::slug($request->title['en']);
         $data['category_id'] = request('category');
         $data['status'] = 'PENDING';
         $data['author_id'] = Auth::user()->id;
+        $data['keyword'] = $request->keyword;
+        $data['meta_desc'] = $request->meta_desc;
         $cover = $request->file('cover');
         if ($cover) {
             $cover_path = $cover->store('images/blog', 'public');
             $data['cover'] = $cover_path;
+        }
+        if($request->body){
+            $body =$request-> file('body');
+            if ($body) {
+                $folder = public_path('images/blog/');
+                $filename = time() . '.' . $body->getClientOriginalName();
+                if (!File::exists($folder)) {
+                    File::makeDirectory($folder, 0775, true, true);
+                }
+                $body->move($folder, $filename);
+                $data['body'] = $filename;
+                $data['body_type']=1;
+            }else{
+                $data['body'] = $request->body;
+                $data['body_type']=0;
+
+            }
         }
         $post = Post::create($data);
         $post->tags()->attach(request('tag'));
@@ -126,7 +147,7 @@ class PostController extends Controller
 //        dd($request);
         \Validator::make($request->all(), [
             "title" => "required",
-            "cover" => "required",
+//            "cover" => "required",
             "body" => "required",
             "category" => "required",
             "tags" => "array|required",
@@ -144,6 +165,24 @@ class PostController extends Controller
             $cover_path = $cover->store('images/blog', 'public');
             $data['cover'] = $cover_path;
         }
+        if($request->body){
+            $body =$request-> file('body');
+            if ($body) {
+                $folder = public_path('images/blog/');
+                $filename = time() . '.' . $body->getClientOriginalName();
+                if (!File::exists($folder)) {
+                    File::makeDirectory($folder, 0775, true, true);
+                }
+                $body->move($folder, $filename);
+                $data['body'] = $filename;
+                $data['body_type']=1;
+            }else{
+                $data['body'] = $request->body;
+                $data['body_type']=0;
+
+            }
+        }
+
         $post = Post::create($data);
         $post->tags()->attach(request('tags'));
         if($request->category != 25){

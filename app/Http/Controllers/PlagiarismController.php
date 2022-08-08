@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\CartType;
 use App\Http\Requests\PlagiarismRequest;
+use App\Services\CartService;
+use App\Services\PaymentOptionsService;
 use App\Services\PlagiarismService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -14,11 +17,15 @@ class PlagiarismController extends Controller
 {
     public $plagiarism;
     protected $service;
+    private $cart;
 
-    public function __construct(PlagiarismService $service)
+
+    public function __construct(PlagiarismService $service,CartService $cart)
     {
         // $this->middleware(['auth']);
         $this->service = $service;
+        $this->cart = $cart;
+
     }
 
     /**
@@ -48,5 +55,35 @@ class PlagiarismController extends Controller
             return $ex->getMessage();
             // abort(404);
         }
+    }
+    protected function subscripeShow(PaymentOptionsService $paymentOptions){
+        $data['total'] = 1000;
+        $data['payment_options'] = $paymentOptions->all();
+        $data['show_wallet_option'] = true;
+
+        if ($this->cart->getCartType() != CartType::NewOrder) {
+            $data['show_wallet_option'] = false;
+        } else {
+            if (isset($this->cart->getCart()['order_number'])) {
+                $order = $this->cart->getCart();
+                $data['order_number'] = $order['order_number'];
+                $data['order_link'] = route('orders_show', $order['order_id']);
+            }
+        }
+
+
+
+
+
+        if($data['total']==0)
+            return  redirect()->route('homepage')->withSuccess('We Well Catch You Soon');
+        return view('subscripe.select_payment_method')->with('data', $data);
+//        return view('subscripe.select_payment_method');
+    }
+
+    public function plagiarism(){
+
+
+        return view( 'plagiarism.setting.index' );
     }
 }

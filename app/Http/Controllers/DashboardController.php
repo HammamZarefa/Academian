@@ -19,7 +19,7 @@ class DashboardController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'dashboard']);        
+//        $this->middleware(['auth', 'dashboard']);
     }
 
     /**
@@ -30,8 +30,8 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
 
-        $data['activities'] = Activity::limit(5)->orderBy('created_at', 'DESC')->get();       
-     
+        $data['activities'] = Activity::limit(5)->orderBy('created_at', 'DESC')->get();
+
         return view('dashboard', compact('data'));
 
     }
@@ -67,7 +67,7 @@ class DashboardController extends Controller
     public function statistics(Request $request)
     {
        switch ($request->name) {
-            case 'users_count':              
+            case 'users_count':
                     $data = $this->usersCount();
                break;
             case 'orders_count':
@@ -76,9 +76,9 @@ class DashboardController extends Controller
             case 'paid_bills_amount':
                     $data = $this->paidBillsAmount();
                break;
-            case 'profit_amount':                  
+            case 'profit_amount':
                     $data = $this->profitAmount();
-               break;           
+               break;
            default:
                $data = 0;
                break;

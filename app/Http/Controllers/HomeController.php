@@ -68,14 +68,14 @@ class HomeController extends Controller
             abort(404);
         }
 
-        return view('website.content')->with('content', $content);
+        return view('website.content-us')->with('content', $content);
     }
 
     function contact()
     {
         $this->seoService->load('contact');
 
-        return view('website.contact');
+        return view('website.contact-us');
     }
 
     function handle_email_query(Request $request)
@@ -124,7 +124,6 @@ class HomeController extends Controller
         $post->update();
         $recent = Post::orderBy('id','desc')->limit(5)->get();
         $tags = PostTag::get();
-
         return view ('website.blogshow',compact('categories','lpost','post','recent','tags'));
     }
 
@@ -189,6 +188,26 @@ class HomeController extends Controller
 //            mail($to,$subject,$msg,"From:".$email);
             return back()->with('success', 'Message Sent');
         }
+    }
+
+    public function reviews()
+    {
+        $reviews = Testimonial::where('status','=','PUBLISH')->orderBy('id','desc')->get();
+
+        return view ('website.reviews',compact('reviews'));
+    }
+
+    public function about()
+    {
+//        $reviews = Testimonial::where('status','=','PUBLISH')->orderBy('id','desc')->get();
+
+        return view ('website.about-us');
+    }
+
+    public function gallery()
+    {
+        $gallery=Video::all();
+        return view ('website.gallery',compact('gallery'));
     }
 
 }

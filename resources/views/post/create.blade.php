@@ -23,6 +23,12 @@
     </style>
     <form role="form" class="form-horizontal" enctype="multipart/form-data" action="{{ (isset($post->id)) ? route( 'post.edit', $post->id) : route('post.store') }}" method="post" autocomplete="off" >
         {{ csrf_field()  }}
+{{--   check if the post is pdf     --}}
+        <div class="form-check">
+            <input class="xcheck" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                PDF Post
+            </label>
         <div class="form-group">
             <div class="picture-container">
                 <div class="picture">
@@ -99,30 +105,43 @@
                 </div>
             </div>
         </div>
+
         <div class="form-group">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10">
-                        <label>@lang('Desc') <span class="required">*</span></label>
-                        @foreach(Config::get('app.available_locales') as $lang)
-                            <textarea id="body_{{$lang}}" type="text" class="summernote form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
-                                      name="body[{{$lang}}]">{{ old_set('body['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
-                        @endforeach
+                        <div class="textdesc">
+                            <label>@lang('Desc') <span class="required">*</span></label>
+                            @foreach(Config::get('app.available_locales') as $lang)
+                                <textarea id="body_{{$lang}}" type="text"
+                                          class="summernote form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
+                                          name="body[{{$lang}}]"
+                                          style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">{{ old_set('body['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
+                            @endforeach
+                        </div>
+                        <div class="pdf" style="display: none">
+                            <label>@lang('Desc') <span class="required">*</span></label>
+                            <div class="mb-3">
+                                <input class="form-control" type="file" id="formFile" name="body">
+                            </div>
+                        </div>
                         <div class="invalid-feedback d-block">{{ showError($errors, 'body.*') }}</div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         <label style="visibility: hidden"> @lang('lang') <span></span></label>
-                        <ul class="navbar-nav" style="background-color: #343a40;">
+                        <ul class="navbar-nav" style="background-color: #343a40;width: 50%;">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle navbarDarkDropdownMenuLink" href="#" id="navbarDarkDropdownMenuLink"
-                                   role="button" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0;color: #FFFFFF">
+                                <a class="nav-link dropdown-toggle navbarDarkDropdownMenuLink" href="#"
+                                   id="navbarDarkDropdownMenuLink"
+                                   role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                   style="padding: 0;color: #FFFFFF">
                                     {{Config::get('app.locale')}}
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark"
                                     aria-labelledby="navbarDarkDropdownMenuLink" style="min-width: 3rem;">
                                     @foreach(Config::get('app.available_locales') as $lang)
                                         <li aria-haspopup="true">
-                                            <a href="#" data-value="{{$lang}}" onclick="test(this)" class="dropdown-item locals"
+                                            <a href="#" data-value="{{$lang}}" onclick="test(this)"
+                                               class="dropdown-item locals"
                                                style="text-align-last: center;">
                                                 {{$lang}}<br>
                                             </a>
@@ -409,4 +428,40 @@
             }
         }
     </script>
+    <script type="text/javascript">
+    $(function(){
+        $(".xcheck").click(
+            function (event) {
+                var x = $(this).is(':checked');
+                if(x==true){
+                    $(this).parents(".form-check").find(".pdf").show();
+                    $(this).parents(".form-check").find(".textdesc").hide();
+                    $(this).parents(".form-check").find(".picture-container").hide();
+                    // $(this).parents(".form-check").find(".form-group").hide();
+                }else {
+                    $(this).parents(".form-check").find(".textdesc").show();
+                    $(this).parents(".form-check").find(".pdf").hide();
+
+                }
+
+            }
+        )});
+    if($("#flexCheckDefault").checked){
+        var body1 = document.getElementById('body_en')
+        var editor1 = body1.nextElementSibling;
+        editor1.setAttribute('style','display:block');
+        var body2 = document.getElementById('body_ar')
+        var editor2 = body2.nextElementSibling;
+        editor2.setAttribute('style','display:none');
+        var body3 = document.getElementById('body_de')
+        var editor3 = body3.nextElementSibling;
+        editor3.setAttribute('style','display:none');
+        var body4 = document.getElementById('body_fr')
+        var editor4 = body4.nextElementSibling;
+        editor4.setAttribute('style','display:none');
+    }
+    else{
+    };
+</script>
+
 @endpush

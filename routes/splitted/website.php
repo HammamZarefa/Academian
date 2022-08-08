@@ -36,8 +36,11 @@ Route::get('tags/{tag:slug}', 'HomeController@tag')->name('tag');
     Route::post('paraphrase/result', 'parphrazersController@detect')->name('paraphrase.result');
     Route::get('summarize/', 'SummarizesController@index')->name('summarize');
     Route::post('summarize/result', 'SummarizesController@detect')->name('summarize.result');
+    Route::get('subscripe/', 'PlagiarismController@subscripeShow')->name('subscripe');
 //});
 
 //P@ssw0rd
-
+Route::get('reviews', 'HomeController@reviews')->name('reviews');
+Route::get('about', 'HomeController@about')->name('about');
+Route::get('gallery', 'HomeController@gallery')->name('gallery');
 
