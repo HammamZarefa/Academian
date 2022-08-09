@@ -27,24 +27,18 @@
 
 @section('content')
 <main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>@lang('Blog') </h2>
-          <ol>
-            <li><a href="/">@lang('Home') </a></li>
-            <li>@lang('Blog') </li>
-          </ol>
-        </div>
-      </div>
-    </section><!-- End Breadcrumbs -->
-
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog">
       <div class="container">
+      <div class="row">
+          <div class="col-sm-12 ">
+            <h2 class="title">
+              <a>@lang('Home')</a>
+              <span class="rig">></span>
+              <a>@lang('Blog Show')</a>
+            </h2>
+          </div>
+        </div>
         <div class="row">
           <div class="col-lg-8 entries">
             <article class="entry entry-single" data-aos="fade-up">

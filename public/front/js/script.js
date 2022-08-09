@@ -2,7 +2,7 @@
  window.onload = function() {
  
    document.getElementById("loader").style.visibility = "visible";
-   $('#loader_helper').empty();
+//    $('#loader_helper').empty();
 }
 setTimeout(() => {
 	document.getElementById("siteLoader").style.display = "none";

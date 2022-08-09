@@ -8,12 +8,14 @@
 }
 
 </style>
+
  @include('setup.partials.action_toolbar', [
  'title' => 'Blog',
  'hide_save_button' => TRUE,
  'create_link' => ['title' => 'Create Post', 'url' => route("post.create")]
 
  ])
+ <div class="container">
 <table id="table" class="table table-striped nowrap">
   <thead>
      <tr>
@@ -32,7 +34,7 @@
             <td>{{ $post->category->name }}</td>
             <td>{{ $post->status }}</td>
             <td>
-                <a href="{{route('post.edit', [$post->id])}}" class="btn btn-info btn-sm">@lang('Edit')  </a>
+                <a href="{{route('post.edit', [$post->id])}}" class="btn btn-Create btn-sm">@lang('Edit')  </a>
                 <form method="POST" class="d-inline" onsubmit="return confirm('Move post to trash ?')" action="{{route('post.destroy', $post->id)}}">
                     @csrf
                     <input type="hidden" value="DELETE" name="_method">
@@ -43,6 +45,7 @@
     @endforeach
     </tbody>
 </table>
+<div>
 @endsection
 {{--@section('innerPageJS')--}}
 {{--<script>--}}

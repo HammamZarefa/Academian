@@ -297,3 +297,60 @@ h6,
 .button-title{
   text-align: end;
 }
+.bootstrap-select{
+  width: 100% !important;
+}
+.bootstrap-select .dropdown-toggle .filter-option {
+  text-align: start !important;
+}
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%% components Two %%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+.seclector{
+  width: 216px;
+  height: 56px;
+  border: 1px solid #79747E;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: .5s;
+}
+.seclector.active{
+  color: var(--hover_color);
+}
+.seclector i{
+  transition: .5s;
+}
+.seclector .option{
+  display: none;
+  list-style: none;
+  background-color: #fff;
+  width: 100%;
+  position: absolute;
+  box-shadow: 0px 2px 10px #bbb8b8;
+  border-radius: 5px;
+  left: 0;
+  top: 101%;
+  z-index: 99;
+  padding: 0;
+}
+.seclector .option li{
+  line-height: 2;
+  font-size: 16px;
+  transition: .5s;
+  cursor: pointer;
+  width: 100%;
+  padding: 5px 10px;
+}
+.seclector .option li:hover{
+  background-color: #C4DEF4;
+}
+.seclector.active i{
+  transform: rotateZ(180deg);
+}
+.seclector.active .option{
+  display: block;
+}
+/* *************************** new Start Header ***************************** */

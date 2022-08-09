@@ -65,8 +65,75 @@
             $("#shapes span").on("click", function() {
               $("#shapes span").removeClass("active");
               $(this).addClass("active");
+              $("#siteLoader").css("display", "block");
+              setTimeout(() => {
+                $(".gallery-video").removeClass("active");
+                $(".gallery-image").removeClass("active");
+	              $("#siteLoader").css("display", "none");
+               }, 1500);
               });
+              $("#shapes #All").on("click", function() {
+                $(".gallery-video").animate({
+                  opacity: 1,
+                  display: "flex",
+                }, 1500);
+                $(".gallery-image").animate({
+                  opacity: 1,
+                  display: "flex",
+                }, 1500);
+               setTimeout(() => {
+                $(".gallery-video").addClass("active");
+                $(".gallery-image").addClass("active");
+               }, 1500);
+                });
+               
+              $("#shapes #Videos").on("click", function() {
+                $(".gallery-video").animate({
+                  opacity: 1,
+                  display: "flex",
+                }, 1500);
+                $(".gallery-image").animate({
+                  opacity: 0,
+                  display: "none",
+                }, 1500);
+              setTimeout(() => {
+                $(".gallery-video").addClass("active");
+                $(".gallery-image").removeClass("active");
+              }, 1500);
+                });
+              $("#shapes #Images").on("click", function() {
+                $(".gallery-video").animate({
+                  opacity: 0,
+                  display: "none",
+                }, 1500);
+                $(".gallery-image").animate({
+                  opacity: 1,
+                  display: "flex",
+                }, 1500);
+               setTimeout(() => {
+                $(".gallery-video").removeClass("active");
+                $(".gallery-image").addClass("active");
+               }, 1500);
+                });
 
+                $(window).scroll(function(){
+                  if($(window).width() > 767){
+                    if($(window).scrollTop() > 102){
+                      $("#sidebar-blog").css("position","fixed");
+                      $("#sidebar-blog").css("width","360px");
+                      $("#sidebar-blog").css("top","20px");
+                     }
+                     if($(window).scrollTop() < 102){
+                      $("#sidebar-blog").css("position","relative");
+                      $("#sidebar-blog").css("top","0");
+                      $("#sidebar-blog").css("width","100%");
+
+                     }
+                  }
+               
+                });
+                // console.log($("#sidebar-blog").outerHeight());
+                // console.log($(window).scrollTop());
     
   });
 

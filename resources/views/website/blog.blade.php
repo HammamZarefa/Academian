@@ -19,7 +19,7 @@
         </div>
         <div class="row">
           <div class="col-sm-4">
-            <div class="sidebar" data-aos="fade-left">
+            <div class="sidebar" id="sidebar-blog">
               <div class="sidebar-item search-form">
                 <form action="{{ route("search") }}" method="GET" style="display: flex;align-items: center;justify-content: space-around;">
                   <input type="text" name="query" placeholder="Search">
@@ -43,6 +43,10 @@
                 </ul>
               </div>
             </div>
+
+              <div class="recent-blog">
+
+              </div>
           </div>
           <div class="col-sm-8">
             <!-- item -->
