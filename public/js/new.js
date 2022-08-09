@@ -7,6 +7,9 @@
 !(function($) {
   "use strict";
   $(document).ready(function() {
+    setTimeout(() => {
+      AOS.init();
+    }, 500);
     $(".dropdown-content .category-name:first-child").addClass("active");
     $(".dropdown-content .category-name").on("mouseover", function() {
       $(".dropdown-content .category-name").removeClass("active");

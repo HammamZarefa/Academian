@@ -9,14 +9,14 @@
         <div class="contain-team">
             @foreach($writers as $writer)
             <div class="item">
-                        <img src="{{asset(Storage::url($writer->photo))}}" alt="">
+                        <img src="{{asset(Storage::url($writer->photo))}}" alt=""  data-aos="fade-up-right" data-aos-duration="1500">
                         {{--<figcaption><i class="icon-plus-circled"></i></figcaption>--}}
                 <a href="#teacher01" data-toggle="modal">
-                    <div class="class_title">
+                    <div class="class_title" data-aos="fade-down-left" data-aos-duration="1500">
                         <h2> {{$writer->first_name.' '.$writer->last_name}} </h2>
                     </div>
                   
-                    <div class="description">
+                    <div class="description" data-aos="fade-up" data-aos-duration="1500">
                         <p>{{$writer->bio}}</p>
                     </div>
                 </a>

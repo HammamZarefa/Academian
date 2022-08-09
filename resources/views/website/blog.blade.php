@@ -1,4 +1,4 @@
-@extends('website.layouts.template1')
+@extends('website.layouts.template')
 @section('title')
   Blog -
 @endsection
@@ -38,7 +38,7 @@
               <div class="sidebar-item tags">
                 <ul>
                   @foreach ($tags as $tag)
-                    <li><a href="{{ route('tag',$tag->slug) }}">{{ $tag->name }}</a></li>
+                    <li style="margin-bottom: 5px;"><a href="{{ route('tag',$tag->slug) }}">{{ $tag->name }}</a></li>
                   @endforeach
                 </ul>
               </div>

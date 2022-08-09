@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="contain-prices">
-            <div class=" item">
+            <div class="item" data-aos="fade-up" data-aos-duration="1500" >
                 <ul class="table-list">
                     <li class="table-header">@lang('Proofreading')</li>
                     <li class="table-price">£100,<sup>00</sup></li>
@@ -32,7 +32,7 @@
                     
                 </ul>
             </div>
-            <div class=" item">
+            <div class="item" data-aos="fade-up" data-aos-duration="1500">
                 <ul class="table-list">
                     <li class="table-header">@lang('Assignment')</li>
                     <li class="table-price">£200,<sup>00</sup></li>
@@ -55,7 +55,7 @@
                     
                 </ul>
             </div>
-            <div class=" item">
+            <div class="item"  data-aos="fade-up" data-aos-duration="1500">
                 <ul class="table-list">
                     <li class="table-header">@lang('Presentation')</li>
                     <li class="table-price">£48,<sup>00</sup></li>
@@ -75,7 +75,7 @@
                     
                 </ul>
             </div>
-            <div class=" item">
+            <div class="item"  data-aos="fade-up" data-aos-duration="1500">
                 <ul class="table-list">
                     <li class="table-header">@lang('Editing')</li>
                     <li class="table-price">£160,<sup>00</sup></li>

@@ -8,7 +8,7 @@
         </div>
         <div class="contain" id="more-about">
             <!-- ******** item ********* -->
-            <div class="item">
+            <div class="item" data-aos="fade-right" data-aos-duration="1500">
                <div class="head"> 
                     <h3>What Do You Offer?</h3>
                     <i class="fas fa-plus ic1"></i>
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <!-- ******** item ********* -->
-            <div class="item">
+            <div class="item" data-aos="fade-left" data-aos-duration="1500">
                <div class="head"> 
                     <h3>Can Anybody Find Out That I Tried Your Service?</h3>
                     <i class="fas fa-plus ic1"></i>
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <!-- ******** item ********* -->
-            <div class="item">
+            <div class="item" data-aos="fade-right" data-aos-duration="1500">
                <div class="head"> 
                     <h3>How much Time Do You Take To Complete My Order?</h3>
                     <i class="fas fa-plus ic1"></i>
@@ -52,7 +52,7 @@
                 </div>
             </div>
              <!-- ******** item ********* -->
-             <div class="item">
+             <div class="item" data-aos="fade-left" data-aos-duration="1500">
                <div class="head"> 
                     <h3>At What Time Can I Place My Order?</h3>
                     <i class="fas fa-plus ic1"></i>
@@ -66,7 +66,7 @@
                 </div>
             </div>
              <!-- ******** item ********* -->
-             <div class="item">
+             <div class="item" data-aos="fade-right" data-aos-duration="1500">
                <div class="head"> 
                     <h3>How Do I Place An Order?</h3>
                     <i class="fas fa-plus ic1"></i>

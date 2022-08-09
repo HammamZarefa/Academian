@@ -236,4 +236,69 @@ h6,
     align-items: flex-start;
   }
 }
-
+/* **************************** Summarize Page **************************** */
+/* **************************** Summarize Page **************************** */
+.btn-Create{
+  background-color: #3667BF;
+  color: #fff;
+}
+.btn-Create:hover{
+  background-color: #06243E;
+  color: #fff;
+}
+.btn-Quest{
+  background-color: #fff;
+  color: #3667BF;
+  font-weight: bold;
+}
+.btn-Quest:hover{
+  background-color: #C4DEF4;
+  color: #06243E;
+}
+.Summarize {
+  padding: 50px 0;
+}
+@media (max-width:768px) {
+  .Summarize {
+    padding: 50px 20px;
+  }
+}
+.Summarize label h4,.Summarize label h3{
+  font-weight: 501;
+  font-size: 20px;
+  line-height: 24px;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: #06243E;
+}
+.Summarize textarea{
+  resize: none;
+  border: 2px solid #D4D7DB;
+}
+.Summarize select{
+  height: 50px;
+  padding-inline-start: 30px;
+}
+.Summarize .form-switch label{
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #06243E;
+  font-weight: 501;
+}
+.Summarize .form-switch .form-check-input{
+  margin-inline-start: 10.5em;
+  background-position: right center;
+}
+.Summarize input:checked{
+  background-color: #3667bf !important;
+  background-position: left center !important;
+}
+/* **************************** Create Blog Page **************************** */
+.side-form{
+  background-color: #C4DEF4;
+  padding: 20px !important;
+  border-radius: 5px;
+}
+.button-title{
+  text-align: end;
+}

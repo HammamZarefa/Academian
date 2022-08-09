@@ -1,4 +1,4 @@
-@extends('website.layouts.template1')
+@extends('website.layouts.template')
 @section('content')
     {{--@include('website.partials.home_page_section_1')--}}
     {{--@include('website.partials.home_page_section_2')--}}

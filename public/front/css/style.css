@@ -16,12 +16,35 @@
 #siteLoader {
     position: fixed;
     left: 50%;
-    top: 45%;
+    top: 50%;
     width: 50px;
     height: 50px;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%,-50%);
 }
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 /*Fonts*/
-@import url("http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900");
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Amiri:ital@1&family=Caveat:wght@700&family=Courgette&family=Dancing+Script:wght@700&family=Inter:wght@200&family=Tajawal&display=swap');
 
 /*CSS Animations*/
 @import url("animate-custom.css");
@@ -48,10 +71,18 @@ a:hover{
     text-decoration: none;
     outline: none;
 }
+.ov-hi{
+    overflow: hidden;
+}
 body{
     background: #fff;
-    font-family: 'Raleway', sans-serif;
     color: #8495a5;
+    font-family: 'Alegreya', serif;
+    font-family: 'Amiri', serif;
+    font-family: 'Caveat', cursive;
+    font-family: 'Courgette', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Inter', sans-serif;
 }
 footer {
     background: #027bef;
@@ -72,8 +103,13 @@ footer ul li {
 }
 h1,h2,h3,h4,h5,h6{
     color: #46627e;
-    font-family: 'Raleway', sans-serif;
     font-weight: bold;
+    font-family: 'Alegreya', serif;
+    font-family: 'Amiri', serif;
+    font-family: 'Caveat', cursive;
+    font-family: 'Courgette', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Inter', sans-serif;
 }
 h1{
     font-size: 30px;
@@ -238,7 +274,7 @@ p{
 .dropdown {
     position: relative;
     display: inline-block;
-    z-index: 501;
+    padding: 10px;
 }
 .dropbtn {
     color: var(--main_color);
@@ -251,9 +287,7 @@ p{
     color: var(--hover_color);
 }
 .dropdown-content {
-    display: none;
     position: absolute;
-    z-index: 501;
     flex-direction: column;
     align-items: flex-start;
     padding: 32px;
@@ -264,6 +298,10 @@ p{
     box-shadow: 0px 4px 20px rgba(6, 36, 62, 0.3);
     border-radius: 16px;
     transform: translateX(-35%);
+    display: flex;
+    opacity: 0;
+    z-index: -1;
+    transition: .5s;
 }
 
 .dropdown-content a {
@@ -283,7 +321,8 @@ p{
     color: var(--hover_color);
 }
 .dropdown:hover .dropdown-content {
-    display: flex;
+    opacity: 1;
+    z-index: 501;
 }
 .men-fs {
     display: none;
@@ -396,11 +435,11 @@ p{
 /* acount and user */
 .acoount{
     position: relative;
-    z-index: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 50px;
+    z-index: 500;
 }
  .cover-acount{
     position: fixed;
@@ -409,51 +448,66 @@ p{
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 499;
-    display: none;
+    z-index: -2;
+    opacity: 0;
 }
 .acoount ul{
     padding: 0;
     list-style: none;
     position: absolute;
-    display: none;
-    z-index: 500;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 8px;
     gap: 8px;
-    top: 0;
-}
-.acoount ul li{
-    width: 100%;
-    border-radius: 3px;
-    transition: .3s;
-    padding: 5px;
-}
-.acoount ul li:hover{
-    background-color: #87A2B9;
-}
-.acoount ul li:hover a{
-    background-color: #87A2B9;
-}
-.acoount ul li a{
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.5px;
-    color: var(--hover_color);
-}
-.acoount:hover ul{
+    top: 100%;
+    right: 0;
+    transition: .5s;
+    opacity: 0;
+    z-index: -1;
     display: flex;
     width: 143px;
     height: 128px;
     background: #FFFFFF;
     border-radius: 8px;
 }
+@media (max-width:768px) {
+    .acoount ul{
+        left: 0;
+    }
+}
+.acoount ul li{
+    width: 100%;
+    border-radius: 3px;
+    transition: .3s;
+    padding: 5px 15px;
+}
+.acoount ul li:hover{
+    background-color: #A9C5DE;
+}
+.acoount ul li:hover a{
+    background-color: transparent;
+}
+.acoount ul li a{
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: var(--hover_color);
+}
+.acoount:hover ul{
+    z-index: 500;
+    opacity: 1;
+}
 .acoount:hover + .cover-acount{
-    display: block;
-    
+    opacity: 1;
+    z-index: 499;
+}
+.acoount2{
+    width: auto !important;
+}
+.acoount2 ul{
+    width: 150px;
 }
 /* *************************** end  Header ********************************** */
 
@@ -942,7 +996,7 @@ width: 50%;
 .more-about .contain .item{
     padding: 10px 30px;
     width: 550px;
-    height: auto;
+    height: 105px;
     background: #FFFFFF;
     box-shadow: 0px 5px 16px rgba(54, 103, 191, 0.12);
     border-radius: 8px;
@@ -992,7 +1046,7 @@ width: 50%;
 }
 .more-about .contain .item.active{
     background-color: #C4DEF4;
-    height: auto;
+    height: 320px;
 }
 .more-about .contain .item h3{
     font-weight: 500;

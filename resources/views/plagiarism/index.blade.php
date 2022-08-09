@@ -14,30 +14,26 @@
                 </div>
             @endif
             <div class="row">
-                <div class="col-md-12 mb-4">
-                    <div class="col-md-4 p-0">
+                <div class="col-md-6 mb-4">
                         <select class="form-select" aria-label="Default select example" name="language">
                             <option value="ar" >Arabic</option>
                             <option value="en" selected >English</option>
                             <option value="sp">Spanish</option>
                         </select>
-                    </div>
                 </div>
-                <div class="col-md-12 mb-4">
-                    <div class="col-md-4 p-0">
+                <div class="col-md-3 mb-4 d-flex">
                         <div class="form-check form-switch d-flex align-items-center">
                             <input class="form-check-input" type="checkbox" role="switch"
                                    id="flexSwitchCheckDefault" name="scrapeSources">
                             <label class="form-check-label" for="flexSwitchCheckDefault">scrape Sources</label>
                         </div>
-                    </div>
-                    <div class="col-md-4 p-0">
+                </div>
+                <div class="col-md-3 mb-4 d-flex">
                         <div class="form-check form-switch d-flex align-items-center">
                             <input class="form-check-input" type="checkbox" role="switch"
                                    id="flexSwitchCheckDefault" name="includeCitations" >
                             <label class="form-check-label" for="flexSwitchCheckDefault" >include Citations</label>
                         </div>
-                    </div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <div class="form-group" >

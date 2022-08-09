@@ -17,25 +17,21 @@
             @endif
 
             <div class="row">
-                <div class="col-md-12 mb-4">
-                    <div class="col-md-4 p-0">
+                <div class="col-md-6 mb-4">
                         <label for="exampleFormControlTextarea1"><h4>Select Language</h4></label>
                         <select class="form-select" aria-label="Default select example" name="language">
                             <option value="ar" >Arabic</option>
                             <option value="en" selected >English</option>
                             <option value="sp">Spanish</option>
                         </select>
-                    </div>
                 </div>
-                <div class="col-md-12 mb-4">
-                    <div class="col-md-4 p-0">
+                <div class="col-md-6 mb-4">
                         <label for="exampleFormControlTextarea1"><h4>Select Output Sentences</h4></label>
                         <select class="form-select" aria-label="Default select example" name="output_sentences">
                             <option value="1" >1</option>
                             <option value="2" selected >2</option>
                             <option value="3">3</option>
                         </select>
-                    </div>
                 </div>
 
                 <div class="col-md-6 mb-4">

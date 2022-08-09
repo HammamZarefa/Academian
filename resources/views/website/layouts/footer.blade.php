@@ -52,7 +52,7 @@
     </div>
 </footer>
 <div id='siteLoader'>
-   <img src="{{ asset('front/img/loader.gif') }}" class="loader" alt="loader"/>
+<div class="loader"></div>
 </div>
 
 <!-- ======================= JQuery libs =========================== -->
