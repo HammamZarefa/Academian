@@ -8,6 +8,7 @@ use App\ServiceCategory;
 use App\Testimonial;
 use App\User;
 use App\Video;
+use App\WorkLevel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
@@ -42,9 +43,10 @@ class HomeController extends Controller
         $writers= $this->userController->getWriters();
         $reviews=Testimonial::where('status','PUBLISH')->get();
         $posts = Post::where('status','=','PUBLISH')->where('feature',1)->orderBy('id','desc')->limit(6)->get();
-        $videos = Video::orderBy('feature','desc')->get();
+        $videos = Video::orderBy('feature','desc')->where('type',1)->get();
+        $work_levels=WorkLevel::whereNull('inactive')->get();
 
-        return view('website.index', compact('services','service_categories','writers','reviews','posts','videos'));
+        return view('website.index', compact('services','service_categories','writers','reviews','posts','videos','work_levels'));
     }
 
     function pricing(CalculatorService $calculator)
@@ -74,8 +76,9 @@ class HomeController extends Controller
     function contact()
     {
         $this->seoService->load('contact');
+        $work_levels=WorkLevel::whereNull('inactive')->get();
 
-        return view('website.contact-us');
+        return view('website.contact-us',compact('work_levels'));
     }
 
     function handle_email_query(Request $request)
@@ -210,4 +213,9 @@ class HomeController extends Controller
         return view ('website.gallery',compact('gallery'));
     }
 
+    public function gallerywatch($id)
+    {
+        $item=Video::find($id);
+        return view('website.gallery-watch',compact('item'));
+    }
 }

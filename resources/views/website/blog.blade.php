@@ -49,51 +49,19 @@
               </div>
           </div>
           <div class="col-sm-8">
+            @foreach($posts as $post)
             <!-- item -->
-            <a href="">
+            <a href="{{route('blogshow',$post->slug)}}">
               <div class="blog-item">
-                <img src="{{ asset('front/img/Blog 1.jpg') }}" alt="">
-                <h2>@lang('Project and Production Management in the Built Environment - Sydney Opera House')</h2>
+                <img src="{{ asset('storage/'.$post->cover) }}" alt="">
+                <h2>{{$post->title}}</h2>
                 <div class="date">
-                  <span>@lang('Firas illa')</span>
-                  <span>@lang('16-05-2022')</span>
+                  <span>{{$post->user->name}}</span>
+                  <span>{{ Carbon\Carbon::parse($post->created_at)->format("d F, Y") }}</span>
                 </div>
               </div>
             </a>
-            <!-- item -->
-            <a href="">
-              <div class="blog-item">
-                <img src="{{ asset('front/img/Blog 1.jpg') }}" alt="">
-                <h2>@lang('Project and Production Management in the Built Environment - Sydney Opera House')</h2>
-                <div class="date">
-                  <span>@lang('Firas illa')</span>
-                  <span>@lang('16-05-2022')</span>
-                </div>
-              </div>
-            </a>
-            <!-- item -->
-            <a href="">
-              <div class="blog-item">
-                <img src="{{ asset('front/img/Blog 1.jpg') }}" alt="">
-                <h2>@lang('Project and Production Management in the Built Environment - Sydney Opera House')</h2>
-                <div class="date">
-                  <span>@lang('Firas illa')</span>
-                  <span>@lang('16-05-2022')</span>
-                </div>
-              </div>
-            </a>
-            <!-- item -->
-            <a href="">
-              <div class="blog-item">
-                <img src="{{ asset('front/img/Blog 1.jpg') }}" alt="">
-                <h2>@lang('Project and Production Management in the Built Environment - Sydney Opera House')</h2>
-                <div class="date">
-                  <span>@lang('Firas illa')</span>
-                  <span>@lang('16-05-2022')</span>
-                </div>
-              </div>
-            </a>
-            <!-- item -->
+            @endforeach
           </div>
         </div>
       </div>

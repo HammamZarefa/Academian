@@ -13,7 +13,7 @@ class Video extends Model
 
     protected $guarded = [];
 
-    protected $fillable = ['title','url','feature'];
+    protected $fillable = ['title','url','feature','type'];
 
     public $translatable = ['title'];
 

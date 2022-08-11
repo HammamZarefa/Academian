@@ -25,10 +25,9 @@
                             <i class="fas fa-angle-down"></i>
                                 <ul class="option">
                                 <li>Select degree program</li>
-                                <li>Foundation</li>
-                                <li>Bachelor</li>
-                                <li>Master</li>
-                                <li>PHD</li>
+                                    @foreach($work_levels as $level)
+                                <li>{{$level->name}}</li>
+                                        @endforeach
                                 </ul>
                         </div>
                     </div>

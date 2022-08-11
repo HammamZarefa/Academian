@@ -56,8 +56,6 @@ class Setting extends Model
     public static function homepage_form_elements()
     {
         return [
-            'hero_title_1' => 'input',
-            'hero_button_text' => 'input',
             'section_1_title' => 'input',
             'section_1_content' => 'textarea',
             'section_2_title' => 'input',
@@ -83,7 +81,9 @@ class Setting extends Model
             'section_4_para_4_content' => 'textarea',
             'order_page_link_text' => 'input',            
             'footer_text'=> 'input',
-            'company_about' => 'textarea', 
+            'company_about' => 'textarea',
+            'review_section_title' => 'input',
+            'review_section_content' => 'textarea',
         ];
     }
 

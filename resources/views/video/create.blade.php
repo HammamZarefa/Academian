@@ -16,6 +16,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10">
+                    <label>@lang('Type')</label>
+                    <div id="type">
+                        @lang('Video')<input type="radio" name="type" checked="checked" value="1"  />
+                        @lang('Image')<input type="radio" name="type" value="0" />
+                    </div>
+                <div class="col-md-10">
                     <label>@lang('Title') <span class="required">*</span></label>
                     @foreach(Config::get('app.available_locales') as $lang)
                         <input id="title_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'title.*') }}"
@@ -49,7 +55,7 @@
             </div>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="videotype">
         <div class="container">
             <div class="row">
                 <div class="col-md-10">
@@ -59,6 +65,19 @@
                            name="url" value="{{ old('url') }}">
                     <div class="invalid-feedback">{{ showError($errors, 'url') }}</div>
                 </div>
+            </div>
+        </div>
+    </div>
+        <div class="form-group" id="imagetype" >
+            <div class="picture-container">
+                <div class="picture">
+                    <img src="" class="picture-src mt-2 mb-2" id="wizardPicturePreview" height="150px" width="150px" title=""/>
+                    <input type="file" id="wizard-picture" name="url" class="form-control mt-2 mb-2 {{$errors->first('cover') ? "is-invalid" : "" }} ">
+                    <div class="invalid-feedback">
+                        {{ $errors->first('cover') }}</div>
+
+                </div>
+                <h6 class="mt-2 mb-2 p-1 d-none">@lang('Upload Cover')</h6>
             </div>
         </div>
     </div>
@@ -127,6 +146,23 @@
                 }
             }
         }
+
+        $(document).ready(function() {
+            $("#imagetype").hide();
+
+            $('input[type="radio"]').click(function() {
+                var inputValue = $(this).attr("value");
+                if(inputValue==0)
+                {
+                $("#videotype").hide();
+                $("#imagetype").show();
+                }else
+                {
+                    $("#videotype").show();
+                    $("#imagetype").hide();
+                }
+            });
+        });
     </script>
 @endpush
 

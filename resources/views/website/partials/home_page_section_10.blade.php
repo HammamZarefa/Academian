@@ -13,50 +13,18 @@
         <div class="swiper1">
           <div class="swiper-wrapper">
             <!-- ****** item ****** -->
+              @foreach($posts as $post)
             <div class="swiper-slide"> 
-              <img src="{{ asset('front/img/blog-recent-posts-4.jpg') }}" alt="">  
+              <img src="{{ asset('storage/'.$post->cover) }}" alt="">
               <h3 class="title">
-              Project and Production Management in the Built Environment - Sydney Opera House
+              {{$post->title}}
               </h3>     
               <div class="date">
-                <span>Firas llan </span>
-                <span>16-05-2022</span>
+                <span>{{$post->user->name}} </span>
+                <span>{{ Carbon\Carbon::parse($post->created_at)->format("d F, Y") }}</span>
               </div>
             </div>
-            <!-- ****** item ****** -->
-            <div class="swiper-slide"> 
-              <img src="{{ asset('front/img/blog-recent-posts-4.jpg') }}" alt="">  
-              <h3 class="title">
-              Project and Production Management in the Built Environment - Sydney Opera House
-              </h3>     
-              <div class="date">
-                <span>Firas llan </span>
-                <span>16-05-2022</span>
-              </div>
-            </div>
-            <!-- ****** item ****** -->
-            <div class="swiper-slide"> 
-              <img src="{{ asset('front/img/blog-recent-posts-4.jpg') }}" alt="">  
-              <h3 class="title">
-              Project and Production Management in the Built Environment - Sydney Opera House
-              </h3>     
-              <div class="date">
-                <span>Firas llan </span>
-                <span>16-05-2022</span>
-              </div>
-            </div>
-            <!-- ****** item ****** -->
-            <div class="swiper-slide"> 
-              <img src="{{ asset('front/img/blog-recent-posts-4.jpg') }}" alt="">  
-              <h3 class="title">
-              Project and Production Management in the Built Environment - Sydney Opera House
-              </h3>     
-              <div class="date">
-                <span>Firas llan </span>
-                <span>16-05-2022</span>
-              </div>
-            </div>
-            <!-- ****** item ****** -->
+            @endforeach
           </div>
           <!-- Add Scrollbar -->
           <div class="swiper-pagination"></div>
@@ -90,8 +58,8 @@
         </div>
         <div class="col-md-6 con-sf" data-aos="fade-left"
         data-aos-duration="1500">
-          <h2> Our Clients Words Matter To Us</h2>
-          <p>Here’s what our clients think about us and about the experience they had while trying our services.</p>
+          <h2>{!! homepage('review_section_title') !!}</h2>
+          <p>{!! homepage('review_section_content') !!}</p>
           <button class="main-button">
               <a href="{{route('blog')}}" class="btn">
               @lang('Get Quote')
@@ -109,7 +77,7 @@
     <div class="head">
         <h2> @lang('Videos') </h2>
        <button class="main-button">
-       <a href="{{route('blog')}}" class="btn">
+       <a href="{{route('gallery')}}" class="btn">
          @lang('See More')
          <i class="fas fa-arrow-right"></i>
         </a>

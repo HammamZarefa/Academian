@@ -26,7 +26,7 @@
     @foreach ($videos as $video)
         <tr>
             <td>{{ $video->title }}</td>
-            <td>{{$video->url}}</td>
+            <td>{!!  $video->type !=0 ? $video->url : '<img src="'.asset(Storage::url($video->url)).'" width=50px/>'!!}</td>
             <td>
                 <a href="{{route('video.edit', [$video->id])}}" class="btn btn-info btn-sm">@lang('Edit')  </a>
                 <form method="POST" class="d-inline" onsubmit="return confirm('Move Video to trash ?')" action="{{route('video.destroy', $video->id)}}">

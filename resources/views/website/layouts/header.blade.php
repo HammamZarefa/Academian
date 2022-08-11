@@ -14,7 +14,7 @@
                 </button>
                 <a href="{{ route('homepage') }}">
                     <div class="logo">
-                        <img src="{{ get_company_logo() }}"
+                        <img src="{{ asset('front/img/Artboard-logo.png') }}"
                              alt="{{ settings('company_name') }}">
                     <!-- <img src="{{ asset('front/img/Artboard-logo.png') }}"
                         alt="{{ settings('company_name') }}"> -->

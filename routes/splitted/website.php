@@ -43,4 +43,5 @@ Route::get('tags/{tag:slug}', 'HomeController@tag')->name('tag');
 Route::get('reviews', 'HomeController@reviews')->name('reviews');
 Route::get('about', 'HomeController@about')->name('about');
 Route::get('gallery', 'HomeController@gallery')->name('gallery');
+Route::get('gallery/{id}', 'HomeController@gallerywatch')->name('galleryshow');
 
