@@ -32,16 +32,19 @@
                 </div>
                 <div class="contain gallery-video active">
                     @foreach($gallery as $item)
-                        <a class="item">
-                            @if($item->type==1)
-                            <iframe class="vid" height="200" src="{{$item->url}}" frameborder="0" allowfullscreen></iframe>
-                            @else
-                                <img src="{{ asset('storage/'.$item->url) }}" alt="" height="200">
-                            @endif
-                            <h2>{{$item->title}}</h2>
-                            <div class="date">{{ Carbon\Carbon::parse($item->created_at)->format("d F, Y") }}</div>
-                        </a>
+                    <a class="item"  data-type="{{$item->type}}">
+                        @if($item->type==1)
+                        <iframe class="vid" height="200" src="{{$item->url}}" frameborder="0" allowfullscreen></iframe>
+                        @else
+                            <img src="{{ asset('storage/'.$item->url) }}" alt="" height="200">
+                        @endif
+                        <h2>{{$item->title}}</h2>
+                        <div class="date">{{ Carbon\Carbon::parse($item->created_at)->format("d F, Y") }}</div>
+                    </a>
                     @endforeach
+                </div>
+                <div class="empty-video" style="text-align: center;display:none">
+                <img src="{{ asset('front/img/empty-cart.png') }}" alt=""  style="width:auto">
                 </div>
                 {{--<div class="contain gallery-image active">--}}
                 {{--<a class="item">--}}
