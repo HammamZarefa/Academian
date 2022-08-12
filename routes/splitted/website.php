@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('summarize/{id}', 'SummarizesController@index')->name('summarize');
     Route::post('summarize/result', 'SummarizesController@detect')->name('summarize.result');
     Route::get('subscripe/{id}', 'SubscriptionsController@selectSubscripe')->name('subscripe');
+    Route::post('subscripe/{id}', 'SubscriptionsController@subscripe')->name('subscripe');
 });
 
 //P@ssw0rd

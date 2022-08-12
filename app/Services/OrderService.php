@@ -57,10 +57,8 @@ class OrderService
         $order->order_status_id = ORDER_STATUS_NEW;
         $order->invoiced = now();
         $order->save();
-
         //Deduct balance from customer's wallet
         $order->customer->wallet()->pay($order->total, $order);
-
         //Dispatching Event
         event(new NewOrderEvent($order));
         return $order;
@@ -135,4 +133,25 @@ class OrderService
             }
         }
     }
+
+    function createSubscriptionOrder(array $data)
+    {
+        $data['number'] = NumberGenerator::gen('App\Order');
+        if (!isset($data['order_status_id']) && empty($data['order_status_id'])) {
+            $data['order_status_id'] = ORDER_STATUS_PENDING_PAYMENT;
+        }
+        // Get the datetime based on the urgency
+        $urgency            = Urgency::find($data['urgency_id']);
+        if ($urgency->type == 'hours') {
+            $data['dead_line']  = get_urgency_date($urgency->type, $urgency->value, 'Y-m-d H:i:s');
+        } else {
+            $data['dead_line'] = date("Y-m-d H:i:s", strtotime($data['dead_line']));
+        }
+        $order = Order::create($data);
+        $this->record_added_services($order, $data);
+        $this->record_attachments($order, $data);
+
+        return $order;
+    }
+
 }
