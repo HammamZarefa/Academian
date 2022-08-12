@@ -68,5 +68,6 @@ class Kernel extends HttpKernel
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
         'dashboard' => \App\Http\Middleware\CheckPermissionDashboard::class,
         'check_cart' => \App\Http\Middleware\CheckCart::class,
+        'check_subscription' => \App\Http\Middleware\checkSubscriptionMidlleware::class,
     ];
 }

@@ -62,4 +62,25 @@
             </div>
         </form>
     </div>
+    @endisset
+        <div>
+            <label for="exampleFormControlTextarea1"><h4>Select Language</h4></label>
+            <select class="form-select" aria-label="Default select example" name="language">
+                <option value="ar" >Arabic</option>
+                <option value="en" selected >English</option>
+                <option value="sp">Spanish</option>
+            </select>
+        </div>
+        <div>
+            <label for="exampleFormControlTextarea1"><h4>Select Strength</h4></label>
+            <select class="form-select" aria-label="Default select example" name="strength">
+                <option value="1" >1</option>
+                <option value="2" selected >2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+            <button type="submit" class="btn btn-primary">Paraphrase</button>
+</form>
+
 @endsection
+

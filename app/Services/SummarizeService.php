@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Paraphrase;
 use App\Summarize;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 
 class SummarizeService
@@ -19,7 +20,11 @@ class SummarizeService
     {
         $this->summarize = $summarize;
         $this->APIService = $APIService;
-        $this->key = config('API_Keys.SummarizeAPIKey');
+//        $this->key = config('API_Keys.SummarizeAPIKey');
+        $this->url = 'https://text-summarizer1.p.rapidapi.com/summarize';
+        $this->host = 'text-summarizer1.p.rapidapi.com';
+        $this->header_content  = 'application/json';
+        $this->key = Config::get('API_Keys.SummarizeAPIKey');;
     }
 
 

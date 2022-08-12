@@ -63,4 +63,12 @@ class CartService
             return true;
         }
     }
+
+    public function sub_cart(array $data, string $cartType){
+        session()->put('cart_type', $cartType);
+        session()->put('cart', $data);
+        session()->put('paid_amount', 0);
+        session()->put('unique_identifier', null);
+
+    }
 }

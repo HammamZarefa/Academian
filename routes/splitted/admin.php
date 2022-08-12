@@ -485,6 +485,8 @@ Route::post('testimonials/create', [TestimonialController::class, 'store'])->nam
 Route::get('testimonials/edit/{id}', [TestimonialController::class, 'edit'])->name('admin.testi.edit');
 Route::post('testimonials/edit/{id}', [TestimonialController::class, 'update'])->name('admin.testi.update');
 Route::delete('testimonials/destroy/{id}',[TestimonialController::class, 'destroy'])->name('admin.testi.destroy');
+Route::get('pendingtesti', [TestimonialController::class, 'pending'])->name('admin.pendingtesti');
+Route::get('testi/status/{id}/{status}', [TestimonialController::class, 'changeStatus'])->name('admin.testi.changestatus');
 
 //video
 Route::get('videos',[VideoController::class, 'index'])->name('videos');

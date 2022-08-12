@@ -4017,9 +4017,9 @@ __webpack_require__.r(__webpack_exports__);
     // console.log('filteredServices:',this.filteredServices);
     window.onload = function () {
       _this.form.service_model = _this.filteredServices[0];
-    };
+    }; // console.log("7/5/2022 11:30");
+    // console.log(this.service_categories);
 
-    console.log("7/5/2022 11:30"); // console.log(this.service_categories);
 
     window.location.search.slice(1).split("&").forEach(function (elm) {
       if (elm === "") return;

@@ -18,8 +18,9 @@ Blog -
             </h2>
           </div>
         </div>
+        </div>
        
-        <section class="About-us">
+  <div class="About-us">
  <div class="container">
      <div class="row contain contain2">
             
@@ -58,10 +59,8 @@ Blog -
            
          </div>
  </div>
-</section>
-         
-      </div>
-    </section>
+</div>
+    
 <!-- Start Blog -->
 <div class="post po">
     <div class="container">
@@ -105,6 +104,6 @@ Blog -
     </div>
 </div>
 
-
+</section>
   </main>
 @endsection

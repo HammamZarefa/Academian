@@ -29,7 +29,8 @@
         "spatie/laravel-translatable": "^4.6",
         "spatie/laravel-translation-loader": "^2.7",
         "stripe/stripe-php": "^7.37",
-        "yajra/laravel-datatables-oracle": "^9.9"
+        "yajra/laravel-datatables-oracle": "^9.9",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
