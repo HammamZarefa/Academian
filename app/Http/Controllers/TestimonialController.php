@@ -143,4 +143,34 @@ class TestimonialController extends Controller
         
         return redirect()->route('admin.testi')->with('success', 'Data deleted successfully');
     }
+
+    public function storeUserReview(Request $request)
+    {
+        $testi = new Testimonial();
+        $testi->name = Auth::user()->name? Auth::user():"Anonymous";
+        $testi->profession = $request->profession;
+        $testi->desc = $request->desc;
+        $testi->status = 'PENDING';
+    }
+
+    public function pending()
+    {
+        $testi = Testimonial::where('status','PENDING')->orderBy('id','desc')->get();
+
+        return view('setup.testi.pending',compact('testi'));
+
+    }
+    public function changeStatus($id,$status)
+    {
+        $testi=Testimonial::find($id);
+        $testi->status=$status;
+        if ($testi->save()) {
+            return redirect()->route('admin.pendingtesti')->with('success', 'Data updated successfully');
+
+        } else {
+
+            return redirect()->route('admin.pendingtesti')->with('error', 'Data failed to update');
+
+        }
+    }
 }

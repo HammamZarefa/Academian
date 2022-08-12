@@ -55,7 +55,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('videos') }}">@lang('Videos')</a>
                 </li>
-
+                <li class="nav-item dropdown">
+                    <a id="reviews" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" v-pre>
+                        @lang('Reviews') <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="payments">
+                        <a class="dropdown-item" href="{{ route('admin.testi') }}">@lang('Reviews')</a>
+                        <a class="dropdown-item" href="{{ route('admin.pendingtesti') }}">@lang('Pending Reviews')</a>
+                    </div>
+                </li>
 
                 {{--<li class="nav-item dropdown">--}}
                     {{--<a id="managerial" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"--}}
