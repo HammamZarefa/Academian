@@ -23,28 +23,27 @@
     </style>
     <div class="container">
     <form role="form" class="form-horizontal" enctype="multipart/form-data" action="{{ (isset($post->id)) ? route( 'post.edit', $post->id) : route('post.store') }}" method="post" autocomplete="off" >
- 
         <div class="row">
-            <div class="col-sm-8">
-            <div class="col-md-12 p-0 mb-4">
-                  <div class="d-flex  align-items-center">
-                  <div class="seclector">
+                <div class="col-md-12 mb-4">
+                    <div class="d-flex  align-items-center">
+                        <div class="seclector">
                             <div style="font-weight: bold;">@lang('lang')</div>
                             <i class="fas fa-angle-down"></i>
-                                <ul class="option">
+                                <ul class="option change-lang">
                                 @foreach(Config::get('app.available_locales') as $lang)
-                                <li>  {{$lang}}</li>
+                                <li data-lang="{{$lang}}">  {{$lang}}</li>
                                 @endforeach
                                 </ul>
                         </div>
-                  </div>
                     </div>
+                </div>
+            <div class="col-sm-8">
                     <div class="side-form mb-4">
                         <label>@lang('Title') <span class="required">*</span></label>
                         @foreach(Config::get('app.available_locales') as $lang)
-                        <input id="title_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'title.*') }}"
+                        <input id="title_{{$lang}}" type="text" class="title_{{$lang}} form-control form-control-sm {{ showErrorClass($errors, 'title.*') }}"
                         name="title[{{$lang}}]"
-                        value="{{ old_set('title['.$lang.']', NULL, $postCategory ?? '') }}" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">
+                        value="{{ old_set('title['.$lang.']', NULL, $postCategory ?? '') }}">
                         @endforeach
                         <div class="invalid-feedback d-block">{{ showError($errors, 'title.*') }}</div>
                     </div>
@@ -53,17 +52,17 @@
                             <label>@lang('Desc') <span class="required">*</span></label>
                             @foreach(Config::get('app.available_locales') as $lang)
                                 <textarea id="body_{{$lang}}" type="text"
-                                          class="summernote form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
+                                          class="body_{{$lang}} summernote form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
                                           name="body[{{$lang}}]"
-                                          style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">{{ old_set('body['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
+                                         >{{ old_set('body['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
                             @endforeach
                         </div>
                         <div class="side-form mb-4">
                         <label>@lang('keywords')<span class="required">*</span></label>
                         @foreach(Config::get('app.available_locales') as $lang)
-                            <input id="keyword_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'keyword.*') }}"
+                            <input id="keyword_{{$lang}}" type="text" class="keyword_{{$lang}} form-control form-control-sm {{ showErrorClass($errors, 'keyword.*') }}"
                                    name="keyword[{{$lang}}]"
-                                   value="{{ old_set('keyword['.$lang.']', NULL, $postCategory ?? '') }}" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}"  >
+                                   value="{{ old_set('keyword['.$lang.']', NULL, $postCategory ?? '') }}">
                         @endforeach
                         <div class="invalid-feedback d-block">{{ showError($errors, 'keyword.*') }}</div>
                     </div>
@@ -71,7 +70,7 @@
                         <label>@lang('Meta Desc') <span class="required">*</span></label>
                         @foreach(Config::get('app.available_locales') as $lang)
                             <textarea id="meta_desc_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'meta_desc.*') }}"
-                                      name="meta_desc[{{$lang}}]" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}">{{ old_set('meta_desc['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
+                                      name="meta_desc[{{$lang}}]">{{ old_set('meta_desc['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
                         @endforeach
                         <div class="invalid-feedback d-block">{{ showError($errors, 'meta_desc.*') }}</div>
                     </div>
@@ -83,6 +82,7 @@
                         </div>
                         <div class="invalid-feedback d-block">{{ showError($errors, 'body.*') }}</div>
             </div>
+
             <div class="col-sm-4">
                     {{ csrf_field()  }}
                     {{--   check if the post is pdf     --}}

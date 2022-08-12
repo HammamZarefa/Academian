@@ -471,7 +471,7 @@ export default {
     window.onload = () => {
       this.form.service_model = this.filteredServices[0];
     };
-    console.log("7/5/2022 11:30");
+    // console.log("7/5/2022 11:30");
     // console.log(this.service_categories);
 
     window.location.search

@@ -1305,12 +1305,9 @@ margin: 0 5px;
     display: block;
 }
 .gallery .contain{
-    display: none;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-}
-.gallery .contain.active{
-    display: flex;
 }
 .gallery .contain .item{
     width: calc(98% /4);

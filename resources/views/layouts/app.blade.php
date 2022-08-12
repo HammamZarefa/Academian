@@ -16,10 +16,11 @@
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous"
   referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/authentication.css') }}">
      @if(session()->get('locale')==='ar')
-      <link rel="stylesheet" type="text/css" href="{{ asset('css/authentication-ar.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/dash-ar.css') }}">
       @else
-      <link rel="stylesheet" type="text/css" href="{{ asset('css/authentication.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/dash.css') }}">
     @endif
 
 
