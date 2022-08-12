@@ -1,6 +1,8 @@
 <?php
+
 namespace App\Http\Controllers;
 
+use App\OnlineService;
 use App\Post;
 use App\PostCategory;
 use App\PostTag;
@@ -24,10 +26,10 @@ class HomeController extends Controller
     private $seoService;
     private $userController;
 
-    function __construct(SeoService $seoService,UserController $userController)
+    function __construct(SeoService $seoService, UserController $userController)
     {
         $this->seoService = $seoService;
-        $this->userController=$userController;
+        $this->userController = $userController;
     }
 
     public function index()
@@ -45,8 +47,9 @@ class HomeController extends Controller
         $posts = Post::where('status','=','PUBLISH')->where('feature',1)->orderBy('id','desc')->limit(6)->get();
         $videos = Video::orderBy('feature','desc')->where('type',1)->get();
         $work_levels=WorkLevel::whereNull('inactive')->get();
+        $online_services = OnlineService::get();
 
-        return view('website.index', compact('services','service_categories','writers','reviews','posts','videos','work_levels'));
+        return view('website.index', compact('services','service_categories','writers','reviews','posts','videos','work_levels','online_services'));
     }
 
     function pricing(CalculatorService $calculator)
@@ -108,81 +111,82 @@ class HomeController extends Controller
     public function blog()
     {
         $categories = PostCategory::all();
-        $lpost = Post::where('status','=','PUBLISH')->orderBy('id','desc')->limit(5)->get();
-        $posts = Post::where('status','=','PUBLISH')->orderBy('id','desc')->paginate(3);
-        $recent = Post::orderBy('id','desc')->limit(5)->get();
+        $lpost = Post::where('status', '=', 'PUBLISH')->orderBy('id', 'desc')->limit(5)->get();
+        $posts = Post::where('status', '=', 'PUBLISH')->orderBy('id', 'desc')->paginate(3);
+        $recent = Post::orderBy('id', 'desc')->limit(5)->get();
         $tags = PostTag::all();
 
-        return view ('website.blog',compact('categories','lpost','posts','recent','tags'));
+        return view('website.blog', compact('categories', 'lpost', 'posts', 'recent', 'tags'));
     }
 
     public function blogshow($slug)
     {
         $categories = PostCategory::all();
-        $lpost = Post::where('status','=','PUBLISH')->orderBy('id','desc')->limit(5)->get();
+        $lpost = Post::where('status', '=', 'PUBLISH')->orderBy('id', 'desc')->limit(5)->get();
         $post = Post::where('slug', $slug)->firstOrFail();
         $old = $post->views;
         $new = $old + 1;
         $post->views = $new;
         $post->update();
-        $recent = Post::orderBy('id','desc')->limit(5)->get();
+        $recent = Post::orderBy('id', 'desc')->limit(5)->get();
         $tags = PostTag::get();
         return view ('website.blogshow',compact('categories','lpost','post','recent','tags'));
+
     }
 
     public function category(PostCategory $category)
     {
         $categories = PostCategory::all();
-        $lpost = Post::where('status','=','PUBLISH')->orderBy('id','desc')->limit(5)->get();
+        $lpost = Post::where('status', '=', 'PUBLISH')->orderBy('id', 'desc')->limit(5)->get();
         $posts = $category->posts()->latest()->paginate(6);
-        $recent = Post::orderBy('id','desc')->limit(5)->get();
+        $recent = Post::orderBy('id', 'desc')->limit(5)->get();
         $tags = PostTag::all();
-        return view ('website.blog',compact('categories','lpost','posts','recent','tags'));
+        return view('website.blog', compact('categories', 'lpost', 'posts', 'recent', 'tags'));
     }
 
     public function tag(PostTag $tag)
     {
         $categories = PostCategory::all();
-        $lpost = Post::where('status','=','PUBLISH')->orderBy('id','desc')->limit(5)->get();
+        $lpost = Post::where('status', '=', 'PUBLISH')->orderBy('id', 'desc')->limit(5)->get();
         $posts = $tag->posts()->latest()->paginate(12);
-        $recent = Post::orderBy('id','desc')->limit(5)->get();
+        $recent = Post::orderBy('id', 'desc')->limit(5)->get();
         $tags = PostTag::all();
-        return view ('website.blog',compact('categories','lpost','posts','recent','tags'));
+        return view('website.blog', compact('categories', 'lpost', 'posts', 'recent', 'tags'));
     }
 
     public function search()
     {
         $query = request("query");
         $categories = PostCategory::all();
-        $lpost = Post::where('status','=','PUBLISH')->orderBy('id','desc')->limit(5)->get();
-        $posts = Post::where("title","like","%$query%")->latest()->paginate(9);
-        $recent = Post::orderBy('id','desc')->limit(5)->get();
+        $lpost = Post::where('status', '=', 'PUBLISH')->orderBy('id', 'desc')->limit(5)->get();
+        $posts = Post::where("title", "like", "%$query%")->latest()->paginate(9);
+        $recent = Post::orderBy('id', 'desc')->limit(5)->get();
         $tags = Tag::all();
 
-        return view('website.blog',compact('categories','lpost','posts','query','recent','tags'));
+        return view('website.blog', compact('categories', 'lpost', 'posts', 'query', 'recent', 'tags'));
     }
 
     public function sendmail(Request $request)
     {
-        $to="info@academian.co.uk";/*Your Email*/
-        $subject=$request['subject'];
+        $to = "info@academian.co.uk";/*Your Email*/
+        $subject = $request['subject'];
 
-        $date=date("l, F jS, Y");
-        $time=date("h:i A");
+        $date = date("l, F jS, Y");
+        $time = date("h:i A");
 
-        $name        = $request['name'];
-        $email       = $request['email'];
-        $phone       = $request['phone'];
-        $program     = $request['program'];
+        $name = $request['name'];
+        $email = $request['email'];
+        $phone = $request['phone'];
+        $program = $request['program'];
 
-        $msg="
-		Message sent from website form on date  $date, hour: $time.\n	
+        $msg = "
+		Message sent from website form on date  $date, hour: $time.\n
 		Name: $name\n
 		Phone Number: $phone\n
-		Email: $email\n	
+		Email: $email\n
 		Program selection: $program
 		";
-        if($email=="") {
+        if ($email == "") {
             echo "<div class='alert alert-danger'>
 			  <a class='close' data-dismiss='alert'>×</a>
 			  <strong>Warning!</strong> Please fill all the fields.

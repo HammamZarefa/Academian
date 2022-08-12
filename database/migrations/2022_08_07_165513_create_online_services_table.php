@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlagiarismsTable extends Migration
+class CreateOnlineServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreatePlagiarismsTable extends Migration
      */
     public function up()
     {
-        Schema::create('plagiarisms', function (Blueprint $table) {
+        Schema::create('online_services', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('service_id');
+            $table->string('name');
+            $table->integer('price');
+            $table->string('route');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreatePlagiarismsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plagiarisms');
+        Schema::dropIfExists('online_service_models');
     }
 }

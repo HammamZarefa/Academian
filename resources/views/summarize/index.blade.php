@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Post Category')
 @section('content')
-
     <div class="container Summarize">
         <form class="detect" action="{{route('summarize.result')}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}

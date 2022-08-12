@@ -40,38 +40,39 @@ Route::post('post/edit_my_post/{id}',[PostController::class, 'update_my_post'])-
 Route::delete('my_post/trash/{id}',[PostController::class, 'trash_my_post'])->middleware('auth')->name('post.trash_my_post');
 
 // Authenticated Users
-//Route::group(['middleware' => ['auth', 'verified']], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Generic Routes (Admin and Staffs, both)
     load_route('generic');
 
     // For Admin Only
-//    Route::group(['middleware' => ['role:admin']], function () {
+    Route::group(['middleware' => ['role:admin']], function () {
         load_route('admin');
 
-//    });
+    });
     // End of Admin only
 
     // For Staff Only
-//    Route::group(['middleware' => ['role:staff']], function () {
+    Route::group(['middleware' => ['role:staff']], function () {
         load_route('staff');
-//    });
+    });
     // End of Staff Only
 
 
     // Admin and staff
-//    Route::group(['middleware' => ['role:admin|staff']], function () {
+    Route::group(['middleware' => ['role:admin|staff']], function () {
 
         Route::get('tasks', 'TaskController@index')->name('tasks_list');
         Route::post('/tasks/datatable/', 'TaskController@datatable')->name('tasks_datatable');
         Route::post('task/submit/{order}', 'TaskController@submit_work')->name('submit_work');
         Route::post('task/start/{order}', 'TaskController@start_working')->name('start_working');
 
-//    });
+    });
     // End of Admin and staff
     Route::get('/clear', function(){
         \Illuminate\Support\Facades\Artisan::call('optimize:clear');
     });
 
     Route::post('sendmail','HomeController@sendmail')->name('sendmail');
-//});
+
+});

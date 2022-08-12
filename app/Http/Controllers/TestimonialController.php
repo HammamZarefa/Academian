@@ -155,11 +155,11 @@ class TestimonialController extends Controller
 
         if ($testi->save()) {
 
-            return redirect()->route('/')->with('success', 'Data added successfully');
+            return redirect()->route('reviews')->with('success', 'Data added successfully');
 
         } else {
 
-            return redirect()->route('/')->with('error', 'Data failed to add');
+            return redirect()->route('reviews')->with('error', 'Data failed to add');
 
         }
     }

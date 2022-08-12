@@ -6,7 +6,7 @@
     <div class="navbar" role="navigation">
         <div class="container ar-con">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" >
+                <button type="button" class="navbar-toggle">
                     <span class="sr-only">@lang('Toggle navigation')</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -24,7 +24,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="{{route('homepage')}}">@lang('Home')</a></li>
-                    <li class="dropdown"  style="margin-top: 1px;margin-inline-end: 10px;">
+                    <li class="dropdown" style="margin-top: 1px;margin-inline-end: 10px;">
                         <span class="dropbtn">@lang('Services')</span>
                         <div class="dropdown-content">
                             @if(isset($service_categories))
@@ -40,35 +40,43 @@
                                 @endforeach
                             @endif
                             <a href="{{ route('post.add')}}">
-                                <i class="fas fa-plus"></i>  @lang('Add Blog')
+                                <i class="fas fa-plus"></i> @lang('Add Blog')
                             </a>
                         </div>
                     </li>
                     <div class="cover-acount"></div>
                     <li style="margin-top: 1px;">
-                    <div class="acoount acoount2">
-                        <a style="position: relative;
+                        <div class="acoount acoount2">
+                            <a style="position: relative;
 display: block;
-background-color: transparent;">@lang('Online Services')</a> 
-                                <ul>
+background-color: transparent;">@lang('Online Services')</a>
+                            <ul>
+                                {{--<li>--}}
+                                    {{--<a style="font-size: 14px;" href="{{ route('summarize')}}">--}}
+                                        {{--<div>@lang('Summarize')</div>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a style="font-size: 14px;" href="{{ route('paraphrase')}}">--}}
+                                        {{--<div>@lang('Paraphrase')</div>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a style="font-size: 14px;" href="{{ route('plagiarism')}}">--}}
+                                        {{--@lang('Plagiarism')--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+
+                                @foreach(\App\OnlineService::all() as $online_service)
                                     <li>
-                                    <a style="font-size: 14px;" href="{{ route('summarize')}}">
-                                <div >@lang('Summarize')</div>
-                            </a>
-                                    </li>
-                                    <li>
-                                    <a style="font-size: 14px;" href="{{ route('paraphrase')}}">
-                                <div>@lang('Paraphrase')</div>
-                            </a>
-                                    </li>
-                                    <li>
-                                    <a style="font-size: 14px;" href="{{ route('plagiarism')}}">
-                                @lang('Plagiarism')
-                            </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="cover-acount"></div>
+                                    <a style="font-size: 14px;" href="{{ $online_service->route.'/'.$online_service->id}}">
+                                        <div>{{ $online_service->name}}</div>
+                                </li>
+                                    </a>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div class="cover-acount"></div>
                     </li>
                     <li><a href="{{route('about')}}">@lang('About')</a></li>
                     <li><a href="{{route('gallery')}}">@lang('Gallery')</a></li>

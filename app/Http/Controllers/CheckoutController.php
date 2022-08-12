@@ -126,7 +126,7 @@ class CheckoutController extends Controller
         }
 
         if ($success) {
-            // the transaction worked ...            
+            // the transaction worked ...
             return redirect()->route('offline_payment_success')
                 ->with('success_message', $paymentMethod->success_message);
         } else {
@@ -178,7 +178,7 @@ class CheckoutController extends Controller
         }
 
         if ($success) {
-            // the transaction worked ...            
+            // the transaction worked ...
             return redirect()->route('orders_show', $order_id)->withSuccess('Your order has been received. You will be notified when your document is ready');
         } else {
 
@@ -203,4 +203,31 @@ class CheckoutController extends Controller
             return $this->cart->isPaymentComplete($request->token);
         }
     }
+
+    public function SubChoosePaymentMethod(Request $request, PaymentOptionsService $paymentOptions)
+    {
+        $data['total'] = $this->cart->getTotal();
+        $data['payment_options'] = $paymentOptions->all();
+        $data['show_wallet_option'] = true;
+
+        if ($this->cart->getCartType() != CartType::SubscriptionCart) {
+            $data['show_wallet_option'] = false;
+        } else {
+            if (isset($this->cart->getCart()['order_number'])) {
+                $order = $this->cart->getCart();
+                $data['order_number'] = $order['order_number'];
+                $data['order_link'] = route('orders_show', $order['order_id']);
+            }
+        }
+
+
+
+
+
+        if($data['total']==0)
+            return  redirect()->route('homepage')->withSuccess('We Well Catch You Soon');
+        return view('checkout.select_payment_method')->with('data', $data);
+    }
+
+
 }

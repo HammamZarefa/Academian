@@ -30,7 +30,7 @@ class CartController extends Controller
             'cart_total' => $data['cart_total']
         ], CartType::NewOrder);
 
-        session()->flash('success', 'Order has been saved. Please make the payment to confirm it'); 
+        session()->flash('success', 'Order has been saved. Please make the payment to confirm it');
 
         return response()->json([
             'status' => 'success',
@@ -50,7 +50,7 @@ class CartController extends Controller
 
             return redirect()->route('choose_payment_method');
         }
-
-        
     }
+
+
 }

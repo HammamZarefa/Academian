@@ -28,16 +28,16 @@ Route::get('blog/search', 'HomeController@search')->name('search');
 Route::get('blog/{slug}', 'HomeController@blogshow')->name('blogshow');
 Route::get('categories/{category:slug}', 'HomeController@category')->name('category');
 Route::get('tags/{tag:slug}', 'HomeController@tag')->name('tag');
-//Route::group(['middleware' => []], function () {
 
-    Route::get('plagiarism1/', 'PlagiarismController@index')->name('plagiarism');
-    Route::post('plagiarism1/detect', 'PlagiarismController@detect')->name('detect');
-    Route::get('paraphrase/', 'parphrazersController@index')->name('paraphrase');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('plagiarism/{id}', 'PlagiarismController@index')->name('plagiarism');
+    Route::post('plagiarism/detect', 'PlagiarismController@detect')->name('detect');
+    Route::get('paraphrase/{id}', 'parphrazersController@index')->name('paraphrase');
     Route::post('paraphrase/result', 'parphrazersController@detect')->name('paraphrase.result');
-    Route::get('summarize/', 'SummarizesController@index')->name('summarize');
+    Route::get('summarize/{id}', 'SummarizesController@index')->name('summarize');
     Route::post('summarize/result', 'SummarizesController@detect')->name('summarize.result');
-    Route::get('subscripe/', 'PlagiarismController@subscripeShow')->name('subscripe');
-//});
+    Route::get('subscripe/{id}', 'SubscriptionsController@selectSubscripe')->name('subscripe');
+});
 
 //P@ssw0rd
 Route::get('reviews', 'HomeController@reviews')->name('reviews');
