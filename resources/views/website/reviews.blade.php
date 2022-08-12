@@ -38,10 +38,11 @@
                                 </button>
                                 <div class="form-cover"></div>
                                 <form action="{{route('userreview')}}" class="form-review" method="POST">
+                                    {{ csrf_field() }}
                                     <h2>@lang('Add Your Review!')</h2>
                                     <p>@lang('Please let us know what you think about us.')</p>
-                                    <input type="text" placeholder="Profession Or Specialty" required>
-                                    <textarea cols="30" rows="10" placeholder="Enter your text here"
+                                    <input type="text" name="profession" placeholder="Profession Or Specialty" required>
+                                    <textarea cols="30" name="desc" rows="10" placeholder="Enter your text here"
                                               required></textarea>
                                     <button>@lang('Submit')</button>
                                 </form>
