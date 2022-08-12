@@ -93,15 +93,17 @@
                     <li class="dropdown">
                         <a class="dropbtn">@lang('Online Services')</a>
                         <div class="dropdown-content">
-                            <a href="{{ route('summarize')}}">
-                                    <div>@lang('Summarize')</div>
+                            @foreach($online_services as $online_service)
+                            <a href="{{ $online_service->route.'/'.$online_service->id}}">
+                                    <div>{{ $online_service->name}}</div>
                             </a>
-                            <a href="{{ route('paraphrase')}}">
-                                    <div>@lang('Paraphrase')</div>
-                            </a>
-                            <a href="{{ route('plagiarism')}}">
-                                    @lang('Plagiarism')
-                            </a>
+                            @endforeach
+{{--                            <a href="{{ route('paraphrase')}}">--}}
+{{--                                    <div>@lang('Paraphrase')</div>--}}
+{{--                            </a>--}}
+{{--                            <a href="{{ route('plagiarism')}}">--}}
+{{--                                    @lang('Plagiarism')--}}
+{{--                            </a>--}}
                         </div>
                     </li>
                     {{--<li class="sec-center">--}}

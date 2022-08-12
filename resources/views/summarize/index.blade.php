@@ -2,7 +2,6 @@
 @section('title', 'Post Category')
 @section('content')
 
-
 <form class="detect" action="{{route('summarize.result')}}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
 
@@ -22,14 +21,20 @@
             <textarea name="text" class="form-control"
             id="exampleFormControlTextarea1" rows="4" cols="50" > {{ Request::old('text') }}
             </textarea>
-            <label for="exampleFormControlTextarea1"><h3>Words Number: @isset($countRequest){{ $countRequest}}@endisset</h3></label>
-
+            @isset($countRequest)
+            <label for="exampleFormControlTextarea1"><h3>  Words Number: {{ $countRequest}}</h3></label>
+            @endisset
         </div>
         <div class="col">
+            @isset($countRequest)
+            @isset($count)
+
             <label for="exampleFormControlTextarea1"><h3>Text After Summarize</h3></label>
             <textarea class="form-control" readonly
-            id="exampleFormControlTextarea1" rows="4" cols="50">@isset($response){{ $response['summary'] }}@endisset</textarea>
-            <label for="exampleFormControlTextarea1"><h3>Words Number: @isset($count){{ $count}}@endisset</h3></label>
+            id="exampleFormControlTextarea1" rows="4" cols="50">{{ $response['summary'] }}</textarea>
+            <label for="exampleFormControlTextarea1"><h3>Words Number: {{ $count}}</h3></label>
+            @endisset
+            @endisset
 
         </div>
         </div>
@@ -44,11 +49,12 @@
         <div>
             <label for="exampleFormControlTextarea1"><h4>Select Output Sentences</h4></label>
             <select class="form-select" aria-label="Default select example" name="output_sentences">
-                <option value="1" >1</option>
-                <option value="2" selected >2</option>
-                <option value="3">3</option>
+                <option value= 1 >1</option>
+                <option value= 2 selected >2</option>
+                <option value= 3 >3</option>
             </select>
         </div>
             <button type="submit" class="btn btn-primary">Summarize</button>
 </form>
+
 @endsection

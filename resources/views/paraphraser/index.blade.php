@@ -59,4 +59,5 @@
         </div>
             <button type="submit" class="btn btn-primary">Paraphrase</button>
 </form>
+
 @endsection

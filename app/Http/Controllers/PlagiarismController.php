@@ -23,6 +23,7 @@ class PlagiarismController extends Controller
     public function __construct(PlagiarismService $service,CartService $cart)
     {
         // $this->middleware(['auth']);
+         $this->middleware(['check_subscription:1'])->only('detect');
         $this->service = $service;
         $this->cart = $cart;
 
@@ -46,7 +47,7 @@ class PlagiarismController extends Controller
     public function detect(PlagiarismRequest $request)
     {
         try {
-            $userId = 1;
+            $userId = auth()->user()->id;
             $data = $request->validated();
             $response=$this->service->detectPlagiarism( $data ); // integrate with multiple APIs plagiarism detection
             $this->service->trigEvent( $userId ); // trigger event to new insert in log of plagiarism
@@ -81,9 +82,9 @@ class PlagiarismController extends Controller
 //        return view('subscripe.select_payment_method');
     }
 
-    public function plagiarism(){
-
-
-        return view( 'plagiarism.setting.index' );
-    }
+//    public function plagiarism(){
+//
+//
+//        return view( 'plagiarism.setting.index' );
+//    }
 }
