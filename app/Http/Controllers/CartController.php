@@ -52,5 +52,23 @@ class CartController extends Controller
         }
     }
 
+    public function storeSubscriptionInSession(array $data)
+    {
+        $orderService = app()->make('App\Services\OrderService');
+        $order = $orderService->createSubscriptionOrder($data);
+        $cart=new CartService();
+        $cart->setCart([
+            'order_id' => $order->id,
+            'order_number' =>23,
+            'cart_total' => $data['cart_total']
+        ], CartType::ServiceSubscription);
+
+        session()->flash('success', 'Order has been saved. Please make the payment to confirm it');
+
+        return response()->json([
+            'status' => 'success',
+            'redirect_url' => route('choose_payment_method')
+        ]);
+    }
 
 }

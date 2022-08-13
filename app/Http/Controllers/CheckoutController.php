@@ -27,7 +27,7 @@ class CheckoutController extends Controller
         $data['payment_options'] = $paymentOptions->all();
         $data['show_wallet_option'] = true;
 
-        if ($this->cart->getCartType() != CartType::NewOrder) {
+        if ($this->cart->getCartType() != CartType::NewOrder&& $this->cart->getCartType() != CartType::ServiceSubscription ) {
             $data['show_wallet_option'] = false;
         } else {
             if (isset($this->cart->getCart()['order_number'])) {
@@ -151,7 +151,7 @@ class CheckoutController extends Controller
     public function processWalletPayment(Request $request)
     {
 
-        if ($this->cart->getCartType() != CartType::NewOrder) {
+        if ($this->cart->getCartType() != CartType::NewOrder && $this->cart->getCartType() != CartType::ServiceSubscription) {
             return redirect()->back()->withFail('You can pay using your wallet only for placing orders');
         }
         if (empty($this->cart->getTotal())) {
@@ -160,29 +160,56 @@ class CheckoutController extends Controller
         if ($this->cart->getTotal() > auth()->user()->wallet()->balance()) {
             return redirect()->back()->withFail('You wallet doesn\'t have sufficient balance');
         }
-
-        DB::beginTransaction();
-        $success = false;
-        try {
-
-            $order_id = $this->cart->getCart()['order_id'];
-            $this->confirmOrderPayment($order_id);
-
-            // Destroy the cart
-            $this->cart->destroy();
-            $success = true;
-            DB::commit();
-        } catch (\Exception  $e) {
+        if ($this->cart->getCartType() == CartType::NewOrder) {
+            DB::beginTransaction();
             $success = false;
-            DB::rollback();
+            try {
+
+                $order_id = $this->cart->getCart()['order_id'];
+                $this->confirmOrderPayment($order_id);
+
+                // Destroy the cart
+                $this->cart->destroy();
+                $success = true;
+                DB::commit();
+            } catch (\Exception  $e) {
+                $success = false;
+                DB::rollback();
+            }
+
+            if ($success) {
+                // the transaction worked ...
+                return redirect()->route('orders_show', $order_id)->withSuccess('Your order has been received. You will be notified when your document is ready');
+            } else {
+
+                return redirect()->back()->withFail('Sorry the request was not successful, please try again');
+            }
         }
+        elseif ($this->cart->getCartType() == CartType::ServiceSubscription)
+        {
+            DB::beginTransaction();
+            $success = false;
+            try {
 
-        if ($success) {
-            // the transaction worked ...
-            return redirect()->route('orders_show', $order_id)->withSuccess('Your order has been received. You will be notified when your document is ready');
-        } else {
+                $order_id = $this->cart->getCart()['order_id'];
+                $this->confirmOrderPayment($order_id);
+                // Destroy the cart
+                $this->cart->destroy();
+                $success = true;
+                DB::commit();
+            } catch (\Exception  $e) {
+                $success = false;
+                DB::rollback();
+                dd($e);
+            }
 
-            return redirect()->back()->withFail('Sorry the request was not successful, please try again');
+            if ($success) {
+                // the transaction worked ...
+                return redirect()->route('homepage', 1)->withSuccess('Your order has been received. You will be notified when your document is ready');
+            } else {
+
+                return redirect()->back()->withFail('Sorry the request was not successful, please try again');
+            }
         }
     }
 
