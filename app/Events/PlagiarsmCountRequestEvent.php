@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use App\Plagiarism;
+use App\OnlineServiceHistory;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -15,17 +15,19 @@ class PlagiarsmCountRequestEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     public $plagiarism;
-    public $id;
+    public $user_id;
+    public $service_id;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Plagiarism $plagiarism,$id)
+    public function __construct(OnlineServiceHistory $plagiarism, $user_id, $service_id)
     {
         $this->plagiarism=$plagiarism;
-        $this->id=$id;
+        $this->user_id=$user_id;
+        $this->service_id=$service_id;
     }
 
     /**
