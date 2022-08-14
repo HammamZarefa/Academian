@@ -53,6 +53,7 @@ class Order extends Model
         'order_status_id',
         'update_via_sms',
         'billed',
+        'online_service_id',
     ];
 
     function walletPayment()

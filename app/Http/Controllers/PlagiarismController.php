@@ -23,7 +23,7 @@ class PlagiarismController extends Controller
     public function __construct(PlagiarismService $service,CartService $cart)
     {
         // $this->middleware(['auth']);
-         $this->middleware(['check_subscription:1'])->only('detect');
+         $this->middleware(['check_subscription:1'])->only('index');
         $this->service = $service;
         $this->cart = $cart;
 

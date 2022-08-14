@@ -59,7 +59,7 @@ class CartController extends Controller
         $cart=new CartService();
         $cart->setCart([
             'order_id' => $order->id,
-            'order_number' =>23,
+            'order_number' =>$order->number,
             'cart_total' => $data['cart_total']
         ], CartType::ServiceSubscription);
 

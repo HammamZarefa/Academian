@@ -14,7 +14,7 @@ class SummarizesController extends Controller
 
     public function __construct(SummarizeService $service)
     {
-        $this->middleware(['check_subscription:2'])->only('detect');
+        $this->middleware(['check_subscription:2'])->only('index');
 
         $this->service = $service;
     }

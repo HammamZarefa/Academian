@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Enums\CartType;
 use App\Enums\PaymentReason;
+use App\Events\NewSubscriptionEvent;
+use App\OnlineService;
+use App\Order;
+use App\Subscription;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\OfflinePaymentMethod;
 use App\Services\CartService;
@@ -15,11 +20,16 @@ use App\Http\Requests\ProcessOfflinePaymentRequest;
 class CheckoutController extends Controller
 {
     private $cart;
+    public $subscription;
 
-    function __construct(CartService $cart)
+    function __construct(CartService $cart,Subscription $subscription)
     {
         $this->cart = $cart;
+        $this->subscription = $subscription;
+
     }
+
+
 
     public function choosePaymentMethod(Request $request, PaymentOptionsService $paymentOptions)
     {
@@ -190,13 +200,14 @@ class CheckoutController extends Controller
             DB::beginTransaction();
             $success = false;
             try {
-
                 $order_id = $this->cart->getCart()['order_id'];
                 $this->confirmOrderPayment($order_id);
+
                 // Destroy the cart
                 $this->cart->destroy();
                 $success = true;
                 DB::commit();
+
             } catch (\Exception  $e) {
                 $success = false;
                 DB::rollback();
@@ -204,8 +215,13 @@ class CheckoutController extends Controller
             }
 
             if ($success) {
+//                 $currentDate=Carbon::getDays();
+                $orderInfo=Order::find($order_id);
+                event(new NewSubscriptionEvent($this->subscription , $orderInfo->online_service_id , $orderInfo->customer_id));
+
+                $onlineService=OnlineService::find($orderInfo->online_service_id)->route;
                 // the transaction worked ...
-                return redirect()->route('homepage', 1)->withSuccess('Your order has been received. You will be notified when your document is ready');
+                return redirect()->route($onlineService, 1)->withSuccess('Your order has been received. You will be notified when your document is ready');
             } else {
 
                 return redirect()->back()->withFail('Sorry the request was not successful, please try again');
@@ -246,11 +262,6 @@ class CheckoutController extends Controller
                 $data['order_link'] = route('orders_show', $order['order_id']);
             }
         }
-
-
-
-
-
         if($data['total']==0)
             return  redirect()->route('homepage')->withSuccess('We Well Catch You Soon');
         return view('checkout.select_payment_method')->with('data', $data);

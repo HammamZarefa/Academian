@@ -8,9 +8,12 @@ class Subscription extends Model
 {
 
     protected $table='subscription';
-    protected $fillable=['user_id',
-                        'online_service_id',
-                        'activity',
-                        'created_at',
-                        'updated_at'];
+    protected $fillable=[
+        'user_id',
+        'online_service_id',
+        'activity',
+        'start_date',
+        'created_at',
+        'updated_at'
+    ];
 }

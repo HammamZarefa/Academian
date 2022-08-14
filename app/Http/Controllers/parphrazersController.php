@@ -14,7 +14,7 @@ class parphrazersController extends Controller
 
     public function __construct(ParaphraseService $service)
     {
-        $this->middleware(['check_subscription:3'])->only('detect');
+        $this->middleware(['check_subscription:3'])->only('index');
         $this->service = $service;
     }
 

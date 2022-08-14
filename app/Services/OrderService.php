@@ -2,7 +2,9 @@
 
 namespace App\Services;
 
+use App\Events\NewSubscriptionEvent;
 use App\Order;
+use App\Subscription;
 use App\Urgency;
 use App\Attachment;
 use App\NumberGenerator;
@@ -12,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 
 class OrderService
 {
+
     function create(array $data)
     {
 
@@ -85,7 +88,7 @@ class OrderService
     {
         DB::beginTransaction();
         $success = false;
-        try {            
+        try {
             // $order->comments()->delete();
             // $order->followers()->delete();
             // $order->attachments()->delete();
