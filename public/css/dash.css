@@ -231,4 +231,23 @@
     direction: rtl;
     text-align: start;
   }
- 
+  /* *************************** index create  ***************************** */
+  .actions-toolbar h5{
+    color: #06243E;
+    font-weight: 501;
+  }
+  .table-striped tbody tr:nth-of-type(2n+1) {
+    background-color: #C4DEF4;
+  }
+  .table td {
+    vertical-align: baseline;
+  }
+  .table-striped th,.table-striped td{
+    text-align: center;
+  }
+  .select2 {
+    width: 322px !important;
+  }
+  .btn.dropdown-toggle.bs-placeholder.btn-light{
+    display: none;
+  }
