@@ -19,11 +19,11 @@
 <table id="table" class="table table-striped nowrap">
   <thead>
      <tr>
-        <th scope="col" style="width: 40%;">@lang('Title')</th>
+        <th scope="col">@lang('Title')</th>
         <th scope="col">@lang('Keyword')</th>
          <th scope="col">@lang('Category')</th>
         <th scope="col">@lang('Status')</th>
-        <th scope="col" class="text-right">@lang('Action')</th>
+        <th scope="col" >@lang('Action')</th>
      </tr>
   </thead>
     <tbody>

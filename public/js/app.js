@@ -110905,11 +110905,11 @@ module.exports = JSON.parse("{\"Home\":\"Principal\",\"About\":\"\",\"Service\":
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\Academian v3\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! G:\Academian v3\resources\sass\theme.scss */"./resources/sass/theme.scss");
-__webpack_require__(/*! G:\Academian v3\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! G:\Academian v3\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
-module.exports = __webpack_require__(/*! G:\Academian v3\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
+__webpack_require__(/*! E:\Academian - main\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\Academian - main\resources\sass\theme.scss */"./resources/sass/theme.scss");
+__webpack_require__(/*! E:\Academian - main\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Academian - main\resources\sass\authentication.scss */"./resources/sass/authentication.scss");
+module.exports = __webpack_require__(/*! E:\Academian - main\resources\sass\invoice.scss */"./resources/sass/invoice.scss");
 
 
 /***/ })

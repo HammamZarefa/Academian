@@ -1041,6 +1041,7 @@ width: 50%;
 }
 .more-about .contain .item.active .info{
     display: block;
+    width: 100%;
 }
 .more-about .contain .item.active{
     background-color: #C4DEF4;

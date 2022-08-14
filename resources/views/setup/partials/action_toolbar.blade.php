@@ -22,6 +22,5 @@
          @endif
       </div>
    </div>
-   <hr>
 </div>
 </div>
