@@ -2,8 +2,7 @@
 
 namespace App\Services;
 
-use App\Paraphrase;
-use Illuminate\Support\Facades\Http;
+use App\OnlineServiceHistory;
 
 class ParaphraseService
 {
@@ -14,7 +13,7 @@ class ParaphraseService
     private $header_content = 'application/json';
     private $key;
 
-    public function __construct(MultipleAPIService $APIService, Paraphrase $paraphrase)
+    public function __construct(MultipleAPIService $APIService, OnlineServiceHistory $paraphrase)
     {
         $this->paraphrase = $paraphrase;
         $this->APIService = $APIService;
@@ -24,10 +23,13 @@ class ParaphraseService
 
     public function paraphrase($data)
     {
-        return $response = $this->APIService->post($this->host, $this->key, $this->header_content, $this->url, $data);
-//        json_decode($response, true);
-//        return Config('plagiarisim-response');
+        return $this->APIService->post($this->host, $this->key, $this->header_content, $this->url, $data);
 
+    }
+
+    public function insertLog($user_id, $service_id)
+    {
+        return $this->APIService->trigEvent($this->paraphrase, $user_id, $service_id);
     }
 
 }

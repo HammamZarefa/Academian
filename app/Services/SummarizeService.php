@@ -2,25 +2,22 @@
 
 namespace App\Services;
 
-use App\Paraphrase;
-use App\Summarize;
+use App\OnlineServiceHistory;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Http;
 
 class SummarizeService
 {
     protected $summarize;
     protected $APIService;
-    private $url = 'https://text-summarizer1.p.rapidapi.com/summarize';
-    private $host = 'text-summarizer1.p.rapidapi.com';
-    private $header_content = 'application/json';
+    private $url;
+    private $host;
+    private $header_content;
     private $key;
 
-    public function __construct(MultipleAPIService $APIService, Summarize $summarize)
+    public function __construct(MultipleAPIService $APIService, OnlineServiceHistory $summarize)
     {
         $this->summarize = $summarize;
         $this->APIService = $APIService;
-//        $this->key = config('API_Keys.SummarizeAPIKey');
         $this->url = 'https://text-summarizer1.p.rapidapi.com/summarize';
         $this->host = 'text-summarizer1.p.rapidapi.com';
         $this->header_content  = 'application/json';
@@ -31,6 +28,11 @@ class SummarizeService
     public function summarizer($data)
     {
         return $this->APIService->post($this->host, $this->key, $this->header_content, $this->url, $data);
+    }
+
+    public function insertLog($user_id,$service_id)
+    {
+        return  $this->APIService->trigEvent($this->summarize, $user_id, $service_id);
     }
 
 }

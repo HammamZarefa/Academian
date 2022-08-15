@@ -2,8 +2,7 @@
 
 namespace App\Services;
 
-use App\Events\PlagiarsmCountRequestEvent;
-use App\Plagiarism;
+use App\OnlineServiceHistory;
 
 class PlagiarismService
 {
@@ -14,7 +13,7 @@ class PlagiarismService
     public $header_content ;
     public $key ;
 
-    public function __construct(MultipleAPIService $APIService, Plagiarism $plagiarism)
+    public function __construct(MultipleAPIService $APIService, OnlineServiceHistory $plagiarism)
     {
         $this->plagiarism = $plagiarism;
         $this->APIService = $APIService;
@@ -30,9 +29,9 @@ class PlagiarismService
          return  $this->APIService->post($this->host, $this->key, $this->header_content, $this->url, $data);
     }
 
-    public function trigEvent($userId)
+    public function insertLog($user_id,$service_id)
     {
-        event(new PlagiarsmCountRequestEvent($this->plagiarism, $userId));
+        return  $this->APIService->trigEvent($this->plagiarism, $user_id, $service_id);
     }
 
 }
