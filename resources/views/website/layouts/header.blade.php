@@ -27,8 +27,8 @@
                     <li class="dropdown" style="margin-top: 1px;margin-inline-end: 10px;">
                         <span class="dropbtn">@lang('Services')</span>
                         <div class="dropdown-content">
-                            @if(isset($service_categories))
-                                @foreach($service_categories as $service_category)
+                            {{--@if(isset($service_categories))--}}
+                                @foreach(\App\ServiceCategory::all() as $service_category)
                                     <a href="{{ route('instant_quote')}}" class="category-name">
                                         {{$service_category->name}}
                                         <div class="men-fs">
@@ -38,7 +38,7 @@
                                         </div>
                                     </a>
                                 @endforeach
-                            @endif
+                            {{--@endif--}}
                             <a href="{{ route('post.add')}}">
                                 <i class="fas fa-plus"></i> @lang('Add Blog')
                             </a>
