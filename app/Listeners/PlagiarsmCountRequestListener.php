@@ -27,13 +27,15 @@ class PlagiarsmCountRequestListener
     public function handle(PlagiarsmCountRequestEvent $event)
     {
         $data=$event->plagiarism;
-        $id =$event->id;
-        $this->createPlagiarismLog($data,$id);
+        $user_id =$event->user_id;
+        $service_id =$event->service_id;
+        $this->createPlagiarismLog($data,$user_id,$service_id);
     }
 
-    protected function createPlagiarismLog($data,$id){
+    protected function createPlagiarismLog($data,$user_id,$service_id){
         $data->insert([
-            'user_id' => $id ,
+            'user_id' => $user_id ,
+            'service_id' => $service_id ,
         ]);
 
     }

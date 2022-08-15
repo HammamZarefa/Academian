@@ -14,7 +14,7 @@ class SummarizesController extends Controller
 
     public function __construct(SummarizeService $service)
     {
-        $this->middleware(['check_subscription:2'])->only('detect');
+        $this->middleware(['check_subscription:2'])->only('index');
 
         $this->service = $service;
     }
@@ -24,18 +24,23 @@ class SummarizesController extends Controller
         return view('summarize.index');
     }
 
-    public function detect(Request $request)
+    public function detect(SummarizeRequest $request)
     {
         try {
-            $data = ["_token"=>$request->_token,
-                "text"=>$request->text,
-                "language"=>$request->language,
-                "output_sentences"=>(integer)$request->output_sentences];
-             $response = $this->service->summarizer($data);
+            $userId = auth()->user()->id;
+            $request->validated();
+            $data = [
+                "_token" => $request->_token,
+                "text" => $request->text,
+                "language" => $request->language,
+                "output_sentences" => (integer)$request->output_sentences
+            ];
+            $response = $this->service->summarizer($data); // integrate with multiple APIs summarize
             session()->flashInput($request->input());
             $string = Str::of($response['summary'])->explode(' ');
             $countRequest = Str::of($request->text)->explode(' ')->count();
             $count = $string->count();
+            $this->service->insertLog($userId, 1); // trigger event to new insert in log of Summarize
             return view('summarize.index',
                 compact('response', 'count', 'countRequest'))
                 ->withInput($request->only('text'));

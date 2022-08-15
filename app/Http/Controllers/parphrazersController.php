@@ -14,7 +14,7 @@ class parphrazersController extends Controller
 
     public function __construct(ParaphraseService $service)
     {
-        $this->middleware(['check_subscription:3'])->only('detect');
+        $this->middleware(['check_subscription:3'])->only('index');
         $this->service = $service;
     }
 
@@ -31,12 +31,14 @@ class parphrazersController extends Controller
     public function detect(ParaphraseRequest $request)
     {
         try {
+            $userId = auth()->user()->id;
             $data = $request->validated();
-            $response = $this->service->paraphrase($data); // integrate with multiple APIs plagiarism detection
+            $response = $this->service->paraphrase($data); // integrate with multiple APIs paraphrase
             session()->flashInput($request->input());
             $string = Str::of($response['rewrite'])->explode(' ');
             $countRequest = Str::of($request->text)->explode(' ')->count();
             $count = $string->count();
+            $this->service->insertLog($userId, 1); // trigger event to new insert in log of Paraphrase
             return view('paraphraser.index', compact('response', 'count', 'countRequest'))
                 ->withInput($request->only('text'));
         } catch (\Exception $ex) {

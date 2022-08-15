@@ -14,14 +14,16 @@
  'create_link' => ['title' => 'Create Post Category', 'url' => route("post_category.create")]
 
  ])
+ <div class="container">
+  <div class="container">
 <table id="table" class="table table-striped">
   <thead>
      <tr>
-        <th scope="col" >@lang('Name')</th>
-        <th scope="col" >@lang('Slug')</th>
+        <th scope="col">@lang('Name')</th>
+        <th scope="col">@lang('Slug')</th>
         <th scope="col">@lang('Keywords')</th>
-         <th scope="col">@lang('Meta Desc')</th>
-        <th scope="col" class="text-right">@lang('Action')</th>
+        <th scope="col">@lang('Meta Desc')</th>
+        <th scope="col">@lang('Action')</th>
      </tr>
   </thead>
 
@@ -123,7 +125,7 @@
 
         <td>
 
-            <a href="{{route('post_category.edit', [$category->id])}}" class="btn btn-info btn-sm"> Edit </a>
+            <a href="{{route('post_category.edit', [$category->id])}}" class="btn btn-Create btn-sm"> Edit </a>
 
             <form method="POST" action="{{route('post_category.destroy', [$category->id])}}" class="d-inline" onsubmit="return confirm('Delete this category permanently?')">
 
@@ -143,10 +145,6 @@
 </tbody>
 
 </table>
-
-</div>
-
-</div>
 
 </div>
 @endsection

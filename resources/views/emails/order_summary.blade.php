@@ -310,7 +310,7 @@ a {
                                           <td>
                                              <div style="font-style: italic;">@lang('Service Item')</div>
                                              <div style="font-size: 22px;">
-                                                {{ $order->service->name }}
+                                                {{ @$order->service->name }}
                                              </div>
                                              <div>
                                                 {{ $order->work_level->name }} (@lang('Work level'))
@@ -319,7 +319,7 @@ a {
                                                 <b>@lang('Urgency')</b>:
                                                 {{ $order->dead_line->format('l, M d, Y') }}
                                              </div>
-                                             @if($order->service->price_type_id == PriceType::PerPage)
+                                             @if(@$order->service->price_type_id == PriceType::PerPage)
                                              <div>
                                                 <b>@lang('Spacing Type')</b>:
                                                 {{ ucfirst($order->spacing_type) }}

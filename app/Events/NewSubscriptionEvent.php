@@ -2,7 +2,6 @@
 
 namespace App\Events;
 
-use App\OnlineServiceHistory;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -11,23 +10,23 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class PlagiarsmCountRequestEvent
+class NewSubscriptionEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $plagiarism;
-    public $user_id;
-    public $service_id;
 
+    public $subscription;
+    public $service_id;
+    public $user_id;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(OnlineServiceHistory $plagiarism, $user_id, $service_id)
+    public function __construct($subscription,$service_id,$user_id)
     {
-        $this->plagiarism=$plagiarism;
-        $this->user_id=$user_id;
+        $this->subscription=$subscription;
         $this->service_id=$service_id;
+        $this->user_id=$user_id;
     }
 
     /**

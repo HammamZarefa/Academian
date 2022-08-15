@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Events\NewSubscriptionEvent;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -65,6 +66,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\PlagiarsmCountRequestEvent' => [
             'App\Listeners\PlagiarsmCountRequestListener',
+        ],
+        'App\Events\NewSubscriptionEvent' => [
+            'App\Listeners\NewSubscriptionListener',
         ],
     ];
 

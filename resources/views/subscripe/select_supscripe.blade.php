@@ -9,7 +9,7 @@
         </div>
     </section>
     <section>
-        <form action="{{route('choose_payment_method')}}" method="get" enctype="multipart/form-data">
+        <form action="{{route('subscripe',$online_service->id)}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="container py-3">
                 <div class="card" style="text-align:center;">

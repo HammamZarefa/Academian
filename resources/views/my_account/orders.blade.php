@@ -14,8 +14,8 @@
       <div class="col-md-6">
          <h4>@lang('My Orders')</h4>
       </div>
-      <div class="col-md-6">
-         <a href="{{ route('order_page') }}" class="btn btn-success float-md-right"> <i class="fas fa-plus"></i> @lang('New Order')</a>
+      <div class="col-md-6 button-title">
+         <a href="{{ route('order_page') }}" class="btn btn-Create"> <i class="fas fa-plus"></i> @lang('New Order')</a>
       </div>
       <div class="col-md-12">
          <hr>
