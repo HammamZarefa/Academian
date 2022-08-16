@@ -11,21 +11,9 @@
                    ]
     ])
     <div class="container">
-    <form role="form" class="form-horizontal" enctype="multipart/form-data" action="{{ (isset($post->id)) ? route( 'post.edit', $post->id) : route('post.store') }}" method="post" autocomplete="off" >
+    <form role="form" class="form-horizontal" enctype="multipart/form-data" action="{{route('post.store') }}" method="post" autocomplete="off" >
         <div class="row">
-                <div class="col-md-12 mb-4">
-                    <div class="d-flex  align-items-center">
-                        <div class="seclector">
-                            <div style="font-weight: bold;">@lang('lang')</div>
-                            <i class="fas fa-angle-down"></i>
-                                <ul class="option change-lang">
-                                @foreach(Config::get('app.available_locales') as $lang)
-                                <li data-lang="{{$lang}}">  {{$lang}}</li>
-                                @endforeach
-                                </ul>
-                        </div>
-                    </div>
-                </div>
+               @include('language_selector')
                 @foreach(Config::get('app.available_locales') as $lang)
             <div class="form-{{$lang}} col-sm-8 {{ showErrorClass($errors, 'form.*') }}">
                     <div class="side-form mb-4">
@@ -106,7 +94,7 @@
             <div class="form-group side-form">
                 <label for="tags" class=" col-form-label">Tags</label>
                <div>
-               <select class="selectpicker" multiple >
+               <select class="selectpicker" multiple name="tags[]" >
                         @foreach ($tags as $tags)
                             <option value="{{ $tags->id }}">{{ $tags->name }}</option>
                         @endforeach
@@ -149,7 +137,7 @@
     <script>
         $(document).ready(function() {
             console.log('ready');
-        $('#summernote').summernote({
+        $('.summernote').summernote({
             placeholder: 'Write here',
             tabsize: 2,
             height: 500,
@@ -158,7 +146,7 @@
                     uploadImage(image[0]);
                 }
             }
-        }});
+        })});
 
         function uploadImage(image) {
             var data = new FormData();

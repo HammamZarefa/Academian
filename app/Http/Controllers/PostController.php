@@ -144,7 +144,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
         \Validator::make($request->all(), [
             "title" => "required",
 //            "cover" => "required",

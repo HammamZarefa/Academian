@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-background">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img class="logo" src="{{ get_company_logo() }}" alt="{{ config('app.name', 'Academian') }}" height="50px" width="50px">
+            <img class="logo" src="{{ asset('front/img/Artboard-logo.png') }}" alt="{{ config('app.name', 'Academian') }}" height="50px" width="50px">
         </a>
         <button style="border: 2px solid #ddd" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

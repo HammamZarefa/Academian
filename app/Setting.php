@@ -3,15 +3,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use DateTimeZone;
+use Spatie\Translatable\HasTranslations;
 
 
 class Setting extends Model
 {
-
+use HasTranslations;
     protected $fillable = [
         'option_key',
         'option_value'
     ];
+
+    protected $translatable = ['option_value','option_key'];
 
     public $timestamps = false;
 

@@ -346,7 +346,7 @@ function paymentIsPending($orderStatusId)
         return $result;
     }
 
-    function languges()
+    function languages()
     {
         $languages=Config::get('app.available_locales');
         return $languages;
