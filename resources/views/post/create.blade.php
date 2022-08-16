@@ -10,17 +10,6 @@
                       'url' => route("posts")
                    ]
     ])
-    <style>
-        #cke_body_ar {
-            display: none;
-        }
-        #cke_body_fr {
-            display: none;
-        }
-        #cke_body_de {
-            display: none;
-        }
-    </style>
     <div class="container">
     <form role="form" class="form-horizontal" enctype="multipart/form-data" action="{{ (isset($post->id)) ? route( 'post.edit', $post->id) : route('post.store') }}" method="post" autocomplete="off" >
         <div class="row">
@@ -37,41 +26,35 @@
                         </div>
                     </div>
                 </div>
-            <div class="col-sm-8">
+                @foreach(Config::get('app.available_locales') as $lang)
+            <div class="form-{{$lang}} col-sm-8 {{ showErrorClass($errors, 'form.*') }}">
                     <div class="side-form mb-4">
                         <label>@lang('Title') <span class="required">*</span></label>
-                        @foreach(Config::get('app.available_locales') as $lang)
-                        <input id="title_{{$lang}}" type="text" class="title_{{$lang}} form-control form-control-sm {{ showErrorClass($errors, 'title.*') }}"
+                        <input id="title_{{$lang}}" type="text" 
+                        class="title_{{$lang}} form-control form-control-sm {{ showErrorClass($errors, 'title.*') }}"
                         name="title[{{$lang}}]"
                         value="{{ old_set('title['.$lang.']', NULL, $postCategory ?? '') }}">
-                        @endforeach
                         <div class="invalid-feedback d-block">{{ showError($errors, 'title.*') }}</div>
                     </div>
 
                     <div class="textdesc side-form mb-4">
                             <label>@lang('Desc') <span class="required">*</span></label>
-                            @foreach(Config::get('app.available_locales') as $lang)
                                 <textarea id="body_{{$lang}}" type="text"
                                           class="body_{{$lang}} summernote form-control form-control-sm {{ showErrorClass($errors, 'body.*') }}"
                                           name="body[{{$lang}}]"
                                          >{{ old_set('body['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
-                            @endforeach
                         </div>
                         <div class="side-form mb-4">
                         <label>@lang('keywords')<span class="required">*</span></label>
-                        @foreach(Config::get('app.available_locales') as $lang)
                             <input id="keyword_{{$lang}}" type="text" class="keyword_{{$lang}} form-control form-control-sm {{ showErrorClass($errors, 'keyword.*') }}"
                                    name="keyword[{{$lang}}]"
                                    value="{{ old_set('keyword['.$lang.']', NULL, $postCategory ?? '') }}">
-                        @endforeach
                         <div class="invalid-feedback d-block">{{ showError($errors, 'keyword.*') }}</div>
                     </div>
                     <div class="side-form">
                         <label>@lang('Meta Desc') <span class="required">*</span></label>
-                        @foreach(Config::get('app.available_locales') as $lang)
                             <textarea id="meta_desc_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'meta_desc.*') }}"
                                       name="meta_desc[{{$lang}}]">{{ old_set('meta_desc['.$lang.']', NULL, $postCategory ?? '') }}</textarea>
-                        @endforeach
                         <div class="invalid-feedback d-block">{{ showError($errors, 'meta_desc.*') }}</div>
                     </div>
                         <div class="pdf" style="display: none">
@@ -82,6 +65,7 @@
                         </div>
                         <div class="invalid-feedback d-block">{{ showError($errors, 'body.*') }}</div>
             </div>
+            @endforeach
 
             <div class="col-sm-4">
                     {{ csrf_field()  }}
@@ -122,7 +106,7 @@
             <div class="form-group side-form">
                 <label for="tags" class=" col-form-label">Tags</label>
                <div>
-               <select class="selectpicker" multiple aria-label="size 3 select example">
+               <select class="selectpicker" multiple >
                         @foreach ($tags as $tags)
                             <option value="{{ $tags->id }}">{{ $tags->name }}</option>
                         @endforeach
@@ -147,29 +131,9 @@
         </div>
 @endsection
 @push('scripts')
-{{--    <script type="text/javascript">--}}
-{{--        $(document).ready(function () {--}}
-{{--            $('.ckeditor').ckeditor();--}}
-{{--        });--}}
-{{--    </script>--}}
     <script>
-        $(document).ready(function() {
-            var body1 = document.getElementById('body_en')
-            var editor1 = body1.nextElementSibling;
-            editor1.setAttribute('style','display:block');
-            var body2 = document.getElementById('body_ar')
-            var editor2 = body2.nextElementSibling;
-            editor2.setAttribute('style','display:none');
-            var body3 = document.getElementById('body_de')
-            var editor3 = body3.nextElementSibling;
-            editor3.setAttribute('style','display:none');
-            var body4 = document.getElementById('body_fr')
-            var editor4 = body4.nextElementSibling;
-            editor4.setAttribute('style','display:none');
-        });
         $("#wizard-picture").change(function(){
             readURL(this);
-
         });
         //Function to show image before upload
         function readURL(input) {
@@ -183,166 +147,8 @@
         }
     </script>
     <script>
-        function test($this){
-            var local = $this.getAttribute("data-value");
-            // var locals = $('.locals')
-            // for (j=0 ; j < locals.length ; j++){
-            //
-            // }
-            // console.log(locals[0])
-            if (local == "ar"){
-                document.getElementById('title_'+local).setAttribute('style','display:block')
-                document.getElementById('title_en').setAttribute('style','display:none')
-                document.getElementById('title_fr').setAttribute('style','display:none')
-                document.getElementById('title_de').setAttribute('style','display:none')
-                document.getElementById('keyword_'+local).setAttribute('style','display:block')
-                document.getElementById('keyword_en').setAttribute('style','display:none')
-                document.getElementById('keyword_fr').setAttribute('style','display:none')
-                document.getElementById('keyword_de').setAttribute('style','display:none')
-                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
-                document.getElementById('meta_desc_en').setAttribute('style','display:none')
-                document.getElementById('meta_desc_fr').setAttribute('style','display:none')
-                document.getElementById('meta_desc_de').setAttribute('style','display:none')
-                var body1 = document.getElementById('body_'+local)
-                var editor1 = body1.nextElementSibling;
-                editor1.setAttribute('style','display:block');
-                var body2 = document.getElementById('body_en')
-                var editor2 = body2.nextElementSibling;
-                editor2.setAttribute('style','display:none');
-                var body3 = document.getElementById('body_de')
-                var editor3 = body3.nextElementSibling;
-                editor3.setAttribute('style','display:none');
-                var body4 = document.getElementById('body_fr')
-                var editor4 = body4.nextElementSibling;
-                editor4.setAttribute('style','display:none');
-                // document.getElementById('body_'+local).setAttribute('style','display:block')
-                // document.getElementById('body_en').setAttribute('style','display:none')
-                // document.getElementById('body_fr').setAttribute('style','display:none')
-                // document.getElementById('body_de').setAttribute('style','display:none')
-                // document.getElementById('cke_body_'+local).setAttribute('style','display:block')
-                // document.getElementById('cke_body_en').setAttribute('style','display:none')
-                // document.getElementById('cke_body_fr').setAttribute('style','display:none')
-                // document.getElementById('cke_body_de').setAttribute('style','display:none')
-                var x = $('.navbarDarkDropdownMenuLink')
-                for (i=0 ; i < x.length ;i++){
-                    x[i].innerHTML = local
-                }
-                console.log($('.navbarDarkDropdownMenuLink')[0].innerHTML )
-            }else if (local =="en"){
-                document.getElementById('title_'+local).setAttribute('style','display:block')
-                document.getElementById('title_ar').setAttribute('style','display:none')
-                document.getElementById('title_fr').setAttribute('style','display:none')
-                document.getElementById('title_de').setAttribute('style','display:none')
-                document.getElementById('keyword_'+local).setAttribute('style','display:block')
-                document.getElementById('keyword_ar').setAttribute('style','display:none')
-                document.getElementById('keyword_fr').setAttribute('style','display:none')
-                document.getElementById('keyword_de').setAttribute('style','display:none')
-                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
-                document.getElementById('meta_desc_ar').setAttribute('style','display:none')
-                document.getElementById('meta_desc_fr').setAttribute('style','display:none')
-                document.getElementById('meta_desc_de').setAttribute('style','display:none')
-                var body1 = document.getElementById('body_'+local)
-                var editor1 = body1.nextElementSibling;
-                editor1.setAttribute('style','display:block');
-                var body2 = document.getElementById('body_de')
-                var editor2 = body2.nextElementSibling;
-                editor2.setAttribute('style','display:none');
-                var body3 = document.getElementById('body_ar')
-                var editor3 = body3.nextElementSibling;
-                editor3.setAttribute('style','display:none');
-                var body4 = document.getElementById('body_fr')
-                var editor4 = body4.nextElementSibling;
-                editor4.setAttribute('style','display:none');
-                // document.getElementById('body_'+local).setAttribute('style','display:block')
-                // document.getElementById('body_ar').setAttribute('style','display:none')
-                // document.getElementById('body_fr').setAttribute('style','display:none')
-                // document.getElementById('body_de').setAttribute('style','display:none')
-                // document.getElementById('cke_body_'+local).setAttribute('style','display:block')
-                // document.getElementById('cke_body_ar').setAttribute('style','display:none')
-                // document.getElementById('cke_body_fr').setAttribute('style','display:none')
-                // document.getElementById('cke_body_de').setAttribute('style','display:none')
-                var x = $('.navbarDarkDropdownMenuLink')
-                for (i=0 ; i < x.length ;i++){
-                    x[i].innerHTML = local
-                }
-            }else if (local == "fr"){
-                document.getElementById('title_'+local).setAttribute('style','display:block')
-                document.getElementById('title_en').setAttribute('style','display:none')
-                document.getElementById('title_ar').setAttribute('style','display:none')
-                document.getElementById('title_de').setAttribute('style','display:none')
-                document.getElementById('keyword_'+local).setAttribute('style','display:block')
-                document.getElementById('keyword_en').setAttribute('style','display:none')
-                document.getElementById('keyword_ar').setAttribute('style','display:none')
-                document.getElementById('keyword_de').setAttribute('style','display:none')
-                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
-                document.getElementById('meta_desc_en').setAttribute('style','display:none')
-                document.getElementById('meta_desc_ar').setAttribute('style','display:none')
-                document.getElementById('meta_desc_de').setAttribute('style','display:none')
-
-                var body1 = document.getElementById('body_'+local)
-                var editor1 = body1.nextElementSibling;
-                editor1.setAttribute('style','display:block');
-                var body2 = document.getElementById('body_en')
-                var editor2 = body2.nextElementSibling;
-                editor2.setAttribute('style','display:none');
-                var body3 = document.getElementById('body_ar')
-                var editor3 = body3.nextElementSibling;
-                editor3.setAttribute('style','display:none');
-                var body4 = document.getElementById('body_de')
-                var editor4 = body4.nextElementSibling;
-                editor4.setAttribute('style','display:none');
-                // document.getElementById('body_'+local).setAttribute('style','display:block')
-                // document.getElementById('body_en').setAttribute('style','display:none')
-                // document.getElementById('body_ar').setAttribute('style','display:none')
-                // document.getElementById('body_de').setAttribute('style','display:none')
-                // document.getElementById('cke_body_'+local).setAttribute('style','display:block')
-                // document.getElementById('cke_body_en').setAttribute('style','display:none')
-                // document.getElementById('cke_body_ar').setAttribute('style','display:none')
-                // document.getElementById('cke_body_de').setAttribute('style','display:none')
-                var x = $('.navbarDarkDropdownMenuLink')
-                for (i=0 ; i < x.length ;i++){
-                    x[i].innerHTML = local
-                }
-            }else if (local == "de"){
-                document.getElementById('title_'+local).setAttribute('style','display:block')
-                document.getElementById('title_en').setAttribute('style','display:none')
-                document.getElementById('title_ar').setAttribute('style','display:none')
-                document.getElementById('title_fr').setAttribute('style','display:none')
-                document.getElementById('keyword_'+local).setAttribute('style','display:block')
-                document.getElementById('keyword_en').setAttribute('style','display:none')
-                document.getElementById('keyword_ar').setAttribute('style','display:none')
-                document.getElementById('keyword_fr').setAttribute('style','display:none')
-                document.getElementById('meta_desc_'+local).setAttribute('style','display:block')
-                document.getElementById('meta_desc_en').setAttribute('style','display:none')
-                document.getElementById('meta_desc_ar').setAttribute('style','display:none')
-                document.getElementById('meta_desc_fr').setAttribute('style','display:none')
-                var body1 = document.getElementById('body_'+local)
-                var editor1 = body1.nextElementSibling;
-                editor1.setAttribute('style','display:block');
-                var body2 = document.getElementById('body_en')
-                var editor2 = body2.nextElementSibling;
-                editor2.setAttribute('style','display:none');
-                var body3 = document.getElementById('body_ar')
-                var editor3 = body3.nextElementSibling;
-                editor3.setAttribute('style','display:none');
-                var body4 = document.getElementById('body_fr')
-                var editor4 = body4.nextElementSibling;
-                editor4.setAttribute('style','display:none');
-                // document.getElementById('body_en').setAttribute('style','display:none')
-                // document.getElementById('body_ar').setAttribute('style','display:none')
-                // document.getElementById('body_fr').setAttribute('style','display:none')
-                // document.getElementById('cke_body_'+local).setAttribute('style','display:block')
-                // document.getElementById('cke_body_en').setAttribute('style','display:none')
-                // document.getElementById('cke_body_ar').setAttribute('style','display:none')
-                // document.getElementById('cke_body_fr').setAttribute('style','display:none')
-                var x = $('.navbarDarkDropdownMenuLink')
-                for (i=0 ; i < x.length ;i++){
-                    x[i].innerHTML = local
-                }
-            }
-        }
         $(document).ready(function() {
-            console.log('ready')
+            console.log('ready');
         $('#summernote').summernote({
             placeholder: 'Write here',
             tabsize: 2,
@@ -394,22 +200,6 @@
 
             }
         )});
-    if($("#flexCheckDefault").checked){
-        var body1 = document.getElementById('body_en')
-        var editor1 = body1.nextElementSibling;
-        editor1.setAttribute('style','display:block');
-        var body2 = document.getElementById('body_ar')
-        var editor2 = body2.nextElementSibling;
-        editor2.setAttribute('style','display:none');
-        var body3 = document.getElementById('body_de')
-        var editor3 = body3.nextElementSibling;
-        editor3.setAttribute('style','display:none');
-        var body4 = document.getElementById('body_fr')
-        var editor4 = body4.nextElementSibling;
-        editor4.setAttribute('style','display:none');
-    }
-    else{
-    };
 </script>
 
 @endpush

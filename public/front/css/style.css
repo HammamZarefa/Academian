@@ -232,6 +232,11 @@ p{
     max-width: 60px;
     color: var(--hover_color);
 }
+@media (min-width:768px) {
+    .navbar .logo img{
+        max-width: 75px;
+    } 
+}
 .navbar li a{
     color:  var(--main_color);
     font-size: 17px;

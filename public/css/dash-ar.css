@@ -218,23 +218,17 @@
     display: block;
   }
    /* *************************** En & Ar Form ***************************** */
-   .title_en,
-   .body_en,
-   .keyword_en,
-   .meta_desc_en{
-     position: relative;
-     z-index: 10;
-   }
-   .title_ar,
-   .body_ar,
-   .keyword_ar,
-   .meta_desc_ar{
-     position: absolute;
-     z-index: -1;
-     opacity: 0;
-     direction: rtl;
-     text-align: start;
-   }
+   .form-en{
+    position: relative;
+    z-index: 10;
+  }
+  .form-ar{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    direction: rtl;
+    text-align: start;
+  }
   /* *************************** index create  ***************************** */
   .actions-toolbar h5{
     color: #06243E;
@@ -251,9 +245,6 @@
   }
   .select2 {
     width: 322px !important;
-  }
-  .btn.dropdown-toggle.bs-placeholder.btn-light{
-    display: none;
   }
   .dropdown-toggle::after{
     margin-left: 0;
