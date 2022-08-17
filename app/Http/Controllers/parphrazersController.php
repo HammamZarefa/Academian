@@ -34,6 +34,9 @@ class parphrazersController extends Controller
             $userId = auth()->user()->id;
             $data = $request->validated();
             $response = $this->service->paraphrase($data); // integrate with multiple APIs paraphrase
+            if (!$response ){
+                return back()->withErrors('This service is not available in your location');
+            }else
             session()->flashInput($request->input());
             $string = Str::of($response['rewrite'])->explode(' ');
             $countRequest = Str::of($request->text)->explode(' ')->count();
@@ -42,7 +45,7 @@ class parphrazersController extends Controller
             return view('paraphraser.index', compact('response', 'count', 'countRequest'))
                 ->withInput($request->only('text'));
         } catch (\Exception $ex) {
-            return $ex->getMessage();
+            return back()->withErrors($ex->getMessage());
         }
     }
 }

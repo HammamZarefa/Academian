@@ -26,7 +26,7 @@ class PlagiarismService
 
     public function detectPlagiarism($data)
     {
-         return  $this->APIService->post($this->host, $this->key, $this->header_content, $this->url, $data);
+         return  $this->APIService->post($this->host, 'ebf6d183c0msh3bf0715e35149d3p1c098cjsnf11a02e84fd5', $this->header_content, $this->url, $data);
     }
 
     public function insertLog($user_id,$service_id)

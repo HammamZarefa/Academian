@@ -24,10 +24,10 @@ class PlagiarismRequest extends FormRequest
     public function rules()
     {
         return [
-            'text' => 'required|min:50',
+            'text' => 'required|min:1',
             'language' => 'required',
-            'includeCitations' => 'required',
-            'scrapeSources' => 'required'
+            'includeCitations' => '',
+            'scrapeSources' => ''
         ];
     }
 

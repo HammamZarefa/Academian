@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Post Category')
 @section('content')
+    @if (session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
     <form role="form" class="form-horizontal" enctype="multipart/form-data"
           action="{{  route('post_category.store') }}"
           method="post" autocomplete="off">

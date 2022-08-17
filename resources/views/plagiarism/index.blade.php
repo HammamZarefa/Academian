@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Post Category')
 @section('content')
+    @if (session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
     <div class="container Summarize">
         <form class="detect" action="{{route('detect')}}" method="post">
             {{ csrf_field() }}

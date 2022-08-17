@@ -36,6 +36,9 @@ class SummarizesController extends Controller
                 "output_sentences" => (integer)$request->output_sentences
             ];
             $response = $this->service->summarizer($data); // integrate with multiple APIs summarize
+            if (!$response ){
+                return back()->withErrors('This service is not available in your location');
+            }else
             session()->flashInput($request->input());
             $string = Str::of($response['summary'])->explode(' ');
             $countRequest = Str::of($request->text)->explode(' ')->count();
@@ -45,7 +48,7 @@ class SummarizesController extends Controller
                 compact('response', 'count', 'countRequest'))
                 ->withInput($request->only('text'));
         } catch (\Exception $ex) {
-            return $ex->getMessage();
+            return back()->withErrors($ex->getMessage());
         }
     }
 }
