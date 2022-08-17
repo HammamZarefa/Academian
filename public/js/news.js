@@ -32,6 +32,8 @@
               $(".form-ar").css('position',"absolute");
               $(".form-ar").css('z-index',-1);
               $(".form-ar").css('opacity',0);
+
+              $(".current").html('English');
             }
             else{
               $(".form-ar").css('position',"relative");
@@ -41,6 +43,8 @@
               $(".form-en").css('position',"absolute");
               $(".form-en").css('z-index',-1);
               $(".form-en").css('opacity',0);
+
+              $(".current").html('عربي');
             }
             });
           

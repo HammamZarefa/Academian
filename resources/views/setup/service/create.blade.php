@@ -13,59 +13,38 @@
    @if(isset($service->id))
    {{ method_field('PATCH') }}
    @endif
-
-    <div class="form-group">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
-                    <label>@lang('Name') <span class="required">*</span></label>
+   @include('language_selector')
+<div class="container">
+    <div class="form-group side-form">
                     @foreach(Config::get('app.available_locales') as $lang)
+                   <div class="form-{{$lang}}  {{ showErrorClass($errors, 'form.*') }}">
+                   <label>@lang('Name') <span class="required">*</span></label>
+                   
                         <input id="name_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'name.*') }}"
                                name="name[{{$lang}}]"
-                               value="{{ old_set('name['.$lang.']', NULL, $postCategory ?? '') }}" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}"  >
-                    @endforeach
+                               value="{{ old_set('name['.$lang.']', NULL, $postCategory ?? '') }}">
                     <div class="invalid-feedback d-block">{{ showError($errors, 'name.*') }}</div>
-                </div>
-                <div class="col-md-2">
-                    <label style="visibility: hidden">@lang('lang')  <span></span></label>
-                    <ul class="navbar-nav" style="background-color: #343a40;">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle navbarDarkDropdownMenuLink" href="#" id="navbarDarkDropdownMenuLink"
-                               role="button" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0;color: #FFFFFF">
-                                {{Config::get('app.locale')}}
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark"
-                                aria-labelledby="navbarDarkDropdownMenuLink" style="min-width: 3rem;">
-                                @foreach(Config::get('app.available_locales') as $lang)
-                                    <li aria-haspopup="true">
-                                        <a href="#" data-value="{{$lang}}" onclick="test(this)" class="dropdown-item translate-form"
-                                           style="text-align-last: center;">
-                                            {{$lang}}<br>
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+                   </div>
+                   @endforeach
+
     </div>
-   <div class="form-group">
+   <div class="form-group side-form">
       <label>@lang('Price Type')<span class="required">*</span></label>
+      <br>
       <?php echo form_dropdown("price_type_id", $data['price_type_list'], old_set('price_type_id', NULL,$service), "class='form-control form-control-sm  selectPickerWithoutSearch'") ?>
       <div class="invalid-feedback d-block">{{ showError($errors,'price_type_id') }}</div>
    </div>
 
-    <div class="form-group">
+    <div class="form-group side-form">
         <label>@lang('Service Category')<span class="required">*</span></label>
+        <br>
         <?php echo form_dropdown("service_category_id", $data['service_category_list'], old_set('service_category_id', NULL,$service), "class='form-control form-control-sm  selectPickerWithoutSearch'") ?>
         <div class="invalid-feedback d-block">{{ showError($errors,'service_category_id') }}</div>
     </div>
 
 
 
-   <div class="form-group"
+   <div class="form-group side-form"
       style="{{ (old_set('price_type_id', NULL, $service) == PriceType::PerPage) ? 'display:none;' : '' }}"
       id="regularPrice">
       <label>@lang('Price') / @lang('Rate') <span class="required">*</span></label>
@@ -74,7 +53,7 @@
          name="price" value="{{ old_set('price', NULL, $service) }}">
       <div class="invalid-feedback">{{ showError($errors, 'price') }}</div>
    </div>
-   <div class="form-row"
+   <div class="form-row side-form"
       style="{{ (old_set('price_type_id', NULL, $service) == PriceType::PerPage) ? '' : 'display:none;' }}"
       id="spacing_types">
       <div class="form-group col-md-6">
@@ -94,7 +73,7 @@
          <div class="invalid-feedback">{{ showError($errors, 'double_spacing_price') }}</div>
       </div>
    </div>
-   <div class="form-group"
+   <div class="form-group side-form"
       style="{{ (old_set('price_type_id', NULL, $service) == PriceType::Fixed) ? 'display:none;' : '' }}"
       id="minimumOrderQuantity">
       <label>@lang('Minimum Order Quantity') <span class="required">*</span></label>
@@ -109,14 +88,15 @@
       {{--<?php echo form_dropdown("additional_services[]", $data['additional_services_list'], old_set('additional_services', NULL,$service), "class='form-control form-control-sm  multiSelect' multiple='multiple'") ?>--}}
       {{--<div class="invalid-feedback d-block">{{ showError($errors,'additional_services') }}</div>--}}
    {{--</div>--}}
-   <div class="form-group">
+   <div class="form-group side-form">
       <div class="custom-control custom-checkbox">
          <input type="checkbox" class="custom-control-input" id="inactive" name="inactive" value="1"
          {{ old_set('inactive', NULL, $service) ? 'checked="checked"' : '' }}>
          <label class="custom-control-label" for="inactive">@lang('Inactive')</label>
       </div>
    </div>
-   <input type="submit" name="submit" class="btn btn-success" value="Submit" />
+   <input type="submit" name="submit" class="btn btn-Create" value="Submit" />
+   </div>
 </form>
 @endsection
 @section('innerPageJS')

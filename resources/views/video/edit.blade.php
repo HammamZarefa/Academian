@@ -11,66 +11,36 @@
                   'url' => route("videos")
                ]
 ])
+<div class="container">
 <form role="form" class="form-horizontal" enctype="multipart/form-data" action="{{ (isset($video->id)) ? route( 'video.update', $video->id) : route('video.store') }}" method="post" autocomplete="off" >
     {{ csrf_field()  }}
-    <div class="form-group">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
-                    <label>@lang('Type')</label>
+    <div class="form-group side-form">
+                <div class="d-flex">
+                    <label class="mr-4">@lang('Type')</label>
                     <div id="type">
-                        @lang('Video')<input type="radio" name="type" {{ ($video->type!=0)? "checked" : "" }} value="1"  />
-                        @lang('Image')<input type="radio" name="type" {{ ($video->type==0)? "checked" : "" }} value="0" />
+                        @lang('Video')<input class="ml-1 mr-4" type="radio" name="type" {{ ($video->type!=0)? "checked" : "" }} value="1"  />
+                        @lang('Image')<input class="ml-1 mr-4" type="radio" name="type" {{ ($video->type==0)? "checked" : "" }} value="0" />
                     </div>
-                <div class="col-md-10">
-                    <label>@lang('Title') <span class="required">*</span></label>
+                    </div>
                     @foreach(Config::get('app.available_locales') as $lang)
+                    <div class="form-{{$lang}} side-form col-sm-12 {{ showErrorClass($errors, 'form.*') }}">
+                    <label>@lang('Title') <span class="required">*</span></label>
+                    
                         <input id="title_{{$lang}}" type="text" class="form-control form-control-sm {{ showErrorClass($errors, 'title.*') }}"
                                name="title[{{$lang}}]"
                                value="{{ $video->getTranslation('title',$lang) }}" style="display: {{$lang == Config::get('app.locale') ? "block" : "none"}}"  >
-                    @endforeach
+                   
                     <div class="invalid-feedback d-block">{{ showError($errors, 'title.*') }}</div>
                 </div>
-                <div class="col-md-2">
-                    <label style="visibility: hidden">@lang('lang')  <span></span></label>
-                    <ul class="navbar-nav" style="background-color: #343a40;">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle navbarDarkDropdownMenuLink" href="#" id="navbarDarkDropdownMenuLink"
-                               role="button" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0;color: #FFFFFF">
-                                {{Config::get('app.locale')}}
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark"
-                                aria-labelledby="navbarDarkDropdownMenuLink" style="min-width: 3rem;">
-                                @foreach(Config::get('app.available_locales') as $lang)
-                                    <li aria-haspopup="true">
-                                        <a href="#" data-value="{{$lang}}" onclick="test(this)" class="dropdown-item translate-form"
-                                           style="text-align-last: center;">
-                                            {{$lang}}<br>
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="form-group" id="videotype">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
+                @endforeach
+    <div class="form-group side-form" id="videotype">
                     <label>@lang('Video URL')<span class="required">*</span></label>
                     <input type="text"
                            class="form-control form-control-sm {{ showErrorClass($errors, 'url') }}"
                            name="url" value="{{ old('url') != null ? old('url') : $video->url }}">
                     <div class="invalid-feedback">{{ showError($errors, 'url') }}</div>
-                </div>
-            </div>
-        </div>
     </div>
-    </div>
-    <div class="form-group" id="imagetype" >
+    <div class="form-group side-form" id="imagetype" >
         <div class="picture-container">
             <div class="picture">
                 <img src="" class="picture-src mt-2 mb-2" id="wizardPicturePreview" height="150px" width="150px" title=""/>
@@ -83,19 +53,18 @@
         </div>
     </div>
     </div>
-    <div class="form-group">
-        <div class="container">
-            <div class="row">
+
+    <div class="form-group side-form">
                 <div class="col-md-10">
                     <div>is Featured?  <input type="checkbox" id="feature" name="feature"  {{$video->feature ? "checked" : ""}} value="1"></div>
                 </div>
-            </div>
-
-        </div>
     </div>
-
-    <input type="submit" name="submit" class="btn btn-success" value="@lang('Submit')"/>
+    <div class="col-sm-12 d-flex justify-content-start mt-4">
+    <input type="submit" name="submit" class="btn btn-Create" value="@lang('Submit')"/>
+    </div>
+    
 </form>
+</div>
 @endsection
 @push('scripts')
 <script>

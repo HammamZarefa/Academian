@@ -14,6 +14,7 @@
  'create_link' => ['title' => 'Create Post Tag', 'url' => route("post_tag.create")]
 
  ])
+ <div class="container">
 <table id="table" class="table table-striped">
   <thead>
      <tr>
@@ -123,7 +124,7 @@
 
         <td>
 
-            <a href="{{route('post_tag.edit', [$tag->id])}}" class="btn btn-info btn-sm">@lang('Edit')  </a>
+            <a href="{{route('post_tag.edit', [$tag->id])}}" class="btn btn-Create btn-sm">@lang('Edit')  </a>
 
             <form method="POST" action="{{route('post_tag.destroy', [$tag->id])}}" class="d-inline" onsubmit="return confirm('Delete this tag permanently?')">
 
@@ -145,9 +146,4 @@
 </table>
 
 </div>
-
-</div>
-
-</div>
 @endsection
-@push('scripts')
