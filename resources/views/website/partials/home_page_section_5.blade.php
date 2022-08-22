@@ -15,11 +15,11 @@
                 </a>
             </button>
          </div>
-         <div class="col-sm-6 pic" 
+         <div class="col-sm-6 pic"
          data-aos="fade-down"
          data-aos-duration="1500">
              <img src="{{ asset('front/img/Home Page 1st Image.jpg') }}" alt="">
-         </div>      
+         </div>
      </div>
      <div class="row contain contain2">
             <div class="col-sm-4 pic"

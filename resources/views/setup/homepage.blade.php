@@ -21,13 +21,13 @@
             @if($data['fields'][$row['option_key']] == 'input')
             <div class="form-group form-{{$lang}}">
                <label>{{ ucfirst(str_replace('_',' ', $row['option_key'])) }}</label>
-               <input type="text" class="form-control form-control-sm {{ showErrorClass($errors, $row['option_key']) }}" name="{{ $row['option_key'] }}[{{$lang}}]" value="{{ old($row['option_key'], $row['option_value'][$lang])  }}">
+               <input type="text" class="form-control form-control-sm {{ showErrorClass($errors, $row['option_key']) }}" name="{{ $row['option_key'] }}[{{$lang}}]" value="{{ old($row['option_key'], json_decode($row['option_value'])->$lang)  }}">
                <div class="invalid-feedback">{{ showError($errors, $row['option_key']) }}</div>
             </div>
             @else
             <div class="form-group form-{{$lang}}">
                <label>{{ ucfirst(str_replace('_',' ', $row['option_key'])) }}</label>
-               <textarea class="form-control form-control-sm {{ showErrorClass($errors, $row['option_key']) }}" name="{{ $row['option_key'] }}[{{$lang}}]" rows="4">{{ old($row['option_key'], $row['option_value'][$lang])  }}</textarea>
+               <textarea class="form-control form-control-sm {{ showErrorClass($errors, $row['option_key']) }}" name="{{ $row['option_key'] }}[{{$lang}}]" rows="4">{{ old($row['option_key'], json_decode($row['option_value'])->$lang)  }}</textarea>
                <div class="invalid-feedback">{{ showError($errors, $row['option_key']) }}</div>
             </div>
             @endif

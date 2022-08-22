@@ -10,15 +10,11 @@
 	<h4>{{ ucfirst(str_replace('_', ' ', $pageName)) }}</h4>
     	@foreach($metas as $meta)
     		<div class="form-group">
-               <label>{{ ucwords(str_replace('_', ' ', str_replace(['_'.$pageName],'', $meta))) }}</label>               
-               <input type="text" class="form-control form-control-sm {{ showErrorClass($errors, $meta) }}" name="{{ $meta }}" value="{{ old_set($meta, NULL, $record)  }}">
+               <label>{{ ucwords(str_replace('_', ' ', str_replace(['_'.$pageName],'', $meta))) }}</label>
+               <input type="text" class="form-control form-control-sm {{ showErrorClass($errors, $meta) }}" name="{{ $meta }}" value="{{ old_set($meta, NULL, $record)}}">
                <div class="invalid-feedback d-block">{{ showError($errors, $meta) }}</div>
             </div>
     	@endforeach
-    
     @endforeach
-    
-     
-    
 </form>
 @endsection

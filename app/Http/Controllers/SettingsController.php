@@ -376,7 +376,6 @@ class SettingsController extends Controller
         if (count($records) > 0) {
             $data['records'] = $records->toArray();
         }
-
         return view('setup.homepage', compact('data'));
     }
 
