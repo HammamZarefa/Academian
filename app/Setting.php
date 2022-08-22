@@ -14,7 +14,7 @@ use HasTranslations;
         'option_value'
     ];
 
-    protected $translatable = ['option_value','option_key'];
+    protected $translatable = ['option_value'];
 
     public $timestamps = false;
 
