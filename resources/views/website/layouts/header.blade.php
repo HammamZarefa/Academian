@@ -45,12 +45,12 @@
                         </div>
                     </li>
                     <div class="cover-acount"></div>
-                    <li style="margin-top: 1px;">
-                        <div class="acoount acoount2">
-                            <a style="position: relative;
-display: block;
-background-color: transparent;">@lang('Online Services')</a>
-                            <ul>
+                    {{--<li style="margin-top: 1px;">--}}
+                        {{--<div class="acoount acoount2">--}}
+                            {{--<a style="position: relative;--}}
+{{--display: block;--}}
+{{--background-color: transparent;">@lang('Online Services')</a>--}}
+                            {{--<ul>--}}
                                 {{--<li>--}}
                                     {{--<a style="font-size: 14px;" href="{{ route('summarize')}}">--}}
                                         {{--<div>@lang('Summarize')</div>--}}
@@ -67,17 +67,17 @@ background-color: transparent;">@lang('Online Services')</a>
                                     {{--</a>--}}
                                 {{--</li>--}}
 
-                                @foreach(\App\OnlineService::all() as $online_service)
-                                    <li>
-                                    <a style="font-size: 14px;" href="{{ $online_service->route.'/'.$online_service->id}}">
-                                        <div>{{ $online_service->name}}</div>
-                                </li>
-                                    </a>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <div class="cover-acount"></div>
-                    </li>
+                                {{--@foreach(\App\OnlineService::all() as $online_service)--}}
+                                    {{--<li>--}}
+                                    {{--<a style="font-size: 14px;" href="{{ $online_service->route.'/'.$online_service->id}}">--}}
+                                        {{--<div>{{ $online_service->name}}</div>--}}
+                                {{--</li>--}}
+                                    {{--</a>--}}
+                                {{--@endforeach--}}
+                            {{--</ul>--}}
+                        {{--</div>--}}
+                        {{--<div class="cover-acount"></div>--}}
+                    {{--</li>--}}
                     <li><a href="{{route('about')}}">@lang('About')</a></li>
                     <li><a href="{{route('gallery')}}">@lang('Gallery')</a></li>
                     <li><a href="{{route('blog')}}">@lang('Blog')</a></li>
