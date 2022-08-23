@@ -20,7 +20,7 @@
                     <a class="nav-link" href="{{ route('users_list', ['type' => 'customer']) }}">@lang('Customers')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('services_list') }}">@lang('Services')</a>
+                    <a class="nav-link" href="{{ route('services_list') }}">@lang('Settings')</a>
                 </li>
                 {{--<li class="nav-item">--}}
                     {{--<a class="nav-link" href="{{ route('users_list', ['type' => 'staff']) }}">--}}

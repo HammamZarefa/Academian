@@ -9,6 +9,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
+                        @if(Session::has('message'))
+                            <div class="alert {{ Session::get('alert-class', 'alert-info') }} alert-dismissible fade show" role="alert">{!! session('message') !!}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
                         <h2 class="title">@lang('Get in touch with us today to learn more.')</h2>
                     </div>
                     <div class="col-sm-6 con1">

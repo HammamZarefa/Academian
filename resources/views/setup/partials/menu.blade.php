@@ -40,18 +40,18 @@
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
          <a class="dropdown-item" href="{{ route('settings_homepage') }}">@lang('Homepage')</a>
-         <a class="dropdown-item" href="{{ route('settings_social_links') }}">@lang('Social Links')</a>
-         <a class="dropdown-item" href="{{ route('settings_edit_content', 'how-it-works') }}">@lang('How it works')</a>
-         <a class="dropdown-item" href="{{ route('settings_edit_content', 'faq') }}">@lang('FAQ')</a>
+         {{--<a class="dropdown-item" href="{{ route('settings_social_links') }}">@lang('Social Links')</a>--}}
+         {{--<a class="dropdown-item" href="{{ route('settings_edit_content', 'how-it-works') }}">@lang('How it works')</a>--}}
+         {{--<a class="dropdown-item" href="{{ route('settings_edit_content', 'faq') }}">@lang('FAQ')</a>--}}
          <div class="dropdown-divider"></div>
-         <a class="dropdown-item" href="{{ route('settings_edit_content', 'money-back-guarantee') }}">@lang('Money Back Guarantee')</a>
+         {{--<a class="dropdown-item" href="{{ route('settings_edit_content', 'money-back-guarantee') }}">@lang('Money Back Guarantee')</a>--}}
          <a class="dropdown-item" href="{{ route('settings_edit_content', 'privacy-policy') }}">@lang('Privacy Policy')</a>
          <a class="dropdown-item" href="{{ route('settings_edit_content', 'revision-policy') }}">@lang('Revision Policy')</a>
-         <a class="dropdown-item" href="{{ route('settings_edit_content', 'disclaimer') }}">@lang('Disclaimer')</a>
+         {{--<a class="dropdown-item" href="{{ route('settings_edit_content', 'disclaimer') }}">@lang('Disclaimer')</a>--}}
          <a class="dropdown-item" href="{{ route('settings_edit_content', 'terms-and-conditions') }}">@lang('Terms & Condition')</a>
          <a class="dropdown-item" href="{{ route('google_analytics') }}">@lang('Google Analytics')</a>
          <a class="dropdown-item" href="{{ route('seo_page') }}">@lang('Website SEO')</a>
-         <a class="dropdown-item" href="{{ route('custom_script_page') }}">@lang('Custom Script')</a>
+         {{--<a class="dropdown-item" href="{{ route('custom_script_page') }}">@lang('Custom Script')</a>--}}
 
          <div class="dropdown-divider"></div>
          <a class="dropdown-item" href="{{ route('clear_cache_page') }}">@lang('Clear Cache')</a>
@@ -63,4 +63,4 @@
    {{--<a class="nav-link" href="{{ route('update_system_page') }}">@lang('System Update')</a>--}}
 </div>
 
-{{--<a class="nav-link" href="{{ route('language.manage') }}">@lang('language')</a>--}}
+<a class="nav-link" href="{{ route('language.manage') }}">@lang('language')</a>
