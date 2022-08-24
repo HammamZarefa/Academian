@@ -1499,7 +1499,7 @@ margin: 0 5px;
     }
     .form-review{
         position: fixed;
-        top: 50%;
+        top: 60%;
         left: 50%;
         transform: translate(-50%,-50%);
         transition: .5s;
@@ -1542,6 +1542,10 @@ margin: 0 5px;
     @media (max-width:567px) {
         .form-review{
             width: 90%;
+            top: 70%;
+        }
+        .form-review .div1,.form-review .div2{
+            width: 100%;
         }
     }
     .form-review.active{
