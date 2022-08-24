@@ -1474,20 +1474,45 @@ margin: 0 5px;
 }
 .form-review{
     position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: .5s;
+    opacity: 0;
+    z-index: -1;
+}
+.form-review .div1{
     width: 511px;
     height: 422px;
     background: #FFFFFF;
     border-radius: 28px;
     text-align: center;
     padding: 24px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     flex-direction: column;
     display: flex;
-    transition: .5s;
+    opacity: 1;
+    position: relative;
+    z-index: 2;
+}
+.form-review .div2{
+    width: 398px;
+    height: 264px;
+    background: #FFFFFF;
+    border-radius: 28px;
+    text-align: center;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     opacity: 0;
-    z-index: -1;
+    position: relative;
+    z-index: 1;
+}
+.form-review .div2 i{
+   color: #fff;
+   padding: 10px;
+   background-color: #3667bf;
+   border-radius: 50%;
 }
 @media (max-width:567px) {
     .form-review{

@@ -123,6 +123,24 @@
                     $("#rev-sorting").prepend(this);
                 })
                 });
+                $("#sortByold").on("click", function() {
+                  $("#rev-sorting .rev").sort(function(a,b){
+                    return new Date($(a).attr("data-date")) > new Date($(b).attr("data-date"));
+                }).each(function(){
+                    $("#rev-sorting").prepend(this);
+                })
+                });
+                $( "#target1" ).click(function( event ) {
+                  if($("#form-add-review")[0].checkValidity()) {
+                    $(".div1" ).css("opacity","0");
+                    $(".div1" ).css("z-index","1");
+                    $(".div1" ).css("position","absolute");
+                    $(".div2" ).css("opacity","1");
+                    $(".div2" ).css("z-index","2");
+                    event.preventDefault();
+                }
+                });
+                
                 // console.log($("#sidebar-blog").outerHeight());
                 // console.log($(window).scrollTop());
     

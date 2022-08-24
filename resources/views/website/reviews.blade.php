@@ -37,14 +37,25 @@
                                     @lang('Add Your Review')
                                 </button>
                                 <div class="form-cover"></div>
-                                <form action="{{route('userreview')}}" class="form-review" method="POST">
-                                    {{ csrf_field() }}
+                                <form action="{{route('userreview')}}" class="form-review" method="POST" id="form-add-review">
+                                  <div class="div1">
+                                  {{ csrf_field() }}
                                     <h2>@lang('Add Your Review!')</h2>
                                     <p>@lang('Please let us know what you think about us.')</p>
                                     <input type="text" name="profession" placeholder="Profession Or Specialty" required>
                                     <textarea cols="30" name="desc" rows="10" placeholder="Enter your text here"
                                               required></textarea>
-                                    <button>@lang('Submit')</button>
+                                    <button type="submit" id="target1">@lang('Submit')</button>  
+                                  
+                                  </div>
+                                  <div class="div2">
+                                  {{ csrf_field() }}
+                                    <h2><i class="fa fa-check"></i></h2>
+                                    <h2>@lang('Review Submitted!')</h2>
+                                    <p>@lang('Your review has been submitted successfully.')</p>
+                                    <button type="submit" >@lang('Ok')</button>  
+                                  
+                                  </div>
                                 </form>
                             </div>
                             <div class="col-sm-12 review">
