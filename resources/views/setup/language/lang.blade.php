@@ -31,10 +31,10 @@
                                     </td>
                                     <td data-label="@lang('Action')">
                                         <a href="{{route('language.key', $item)}}" class="icon-btn btn--success" data-toggle="tooltip" data-original-title="@lang('Translate')">
-                                            <i class="la la-code"></i>
+                                            <i class="fas fa-code"></i>
                                         </a>
                                         <a href="javascript:void(0)" class="icon-btn ml-1 editBtn" data-original-title="@lang('Edit')" data-toggle="tooltip" data-url="{{ route('language.manage.update', $item)}}" data-lang="{{ json_encode($item) }}" data-icon="">
-                                            <i class="la la-edit"></i>
+                                            <i class="fas fa-edit"></i>
                                         </a>
 
                                     </td>

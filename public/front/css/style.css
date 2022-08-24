@@ -232,6 +232,18 @@ p{
     max-width: 60px;
     color: var(--hover_color);
 }
+.navbar .logo {
+    animation-name: logo-anim;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+}
+@keyframes logo-anim {
+    0% {transform: translateY(0px);}
+    25% {transform: translateY(10px);}
+    100% {transform: translateY(0px);}
+  }
 @media (min-width:768px) {
     .navbar .logo img{
         max-width: 75px;
@@ -812,6 +824,21 @@ width: 50%;
     padding: 20px 70px;
     border-radius: 16px;
 }
+.rev-hom{
+    box-shadow: 2px 8px 14px #b3b3b3;
+    animation-name: rev-home;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
+.rev-hom:hover{
+    animation-play-state: paused;
+}
+@keyframes rev-home {
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(25px);}
+    100% {transform: translateY(0px);}
+  }
 .post .swiper2 .swiper-pagination{
     position: absolute;
     left: 20px;

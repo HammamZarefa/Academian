@@ -2,11 +2,16 @@
  window.onload = function() {
  
    document.getElementById("loader").style.visibility = "visible";
+   document.getElementById("siteLoader").style.display = "none";
+   setTimeout(() => {
+	document.getElementById("video-home-page").style.display = "block";
+   }, 500);
+
 //    $('#loader_helper').empty();
 }
-setTimeout(() => {
-	document.getElementById("siteLoader").style.display = "none";
-   }, 3000);
+// setTimeout(() => {
+// 	document.getElementById("siteLoader").style.display = "none";
+//    }, 3000);
  $(document).ready(function() {
 
 /*---------------------------------------------------------------- One Page Navigation ----------------------------*/
@@ -63,27 +68,27 @@ setTimeout(() => {
 
 
 /*----------------------------------------------------- contact Form -------------------------*/
-	$("#request").submit(function() {
-		var elem = $(this);
-		var urlTarget = $(this).attr("action");
-		$.ajax({
-			type : "POST",
-			url : urlTarget,
-			dataType : "html",
-			data : $(this).serialize(),
-			beforeSend : function() {
-				elem.prepend("<div class='loading alert'>" + "<a class='close' data-dismiss='alert'>×</a>" + "Loading" + "</div>");
-				//elem.find(".loading").show();
-			},
-			success : function(response) {
-				elem.prepend(response);
-				//elem.find(".response").html(response);
-				elem.find(".loading").hide();
-				elem.find("input[type='text'],input[type='email'],textarea").val("");
-			}
-		});
-		return false;
-	});
+	// $("#request").submit(function() {
+	// 	var elem = $(this);
+	// 	var urlTarget = $(this).attr("action");
+	// 	$.ajax({
+	// 		type : "POST",
+	// 		url : urlTarget,
+	// 		dataType : "html",
+	// 		data : $(this).serialize(),
+	// 		beforeSend : function() {
+	// 			elem.prepend("<div class='loading alert'>" + "<a class='close' data-dismiss='alert'>×</a>" + "Loading" + "</div>");
+	// 			//elem.find(".loading").show();
+	// 		},
+	// 		success : function(response) {
+	// 			elem.prepend(response);
+	// 			//elem.find(".response").html(response);
+	// 			elem.find(".loading").hide();
+	// 			elem.find("input[type='text'],input[type='email'],textarea").val("");
+	// 		}
+	// 	});
+	// 	return false;
+	// });
 
 /*---------------------------------------------------------------- Cta Button Set Interval ----------------------------*/
 	setInterval(function(){$('.cta a').toggleClass('animated shake')}, 2000);

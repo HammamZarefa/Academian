@@ -48,23 +48,21 @@
                                 </form>
                             </div>
                             <div class="col-sm-12 review">
-                                <div class="filter">
+                                <div class="filter" >
                                     <span>@lang('Filter By:')</span>
                                     <div class="seclector">
                                         <div style="font-weight: bold;">@lang('Newest First')</div>
                                         <i class="fas fa-angle-down"></i>
-                                        <ul class="option">
-                                            <li>@lang('item')</li>
-                                            <li>@lang('item')</li>
-                                            <li>@lang('item')</li>
-                                            <li>@lang('item')</li>
+                                        <ul class="option" >
+                                            <li id="sortByold">@lang('By Oldest')</li>
+                                            <li id="sortBynew">@lang('By Newest')</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 review">
+                            <div class="col-sm-12 review" id="rev-sorting">
                                 @foreach($reviews as $review)
-                                    <div class="rev">
+                                    <div class="rev" data-date="{{ Carbon\Carbon::parse($review->created_at)->format("d F, Y") }}">
                                         <div class="info">
                                             <i class="fas fa-user-circle fa-3x"></i>
                                             <div>

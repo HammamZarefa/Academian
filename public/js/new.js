@@ -109,6 +109,20 @@
                   }
                
                 });
+                $("#sortBynew").on("click", function() {
+                  $("#rev-sorting .rev").sort(function(a,b){
+                    return new Date($(a).attr("data-date")) < new Date($(b).attr("data-date"));
+                }).each(function(){
+                    $("#rev-sorting").prepend(this);
+                })
+                });
+                $("#sortByold").on("click", function() {
+                  $("#rev-sorting .rev").sort(function(a,b){
+                    return new Date($(a).attr("data-date")) > new Date($(b).attr("data-date"));
+                }).each(function(){
+                    $("#rev-sorting").prepend(this);
+                })
+                });
                 // console.log($("#sidebar-blog").outerHeight());
                 // console.log($(window).scrollTop());
     

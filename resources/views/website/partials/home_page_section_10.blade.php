@@ -31,7 +31,7 @@
         </div>
 
       <div class="row">
-        <div class="col-md-5 con-sw" data-aos="fade-right"
+        <div class="col-md-5 con-sw rev-hom" data-aos="fade-right"
         data-aos-duration="1500">
         <div class="swiper2" >
           <div class="swiper-wrapper">
@@ -72,7 +72,7 @@
     </div>
 </div>
 <!-- Start Blog -->
-<div class="post">
+<div class="post" id="video-home-page" style="display:none">
     <div class="container">
     <div class="head">
         <h2> @lang('Videos') </h2>
@@ -91,7 +91,7 @@
             <div class="item">
             <!-- <iframe width="440" height="315" src="http://www.youtube.com/embed/qpv7sEjx52Y?"></iframe>  -->
               <!-- <iframe width="440" height="315" src="{{ $video->title}}"></iframe>  {{$video->url}} -->
-              <iframe class="vid"  height="250" src="{{$video->url}}" frameborder="0" allowfullscreen></iframe>
+              <iframe class="vid"  height="250" src="{{$video->url}}" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
             {{--<iframe width="900" height="506" src="{{ $video->desc}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
             </div>
