@@ -90,7 +90,7 @@
     speed: 1000,
     // loop: true,
     autoplay: {
-    delay: 5000,
+    delay: 3000,
       },
     slidesPerView: 2.5,
     // Navigation arrows

@@ -234,19 +234,26 @@ p{
 }
 .navbar .logo {
     animation-name: logo-anim;
-    animation-duration: 6s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-play-state: running;
     animation-timing-function: ease-in-out;
 }
 @keyframes logo-anim {
-    0% {transform: translateY(0px);}
-    25% {transform: translateY(10px);}
-    100% {transform: translateY(0px);}
+    0% {
+    }
+    5%,25% {
+        transform: translateX(10px);
+    }
+    15%,35% {
+        transform: translateX(0px);
+    }
+    40% {
+  }
   }
 @media (min-width:768px) {
     .navbar .logo img{
-        max-width: 75px;
+        max-width: 80px;
     } 
 }
 .navbar li a{
