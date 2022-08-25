@@ -376,7 +376,6 @@ class SettingsController extends Controller
         if (count($records) > 0) {
             $data['records'] = $records->toArray();
         }
-
         return view('setup.homepage', compact('data'));
     }
 
@@ -402,7 +401,7 @@ class SettingsController extends Controller
 
         foreach ($inputs as $key => $value) {
             if (in_array($key, array_keys($fields))) {
-                $this->save_records([
+                $this->save_translatable_records([
                     $key => $value
                 ], NULL, TRUE);
             }
@@ -540,7 +539,6 @@ class SettingsController extends Controller
     private function save_records($data, $auto_load_disabled = NULL, $sanitize = NULL)
     {
         foreach ($data as $key => $value) {
-
             $obj = Setting::updateOrCreate([
                 'option_key' => $key
             ]);
@@ -549,6 +547,30 @@ class SettingsController extends Controller
                 $obj->option_value = Purifier::clean(trim($value));
             } else {
                 $obj->option_value = trim($value);
+            }
+
+            if ($auto_load_disabled) {
+                $obj->auto_load_disabled = TRUE;
+            } else {
+                $obj->auto_load_disabled = NULL;
+            }
+
+            $obj->save();
+        }
+    }
+
+    private function save_translatable_records($data, $auto_load_disabled = NULL, $sanitize = NULL)
+    {
+        foreach ($data as $key => $value) {
+//            $value=json_encode($value);
+            $obj = Setting::updateOrCreate([
+                'option_key' => $key
+            ]);
+
+            if ($sanitize) {
+                $obj->option_value = Purifier::clean(($value));
+            } else {
+                $obj->option_value = ($value);
             }
 
             if ($auto_load_disabled) {

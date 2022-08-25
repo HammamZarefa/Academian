@@ -1,24 +1,22 @@
 <!-- Teachers -->
-<section class="teachers generic" id="menu-teachers">
+<section class="our-team" id="our-team">
     <div class="container">
         <div class="row title">
             <div class="col-sm-12">
-                <h2>@lang('Meet our Academic specialists')</h2>
-                <p>@lang('To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists').</p>
+                <h2>@lang('Meet Our Team')</h2>
             </div>
         </div>
-        <div class="row">
+        <div class="contain-team">
             @foreach($writers as $writer)
-            <div class="item col-sm-3 item">
+            <div class="item">
+                        <img src="{{asset(Storage::url($writer->photo))}}" alt=""  data-aos="fade-up-right" data-aos-duration="1500">
+                        {{--<figcaption><i class="icon-plus-circled"></i></figcaption>--}}
                 <a href="#teacher01" data-toggle="modal">
-                    <div class="class_title">
+                    <div class="class_title" data-aos="fade-down-left" data-aos-duration="1500">
                         <h2> {{$writer->first_name.' '.$writer->last_name}} </h2>
                     </div>
-                    <figure>
-                        <img src="{{asset(Storage::url($writer->photo))}}" alt="">
-                        {{--<figcaption><i class="icon-plus-circled"></i></figcaption>--}}
-                    </figure>
-                    <div class="description">
+                  
+                    <div class="description" data-aos="fade-up" data-aos-duration="1500">
                         <p>{{$writer->bio}}</p>
                     </div>
                 </a>

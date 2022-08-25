@@ -14,21 +14,22 @@
  'create_link' => ['title' => 'Create video', 'url' => route("video.create")]
 
  ])
+ <div class="container">
 <table id="table" class="table table-striped nowrap">
   <thead>
      <tr>
-        <th scope="col" style="width: 40%;">@lang('Title')</th>
+        <th scope="col">@lang('Title')</th>
         <th scope="col">@lang('Url')</th>
-        <th scope="col" class="text-right">@lang('Action')</th>
+        <th scope="col">@lang('Action')</th>
      </tr>
   </thead>
     <tbody>
     @foreach ($videos as $video)
         <tr>
             <td>{{ $video->title }}</td>
-            <td>{{$video->url}}</td>
+            <td>{!!  $video->type !=0 ? $video->url : '<img src="'.asset(Storage::url($video->url)).'" width=50px/>'!!}</td>
             <td>
-                <a href="{{route('video.edit', [$video->id])}}" class="btn btn-info btn-sm">@lang('Edit')  </a>
+                <a href="{{route('video.edit', [$video->id])}}" class="btn btn-Create btn-sm">@lang('Edit')  </a>
                 <form method="POST" class="d-inline" onsubmit="return confirm('Move Video to trash ?')" action="{{route('video.destroy', $video->id)}}">
                     @csrf
                     <input type="hidden" value="DELETE" name="_method">
@@ -39,6 +40,7 @@
     @endforeach
     </tbody>
 </table>
+</div>
 @endsection
 {{--@section('innerPageJS')--}}
 {{--<script>--}}

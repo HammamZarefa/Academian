@@ -1,21 +1,28 @@
 // site loader
  window.onload = function() {
-   document.getElementById("siteLoader").style.display = "none";
+ 
    document.getElementById("loader").style.visibility = "visible";
-   $('#loader_helper').empty();
-}
+   document.getElementById("siteLoader").style.display = "none";
+   setTimeout(() => {
+	document.getElementById("video-home-page").style.display = "block";
+   }, 500);
 
+//    $('#loader_helper').empty();
+}
+// setTimeout(() => {
+// 	document.getElementById("siteLoader").style.display = "none";
+//    }, 3000);
  $(document).ready(function() {
 
 /*---------------------------------------------------------------- One Page Navigation ----------------------------*/
-	$('.nav').onePageNav({
-	filter: ':not(.external)',
-	scrollThreshold: 0.25,
-	scrollOffset: 0,
-	});
+	// $('.nav').onePageNav({
+	// filter: ':not(.external)',
+	// scrollThreshold: 0.25,
+	// scrollOffset: 0,
+	// });
 
 /*---------------------------------------------------------------- Fixed menu ----------------------------*/
-	$('header').scrollToFixed();
+	// $('header').scrollToFixed();
 
 
 /*---------------------------------------------------------------- animation1 ----------------------------*/
@@ -33,16 +40,16 @@
 
 	
 /*---------------------------------------------------------------- Video ----------------------------*/
-    $(".player").mb_YTPlayer();
+    // $(".player").mb_YTPlayer();
 
 
 /*--------------------------------------------------------------------------- Tooltip-------------------------------*/
-	$('.tooltips').tooltip();
+	// $('.tooltips').tooltip();
 
 
 
 /*--------------------------------------------------------------- Responsive Video plugin ------------------*/
-	$(".video").fitVids();
+	// $(".video").fitVids();
 	
 
 /*--------------------------------------------------------------------------- ToTop -------------------------*/
@@ -61,27 +68,27 @@
 
 
 /*----------------------------------------------------- contact Form -------------------------*/
-	$("#request").submit(function() {
-		var elem = $(this);
-		var urlTarget = $(this).attr("action");
-		$.ajax({
-			type : "POST",
-			url : urlTarget,
-			dataType : "html",
-			data : $(this).serialize(),
-			beforeSend : function() {
-				elem.prepend("<div class='loading alert'>" + "<a class='close' data-dismiss='alert'>×</a>" + "Loading" + "</div>");
-				//elem.find(".loading").show();
-			},
-			success : function(response) {
-				elem.prepend(response);
-				//elem.find(".response").html(response);
-				elem.find(".loading").hide();
-				elem.find("input[type='text'],input[type='email'],textarea").val("");
-			}
-		});
-		return false;
-	});
+	// $("#request").submit(function() {
+	// 	var elem = $(this);
+	// 	var urlTarget = $(this).attr("action");
+	// 	$.ajax({
+	// 		type : "POST",
+	// 		url : urlTarget,
+	// 		dataType : "html",
+	// 		data : $(this).serialize(),
+	// 		beforeSend : function() {
+	// 			elem.prepend("<div class='loading alert'>" + "<a class='close' data-dismiss='alert'>×</a>" + "Loading" + "</div>");
+	// 			//elem.find(".loading").show();
+	// 		},
+	// 		success : function(response) {
+	// 			elem.prepend(response);
+	// 			//elem.find(".response").html(response);
+	// 			elem.find(".loading").hide();
+	// 			elem.find("input[type='text'],input[type='email'],textarea").val("");
+	// 		}
+	// 	});
+	// 	return false;
+	// });
 
 /*---------------------------------------------------------------- Cta Button Set Interval ----------------------------*/
 	setInterval(function(){$('.cta a').toggleClass('animated shake')}, 2000);

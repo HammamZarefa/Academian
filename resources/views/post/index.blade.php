@@ -8,20 +8,22 @@
 }
 
 </style>
+
  @include('setup.partials.action_toolbar', [
  'title' => 'Blog',
  'hide_save_button' => TRUE,
  'create_link' => ['title' => 'Create Post', 'url' => route("post.create")]
 
  ])
+ <div class="container">
 <table id="table" class="table table-striped nowrap">
   <thead>
      <tr>
-        <th scope="col" style="width: 40%;">@lang('Title')</th>
+        <th scope="col">@lang('Title')</th>
         <th scope="col">@lang('Keyword')</th>
          <th scope="col">@lang('Category')</th>
         <th scope="col">@lang('Status')</th>
-        <th scope="col" class="text-right">@lang('Action')</th>
+        <th scope="col" >@lang('Action')</th>
      </tr>
   </thead>
     <tbody>
@@ -32,7 +34,7 @@
             <td>{{ $post->category->name }}</td>
             <td>{{ $post->status }}</td>
             <td>
-                <a href="{{route('post.edit', [$post->id])}}" class="btn btn-info btn-sm">@lang('Edit')  </a>
+                <a href="{{route('post.edit', [$post->id])}}" class="btn btn-Create btn-sm">@lang('Edit')  </a>
                 <form method="POST" class="d-inline" onsubmit="return confirm('Move post to trash ?')" action="{{route('post.destroy', $post->id)}}">
                     @csrf
                     <input type="hidden" value="DELETE" name="_method">
@@ -43,6 +45,7 @@
     @endforeach
     </tbody>
 </table>
+<div>
 @endsection
 {{--@section('innerPageJS')--}}
 {{--<script>--}}

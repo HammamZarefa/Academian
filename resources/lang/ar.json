@@ -10,6 +10,8 @@
   "Get Started Now": " ابدأ الآن",
   "Dashboard": " لوحة التحكم",
   "Services": "الخدمات",
+  "Step": "الخطوة",
+  "ServiceType": "نوع الخدمة",
   "Applicant": " مقدم الطلب ",
   "Referrer": " المرجع ",
   "Note": "ملاجظة",
@@ -477,6 +479,10 @@
   "Message":"الرسالة",
   "Videos":"الفيديو",
   "Meet our Academic specialists":"قابل المتخصصين الأكاديميين",
-  "To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists":"لزيادة الشفافية المهنية و لتعزيز الثقة في أداء الخدمات الأكاديمية لدى العملاء، قابل أكاديميينا"
+  "To increase professional transparency and enhance confidence in the performance of academic services among clients, meet our Academic specialists":"لزيادة الشفافية المهنية و لتعزيز الثقة في أداء الخدمات الأكاديمية لدى العملاء، قابل أكاديميينا",
+  "Plagiarism": "كشف السرقة الأدبية" ,
+  "Summarize": "تلخيص" ,
+  "Paraphrase": "إعادة الصياغة",
+  "Gallery":"المعرض"
 }
 

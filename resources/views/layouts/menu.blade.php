@@ -1,14 +1,14 @@
-<nav class="navbar navbar-expand-md shadow-sm navbar-background">
+<nav class="navbar navbar-expand-md navbar-background">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img class="logo" src="{{ get_company_logo() }}" alt="{{ config('app.name', 'Academian') }}" height="50px" width="50px">
+            <img class="logo" src="{{ asset('front/img/Artboard-logo.png') }}" alt="{{ config('app.name', 'Academian') }}" height="50px" width="50px">
         </a>
         <button style="border: 2px solid #ddd" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <i class="fas fa-bars" style="color:#ddd"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto" >
+            <ul class="navbar-nav dash-nav">
                 @role('admin')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard') }}">@lang('Dashboard')</a> 
@@ -20,7 +20,7 @@
                     <a class="nav-link" href="{{ route('users_list', ['type' => 'customer']) }}">@lang('Customers')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('services_list') }}">@lang('Services')</a>
+                    <a class="nav-link" href="{{ route('services_list') }}">@lang('Settings')</a>
                 </li>
                 {{--<li class="nav-item">--}}
                     {{--<a class="nav-link" href="{{ route('users_list', ['type' => 'staff']) }}">--}}
@@ -55,7 +55,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('videos') }}">@lang('Videos')</a>
                 </li>
-
+                <li class="nav-item dropdown">
+                    <a id="reviews" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" v-pre>
+                        @lang('Reviews') <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="payments">
+                        <a class="dropdown-item" href="{{ route('admin.testi') }}">@lang('Reviews')</a>
+                        <a class="dropdown-item" href="{{ route('admin.pendingtesti') }}">@lang('Pending Reviews')</a>
+                    </div>
+                </li>
 
                 {{--<li class="nav-item dropdown">--}}
                     {{--<a id="managerial" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"--}}
@@ -125,13 +134,8 @@
                     {{--</li>--}}
                     @endunlessrole
                 @endauth
-            </ul>
-{{--            <div class="col-sm-2 sm-lang">--}}
-{{--                @include('website.partials/language_switcher')--}}
-{{--            </div>--}}
-            <ul class="navbar-nav ml-auto" style="display: flex;
-flex-direction: row;
-justify-content: space-between;">
+
+                <!-- ****************************************** -->
                 @guest
                     @if(!settings('disable_writer_application'))
                         <li class="nav-item">
@@ -148,7 +152,7 @@ justify-content: space-between;">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
-                @else
+                     @else
                     @hasanyrole('staff|admin')
                     <li class="nav-item dropdown" style="z-index: 2000 !important;">
                         @include('layouts.notification_bell')
@@ -158,7 +162,9 @@ justify-content: space-between;">
                     <li class="nav-item dropdown" style="z-index: 2000 !important;">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->first_name }} <span class="caret"></span>
+                            {{-- Auth::user()->first_name --}} 
+                            <i class="fas fa-user-circle" style="color:#87A2B9"></i>
+                            <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
@@ -185,12 +191,14 @@ justify-content: space-between;">
                     </li>
                 @endguest
                 <li class="nav-item">
-                    <div class="col-sm-2 sm-lang" style="margin-top: 10px;">
                         @include('website.partials/language_switcher')
-                    </div>
                 </li>
-
+                <!-- ****************************************** -->
             </ul>
+{{--            <div class="col-sm-2 sm-lang">--}}
+{{--                @include('website.partials/language_switcher')--}}
+{{--            </div>--}}
+           
         </div>
     </div>
 </nav>

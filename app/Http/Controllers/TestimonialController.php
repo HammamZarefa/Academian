@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TestimonialController extends Controller
 {
@@ -14,9 +15,9 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $testi = Testimonial::orderBy('id','desc')->get();
+        $testi = Testimonial::orderBy('id', 'desc')->get();
 
-        return view('setup.testi.index',compact('testi'));
+        return view('setup.testi.index', compact('testi'));
     }
 
     /**
@@ -32,7 +33,7 @@ class TestimonialController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,32 +46,32 @@ class TestimonialController extends Controller
 
         $photo = $request->file('photo');
 
-        if($photo){
-        
+        if ($photo) {
+
             $cover_path = $photo->store('images/testi', 'public');
 
             $testi['photo'] = $cover_path;
 
-        }else{
+        } else {
             $testi->photo = 'images/testi/avatar.png';
         }
 
         if ($testi->save()) {
 
             return redirect()->route('admin.testi')->with('success', 'Data added successfully');
-    
-           } else {
-               
+
+        } else {
+
             return redirect()->route('admin.testi.create')->with('error', 'Data failed to add');
-    
-           }
+
+        }
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -81,21 +82,21 @@ class TestimonialController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $testi = Testimonial::findOrFail($id);
 
-        return view('setup.testi.edit',compact('testi'));
+        return view('setup.testi.edit', compact('testi'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -108,31 +109,31 @@ class TestimonialController extends Controller
 
         $photo = $request->file('photo');
 
-        if($photo){
-        
+        if ($photo) {
+
             $cover_path = $photo->store('images/testi', 'public');
 
             $testi['photo'] = $cover_path;
 
-        }else{
+        } else {
             $testi->photo = 'images/testi/avatar.png';
         }
 
         if ($testi->save()) {
 
             return redirect()->route('admin.testi')->with('success', 'Data updated successfully');
-    
-           } else {
-               
+
+        } else {
+
             return redirect()->route('setup.testi.edit')->with('error', 'Data failed to update');
-    
-           }
+
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -140,7 +141,48 @@ class TestimonialController extends Controller
         $testi = Testimonial::findOrFail($id);
 
         $testi->delete();
-        
+
         return redirect()->route('admin.testi')->with('success', 'Data deleted successfully');
+    }
+
+    public function storeUserReview(Request $request)
+    {
+        $testi = new Testimonial();
+        $testi->name = Auth::user()->name ? Auth::user() : "Anonymous";
+        $testi->profession = $request->profession;
+        $testi->desc = $request->desc;
+        $testi->status = 'PENDING';
+
+        if ($testi->save()) {
+
+            return redirect()->route('reviews')->with('success', 'Data added successfully');
+
+        } else {
+
+            return redirect()->route('reviews')->with('error', 'Data failed to add');
+
+        }
+    }
+
+    public function pending()
+    {
+        $testi = Testimonial::where('status', 'PENDING')->orderBy('id', 'desc')->get();
+
+        return view('setup.testi.pending', compact('testi'));
+
+    }
+
+    public function changeStatus($id, $status)
+    {
+        $testi = Testimonial::find($id);
+        $testi->status = $status;
+        if ($testi->save()) {
+            return redirect()->route('admin.pendingtesti')->with('success', 'Data updated successfully');
+
+        } else {
+
+            return redirect()->route('admin.pendingtesti')->with('error', 'Data failed to update');
+
+        }
     }
 }

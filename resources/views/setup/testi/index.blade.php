@@ -8,7 +8,7 @@
 @section('content')
 
 <!-- Page Heading -->
-
+<div class="container">
 <h1 class="h3 mb-2 text-gray-800">Testimonial</h1>     
    
 @if (session('success'))
@@ -23,19 +23,19 @@
 
 <!-- DataTales Example -->
 
-<div class="card shadow mb-4">
+<div class="mb-4">
 
-    <div class="card-header py-3">
+    <div class="py-3">
 
-        <a href="{{ route('admin.testi.create') }}" class="btn btn-success">Create Testi</a>
+        <a href="{{ route('admin.testi.create') }}" class="btn btn-Create">Create Testi</a>
 
     </div>
 
-    <div class="card-body">
+    <div class="">
 
         <div class="table-responsive">
 
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table" id="dataTable" width="100%" cellspacing="0">
 
                 <thead>
 
@@ -92,7 +92,7 @@
 
                         <td>    
                 
-                            <a href="{{route('admin.testi.edit', [$testi->id])}}" class="btn btn-info btn-sm"> Edit </a>
+                            <a href="{{route('admin.testi.edit', [$testi->id])}}" class="btn btn-Create btn-sm"> Edit </a>
                 
                             <form method="POST" action="{{route('admin.testi.destroy', [$testi->id])}}" class="d-inline" onsubmit="return confirm('Delete this testi permanently?')">
                 
@@ -119,7 +119,7 @@
     </div>
 
 </div>
-
+</div>
 @endsection
 
 @push('scripts')

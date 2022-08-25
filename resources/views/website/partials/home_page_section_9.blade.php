@@ -1,28 +1,58 @@
 <!-- Testimonials -->
-<section class="testimonials generic" id="menu-testimonials">
+<section class="more-about">
     <div class="container">
-        <div class="row title">
+        <div class="row ">
             <div class="col-sm-12">
-                <h2>@lang('Reviews')</h2>
-                <p>@lang('All clients reviews are very important and really help to improve the quality of work').</p>
+                <h2 class="title">{!! homepage('section_4_title') !!}</h2>
             </div>
         </div>
-        @foreach($reviews->slice(0, 3) as $review)
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="date">
-                    <h5>{{$review->created_at->format('Y-m-d')}}</h5>
+        <div class="contain" id="more-about">
+            <!-- ******** item ********* -->
+            <div class="item" data-aos="fade-right" data-aos-duration="1500">
+               <div class="head"> 
+                    <h3>{!! homepage('section_4_para_1_title') !!}</h3>
+                    <i class="fas fa-plus ic1"></i>
+                    <i class="fas fa-minus ic2"></i>
+                </div>
+                <div class="info">
+                <p><br>{!! homepage('section_4_para_1_content') !!}</p>
                 </div>
             </div>
-            <div class="col-sm-10 container_item">
-                <div class="item-testimonial">
-                    <h3>{{$review->profession}}</h3>
-                    <h4>{{$review->name}}</h4>
-                    <p>{{$review->desc}}</p>
+            <!-- ******** item ********* -->
+            <div class="item" data-aos="fade-left" data-aos-duration="1500">
+               <div class="head"> 
+                    <h3>{!! homepage('section_4_para_2_title') !!}</h3>
+                    <i class="fas fa-plus ic1"></i>
+                    <i class="fas fa-minus ic2"></i>
+                </div>
+                <div class="info">
+                <p>{!! homepage('section_4_para_2_content') !!}  </p>
                 </div>
             </div>
+            <!-- ******** item ********* -->
+            <div class="item" data-aos="fade-right" data-aos-duration="1500">
+               <div class="head"> 
+                    <h3>{!! homepage('section_4_para_3_title') !!}</h3>
+                    <i class="fas fa-plus ic1"></i>
+                    <i class="fas fa-minus ic2"></i>
+                </div>
+                <div class="info">
+                <p>{!! homepage('section_4_para_3_content') !!}</p>
+                </div>
+            </div>
+             <!-- ******** item ********* -->
+             <div class="item" data-aos="fade-left" data-aos-duration="1500">
+               <div class="head"> 
+                    <h3>{!! homepage('section_4_para_4_title') !!}</h3>
+                    <i class="fas fa-plus ic1"></i>
+                    <i class="fas fa-minus ic2"></i>
+                </div>
+                <div class="info">
+                <p>{!! homepage('section_4_para_1_content') !!}</p>
+                </div>
+            </div>
+
         </div>
-            @endforeach
     </div>
 </section>
 <!-- end Testimonials -->

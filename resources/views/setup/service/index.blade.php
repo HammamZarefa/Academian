@@ -17,11 +17,11 @@
 <table id="table" class="table table-striped nowrap">
   <thead>
      <tr>
-        <th scope="col" style="width: 40%;">@lang('Name')</th>
+        <th scope="col">@lang('Name')</th>
         <th scope="col">@lang('Price Type')</th>
          <th scope="col">@lang('Service Category<')/th>
         <th scope="col">@lang('Status')</th>
-        <th scope="col" class="text-right">@lang('Action')</th>
+        <th scope="col">@lang('Action')</th>
      </tr>
   </thead>
 </table>

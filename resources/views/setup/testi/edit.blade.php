@@ -12,7 +12,7 @@
 
     <div class="container">
 
-        <div class="form-group ml-5">
+        <div class="form-group ml-5 side-form mt-5">
 
             <label for="Photo" class="col-sm-2 col-form-label">Photo</label>
 
@@ -28,7 +28,7 @@
 
         </div>
 
-        <div class="form-group ml-5">
+        <div class="form-group ml-5 side-form">
 
             <label for="name" class="col-sm-2 col-form-label">Name</label>
 
@@ -44,7 +44,7 @@
 
         </div>
 
-        <div class="form-group ml-5">
+        <div class="form-group ml-5 side-form">
 
             <label for="profession" class="col-sm-2 col-form-label">Profession</label>
 
@@ -60,7 +60,7 @@
 
         </div>
 
-        <div class="form-group ml-5">
+        <div class="form-group ml-5 side-form">
 
             <label for="desc" class="col-sm-2 col-form-label">Testi</label>
 
@@ -76,7 +76,7 @@
         </div>
 
 
-        <div class="form-group ml-5">
+        <div class="form-group ml-5 side-form">
 
             <label for="status" class="col-sm-2 col-form-label">Status</label>
 
@@ -100,7 +100,7 @@
    
             <div class="col-sm-3">
    
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-Create">Update</button>
    
             </div>
    

@@ -24,6 +24,7 @@ function settings($key)
 
 function homepage($key)
 {
+    $lang=app()->getLocale();
     $record =  NULL;
 
     $setting = Cache::rememberForever('homepage', function () {
@@ -34,9 +35,8 @@ function homepage($key)
     if ($setting && $setting->count() > 0) {
         $record = $setting->where('option_key', $key);
     }
-
     if (!empty($record) && !empty(optional($record->first())->option_value)) {
-        return Purifier::clean($record->first()->option_value);
+        return Purifier::clean(json_decode($record->first()->option_value)->$lang);
     } else {
         return Purifier::clean(\App\Setting::get_setting($key));
     }
@@ -346,7 +346,7 @@ function paymentIsPending($orderStatusId)
         return $result;
     }
 
-    function languges()
+    function languages()
     {
         $languages=Config::get('app.available_locales');
         return $languages;

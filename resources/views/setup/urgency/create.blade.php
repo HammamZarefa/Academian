@@ -12,8 +12,9 @@
    @if(isset($urgency->id))
    {{ method_field('PATCH') }}
    @endif
-   <div class="form-row">
-      <div class="form-group col-md-6">
+   <div class="container">
+   <div class="form-row side-form mb-4">
+      <div class="form-group col-md-8 ">
          <label>@lang('Duration and Type') <span class="required">*</span></label>
          <div class="input-group mb-3">
             <input type="text" class="form-control" name="value" value="{{ old_set('value', NULL, $urgency) }}" placeholder="Example : 3">
@@ -27,8 +28,8 @@
          <div class="invalid-feedback">{{ showError($errors, 'type') }}</div>
       </div>
    </div>
-   <div class="form-row">
-      <div class="form-group col-md-7">
+   <div class="form-row side-form mb-4">
+      <div class="form-group col-md-8">
          <label>
          <span data-toggle="tooltip" title="Enter the percentage of base price of a service that should add up with the total of an order"><i class="fas fa-question-circle"></i></span>
              @lang('Percentage of base price of a service')<span class="required">*</span>
@@ -43,13 +44,15 @@
          <div class="invalid-feedback d-block">{{ showError($errors, 'percentage_to_add') }}</div>
       </div>
    </div>
-   <div class="form-group">
+   <div class="form-group side-form mb-4">
       <div class="custom-control custom-checkbox">
          <input type="checkbox" class="custom-control-input" id="inactive" name="inactive" value="1" {{ old_set('inactive', NULL, $urgency) ? 'checked="checked"' : '' }}>
          <label class="custom-control-label" for="inactive">@lang('Inactive')</label>
       </div>
    </div>
-   <input type="submit" name="submit" class="btn btn-success" value="Submit"/>
+   <input type="submit" name="submit" class="btn btn-Create" value="Submit"/>
+   </div>
+  
 </form>
 @endsection
 

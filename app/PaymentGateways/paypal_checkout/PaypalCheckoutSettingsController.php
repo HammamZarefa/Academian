@@ -18,21 +18,21 @@ class PaypalCheckoutSettingsController extends Controller
             'environment' => 'required',
             'name' => 'required',
             'client_id' => 'required',
-            'client_secret' => 'required',         
+            'client_secret' => 'required',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput(['gateway' => $this->uniqueName]);
-        }        
+        }
 
         $keys = [
             'environment' => $request->environment,
             'client_id' => $request->client_id,
-            'client_secret' => $request->client_secret,            
+            'client_secret' => $request->client_secret,
         ];
-        
+
         $settingService->save($this->uniqueName, $request->name, $keys, $request->inactive);
 
         return redirect()->back()->withSuccess('Successfully updated');

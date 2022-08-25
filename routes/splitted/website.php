@@ -1,7 +1,9 @@
 <?php
 //if(!env('DISABLE_WEBSITE'))
 //{
-    Route::get('/', 'HomeController@index')->name('homepage');
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', 'HomeController@index')->name('homepage');
 //}
 //else
 //{
@@ -27,5 +29,21 @@ Route::get('blog/{slug}', 'HomeController@blogshow')->name('blogshow');
 Route::get('categories/{category:slug}', 'HomeController@category')->name('category');
 Route::get('tags/{tag:slug}', 'HomeController@tag')->name('tag');
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('plagiarism/{id}', 'PlagiarismController@index')->name('plagiarism');
+    Route::post('plagiarism/detect', 'PlagiarismController@detect')->name('detect');
+    Route::get('paraphrase/{id}', 'parphrazersController@index')->name('paraphrase');
+    Route::post('paraphrase/result', 'parphrazersController@detect')->name('paraphrase.result');
+    Route::get('summarize/{id}', 'SummarizesController@index')->name('summarize');
+    Route::post('summarize/result', 'SummarizesController@detect')->name('summarize.result');
+    Route::get('subscripe/{id}', 'SubscriptionsController@selectSubscripe')->name('subscripe');
+    Route::post('subscripe/{id}', 'SubscriptionsController@subscripe')->name('subscripe');
+});
 
+//P@ssw0rd
+Route::get('reviews', 'HomeController@reviews')->name('reviews');
+Route::get('about', 'HomeController@about')->name('about');
+Route::get('gallery', 'HomeController@gallery')->name('gallery');
+Route::get('gallery/{id}', 'HomeController@gallerywatch')->name('galleryshow');
+Route::post('userreview', 'TestimonialController@storeUserReview')->name('userreview');
 

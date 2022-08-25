@@ -1,27 +1,23 @@
 <template>
     <div>
-        <div class="card">
-            <div class="card-body" v-if="!isObjectEmpty(form)">
-                <h5 class="card-title">{{ $t('Order Summary') }}</h5>
-                <div class="mb-4">
-                    <p>
-                        <b>{{ $t('Service') }}</b>
-                        <br />
-                        {{ form.service_model.name.en }}
-                        <br />
+        <div class="summary-card">
+            <div class="" v-if="!isObjectEmpty(form)">
+                <h5 class="card-title pad-20">{{ $t('Order Summary') }}</h5>
+                <div class="">
+                    <p class="d-flex justify-content-between pad-20 mb-3">
+                        <span>{{ $t('Service') }}:</span>
+                        <span>  {{ form.service_model.name.en }}</span>
                         <!--<small class="form-text text-muted">{{ form.work_level_model.name }} (Work level)</small>-->
                     </p>
-                    <div>
-                        <b>{{ $t('Urgency') }}</b> 
-                        <br>
-                        {{ form.urgency_model.name }}
+                    <div class="d-flex justify-content-between pad-20 mb-3"> 
+                        <span>{{ $t('Urgency') }}:</span> 
+                        <span> {{ form.urgency_model.name }}</span>
                     </div>
 
                     <div v-if="form.service_model.price_type_id == pricingTypes.fixed">
-                        <div>
-                            <b>{{ $t('Rate') }}</b>
-                            :
-                            {{ form.unit_price | formatMoney }}
+                        <div class="d-flex justify-content-between pad-20">
+                            <span>{{ $t('Rate') }}:</span>
+                           <span> {{ form.unit_price | formatMoney }}</span>
                         </div>
                     </div>
 
@@ -34,40 +30,40 @@
                     <!--</div>-->
 
                     <div v-if="form.service_model.price_type_id == pricingTypes.perWord">
-                        <div>
-                            <b>{{ $t('Number of words') }}</b>
-                            :
-                            {{ form.number_of_words }}
+                        <div class="d-flex justify-content-between pad-20 mb-3">
+                            <span>{{ $t('Number of words') }} :</span>
+                           
+                           <span> {{ form.number_of_words }}</span>
                         </div>
-                        <div>
-                            <b>{{ $t('Rate') }}</b>
-                            :
-                            {{ form.unit_price }}
+                        <div class="d-flex justify-content-between pad-20 mb-3">
+                            <span>{{ $t('Rate') }}:</span>
+                            
+                            <span>{{ form.unit_price }}</span>
                         </div>
                     </div>
 
                     <div v-if="form.service_model.price_type_id == pricingTypes.perPage">
-                        <div>
-                            <b>{{ $t('Spacing Type') }}</b>
-                            :
-                            {{ form.spacing_type }}
+                        <div class="d-flex justify-content-between pad-20">
+                            <span>{{ $t('Spacing Type') }}:</span>
+                           
+                            <span>{{ form.spacing_type }}</span>
                         </div>
-                        <div>
-                            <b>{{ $t('Pages') }}</b>
-                            :
-                            {{ form.number_of_pages }}
+                        <div class="d-flex justify-content-between pad-20">
+                            <span>{{ $t('Pages') }}:</span>
+                            
+                         <span>{{ form.number_of_pages }}</span>
                         </div>
-                        <div>
-                            <b>{{ $t('Rate') }}</b>
-                            :
-                            {{ form.unit_price | formatMoney }}
+                        <div class="d-flex justify-content-between pad-20">
+                            <span>{{ $t('Rate') }}:</span>
+                           
+                            <span>{{ form.unit_price | formatMoney }}</span>
                         </div>
                     </div>
                 </div>
 
-                <table class="table table-sm">
+                <table class="table table-sm ">
                     <tbody>
-                    <tr>
+                    <tr >
                         <th scope="row" style="width: 30%">{{ $t('Amount') }}</th>
                         <td style="width: 70%" class="text-right">{{ form.amount | formatMoney }}</td>
                     </tr>
@@ -84,12 +80,12 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row" style="width: 30%">{{ $t('Total') }}</th>
-                        <td style="width: 80%" class="text-right">{{ calculateTotal }}</td>
-                    </tr>
                     </tbody>
                 </table>
+                <div class="total">
+                    <div>{{ $t('Total') }}</div>
+                    <div>{{ calculateTotal }}</div>
+                </div>
             </div>
         </div>
     </div>
@@ -230,3 +226,49 @@ export default {
     }
 };
 </script>
+<style lang="scss" scoped>
+p{
+    margin: 0;
+}
+span{
+    font-weight: 501;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    color: #06243E;
+}
+.summary-card{
+    border: 1px solid #87A2B9;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.summary-card .card-title{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #06243E;
+    margin: 20px 0;
+}
+.pad-20{
+    padding:0 20px;
+}
+.total{
+background-color: #3667BF;
+color: #fff;
+padding:15px 20px;
+display: flex;
+justify-content: space-between;
+font-weight: 600;
+font-size: 24px;
+line-height: 32px;
+}
+table{
+    margin: 0;
+}
+tr{
+    background-color: #C4DEF4;
+}
+tr th ,tr td{
+    padding: 10px 20px;
+}
+</style>

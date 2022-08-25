@@ -74,4 +74,5 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     });
 
     Route::post('sendmail','HomeController@sendmail')->name('sendmail');
+
 });

@@ -14,6 +14,7 @@
     'create_link' => ['title' => 'Create Post', 'url' => route("post.create")]
 
     ])
+    <div class="container">
     <table id="table" class="table table-striped nowrap">
         <thead>
         <tr>
@@ -44,6 +45,7 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 @endsection
 {{--@section('innerPageJS')--}}
 {{--<script>--}}

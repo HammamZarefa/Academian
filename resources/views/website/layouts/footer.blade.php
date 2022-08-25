@@ -1,115 +1,58 @@
-{{--<!-- footer -->--}}
-{{--<footer class="footer footer_bg_1">--}}
-   {{--<div class="footer_top">--}}
-      {{--<div class="container">--}}
-         {{--<div class="row">--}}
-            {{--<div class="col-xl-4 col-md-6 col-lg-4">--}}
-               {{--<div class="footer_widget">--}}
-                  {{--<div class="footer_logo">--}}
-                     {{--<a href="#">--}}
-                     {{--<img src="{{ get_company_logo() }}" alt="{{ settings('company_name')  }}">--}}
-                     {{--</a>--}}
-                  {{--</div>--}}
-                  {{--<p>{!! nl2br(Purifier::clean(settings('company_about'))) !!}</p>--}}
-                  {{--<div class="socail_links">--}}
-                     {{--<ul>--}}
-                        {{--@if($link = settings('facebook'))--}}
-                        {{--<li>--}}
-                           {{--<a href="{{ $link }}" target="_blank">--}}
-                           {{--<i class="fab fa-facebook-square"></i>--}}
-                           {{--</a>--}}
-                        {{--</li>--}}
-                        {{--@endif--}}
-                        {{--@if($link = settings('twitter'))--}}
-                        {{--<li>--}}
-                           {{--<a href="{{ $link }}" target="_blank">--}}
-                           {{--<i class="fab fa-twitter-square"></i>--}}
-                           {{--</a>--}}
-                        {{--</li>--}}
-                        {{--@endif--}}
-                        {{--@if($link = settings('instagram'))--}}
-                        {{--<li>--}}
-                           {{--<a href="{{ $link }}" target="_blank">--}}
-                           {{--<i class="fab fa-instagram"></i>--}}
-                           {{--</a>--}}
-                        {{--</li>--}}
-                        {{--@endif--}}
-                        {{--@if($link = settings('linkedin'))--}}
-                        {{--<li>--}}
-                           {{--<a href="{{ $link }}" target="_blank">--}}
-                           {{--<i class="fab fa-linkedin"></i>--}}
-                           {{--</a>--}}
-                        {{--</li>--}}
-                        {{--@endif--}}
-                     {{--</ul>--}}
-                  {{--</div>--}}
-               {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">--}}
-               {{--<div class="footer_widget">--}}
-                  {{--<h3 class="footer_title">--}}
-                     {{--Main Menu--}}
-                  {{--</h3>--}}
-                  {{--<ul>--}}
-                     {{--<li><a href="{{ route('homepage') }}">Home</a></li>--}}
-                     {{--<li><a href="{{ route('pricing') }}">Pricing</a></li>--}}
-                     {{--<li><a href="{{ route('how_it_works') }}">How it works</a></li>--}}
-                     {{--<li><a href="{{ route('faq') }}">FAQ</a></li>--}}
-                     {{--<li><a href="{{ route('contact') }}">Contact</a></li>--}}
-                     {{--@if(!settings('disable_writer_application'))--}}
-                     {{--<li><a href="{{ route('writer_application_page') }}">{{ settings('writer_application_page_link_title') }}</a></li>--}}
-                     {{--@endif--}}
-                  {{--</ul>--}}
-               {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="col-xl-3 col-md-6 col-lg-2">--}}
-               {{--<div class="footer_widget">--}}
-                  {{--<h3 class="footer_title">--}}
-                     {{--Legal Info--}}
-                  {{--</h3>--}}
-                  {{--<ul>--}}
-                     {{--<li><a href="{{ route('money_back_guarantee') }}">Money Back Guarantee</a></li>--}}
-                     {{--<li><a href="{{ route('privacy_policy') }}">Privacy Policy</a></li>--}}
-                     {{--<li><a href="{{ route('revision_policy') }}">Revision Policy</a></li>--}}
-                     {{--<li><a href="{{ route('disclaimer') }}">Disclaimer</a></li>--}}
-                     {{--<li><a href="{{ route('terms_and_conditions') }}">Terms & Condition</a></li>--}}
-                  {{--</ul>--}}
-               {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="col-xl-2 col-md-6 col-lg-3">--}}
-               {{--<div class="footer_widget">--}}
-                  {{--<h3 class="footer_title">--}}
-                     {{--We accept--}}
-                  {{--</h3>--}}
-                  {{--<p class="font-24">--}}
-                     {{--<i class="fab fa-cc-visa"></i>  --}}
-                     {{--<i class="fab fa-cc-mastercard"></i>  --}}
-                     {{--<i class="fab fa-cc-discover"></i> --}}
-                     {{--@if(settings('enable_paypal'))--}}
-                     {{--<i class="fab fa-cc-paypal"></i>--}}
-                     {{--@endif                                  --}}
-                  {{--</p>--}}
-               {{--</div>--}}
-            {{--</div>--}}
-         {{--</div>--}}
-      {{--</div>--}}
-   {{--</div>--}}
-   {{--<div class="copy-right_text">--}}
-      {{--<div class="container">--}}
-         {{--<div class="footer_border"></div>--}}
-         {{--<div class="row">--}}
-            {{--<div class="col-xl-12">--}}
-               {{--<p class="copy_right text-center">--}}
-                  {{--{{ date("Y") }}  {!! Purifier::clean(settings('footer_text')) !!}--}}
-               {{--</p>--}}
-            {{--</div>--}}
-         {{--</div>--}}
-      {{--</div>--}}
-   {{--</div>--}}
-{{--</footer>--}}
-{{--<!-- footer -->--}}
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+           {{-- @foreach($reviews->slice(0, 3) as $review) --}}
+           @if(isset($service_categories))
+            @foreach($service_categories->slice(0, 1) as $service_category)
+           <div class="col-sm-6">
+               <h2> {{$service_category->name}}</h2>
+               <ul class="link">
+               @foreach($service_category->services as $service)
+                  <li>{{$service->name}}</li>
+               @endforeach
+               </ul>
+           </div>
+           @endforeach
+           @foreach($service_categories->slice(1, 3) as $service_category)
+           <div class="col-sm-2 col-4 other">
+               <h2> {{$service_category->name}}</h2>
+               <ul class="link">
+               @foreach($service_category->services as $service)
+                  <li>{{$service->name}}</li>
+               @endforeach
+               </ul>
+           </div>
+           @endforeach
+            @endif
+            <div class="col-sm-4 pay">
+                <h4 class="footer_left">@lang('Pay With:')</h4>
+                <div class="pay-icon">
+                    <a href=""><img src="{{ asset('front/img/cards/card-01.png') }}" alt="card"></a> 
+                    <a href=""> <img src="{{ asset('front/img/cards/card-05.png') }}" alt="card"></a> 
+                    <a href=""> <img src="{{ asset('front/img/cards/card-06.png') }}" alt="card"></a> 
+                </div>
+              
+            </div>
+            <div class="col-sm-4 social-mediav text-end"> 
+                    <a href="https://www.facebook.com/Academianuk" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>
+                    <a href="https://twitter.com/academianuk" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Twitter" target="_blank"><i class="icon-twitter" ></i></a>
+                    <a href="http://linkedin.com/academianuk" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Linkedin" target="_blank"><i class="icon-linkedin"></i></a>
+                    <a href="https://www.pinterest.com/academianuk/" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+                    <a href="https://www.youtube.com/channel/UCuVlEc-VubMayqP9IhtLOBw" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Youtube" target="_blank"><i class="icon-play"></i></a>
+                    <a href="http://academianuk.tumblr.com/" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Tumblr" target="_blank"><i class="icon-tumblr"></i></a>
+                    <a href="https://academianuk.blogspot.com/" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Blogger" target="_blank"><i class="icon-blogspot"></i></a>
+                    <a href="https://www.tiktok.com/academianuk" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Tiktok" target="_blank"><i class="icon-tiktok"></i></a>
+                    <a href="https://www.instagram.com/academianuk" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                </div>
+            <div class="col-sm-4 Support">
+               <a href="">Customer Support</a>
+               <a href="">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
 <div id='siteLoader'>
-   <img src="{{ asset('front/img/loader.gif') }}" class="loader" alt="loader"/>
+<div class="loader"></div>
 </div>
 
 <!-- ======================= JQuery libs =========================== -->

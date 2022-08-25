@@ -19,8 +19,9 @@ class CreatePostsTable extends Migration
             $table->foreignId('author_id');
             $table->string('title');
             $table->string('slug');
-            $table->string('cover');
+            $table->string('cover')->nullable();
             $table->longText('body');
+            $table->boolean('body_type');
             $table->string('keyword');
             $table->string('meta_desc');
             $table->integer('views')->default(0);

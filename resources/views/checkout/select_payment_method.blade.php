@@ -1,39 +1,39 @@
 @extends('layouts.app')
 @section('title', 'Select a payment method')
 @section('content')
-<div class="container page-container">
+<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+<div class="container page-container pay-contain">
    <div class="row">
       <div class="col-md-12">
-         <h3>@lang('Select a payment method')</h3>
-         <hr>
-      </div>
-      <div class="col-md-6 d-none d-lg-block">
-         <div class="checkout-image-cover">
-            <img src="{{ asset('images/payment.svg') }}" class="img-fluid">
-         </div>
+         <h5 class="card-title">
+         @lang('Step')
+         <b>3 </b>@lang('Of')
+         <span class="small">3</span>
+         </h5>
+         <h6>@lang('Select a payment method')</h6>
       </div>
       <div class="col-md-6">
-         <div class="card">
-            <div class="card-body">
-               <div class="d-flex justify-content-between">
+         <div class="card-pay">
+            <div class="">
+               <div class="d-flex justify-content-between total">
                   <h4 class="h4">@lang('Total')</h4>
                   <div class="h4">{{ format_money($data['total']) }}</div>
                </div>
                @if(isset($data['order_number']) && isset($data['order_link']))
-                  <small>Your order number is : <a href="{{ $data['order_link'] }}">{{ $data['order_number'] }}</a></small>
+               <small class="order_number pad20">Your order number is : <a href="{{ $data['order_link'] }}">{{ $data['order_number'] }}</a></small>
                @endif
-               <hr>
                @if(isset($data['payment_options']['online']))
-                  <p class="text-muted">Online</p>
-                  <div class="list-group">
+                <hr>
+                  <div class="pay-list">
+                  <p class="pad20">@lang('Online:')</p>
                   @foreach($data['payment_options']['online'] as $option)
-                    <a href="{{ $option->url }}" class="list-group-item list-group-item-action">
+                    <a href="{{ $option->url }}" class="pay-item ">
                        {{ $option->name }}
                     </a>
                   @endforeach
                   </div>
                @endif
-
+               <hr>
 
                @if(isset($data['payment_options']['offline']))
                   <br>
@@ -48,16 +48,20 @@
                   </div>
                @endif
                @if($data['show_wallet_option'])
-               <br>
-               <p class="text-muted">@lang('Wallet- Balance'): {{ format_money(auth()->user()->wallet()->balance()) }}</p>
-                  <div class="list-group">
-                  <a href="{{ route('pay_with_wallet') }}" class="list-group-item list-group-item-action">
+               <p class=" pad20">@lang('Wallet- Balance'): {{ format_money(auth()->user()->wallet()->balance()) }}</p>
+                  <div class="pay-list">
+                  <a href="{{ route('pay_with_wallet') }}" class="pay-item pad20">
                         <div><i class="fas fa-wallet"></i>@lang('Pay using your wallet') </div>
                      </a>
                   </div>
                @endif
 
             </div>
+         </div>
+      </div>
+      <div class="col-md-6 d-none d-lg-block">
+         <div class="checkout-image-cover">
+            <img src="{{ asset('images/payment.svg') }}" class="img-fluid">
          </div>
       </div>
    </div>

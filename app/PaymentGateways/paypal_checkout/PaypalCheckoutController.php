@@ -27,7 +27,7 @@ class PaypalCheckoutController extends PaymentGatewayController
         $data['total'] = $this->cart->getTotal();
         $data['gateway_name'] = $this->gateway->name;
         $data['client_id'] = $this->gateway->keys->client_id;
-        $data['currency'] = $this->cart->getCurrency();     
+        $data['currency'] = $this->cart->getCurrency();
 
         return view($this->getPaymentView(), compact('data'));
     }

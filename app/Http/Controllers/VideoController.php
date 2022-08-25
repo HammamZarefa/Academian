@@ -41,14 +41,18 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
         \Validator::make($request->all(), [
             "title" => "required",
             "url" => "required"
         ])->validate();
         $data = $request->all();
         $data['feature'] = isset($request->feature)?$request->feature  : 0 ;
-//        dd($data);
+        if($request->type==0)
+        {
+            $image=$request->file('url');
+                $cover_path = $image->store('images/gallery', 'public');
+                $data['url'] = $cover_path;
+        }
         $video = Video::create($data);
 
             if ($video) {
@@ -101,7 +105,7 @@ class VideoController extends Controller
         $video = Video::findOrFail($id);
         $data = $request->all();
         $data['feature'] = isset($request->feature)?$request->feature  : 0 ;
-
+dd($request);
         $update = $video->update($data);
 
             if ($update) {
