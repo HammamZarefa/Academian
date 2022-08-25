@@ -79,9 +79,10 @@
             <div class="form-group side-form">
                 <label for="tags" class=" col-form-label">Tags</label>
                <div>
-               <select class="selectpicker" multiple name="tags[]" >
-                        @foreach ($post->tags as $tag)
-                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+               <select class="selectpicker" multiple name="tags[]"  >
+                        @foreach ($tags as $tag)
+                           <option @if(in_array($tag->id, $post->tags->pluck('id')->toArray())) selected @endif
+                           value="{{ $tag->id }}">{{ $tag->name }}</option>
                         @endforeach
                    
                 </select>

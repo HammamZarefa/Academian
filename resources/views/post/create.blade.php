@@ -144,6 +144,7 @@
             callbacks: {
                 onImageUpload: function(image) {
                     uploadImage(image[0]);
+
                 }
             }
         })});
