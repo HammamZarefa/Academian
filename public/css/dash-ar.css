@@ -1,3 +1,13 @@
+.modal-backdrop{
+  z-index: -1;
+    }
+  .modal-backdrop.show {
+    opacity: 0;
+  }
+  .modal-header .close {
+    padding: 1rem 1rem;
+    margin: -1rem auto -1rem -1rem;
+  }
 /* **************************** login **************************** */
 .login{
     text-align: start;

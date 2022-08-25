@@ -1,4 +1,9 @@
-
+.modal-backdrop{
+  z-index: -1;
+    }
+  .modal-backdrop.show {
+    opacity: 0;
+  }
 /* **************************** login **************************** */
 .login{
     text-align: start;
@@ -242,4 +247,3 @@
   .select2 {
     width: 322px !important;
   }
-  
