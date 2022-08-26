@@ -6,7 +6,7 @@
 @section('content')
   <main>
     <!-- ======= Breadcrumbs ======= -->
-    <section class="blogs-list">
+    <section class="blogs-list" style="padding: 20px 0">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 ">

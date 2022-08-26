@@ -18,9 +18,9 @@
                         </h2>
                     </div>
                 </div>
-
                 <section class="About-us reviewss">
                     <div class="container">
+                  
                         <div class="row contain contain2">
                             <div class="col-sm-4 pic">
                                 <img src="{{ asset('front/img/Reviews Page Image.jpg') }}" alt="">
@@ -45,18 +45,29 @@
                                     <input type="text" name="profession" placeholder="Profession Or Specialty" required>
                                     <textarea cols="30" name="desc" rows="10" placeholder="Enter your text here"
                                               required></textarea>
-                                    <button type="submit" id="target1">@lang('Submit')</button>  
+                                    <button type="submit" >@lang('Submit')</button>  
                                   
                                   </div>
-                                  <div class="div2">
-                                  {{ csrf_field() }}
-                                    <h2><i class="fa fa-check"></i></h2>
-                                    <h2>@lang('Review Submitted!')</h2>
-                                    <p>@lang('Your review has been submitted successfully.')</p>
-                                    <button type="submit" >@lang('Ok')</button>  
-                                  
-                                  </div>
+                                 
+                                 
                                 </form>
+                                @if (session('success'))
+                                <div class="form-cover2"></div>
+                                    <div class="form-review" style="opacity: 1;z-index:1">
+                                        <div class="div2">
+                                        {{ csrf_field() }}
+                                        <h2><i class="fa fa-check"></i></h2>
+                                        <h2>@lang('Review Submitted!')</h2>
+                                        <p>@lang('Your review has been submitted successfully.')</p>
+                                        <button type="submit" id="target1">@lang('Ok')</button>  
+                                        </div>
+                                    </div>
+                                    @endif
+                                    @if (session('error'))
+                                        <div class="alert alert-danger">
+                                            {{ session('error') }}
+                                        </div>
+                                    @endif
                             </div>
                             <div class="col-sm-12 review">
                                 <div class="filter" >

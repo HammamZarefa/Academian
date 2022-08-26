@@ -131,14 +131,9 @@
                 })
                 });
                 $( "#target1" ).click(function( event ) {
-                  if($("#form-add-review")[0].checkValidity()) {
-                    $(".div1" ).css("opacity","0");
-                    $(".div1" ).css("z-index","1");
-                    $(".div1" ).css("position","absolute");
-                    $(".div2" ).css("opacity","1");
-                    $(".div2" ).css("z-index","2");
+                    $(".reviewss .info .form-cover2" ).css("display","none");
+                    $(".reviewss .info .div2" ).css("display","none");
                     event.preventDefault();
-                }
                 });
                 
                 // console.log($("#sidebar-blog").outerHeight());

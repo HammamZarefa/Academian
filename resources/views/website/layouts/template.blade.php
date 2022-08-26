@@ -34,7 +34,7 @@
 </head>
 <body>
 @include('website.layouts.header')
-<div id="app">
+<div id="app"  style="overflow: hidden;">
     @yield('content')
 </div>
 {{--@include('cookieConsent::index')--}}

@@ -9,7 +9,7 @@
 
 <!-- Page Heading -->
 <div class="container">
-<h1 class="h3 mb-2 text-gray-800">Testimonial</h1>     
+<h1 class="h3 mb-2 text-gray-800">Reviews</h1>     
    
 @if (session('success'))
 
@@ -27,7 +27,7 @@
 
     <div class="py-3">
 
-        <a href="{{ route('admin.testi.create') }}" class="btn btn-Create">Create Testi</a>
+        <a href="{{ route('admin.testi.create') }}" class="btn btn-Create">Create Reviews</a>
 
     </div>
 
