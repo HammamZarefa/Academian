@@ -1,6 +1,18 @@
 @extends('setup.index')
 
+@push('style')
+    <style>
+        table.dataTable tbody tr td{
+            white-space: normal;
+        }
+        @include('setup.partials.action_toolbar', [
+ 'title' => 'Services',
+ 'hide_save_button' => TRUE,
+ 'create_link' => ['title' => 'Create Service', 'url' => route("services_create")]
 
+ ])
+    </style>
+@endpush
 @section('panel')
 
     <div id="app">
