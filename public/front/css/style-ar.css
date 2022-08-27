@@ -341,16 +341,16 @@ header{
     transition: .5s;
 }
 
-.dropdown-content a {
+.dropdown-content .category-name{
     color: black;
     padding: 5px 10px;
     text-decoration: none;
     display: block;
     position: relative;
-    color: #fff;
     transition: .3s;
     font-weight: 500;
-    
+    font-size: 17px;
+    cursor: pointer;
 }
 .dropdown-content .category-name:hover,.dropdown-content .active{
     background-color: #87A2B9;
@@ -390,7 +390,7 @@ header{
     width: 600px;
     height: 350px;
 } */
-.dropdown-content.active .men-fs{
+.dropdown-content .active .men-fs{
     display: flex;
     flex-wrap: wrap;
     right: 160px;
@@ -516,19 +516,19 @@ header{
         left: 0;
     }
 }
-.acoount ul li{
+.acoount ul a{
     width: 100%;
     border-radius: 3px;
     transition: .3s;
     padding: 5px 15px;
 }
-.acoount ul li:hover{
+.acoount ul a:hover{
     background-color: #A9C5DE;
 }
-.acoount ul li:hover a{
+.acoount ul a:hover li{
     background-color: transparent;
 }
-.acoount ul li a{
+.acoount ul a li{
     font-weight: bold;
     font-size: 11px;
     line-height: 16px;

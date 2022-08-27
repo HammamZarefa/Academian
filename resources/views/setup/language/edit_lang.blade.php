@@ -1,4 +1,3 @@
-@extends('setup.index')
 
 @push('style')
     <style>
@@ -7,8 +6,9 @@
         }
     </style>
 @endpush
-@section('panel')
-
+@extends('setup.index')
+@section('title', 'Languages Settings')
+@section('setting_page')
     <div id="app">
         <div class="row">
 
@@ -18,14 +18,14 @@
 
                         <div class="row justify-content-between">
                             <div class="col-md-7">
-                                <ul>
+                                <ul style="list-style:none;padding: 0px;">
                                     <li>
                                         <h5>@lang('Language Keywords of') {{ __($code) }} </h5>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-md-5 mt-md-0 mt-3">
-                                <button type="button" data-toggle="modal" data-target="#addModal" class="btn btn-sm btn--primary box--shadow1 text--small float-right"><i class="fa fa-plus"></i> @lang('Add New Key') </button>
+                                <button type="button" data-toggle="modal" data-target="#addModal" class="btn btn-sm btn--primary btn-Create box--shadow1 text--small float-right"><i class="fa fa-plus"></i> @lang('Add New Key') </button>
                             </div>
                         </div>
                         <hr>
