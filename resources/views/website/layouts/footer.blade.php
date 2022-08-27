@@ -2,8 +2,7 @@
     <div class="container">
         <div class="row">
            {{-- @foreach($reviews->slice(0, 3) as $review) --}}
-           @if(isset($service_categories))
-            @foreach($service_categories->slice(0, 1) as $service_category)
+            @foreach(\App\ServiceCategory::all()->slice(0, 1) as $service_category)
            <div class="col-sm-6">
                <h2> {{$service_category->name}}</h2>
                <ul class="link">
@@ -13,7 +12,7 @@
                </ul>
            </div>
            @endforeach
-           @foreach($service_categories->slice(1, 3) as $service_category)
+           @foreach(\App\ServiceCategory::all()->slice(1, 3) as $service_category)
            <div class="col-sm-2 col-4 other">
                <h2> {{$service_category->name}}</h2>
                <ul class="link">
@@ -23,7 +22,6 @@
                </ul>
            </div>
            @endforeach
-            @endif
             <div class="col-sm-4 pay">
                 <h4 class="footer_left">@lang('Pay With:')</h4>
                 <div class="pay-icon">

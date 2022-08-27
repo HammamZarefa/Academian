@@ -5,12 +5,6 @@
         table.dataTable tbody tr td{
             white-space: normal;
         }
-        @include('setup.partials.action_toolbar', [
- 'title' => 'Services',
- 'hide_save_button' => TRUE,
- 'create_link' => ['title' => 'Create Service', 'url' => route("services_create")]
-
- ])
     </style>
 @endpush
 @section('panel')
@@ -26,7 +20,7 @@
                             <div class="col-md-7">
                                 <ul>
                                     <li>
-                                        <h5>@lang('Language Keywords of') {{ __($code) }}</h5>
+                                        <h5>@lang('Language Keywords of') {{ __($code) }} </h5>
                                     </li>
                                 </ul>
                             </div>

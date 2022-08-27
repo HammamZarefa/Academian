@@ -161,7 +161,7 @@ class HomeController extends Controller
         $lpost = Post::where('status', '=', 'PUBLISH')->orderBy('id', 'desc')->limit(5)->get();
         $posts = Post::where("title", "like", "%$query%")->latest()->paginate(9);
         $recent = Post::orderBy('id', 'desc')->limit(5)->get();
-        $tags = Tag::all();
+        $tags = PostTag::all();
 
         return view('website.blog', compact('categories', 'lpost', 'posts', 'query', 'recent', 'tags'));
     }
@@ -192,7 +192,7 @@ class HomeController extends Controller
 			  <strong>Warning!</strong> Please fill all the fields.
 		  </div>";
         } else {
-//            mail($to,$subject,$msg,"From:".$email);
+            mail($to,$subject,$msg,"From:".$email);
             return back()->with('success', 'Message Sent');
         }
     }
