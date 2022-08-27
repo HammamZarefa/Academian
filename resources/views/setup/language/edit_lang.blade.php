@@ -1,6 +1,12 @@
 @extends('setup.index')
 
-
+@push('style')
+    <style>
+        table.dataTable tbody tr td{
+            white-space: normal;
+        }
+    </style>
+@endpush
 @section('panel')
 
     <div id="app">
@@ -14,7 +20,7 @@
                             <div class="col-md-7">
                                 <ul>
                                     <li>
-                                        <h5>@lang('Language Keywords of') {{ __($code) }}</h5>
+                                        <h5>@lang('Language Keywords of') {{ __($code) }} </h5>
                                     </li>
                                 </ul>
                             </div>

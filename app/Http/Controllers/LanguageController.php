@@ -100,7 +100,7 @@ class LanguageController extends Controller
     public function langEdit($code)
     {
         $page_title = "Update " .$code . " Keywords";
-        $json = file_get_contents(resource_path('lang/ar.json'));
+        $json = file_get_contents(resource_path('lang/'.$code .'.json'));
 //        $list_lang = Language::all();
 
 
@@ -109,7 +109,7 @@ class LanguageController extends Controller
             return back()->with($notify);
         }
         $json = json_decode($json);
-        return view('setup.languages', compact('page_title', 'json'));
+        return view('setup.language.edit_lang', compact('page_title', 'json','code'));
     }
 
     public function langUpdate(Request $request, $id)
