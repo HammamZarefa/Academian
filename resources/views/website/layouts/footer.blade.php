@@ -8,7 +8,7 @@
                <h2> {{$service_category->name}}</h2>
                <ul class="link">
                @foreach($service_category->services as $service)
-                  <li>{{$service->name}}</li>
+                  <li><a href="" style="color:#06243e">{{$service->name}}</a></li>
                @endforeach
                </ul>
            </div>
@@ -18,7 +18,7 @@
                <h2> {{$service_category->name}}</h2>
                <ul class="link">
                @foreach($service_category->services as $service)
-                  <li>{{$service->name}}</li>
+                  <li><a href="" style="color:#06243e">{{$service->name}}</a></li>
                @endforeach
                </ul>
            </div>

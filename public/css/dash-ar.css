@@ -8,6 +8,9 @@
     padding: 1rem 1rem;
     margin: -1rem auto -1rem -1rem;
   }
+  .dropdown summary i{
+    right: 95% !important;
+  }
 /* **************************** login **************************** */
 .login{
     text-align: start;

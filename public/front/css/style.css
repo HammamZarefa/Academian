@@ -381,7 +381,7 @@ p{
     width: 600px;
     height: 350px;
 } */
-.dropdown-content .active .men-fs{
+.dropdown-content.active .men-fs{
     display: flex;
     flex-wrap: wrap;
     left: 160px;
@@ -1092,7 +1092,8 @@ width: 50%;
 }
 .more-about .contain .item.active{
     background-color: #C4DEF4;
-    height: 320px;
+    min-height: 320px;
+    height: auto;
 }
 .more-about .contain .item h3{
     font-weight: 500;
