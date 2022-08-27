@@ -53,7 +53,7 @@
                                                data-value="{{$lang}}"
                                                class="editModal icon-btn ml-1"
                                                data-original-title="@lang('Edit')">
-                                                <i class="la la-pencil"></i>
+                                                <i class="fas fa-edit"></i>
                                             </a>
 
                                             <a href="javascript:void(0)"
@@ -62,7 +62,7 @@
                                                data-toggle="modal" data-target="#DelModal"
                                                class="icon-btn btn--danger ml-1 deleteKey"
                                                data-original-title="@lang('Remove')">
-                                                <i class="la la-trash"></i>
+                                                <i class="fas fa-trash" style="color:red"></i>
                                             </a>
                                         </td>
                                     </tr>
