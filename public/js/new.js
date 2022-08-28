@@ -123,13 +123,6 @@
                     $("#rev-sorting").prepend(this);
                 })
                 });
-                $("#sortByold").on("click", function() {
-                  $("#rev-sorting .rev").sort(function(a,b){
-                    return new Date($(a).attr("data-date")) > new Date($(b).attr("data-date"));
-                }).each(function(){
-                    $("#rev-sorting").prepend(this);
-                })
-                });
                 $( "#target1" ).click(function( event ) {
                     $(".reviewss .info .form-cover2" ).css("display","none");
                     $(".reviewss .info .div2" ).css("display","none");
