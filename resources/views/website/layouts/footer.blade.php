@@ -7,7 +7,7 @@
                <h2> {{$service_category->name}}</h2>
                <ul class="link">
                @foreach($service_category->services as $service)
-                  <li><a href="" style="color:#06243e">{{$service->name}}</a></li>
+                  <li><a href="{{ route('instant_quote').'?service='.$service->id}}" style="color:#06243e">{{$service->name}}</a></li>
                @endforeach
                </ul>
            </div>
@@ -17,7 +17,7 @@
                <h2> {{$service_category->name}}</h2>
                <ul class="link">
                @foreach($service_category->services as $service)
-                  <li><a href="" style="color:#06243e">{{$service->name}}</a></li>
+                  <li><a href="{{ route('instant_quote').'?service='.$service->id}}" style="color:#06243e">{{$service->name}}</a></li>
                @endforeach
                </ul>
            </div>
@@ -43,8 +43,8 @@
                     <a href="https://www.instagram.com/academianuk" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
                 </div>
             <div class="col-sm-4 Support">
-               <a href="">Customer Support</a>
-               <a href="">Privacy Policy</a>
+               <a href="">@lang('Customer Support')</a>
+               <a href="">@lang('Privacy Policy')</a>
             </div>
         </div>
     </div>

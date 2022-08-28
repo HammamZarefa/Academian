@@ -22,6 +22,9 @@
                                     <li>
                                         <h5>@lang('Language Keywords of') {{ __($code) }} </h5>
                                     </li>
+                                    <li>
+                                        <input id="myInput" type="text" placeholder="Search..">
+                                    </li>
                                 </ul>
                             </div>
                             <div class="col-md-5 mt-md-0 mt-3">
@@ -48,7 +51,6 @@
                                     <tr>
                                         <td data-label="@lang('key')">{{$k}}</td>
                                         <td data-label="@lang('Value')" class="text-left white-space-wrap">{{$lang}}</td>
-
 
                                         <td data-label="@lang('Action')">
                                             <a href="javascript:void(0)"
@@ -132,7 +134,7 @@
                                 <label for="inputName" class="control-label font-weight-bold form-title"></label>
                                 <input type="text" class="form-control form-control-lg" name="value" placeholder="@lang('Value')" value="">
                             </div>
-                            <input type="hidden" name="key">
+                            <input type="hidden" name="key" value="">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
@@ -173,38 +175,38 @@
 
 
     {{-- Import Modal --}}
-    <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">@lang('Import Language')</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-center text--danger">@lang('If you import keywords, Your current keywords will be removed and replaced by imported keyword')</p>
-                        <div class="form-group">
-                        <label for="key" class="control-label font-weight-bold">@lang('Key')</label>
-                        <select class="form-control select_lang"  required>
-                            <option value="">@lang('Import Keywords')</option>
+    {{--<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">--}}
+        {{--<div class="modal-dialog">--}}
+            {{--<div class="modal-content">--}}
+                {{--<div class="modal-header">--}}
+                    {{--<h4 class="modal-title">@lang('Import Language')</h4>--}}
+                    {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>--}}
+                    {{--</div>--}}
+                    {{--<div class="modal-body">--}}
+                        {{--<p class="text-center text--danger">@lang('If you import keywords, Your current keywords will be removed and replaced by imported keyword')</p>--}}
+                        {{--<div class="form-group">--}}
+                        {{--<label for="key" class="control-label font-weight-bold">@lang('Key')</label>--}}
+                        {{--<select class="form-control select_lang"  required>--}}
+                            {{--<option value="">@lang('Import Keywords')</option>--}}
                             {{--@foreach($list_lang as $data)--}}
                             {{--<option value="{{$data->id}}" @if($data->id == $la->id) class="d-none" @endif >{{__($data->name)}}</option>--}}
                             {{--@endforeach--}}
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
-                    <button type="button" class="btn btn--primary import_lang"> @lang('Import Now')</button>
-                </div>
-            </div>
-        </div>
-    </div>
+                        {{--</select>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="modal-footer">--}}
+                    {{--<button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>--}}
+                    {{--<button type="button" class="btn btn--primary import_lang"> @lang('Import Now')</button>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 @stop
 
 
-@push('breadcrumb-plugins')
-<button type="button" class="btn btn-sm btn--primary box--shadow1 importBtn"><i class="la la-download"></i>@lang('Import Language')</button>
-@endpush
+{{--@push('breadcrumb-plugins')--}}
+{{--<button type="button" class="btn btn-sm btn--primary box--shadow1 importBtn"><i class="la la-download"></i>@lang('Import Language')</button>--}}
+{{--@endpush--}}
 
 @push('script')
     <script>
@@ -223,9 +225,9 @@
             });
 
 
-            $('.importBtn').on('click', function () {
-                $('#importModal').modal('show');
-            });
+            // $('.importBtn').on('click', function () {
+            //     $('#importModal').modal('show');
+            // });
             $(document).on('click','.import_lang',function(){
                 var id = $('.select_lang').val();
 
@@ -264,8 +266,16 @@
                 }
 
             });
+
+            $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
         })(jQuery,document);
-
-
     </script>
+
 @endpush
