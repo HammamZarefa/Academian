@@ -59,6 +59,36 @@
               modal.find('input[name=key]').val($(this).data('key'));
               modal.find('input[name=value]').val($(this).data('value'));
           });
+            // ************* check-coupon *************
+          $("#check-coupon").click(function(event){
+            event.preventDefault();
+      
+            let name = $("input[name=code]").val();
+            let _token   = $('#coupon-form').attr('data-token');
+      
+            $.ajax({
+              url: "/check-validity",
+              type:"POST",
+              data:{
+                name:name,
+                _token: _token
+              },
+              success:function(response){
+                console.log(response);
+                if(response) {
+                  $('.success').text(response.success);
+                  $("#coupon-form")[0].reset();
+                }
+              },
+              error: function(error) {
+               console.log(error);
+                // $('#nameError').text(response.responseJSON.errors.name);
+                // $('#emailError').text(response.responseJSON.errors.email);
+                // $('#mobileError').text(response.responseJSON.errors.mobile);
+                // $('#messageError').text(response.responseJSON.errors.message);
+              }
+             });
+        });
   });
 
   // $(window).on('load', function() {

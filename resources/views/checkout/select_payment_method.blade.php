@@ -58,11 +58,18 @@
 
             </div>
          </div>
-         <div class=" mt-4">
+         <!-- <div class=" mt-4">
          <form method="get" action="{{route('coupon.check')}}">
             <label class="coupon" style="font-weight: bold;margin-inline-start: 5px;"> @lang('Have Coupon?')</label>
             <input class="coupon-input" name="code" placeholder="your coupon code" >
             <button class="btn-Quest coupon-btn" type="submit" >Submit</button>
+         </form>
+      </div> -->
+      <div class="mt-4" >
+         <form id="coupon-form" data-token="{{ csrf_token() }}">
+            <label class="coupon" style="font-weight: bold;margin-inline-start: 5px;"> @lang('Have Coupon?')</label>
+            <input class="coupon-input" name="code" placeholder="your coupon code" >
+            <button class="btn-Quest coupon-btn" id="check-coupon">Submit</button>
          </form>
       </div>
       </div>
