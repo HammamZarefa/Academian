@@ -20,8 +20,8 @@
                     <div class="col-sm-12" style="z-index: 2;">
                         <input type="text" class="form-control" placeholder="@lang('Message')" name="message"
                         data-aos="fade-left" data-aos-duration="1700">
-                        <div class="seclector" style="margin: 0 0 0 auto;margin-bottom: 0px;width: 401px;margin-bottom: 25px;"   data-aos="fade-left" data-aos-duration="1800">
-                            <div style="font-weight: bold;">Select degree program</div>
+                        <div class="seclector select-degree" style="margin: 0 0 0 auto;margin-bottom: 0px;width: 401px;margin-bottom: 25px;"   data-aos="fade-left" data-aos-duration="1800">
+                            <div class="selected-degree" style="font-weight: bold;">Select degree program</div>
                             <i class="fas fa-angle-down"></i>
                                 <ul class="option">
                                 <li>Select degree program</li>
@@ -29,6 +29,7 @@
                                 <li>{{$level->name}}</li>
                                         @endforeach
                                 </ul>
+                                <input type="hidden" value="">
                         </div>
                     </div>
                     <div class="col-sm-12 text-center"  data-aos="fade-up" data-aos-duration="1900">

@@ -128,6 +128,11 @@
                     $(".reviewss .info .div2" ).css("display","none");
                     event.preventDefault();
                 });
+                $( ".select-degree ul li" ).click(function( event ) {
+                  $(".select-degree input" ).val($(this).html());
+                  $(".select-degree .selected-degree" ).html($(this).html());
+                  
+              });
                 
                 // console.log($("#sidebar-blog").outerHeight());
                 // console.log($(window).scrollTop());
