@@ -47,7 +47,18 @@
               $(".current").html('عربي');
             }
             });
-          
+            // ************* this function for add and edit languages *************
+            $('.deleteKey').on('click', function () {
+              var modal = $('#DelModal');
+              modal.find('input[name=key]').val($(this).data('key'));
+              modal.find('input[name=value]').val($(this).data('value'));
+          });
+            $('.editModal').on('click', function () {
+              var modal = $('#editModal');
+              modal.find('.form-title').text($(this).data('title'));
+              modal.find('input[name=key]').val($(this).data('key'));
+              modal.find('input[name=value]').val($(this).data('value'));
+          });
   });
 
   // $(window).on('load', function() {

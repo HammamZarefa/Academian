@@ -448,10 +448,10 @@ header{
           overflow: visible;
       }
       .dropbtn{
-        padding: 10px 15px;
+        padding: 0 3px;
       }
       .acoount {
-        width: 90px !important;
+        width: 75px !important;
         padding: 10px 15px;
       }
       .dropdown-content {
@@ -698,7 +698,7 @@ header{
 }
 .features .con-im img{
     max-width: 60%;
-    left: 50%;
+    left: 20%;
     transform: translateX(-50%);
 }
 .features .p2{
