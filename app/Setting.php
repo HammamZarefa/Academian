@@ -203,4 +203,12 @@ class Setting extends Model
     }
 
 
+    public static function pricing_table()
+    {
+        return [
+            'pricing_table1' => 'input',
+        ];
+    }
+
+
 }

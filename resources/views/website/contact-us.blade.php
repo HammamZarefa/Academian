@@ -30,7 +30,7 @@
                                 <input type="email" class="form-control" placeholder="@lang('Email')" name="email">
                             </div>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" placeholder="@lang('Message')" name="phone">
+                                <input type="text" class="form-control" placeholder="@lang('Message')" name="message">
                                 <div class="seclector"
                                      style="margin: 0 0 0 auto;margin-bottom: 0px;width: 401px;margin-bottom: 25px;">
                                     <div style="font-weight: bold;">Select degree program</div>
