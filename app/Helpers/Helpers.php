@@ -42,6 +42,18 @@ function homepage($key)
     }
 }
 
+function pricing_table($key)
+{
+    $record =  NULL;
+//    json_decode(settings('pricing_table1'))->keys->service1
+    $setting = Cache::rememberForever('pricing_table', function () {
+        $fields = array_keys(\App\Setting::pricing_table());
+        return \App\Setting::whereIn('option_key', $fields)->get();
+    });
+    $record = $setting->where('option_key', $key);
+    return json_decode($record->first()->option_value);
+}
+
 function get_company_logo()
 {
     if ($company_logo = settings('company_logo')) {
@@ -49,6 +61,8 @@ function get_company_logo()
         return asset(Storage::url($company_logo));
     }
 }
+
+
 
 function get_favicon()
 {

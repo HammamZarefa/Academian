@@ -59,6 +59,15 @@
             </div>
          </div>
       </div>
+
+      <div>
+         <form method="get" action="{{route('coupon.check')}}">
+
+            <label> @lang('Have Coupon?')</label>
+            <input name="code" placeholder="your coupon code">
+            <button type="submit">Submit</button>
+         </form>
+      </div>
       <div class="col-md-6 d-none d-lg-block">
          <div class="checkout-image-cover">
             <img src="{{ asset('images/payment.svg') }}" class="img-fluid">

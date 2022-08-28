@@ -18,7 +18,7 @@
                         data-aos="fade-left" data-aos-duration="1600">
                     </div>
                     <div class="col-sm-12" style="z-index: 2;">
-                        <input type="text" class="form-control" placeholder="@lang('Message')" name="phone"
+                        <input type="text" class="form-control" placeholder="@lang('Message')" name="message"
                         data-aos="fade-left" data-aos-duration="1700">
                         <div class="seclector" style="margin: 0 0 0 auto;margin-bottom: 0px;width: 401px;margin-bottom: 25px;"   data-aos="fade-left" data-aos-duration="1800">
                             <div style="font-weight: bold;">Select degree program</div>

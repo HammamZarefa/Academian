@@ -47,3 +47,5 @@ Route::get('gallery', 'HomeController@gallery')->name('gallery');
 Route::get('gallery/{id}', 'HomeController@gallerywatch')->name('galleryshow');
 Route::post('userreview', 'TestimonialController@storeUserReview')->name('userreview');
 
+
+

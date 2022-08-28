@@ -86,26 +86,33 @@ class HomeController extends Controller
 
     function handle_email_query(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'message' => 'required',
-            'name' => 'required',
-            'email' => 'required|email',
-            'subject' => 'required'
-        ]);
+        $to = "info@academian.co.uk";/*Your Email*/
+        $subject = 'Contact';
 
-        if ($validator->fails()) {
+        $date = date("l, F jS, Y");
+        $time = date("h:i A");
 
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
+        $name = $request['name'];
+        $email = $request['email'];
+        $phone = $request['message'];
+        $program = $request['program'];
+
+        $msg = "
+		Message sent from website form on date  $date, hour: $time.\n
+		Name: $name\n
+		Phone Number: $phone\n
+		Email: $email\n
+		Program selection: $program
+		";
+        if ($email == "") {
+            echo "<div class='alert alert-danger'>
+			  <a class='close' data-dismiss='alert'>×</a>
+			  <strong>Warning!</strong> Please fill all the fields.
+		  </div>";
+        } else {
+            mail($to,$subject,$msg,"From:".$email);
+            return back()->with('success', 'Message Sent');
         }
-
-        Mail::to(settings('company_email'))->send(new CustomerQuery($request->all()));
-
-        $request->session()->flash('alert-class', 'alert-success');
-        $request->session()->flash('message', 'Thank you for your query. We will get back to you as soon as possible');
-
-        return redirect()->back();
     }
 
     public function blog()
@@ -169,14 +176,14 @@ class HomeController extends Controller
     public function sendmail(Request $request)
     {
         $to = "info@academian.co.uk";/*Your Email*/
-        $subject = $request['subject'];
+        $subject = 'Contact';
 
         $date = date("l, F jS, Y");
         $time = date("h:i A");
 
         $name = $request['name'];
         $email = $request['email'];
-        $phone = $request['phone'];
+        $phone = $request['message'];
         $program = $request['program'];
 
         $msg = "
@@ -206,9 +213,9 @@ class HomeController extends Controller
 
     public function about()
     {
-//        $reviews = Testimonial::where('status','=','PUBLISH')->orderBy('id','desc')->get();
+        $reviews = Testimonial::where('status','=','PUBLISH')->orderBy('id','desc')->get();
 
-        return view ('website.about-us');
+        return view ('website.about-us',compact('reviews'));
     }
 
     public function gallery()
