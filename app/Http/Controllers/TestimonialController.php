@@ -148,7 +148,7 @@ class TestimonialController extends Controller
     public function storeUserReview(Request $request)
     {
         $testi = new Testimonial();
-        $testi->name = Auth::user()->name ? Auth::user() : "Anonymous";
+        $testi->name = Auth::user() ? Auth::user()->first_name.' '.Auth::user()->last_name : "Anonymous";
         $testi->profession = $request->profession;
         $testi->desc = $request->desc;
         $testi->status = 'PENDING';

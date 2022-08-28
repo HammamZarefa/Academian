@@ -1,20 +1,14 @@
-@extends('setup.index')
 
 @push('style')
     <style>
         table.dataTable tbody tr td{
             white-space: normal;
         }
-        @include('setup.partials.action_toolbar', [
- 'title' => 'Services',
- 'hide_save_button' => TRUE,
- 'create_link' => ['title' => 'Create Service', 'url' => route("services_create")]
-
- ])
     </style>
 @endpush
-@section('panel')
-
+@extends('setup.index')
+@section('title', 'Languages Settings')
+@section('setting_page')
     <div id="app">
         <div class="row">
 
@@ -24,14 +18,17 @@
 
                         <div class="row justify-content-between">
                             <div class="col-md-7">
-                                <ul>
+                                <ul style="list-style:none;padding: 0px;">
                                     <li>
-                                        <h5>@lang('Language Keywords of') {{ __($code) }}</h5>
+                                        <h5>@lang('Language Keywords of') {{ __($code) }} </h5>
+                                    </li>
+                                    <li>
+                                        <input id="myInput" type="text" placeholder="Search..">
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-md-5 mt-md-0 mt-3">
-                                <button type="button" data-toggle="modal" data-target="#addModal" class="btn btn-sm btn--primary box--shadow1 text--small float-right"><i class="fa fa-plus"></i> @lang('Add New Key') </button>
+                                <button type="button" data-toggle="modal" data-target="#addModal" class="btn btn-sm btn--primary btn-Create box--shadow1 text--small float-right"><i class="fa fa-plus"></i> @lang('Add New Key') </button>
                             </div>
                         </div>
                         <hr>
@@ -55,7 +52,6 @@
                                         <td data-label="@lang('key')">{{$k}}</td>
                                         <td data-label="@lang('Value')" class="text-left white-space-wrap">{{$lang}}</td>
 
-
                                         <td data-label="@lang('Action')">
                                             <a href="javascript:void(0)"
                                                data-target="#editModal"
@@ -65,7 +61,7 @@
                                                data-value="{{$lang}}"
                                                class="editModal icon-btn ml-1"
                                                data-original-title="@lang('Edit')">
-                                                <i class="la la-pencil"></i>
+                                                <i class="fas fa-edit"></i>
                                             </a>
 
                                             <a href="javascript:void(0)"
@@ -74,7 +70,7 @@
                                                data-toggle="modal" data-target="#DelModal"
                                                class="icon-btn btn--danger ml-1 deleteKey"
                                                data-original-title="@lang('Remove')">
-                                                <i class="la la-trash"></i>
+                                                <i class="fas fa-trash" style="color:red"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -138,7 +134,7 @@
                                 <label for="inputName" class="control-label font-weight-bold form-title"></label>
                                 <input type="text" class="form-control form-control-lg" name="value" placeholder="@lang('Value')" value="">
                             </div>
-                            <input type="hidden" name="key">
+                            <input type="hidden" name="key" value="">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
@@ -179,38 +175,38 @@
 
 
     {{-- Import Modal --}}
-    <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">@lang('Import Language')</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-center text--danger">@lang('If you import keywords, Your current keywords will be removed and replaced by imported keyword')</p>
-                        <div class="form-group">
-                        <label for="key" class="control-label font-weight-bold">@lang('Key')</label>
-                        <select class="form-control select_lang"  required>
-                            <option value="">@lang('Import Keywords')</option>
+    {{--<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">--}}
+        {{--<div class="modal-dialog">--}}
+            {{--<div class="modal-content">--}}
+                {{--<div class="modal-header">--}}
+                    {{--<h4 class="modal-title">@lang('Import Language')</h4>--}}
+                    {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>--}}
+                    {{--</div>--}}
+                    {{--<div class="modal-body">--}}
+                        {{--<p class="text-center text--danger">@lang('If you import keywords, Your current keywords will be removed and replaced by imported keyword')</p>--}}
+                        {{--<div class="form-group">--}}
+                        {{--<label for="key" class="control-label font-weight-bold">@lang('Key')</label>--}}
+                        {{--<select class="form-control select_lang"  required>--}}
+                            {{--<option value="">@lang('Import Keywords')</option>--}}
                             {{--@foreach($list_lang as $data)--}}
                             {{--<option value="{{$data->id}}" @if($data->id == $la->id) class="d-none" @endif >{{__($data->name)}}</option>--}}
                             {{--@endforeach--}}
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
-                    <button type="button" class="btn btn--primary import_lang"> @lang('Import Now')</button>
-                </div>
-            </div>
-        </div>
-    </div>
+                        {{--</select>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="modal-footer">--}}
+                    {{--<button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>--}}
+                    {{--<button type="button" class="btn btn--primary import_lang"> @lang('Import Now')</button>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 @stop
 
 
-@push('breadcrumb-plugins')
-<button type="button" class="btn btn-sm btn--primary box--shadow1 importBtn"><i class="la la-download"></i>@lang('Import Language')</button>
-@endpush
+{{--@push('breadcrumb-plugins')--}}
+{{--<button type="button" class="btn btn-sm btn--primary box--shadow1 importBtn"><i class="la la-download"></i>@lang('Import Language')</button>--}}
+{{--@endpush--}}
 
 @push('script')
     <script>
@@ -229,9 +225,9 @@
             });
 
 
-            $('.importBtn').on('click', function () {
-                $('#importModal').modal('show');
-            });
+            // $('.importBtn').on('click', function () {
+            //     $('#importModal').modal('show');
+            // });
             $(document).on('click','.import_lang',function(){
                 var id = $('.select_lang').val();
 
@@ -270,8 +266,16 @@
                 }
 
             });
+
+            $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
         })(jQuery,document);
-
-
     </script>
+
 @endpush

@@ -29,14 +29,14 @@
                         <div class="dropdown-content">
                             {{--@if(isset($service_categories))--}}
                                 @foreach(\App\ServiceCategory::all() as $service_category)
-                                    <a href="{{ route('instant_quote')}}" class="category-name">
+                                    <div class="category-name ">
                                         {{$service_category->name}}
                                         <div class="men-fs">
                                             @foreach($service_category->services as $service)
-                                                <div>{{$service->name}}</div>
+                                                <div><a href="{{ route('instant_quote').'?service='.$service->id}}">{{$service->name}}</a></div>
                                             @endforeach
                                         </div>
-                                    </a>
+                                    </div>
                                 @endforeach
                             {{--@endif--}}
                             <a href="{{ route('post.add')}}">
@@ -89,21 +89,29 @@
                                 <i class="fas fa-user-circle fa-2x" style="color:#87A2B9"></i>
                                 <i class="fas fa-caret-down"></i>
                                 <ul>
-                                    <li>
+                                   
                                         <a href="{{ route('instant_quote')}}">
-                                            @lang('My Account')
+                                            <li>
+                                                @lang('My Account')
+                                            </li>
                                         </a>
-                                    </li>
-                                    <li>
+                                    
+                                    
                                         <a href="">
-                                            @lang('Add New Order')
+                                            <li>
+                                                @lang('Add New Order')
+                                            </li>
                                         </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('logout') }}">
-                                            @lang('Log Out')
+                                    
+                                        <a href="{{ route('logout') }}"  onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                            <li>
+                                                @lang('Log Out')
+                                            </li>
                                         </a>
-                                    </li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
                                 </ul>
                             </div>
                             <div class="cover-acount"></div>

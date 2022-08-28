@@ -33,8 +33,6 @@ class LanguageController extends Controller
             'code' => 'required|unique:languages'
         ]);
 
-
-
         $data = file_get_contents(resource_path('lang/') . 'English.json');
         $json_file = strtolower($request->code) . '.json';
         $path = resource_path('lang/') . $json_file;
@@ -100,7 +98,7 @@ class LanguageController extends Controller
     public function langEdit($code)
     {
         $page_title = "Update " .$code . " Keywords";
-        $json = file_get_contents(resource_path('lang/ar.json'));
+        $json = file_get_contents(resource_path('lang/'.$code .'.json'));
 //        $list_lang = Language::all();
 
 
@@ -109,19 +107,19 @@ class LanguageController extends Controller
             return back()->with($notify);
         }
         $json = json_decode($json);
-        return view('setup.languages', compact('page_title', 'json'));
+        return view('setup.language.edit_lang', compact('page_title', 'json','code'));
     }
 
-    public function langUpdate(Request $request, $id)
+    public function langUpdate(Request $request, $code)
     {
-        $lang = Language::find($id);
+
         $content = json_encode($request->keys);
 
         if ($content === 'null') {
             $notify[] = ['error', 'At Least One Field Should Be Fill-up'];
             return back()->withNotify($notify);
         }
-        file_put_contents(resource_path('lang/') . $lang->code . '.json', $content);
+        file_put_contents(resource_path('lang/') . $code . '.json', $content);
         $notify[] = ['success', 'Update Successfully'];
         return back()->withNotify($notify);
     }
@@ -154,18 +152,17 @@ class LanguageController extends Controller
 
 
 
-    public function storeLanguageJson(Request $request, $id)
+    public function storeLanguageJson(Request $request, $code)
     {
-        $la = Language::find($id);
+
         $this->validate($request, [
             'key' => 'required',
             'value' => 'required'
         ]);
 
-        $items = file_get_contents(resource_path('lang/') . $la->code . '.json');
+        $items = file_get_contents(resource_path('lang/') . $code . '.json');
 
         $reqKey = trim($request->key);
-
         if (array_key_exists($reqKey, json_decode($items, true))) {
             $notify[] = ['error', "`$reqKey` Already Exist"];
             return back()->withNotify($notify);
@@ -173,13 +170,13 @@ class LanguageController extends Controller
             $newArr[$reqKey] = trim($request->value);
             $itemsss = json_decode($items, true);
             $result = array_merge($itemsss, $newArr);
-            file_put_contents(resource_path('lang/') . $la->code . '.json', json_encode($result));
+            file_put_contents(resource_path('lang/') . $code . '.json', json_encode($result));
             $notify[] = ['success', "`".trim($request->key)."` has been added"];
             return back()->withNotify($notify);
         }
 
     }
-    public function deleteLanguageJson(Request $request, $id)
+    public function deleteLanguageJson(Request $request, $code)
     {
         $this->validate($request, [
             'key' => 'required',
@@ -188,18 +185,19 @@ class LanguageController extends Controller
 
         $reqkey = $request->key;
         $reqValue = $request->value;
-        $lang = Language::find($id);
-        $data = file_get_contents(resource_path('lang/') . $lang->code . '.json');
+
+        $data = file_get_contents(resource_path('lang/') . $code . '.json');
 
         $json_arr = json_decode($data, true);
         unset($json_arr[$reqkey]);
 
-        file_put_contents(resource_path('lang/'). $lang->code . '.json', json_encode($json_arr));
+        file_put_contents(resource_path('lang/'). $code . '.json', json_encode($json_arr));
         $notify[] = ['success', "`".trim($request->key)."` has been removed"];
         return back()->withNotify($notify);
     }
-    public function updateLanguageJson(Request $request, $id)
+    public function updateLanguageJson(Request $request, $code)
     {
+
         $this->validate($request, [
             'key' => 'required',
             'value' => 'required'
@@ -207,15 +205,15 @@ class LanguageController extends Controller
 
         $reqkey = trim($request->key);
         $reqValue = $request->value;
-        $lang = Language::find($id);
+//        $lang = Language::find($id);
 
-        $data = file_get_contents(resource_path('lang/') . $lang->code . '.json');
+        $data = file_get_contents(resource_path('lang/') . $code . '.json');
 
         $json_arr = json_decode($data, true);
 
         $json_arr[$reqkey] = $reqValue;
 
-        file_put_contents(resource_path('lang/'). $lang->code . '.json', json_encode($json_arr));
+        file_put_contents(resource_path('lang/'). $code . '.json', json_encode($json_arr));
 
         $notify[] = ['success', "Update successfully"];
         return back()->withNotify($notify);
