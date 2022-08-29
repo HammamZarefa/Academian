@@ -137,11 +137,12 @@ class CouponController extends Controller
     {
 
         $coupon = Coupon::where('code', $request->code)->first();
-        if (!$coupon)
+        if ($coupon)
             if (!$this->is_disable($coupon) && !$this->is_expired($coupon))
-                return false;
+                return response()->json(['coupon'=>$coupon],200);
+            else return response()->json(['Failed'=>'Cannot use this coupon']);
 
-            else return $coupon;
+        else return  response()->json(['Failed'=>'Not Found']);
     }
 
     public function is_expired($coupon)
@@ -158,6 +159,6 @@ class CouponController extends Controller
 
     public function is_disable($coupon)
     {
-        return $coupon->status == "enable" ? true : false;
+        return $coupon['status'] == "enable" ? false : true;
     }
 }
