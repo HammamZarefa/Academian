@@ -59,10 +59,11 @@
             </div>
          </div>
          <div class=" mt-4">
-         <form method="get" action="{{route('coupon.check')}}">
+
+         <form id="coupon">
             <label class="coupon" style="font-weight: bold;margin-inline-start: 5px;"> @lang('Have Coupon?')</label>
             <input class="coupon-input" name="code" placeholder="your coupon code" >
-            <button class="btn-Quest coupon-btn" type="submit" >Submit</button>
+            <button class="btn-Quest coupon-btn check-coupon" >Submit</button>
          </form>
       </div>
       </div>
@@ -78,3 +79,34 @@
 </div>
 
 @endsection
+@push('script')
+<script>
+        $(".check-coupon").click(function(e){
+        let name = $("input[name=code]").val();
+        let _token   = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url: "/check-validity",
+            type:"POST",
+            data:{
+                name:name,
+                _token: _token
+            },
+            success:function(response){
+                console.log(response);
+                if(response) {
+                    $('.success').text(response.success);
+                    $("#coupon")[0].reset();
+                }
+            },
+            error: function(error) {
+                console.log(error);
+                // $('#nameError').text(response.responseJSON.errors.name);
+                // $('#emailError').text(response.responseJSON.errors.email);
+                // $('#mobileError').text(response.responseJSON.errors.mobile);
+                // $('#messageError').text(response.responseJSON.errors.message);
+            }
+        });
+            e.preventDefault();
+    });
+</script>
+@endpush
