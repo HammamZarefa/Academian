@@ -20,7 +20,10 @@
                </div>
                <div class="d-flex justify-content-between total">
                   <h4 class="h4">@lang('Total')</h4>
-                  <div class="h4">{{ format_money($data['total']) }}</div>
+                  <div class="h4">
+                 <span  id="free" style="display:none"> @lang('Free')</span>
+                     {{ format_money($data['total']) }}
+                  </div>
                   <input hidden name="total" value="{{$data['total']}}">
                </div>
                @if(isset($data['order_number']) && isset($data['order_link']))
@@ -67,6 +70,8 @@
             <label class="coupon" style="font-weight: bold;margin-inline-start: 5px;"> @lang('Have Coupon?')</label>
             <input class="coupon-input" name="code" id="code" placeholder="your coupon code" >
             <button class="btn-Quest coupon-btn" id="check-coupon">Submit</button>
+            <div id="message">@lang('Coupon applied')</div>
+            <div id="err">@lang('Invalid coupon')</div>
          </form>
       </div>
       </div>

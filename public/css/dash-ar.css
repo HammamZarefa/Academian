@@ -292,3 +292,17 @@
     transition: .3s;
     padding: 5px;
   }
+  #message{
+    position: relative;
+    top: 10px;
+    color:green;
+    font-weight: 501;
+    display: none;
+}
+  #err{
+    position: relative;
+    top: 10px;
+    color:red;
+  display: none;
+  font-weight: 501;
+}

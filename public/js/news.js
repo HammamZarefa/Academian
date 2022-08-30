@@ -59,39 +59,32 @@
               modal.find('input[name=key]').val($(this).data('key'));
               modal.find('input[name=value]').val($(this).data('value'));
           });
-
-
             // ************* check-coupon *************
           $("#check-coupon").click(function(event){
             event.preventDefault();
       
-            let name = $("input[id=code]").val();
+            let name = $("input[name=code]").val();
             let _token   = $('#coupon-form').attr('data-token');
-      
             $.ajax({
               url: "/check-validity",
               type:"POST",
               data:{
-                code:name,
+                name:name,
                 _token: _token
               },
               success:function(response){
-                if(response.coupon) {
+                console.log(response);
+                if(response) {
                   $('.success').text(response.success);
-                    console.log(response.coupon);
-                  $("#coupon-form")[0].reset()
-                    $(".discount").show()
-                    if(response.coupon.type=='fixed')
-                      $("#discount").val(response.coupon.amount)
-                    else if(response.coupon.type=='percent') {
-                       let $total = $("input[name=total]").val();
-                        $("#discount").val(response.coupon.amount*$total/100)
-                    }
+                  $("#coupon-form")[0].reset();
+                  $("#message").css("display","block");
+                  $("#free").css("display","inline-block");
+                  $("#free").css("margin-inline-end","10px");
                 }
-                else console.log('Failed')
               },
               error: function(error) {
                console.log(error);
+               $("#err").css("display","block");
                 // $('#nameError').text(response.responseJSON.errors.name);
                 // $('#emailError').text(response.responseJSON.errors.email);
                 // $('#mobileError').text(response.responseJSON.errors.mobile);
