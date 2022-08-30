@@ -59,27 +59,48 @@
               modal.find('input[name=key]').val($(this).data('key'));
               modal.find('input[name=value]').val($(this).data('value'));
           });
+
+
             // ************* check-coupon *************
           $("#check-coupon").click(function(event){
             event.preventDefault();
       
-            let name = $("input[name=code]").val();
+            let name = $("input[id=code]").val();
             let _token   = $('#coupon-form').attr('data-token');
+      
             $.ajax({
               url: "/check-validity",
               type:"POST",
               data:{
-                name:name,
+                code:name,
                 _token: _token
               },
               success:function(response){
-                console.log(response);
-                if(response) {
+                if(response.coupon) {
                   $('.success').text(response.success);
-                  $("#coupon-form")[0].reset();
-                  $("#message").css("display","block");
-                  $("#free").css("display","inline-block");
-                  $("#free").css("margin-inline-end","10px");
+                    console.log(response.coupon);
+                  $("#coupon-form")[0].reset()
+                    if(response.coupon.type=='fixed'){
+                      $("#discount").val(response.coupon.amount);
+                      $("#message").css("display","block");
+                      $("#free").css("display","inline-block");
+                      $("#free").css("margin-inline-end","10px");
+                      $("#value-coupon").html($("#discount").val());
+                      $("#total").html(`£${parseInt($("#value-coupon").html()) - $("input[name=total]").val()}`);
+                    }
+                    else if(response.coupon.type=='percent') {
+                       let $total = $("input[name=total]").val();
+                        $("#discount").val(response.coupon.amount*$total/100);
+                        $("#message").css("display","block");
+                        $("#free").css("display","inline-block");
+                        $("#free").css("margin-inline-end","10px");
+                        $("#value-coupon").html($("#discount").val());
+                        $("#total").html(`£${$("input[name=total]").val() - parseInt($("#value-coupon").html())}`);
+                    }
+                }
+                else {
+                  console.log('Failed');
+                  $("#err").css("display","block");
                 }
               },
               error: function(error) {

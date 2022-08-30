@@ -15,14 +15,14 @@
       <div class="col-md-6">
          <div class="card-pay">
             <div class="">
-               <div class="d-flex justify-content-between discount" style="display: none">
+               <div class="discount" style="display: none">
                   <input name="discount" id="discount" disabled="disabled">
                </div>
                <div class="d-flex justify-content-between total">
                   <h4 class="h4">@lang('Total')</h4>
                   <div class="h4">
-                 <span  id="free" style="display:none"> @lang('Free')</span>
-                     {{ format_money($data['total']) }}
+                 <span  id="free" style="display:none"> @lang('Coupon') <span id="value-coupon"></span></span>
+                     <span id="total">{{ format_money($data['total']) }}</span>
                   </div>
                   <input hidden name="total" value="{{$data['total']}}">
                </div>
