@@ -19,7 +19,7 @@
                         <h2 class="title">@lang('Get in touch with us today to learn more.')</h2>
                     </div>
                     <div class="col-sm-6 con1">
-                        <img src="{{ asset('front/img/Contact Us Page Image.jpg') }}" alt="">
+                        <img src="{{ asset('front/img/Contact_Us_Page_Image.jpg') }}" alt="">
                     </div>
                     <div class="col-sm-6 con2">
                         <form id="request" class="row suscribe" action="{{route('handle_email_query')}}" method="post"

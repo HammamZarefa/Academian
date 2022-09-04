@@ -23,7 +23,7 @@
                   
                         <div class="row contain contain2">
                             <div class="col-sm-4 pic">
-                                <img src="{{ asset('front/img/Reviews Page Image.jpg') }}" alt="">
+                                <img src="{{ asset('front/img/Reviews_Page_Image.jpg') }}" alt="">
                             </div>
                             <div class="col-sm-8 info">
                                 <h3>@lang('Why You Should Consider Our Services?')</h3>
