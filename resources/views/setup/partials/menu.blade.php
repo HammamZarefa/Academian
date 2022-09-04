@@ -8,6 +8,7 @@
          {{--<a class="dropdown-item" href="{{ route('service_category_list') }}">@lang('Services Category')</a>--}}
          <a class="dropdown-item" href="{{ route('urgencies_list') }}">@lang('Urgencies')</a>
          <a class="dropdown-item" href="{{ route('work_levels_list') }}">@lang('Work Levels')</a>
+         <a class="dropdown-item" href="{{ route('coupons') }}">@lang('Coupons')</a>
          {{--<a class="dropdown-item" href="{{ route('additional_services_list') }}">@lang('Additional Services')--}}
          {{--</a>--}}
          {{--<div class="dropdown-divider"></div>--}}

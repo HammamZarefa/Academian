@@ -23,7 +23,11 @@
                                         <h5>@lang('Language Keywords of') {{ __($code) }} </h5>
                                     </li>
                                     <li>
-                                        <input id="myInput" type="text" placeholder="Search..">
+                                        <input id="myInput" type="text" placeholder="Search.."
+                                        style="outline: none;
+                                        padding: 3px 10px;
+                                        border-radius: 3px;
+                                        border: 1px solid #c4c2c2;">
                                     </li>
                                 </ul>
                             </div>
@@ -53,7 +57,7 @@
                                         <td data-label="@lang('Value')" class="text-left white-space-wrap">{{$lang}}</td>
 
                                         <td data-label="@lang('Action')">
-                                            <a href="javascript:void(0)"
+                                            <a href=""
                                                data-target="#editModal"
                                                data-toggle="modal"
                                                data-title="{{$k}}"
@@ -70,7 +74,7 @@
                                                data-toggle="modal" data-target="#DelModal"
                                                class="icon-btn btn--danger ml-1 deleteKey"
                                                data-original-title="@lang('Remove')">
-                                                <i class="fas fa-trash" style="color:red"></i>
+                                                <i class="fas fa-trash" style="color:#dc3545"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -108,8 +112,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
-                            <button type="submit" class="btn btn--primary"> @lang('Save')</button>
+                            <button type="button" class="btn btn-Quest" data-dismiss="modal">@lang('Close')</button>
+                            <button type="submit" class="btn btn-Create "> @lang('Save')</button>
                         </div>
                     </form>
 
@@ -137,8 +141,8 @@
                             <input type="hidden" name="key" value="">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
-                            <button type="submit" class="btn btn--primary">@lang('Update')</button>
+                            <button type="button" class="btn btn-Quest" data-dismiss="modal">@lang('Close')</button>
+                            <button type="submit" class="btn btn-Create">@lang('Update')</button>
                         </div>
                     </form>
 
@@ -153,7 +157,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel"><i class='fa fa-trash'></i> @lang('Delete')!</h4>
+                        <h4 class="modal-title" id="myModalLabel"><i class='fa fa-trash' style="color:#dc3545"></i> @lang('Delete')!</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
@@ -164,8 +168,8 @@
                         <input type="hidden" name="key">
                         <input type="hidden" name="value">
                         <div class="modal-footer">
-                            <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('Close')</button>
-                            <button type="submit" class="btn btn--danger ">@lang('Delete')</button>
+                            <button type="button" class="btn btn-Quest" data-dismiss="modal">@lang('Close')</button>
+                            <button type="submit" class="btn btn-Create ">@lang('Delete')</button>
                         </div>
                     </form>
                 </div>
@@ -212,19 +216,6 @@
     <script>
         (function($,document){
             "use strict";
-            $('.deleteKey').on('click', function () {
-                var modal = $('#DelModal');
-                modal.find('input[name=key]').val($(this).data('key'));
-                modal.find('input[name=value]').val($(this).data('value'));
-            });
-            $('.editModal').on('click', function () {
-                var modal = $('#editModal');
-                modal.find('.form-title').text($(this).data('title'));
-                modal.find('input[name=key]').val($(this).data('key'));
-                modal.find('input[name=value]').val($(this).data('value'));
-            });
-
-
             // $('.importBtn').on('click', function () {
             //     $('#importModal').modal('show');
             // });

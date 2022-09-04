@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="contain gallery-video active">
+                <div class="contain gallery-video active" id="video-gallery-page" style="display:none">
                     @foreach($gallery as $item)
                     <a class="item"  data-type="{{$item->type}}">
                         @if($item->type==1)

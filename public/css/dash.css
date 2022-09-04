@@ -247,3 +247,46 @@
   .select2 {
     width: 322px !important;
   }
+  /* *************************** coupon  ***************************** */
+.coupon {
+  text-align: center;
+  background: linear-gradient(to right,#FFF 20%,#3667bf 40%,#3667bf 60%,#FFF 80%);
+  background-size: 200% auto;
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+@keyframes shine {
+to {
+    background-position: -200% center;
+ }
+}
+.coupon-input{
+  outline: none;
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: 1px solid #b3b3b3;
+}
+.coupon-btn{
+  border: none;
+  border-radius: 5px;
+  transition: .3s;
+  padding: 5px;
+}
+#message{
+  position: relative;
+  top: 10px;
+  color:green;
+  display: none;
+  font-weight: 501;
+}
+#err{
+  position: relative;
+  top: 10px;
+  color:red;
+  display: none;
+  font-weight: 501;
+}

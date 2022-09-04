@@ -47,7 +47,74 @@
               $(".current").html('عربي');
             }
             });
-          
+            // ************* this function for add and edit languages *************
+            $('.deleteKey').on('click', function () {
+              var modal = $('#DelModal');
+              modal.find('input[name=key]').val($(this).data('key'));
+              modal.find('input[name=value]').val($(this).data('value'));
+          });
+            $('.editModal').on('click', function () {
+              var modal = $('#editModal');
+              modal.find('.form-title').text($(this).data('title'));
+              modal.find('input[name=key]').val($(this).data('key'));
+              modal.find('input[name=value]').val($(this).data('value'));
+          });
+
+
+            // ************* check-coupon *************
+          $("#check-coupon").click(function(event){
+            event.preventDefault();
+            let name = $("input[id=code]").val();
+            let order = $("input[id=order]").val();
+            let _token   = $('#coupon-form').attr('data-token');
+
+            $.ajax({
+              url: "/check-validity",
+              type:"POST",
+              data:{
+                code:name,
+                  order:order,
+                _token: _token
+              },
+              success:function(response){
+                console.log(response);
+                if(response.coupon) {
+                  $('.success').text(response.success);
+                  $("#coupon-form")[0].reset()
+                    if(response.coupon.type=='fixed'){
+                      $("#discount").val(response.coupon.amount);
+                    }
+                    else if(response.coupon.type=='percent') {
+                       let $total = $("input[name=total]").val();
+                        $("#discount").val((response.coupon.amount *($total/100)));
+                    }
+                    console.log($("#discount").val());
+                    $("#message").css("display","block");
+                    $("#free").css("display","inline-block");
+                    $("#free").css("margin-inline-end","10px");
+
+                    if($("#discount").val() > $("input[name=total]").val()) {
+                        $("#value-coupon").html($("input[name=total]").val());
+                        $("#total").html(`£${'0'}`);
+                    }
+                    else
+                    $("#total").html(`£${$("input[name=total]").val() - parseFloat($("#value-coupon").html())}`);
+                }
+                else {
+                  console.log('Failed');
+                  $("#err").css("display","block");
+                }
+              },
+              error: function(error) {
+               console.log(error);
+               $("#err").css("display","block");
+                // $('#nameError').text(response.responseJSON.errors.name);
+                // $('#emailError').text(response.responseJSON.errors.email);
+                // $('#mobileError').text(response.responseJSON.errors.mobile);
+                // $('#messageError').text(response.responseJSON.errors.message);
+              }
+             });
+        });
   });
 
   // $(window).on('load', function() {

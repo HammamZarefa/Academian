@@ -57,23 +57,22 @@
 <!-- jQuery -->
 <script src="{{ asset('front/js/jquery-1.9.1.min.js') }}"></script>
 
-<!-- Bootstrap -->
-<script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+<!-- <script src="{{ asset('front/js/bootstrap.min.js') }}"></script> -->
 
 <!--Scroll To-->
-<script src="{{ asset('front/js/nav/jquery.scrollTo.js') }}"></script>
-<script src="{{ asset('front/js/nav/jquery.nav.js') }}"></script>
+<!-- <script src="{{ asset('front/js/nav/jquery.scrollTo.js') }}"></script> -->
+<!-- <script src="{{ asset('front/js/nav/jquery.nav.js') }}"></script> -->
 
 <!-- Responsive Video -->
-<script src="{{ asset('front/js/jquery.fitvids.min.js')}}"></script>
-<script src="{{ asset('front/js/jquery.placeholder.min.js') }}"></script>
+<!-- <script src="{{ asset('front/js/jquery.fitvids.min.js')}}"></script> -->
+<!-- <script src="{{ asset('front/js/jquery.placeholder.min.js') }}"></script> -->
 
 <!-- Fixed menu -->
-<script src="{{ asset('front/js/jquery-scrolltofixed.js') }}"></script>
+<!-- <script src="{{ asset('front/js/jquery-scrolltofixed.js') }}"></script> -->
 
 <!-- Video -->
-<script src="{{ asset('front/js/jquery.mb.YTPlayer.js') }}"></script>
+<!-- <script src="{{ asset('front/js/jquery.mb.YTPlayer.js') }}"></script> -->
 
 <!-- Custom -->
 <script src="{{ asset('front/js/script.js') }}"></script>
-<script src="{{ asset('js/theme.min.js') }}"></script>
+<!-- <script src="{{ asset('js/theme.min.js') }}"></script> -->

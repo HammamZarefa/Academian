@@ -30,7 +30,7 @@ Blog -
                 @lang('Academian.co.uk is the best essay writing service that provides high-quality essays, research papers and term papers to students all around the United Kingdom. Our professional writers offer a wide range of writing services, whether it was an essay, a research paper, a dissertation, or even a PhD thesis we got it. Recruit the most talented writers, who will work hard to meet your deadlines. Place your order and enjoy our essay help by our qualified writers.')
                 </p>
                 <button class="main-button">
-                    <a href="">
+                    <a href="{{route('instant_quote')}}">
                         @lang('Get Quote') <i class="fas fa-arrow-right"></i>
                     </a>
                 </button>
@@ -51,7 +51,7 @@ Blog -
                 So if you have a trouble writing your essay or you are having a bad time trying to apply for ajob and you need a unique CV to help you get that job, our service is all you need.')
                 </p>
                 <button class="main-button">
-                    <a href="">
+                    <a href="{{route('instant_quote')}}">
                         @lang('Get Quote') <i class="fas fa-arrow-right"></i>
                     </a>
                 </button>
@@ -69,31 +69,31 @@ Blog -
         <div class="swiper2">
           <div class="swiper-wrapper">
             <!-- ****** item ****** -->
-            {{-- @foreach($reviews->slice(0, 3) as $review) --}}
+             @foreach($reviews->slice(0, 3) as $review)
             <div class="swiper-slide"> 
               <div class="info">
                 <i class="fas fa-user-circle fa-2x"></i>
                 <div>
-                {{--  <h2>{{$review->name}}</h2>--}}
-                {{-- <p> {{$review->created_at->format('Y-m-d')}}</p>--}}
+                  <h2>{{$review->name}}</h2>
+                 <p> {{$review->created_at->format('Y-m-d')}}</p>
                 </div>
               </div>
               <div class="info2">
-              {{-- <h2>{{$review->profession}}</h2>--}}
-              {{-- <p> {{$review->desc}}</p>--}}
+               <h2>{{$review->profession}}</h2>
+               <p> {{$review->desc}}</p>
               </div>
             </div>
-            {{-- @endforeach--}}
+             @endforeach
           </div>
           <!-- Add Scrollbar -->
           <div class="swiper-pagination"></div>
         </div>
         </div>
         <div class="col-sm-6 con-sf">
-          <h2> Our Clients Words Matter To Us</h2>
-          <p>Here’s what our clients think about us and about the experience they had while trying our services.</p>
+          <h2> {!! homepage('review_section_title') !!}</h2>
+          <p>{!! homepage('review_section_content') !!}.</p>
           <button class="main-button">
-              <a href="{{route('blog')}}" class="btn">
+              <a href="{{route('instant_quote')}}" class="btn">
               @lang('Get Quote')
                 <i class="fas fa-arrow-right"></i>
               </a>

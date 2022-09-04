@@ -143,3 +143,5 @@ Route::prefix('notifications')->group(function () {
     Route::get('/mark/read/all', 'NotificationController@mark_all_notification_as_read')
         ->name('notification_all_mark_as_read');
 });
+
+Route::post('check-validity','CouponController@checkValidity')->name('coupon.check');

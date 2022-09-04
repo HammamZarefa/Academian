@@ -3,10 +3,17 @@
  
    document.getElementById("loader").style.visibility = "visible";
    document.getElementById("siteLoader").style.display = "none";
-   setTimeout(() => {
-	document.getElementById("video-home-page").style.display = "block";
-   }, 500);
-
+   if(window.location.pathname == "/"){
+	setTimeout(() => {
+		document.getElementById("video-home-page").style.display = "block";
+	   }, 500);
+   }
+  if(window.location.pathname == "/gallery"){
+	setTimeout(() => {
+		document.getElementById("video-gallery-page").style.display = "flex";
+	   }, 500);
+  }
+  
 //    $('#loader_helper').empty();
 }
 // setTimeout(() => {

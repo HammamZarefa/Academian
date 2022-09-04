@@ -510,3 +510,14 @@ Route::post('language/store/key/{id}', 'LanguageController@storeLanguageJson')->
 Route::post('language/delete/key/{id}', 'LanguageController@deleteLanguageJson')->name('language.delete.key');
 Route::post('language/update/key/{id}', 'LanguageController@updateLanguageJson')->name('language.update.key');
 
+// Coupons
+Route::prefix('coupons')->group(function () {
+    Route::get('/', 'CouponController@index')->name('coupons');
+//    Route::post('/paginate', 'CouponController@datatable')->name('datatable_work_levels');
+    Route::get('/coupon', 'CouponController@create')->name('coupon_create');
+    Route::post('/create', 'CouponController@store')->name('coupon_store');
+    Route::get('/status/{id}', 'CouponController@status')->name('coupon_status');
+//    Route::patch('/{work_level}/edit', 'CouponController@update')->name('work_levels_update');
+    Route::delete('/{id}', 'CouponController@destroy')->name('coupons_destroy');
+});
+// End of Work Levels

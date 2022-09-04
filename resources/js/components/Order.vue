@@ -33,7 +33,7 @@
         </div>
         <div class="col-md-6">
           <div class="sticky-top">
-            <OrderSummary :form="dataForOrderSummary" @dataChanged="handleCalculatedData($event)"></OrderSummary>           
+            <OrderSummary :form="dataForOrderSummary" @dataChanged="handleCalculatedData($event)"></OrderSummary>
           </div>
         </div>  
       </div>
