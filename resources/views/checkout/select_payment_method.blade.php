@@ -13,6 +13,15 @@
          <h6>@lang('Select a payment method')</h6>
       </div>
       <div class="col-md-6">
+      <div id="amou" style="
+background-color: #C4DEF4;
+border-radius: 5px;
+margin-bottom: 10px;
+display: flex;
+justify-content: space-between;display:none">
+                  <span style="padding:5px 15px;">@lang('Discount')</span>
+                  <span id="amount-coupon" style="padding:5px 15px;display: none"></span>
+               </div>
          <div class="card-pay">
             <div class="">
                <div class="discount" style="display: none">
@@ -21,7 +30,6 @@
                <div class="d-flex justify-content-between total">
                   <h4 class="h4">@lang('Total')</h4>
                   <div class="h4">
-                 <span  id="free" style="display:none"> @lang('Coupon') <span id="value-coupon"></span></span>
                      <span id="total">{{ format_money($data['total']) }}</span>
                   </div>
                   <input hidden name="total" value="{{$data['total']}}">
@@ -69,6 +77,7 @@
          <form id="coupon-form" data-token="{{ csrf_token() }}">
             <label class="coupon" style="font-weight: bold;margin-inline-start: 5px;"> @lang('Have Coupon?')</label>
             <input class="coupon-input" name="code" id="code" placeholder="your coupon code" >
+             <input class="coupon" name="order" id="order" value="{{$data['order_number']}}" hidden >
             <button class="btn-Quest coupon-btn" id="check-coupon">Submit</button>
             <div id="message">@lang('Coupon applied')</div>
             <div id="err">@lang('Invalid coupon')</div>
@@ -76,7 +85,7 @@
       </div>
       </div>
 
-   
+
       <div class="col-md-6 d-none d-lg-block">
          <div class="checkout-image-cover">
             <img src="{{ asset('images/payment.svg') }}" class="img-fluid">

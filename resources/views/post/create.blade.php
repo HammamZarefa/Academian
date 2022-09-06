@@ -62,6 +62,7 @@
                     <input class="form-check-input xcheck" type="checkbox" role="switch"
                     id="flexCheckDefault" name="scrapeSources"  value="" style="margin-inline-start: 0;">
                     <label class="form-check-label" for="flexCheckDefault" style="margin-inline-start: 40px;"> PDF Post</label>
+                    <input type="file" name="pdf" class="pdfs form-control mt-2 mb-2" style="display:none">
                 <div class="form-group ">
                     <div class="picture-container">
                         <div class="picture">
@@ -178,13 +179,17 @@
                 var x = $(this).is(':checked');
                 if(x==true){
                     $(this).parents(".form-check").find(".pdf").show();
-                    $(this).parents(".form-check").find(".textdesc").hide();
+                    $(".textdesc").hide();
                     $(this).parents(".form-check").find(".picture-container").hide();
+                    $(this).parents(".form-check").find(".pdfs").show();
+                    
+
                     // $(this).parents(".form-check").find(".form-group").hide();
                 }else {
-                    $(this).parents(".form-check").find(".textdesc").show();
+                    $(".textdesc").show();
                     $(this).parents(".form-check").find(".pdf").hide();
-
+                    $(this).parents(".form-check").find(".pdfs").hide();
+                    $(this).parents(".form-check").find(".picture-container").show();
                 }
 
             }
