@@ -371,3 +371,115 @@ function paymentIsPending($orderStatusId)
         return $state;
     }
 }
+
+function imagePath()
+{
+    $data['gateway'] = [
+        'path' => 'assets/images/gateway',
+        'size' => '800x800',
+    ];
+    $data['verify'] = [
+        'withdraw' => [
+            'path' => 'assets/images/verify/withdraw'
+        ],
+        'deposit' => [
+            'path' => 'assets/images/verify/deposit'
+        ]
+    ];
+    $data['image'] = [
+        'default' => 'assets/images/default.png',
+    ];
+    $data['withdraw'] = [
+        'method' => [
+            'path' => 'assets/images/withdraw/method',
+            'size' => '800x800',
+        ]
+    ];
+    $data['ticket'] = [
+        'path' => 'assets/images/support',
+    ];
+    $data['language'] = [
+        'path' => 'assets/images/lang',
+        'size' => '64x64'
+    ];
+    $data['logoIcon'] = [
+        'path' => 'assets/images/logoIcon',
+    ];
+    $data['favicon'] = [
+        'size' => '128x128',
+    ];
+    $data['extensions'] = [
+        'path' => 'assets/images/extensions',
+    ];
+    $data['seo'] = [
+        'path' => 'assets/images/seo',
+        'size' => '600x315'
+    ];
+    $data['profile'] = [
+        'user' => [
+            'path' => 'assets/images/user/profile',
+            'size' => '350x300'
+        ],
+        'admin' => [
+            'path' => 'assets/admin/images/profile',
+            'size' => '400x400'
+        ]
+    ];
+    $data['category'] = [
+        'path' => 'assets/images/category',
+        'size' => '350x300'
+    ];
+    $data['service'] = [
+        'path' => 'assets/images/service',
+        'size' => '350x300'
+    ];
+    $data['banner'] = [
+        'path' => 'assets/images/banner',
+        'size' => '1530x640'
+    ];
+    return $data;
+}
+
+
+//moveable
+function uploadImage($file, $location, $size = null, $old = null, $thumb = null)
+{
+    $path = makeDirectory($location);
+    if (!$path) throw new Exception('File could not been created.');
+
+    if (!empty($old)) {
+        removeFile($location . '/' . $old);
+        removeFile($location . '/thumb_' . $old);
+    }
+    $filename = uniqid() . time() . '.' . $file->getClientOriginalExtension();
+    $image = Image::make($file);
+    if (!empty($size)) {
+        $size = explode('x', strtolower($size));
+        $image->resize($size[0], $size[1], function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
+    }
+    $image->save($location . '/' . $filename);
+
+    if (!empty($thumb)) {
+
+        $thumb = explode('x', $thumb);
+        Image::make($file)->resize($thumb[0], $thumb[1], function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        })->save($location . '/thumb_' . $filename);
+    }
+    return $filename;
+}
+
+function makeDirectory($path)
+{
+    if (file_exists($path)) return true;
+    return mkdir($path, 0755, true);
+}
+
+function removeFile($path)
+{
+    return file_exists($path) && is_file($path) ? @unlink($path) : false;
+}
