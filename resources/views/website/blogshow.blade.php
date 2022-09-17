@@ -42,13 +42,14 @@
                 <div class="row">
                     <div class="col-lg-8 entries">
                         <article class="entry entry-single" data-aos="fade-up">
-                            <div class="entry-img">
                                 @if($post->body_type == 0)
+                                <div class="entry-img">
                                     <img src="{{ asset('storage/'.$post->cover) }}" alt="">
                                 @else
+                                        <div class="pdf-img">
                                     {{--//Preview Pdf Here ----------------------------------------------}}
                                     <object data="{{asset('images/blog/'.$post->body)}}" type="application/pdf"
-                                            width="750 px" height="700 px%">
+                                            width="750 px" height="1000 px">
                                         <p>Alternative text - include a link <a
                                                     href="{{asset('images/blog/'.$post->body)}}">to the PDF!</a></p>
                                     </object>

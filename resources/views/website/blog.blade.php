@@ -54,19 +54,19 @@
                     <div class="col-sm-8">
                     @foreach($posts as $post)
                         <!-- item -->
+
                             <a href="{{route('blogshow',$post->slug)}}">
                                 <div class="blog-item">
                                     @if($post->body_type == 0)
                                         <img src="{{ asset('storage/'.$post->cover) }}" alt="">
                                     @else
                                         {{--//Preview Pdf Here ----------------------------------------------}}
-                                        <iframe 
-                                        src="http://docs.google.com/gview?url={{asset('images/blog/'.$post->body)}}&embedded=true"
-                                          type="application/pdf"
-                                                width="100%" height="100%">
+                                        {{--//Preview Pdf Here ----------------------------------------------}}
+                                        <object data="{{asset('images/blog/'.$post->body)}}" type="application/pdf"
+                                                width="750 px" height="300 px">
                                             <p>Alternative text - include a link <a
                                                         href="{{asset('images/blog/'.$post->body)}}">to the PDF!</a></p>
-                                        </iframe >
+                                        </object>
                                         {{--// End of preview pdf--}}
                                     @endif
                                     <h2>{{$post->title}}</h2>
