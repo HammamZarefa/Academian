@@ -31,7 +31,7 @@
 
                     <div v-if="form.service_model.price_type_id == pricingTypes.perWord">
                         <div class="d-flex justify-content-between pad-20 mb-3">
-                            <span>{{ $t('Number of words') }} :</span>
+                            <span>{{ $t('Number of Words') }} :</span>
                            
                            <span> {{ form.number_of_words }}</span>
                         </div>
@@ -65,7 +65,7 @@
                     <tbody>
                     <tr >
                         <th scope="row" style="width: 30%">{{ $t('Amount') }}</th>
-                        <td style="width: 70%" class="text-right">{{ form.amount | formatMoney }}</td>
+                        <td style="width: 70%;text-align: end !important">{{ form.amount | formatMoney }}</td>
                     </tr>
                     <tr v-if="form.added_services.length > 0 ">
                         <td colspan="2">

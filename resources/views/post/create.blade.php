@@ -18,7 +18,7 @@
             <div class="form-{{$lang}} col-sm-8 {{ showErrorClass($errors, 'form.*') }}">
                     <div class="side-form mb-4">
                         <label>@lang('Title') <span class="required">*</span></label>
-                        <input id="title_{{$lang}}" type="text" 
+                        <input id="title_{{$lang}}" type="text"
                         class="title_{{$lang}} form-control form-control-sm {{ showErrorClass($errors, 'title.*') }}"
                         name="title[{{$lang}}]"
                         value="{{ old_set('title['.$lang.']', NULL, $postCategory ?? '') }}">
@@ -62,6 +62,7 @@
                     <input class="form-check-input xcheck" type="checkbox" role="switch"
                     id="flexCheckDefault" name="scrapeSources"  value="" style="margin-inline-start: 0;">
                     <label class="form-check-label" for="flexCheckDefault" style="margin-inline-start: 40px;"> PDF Post</label>
+                    <input type="file" name="body" class="pdfs form-control mt-2 mb-2" style="display:none">
                 <div class="form-group ">
                     <div class="picture-container">
                         <div class="picture">
@@ -74,7 +75,7 @@
                         <h6 class="mt-2 mb-2 p-1 d-none">@lang('Upload Cover')</h6>
                     </div>
                 </div>
-                    
+
                     </div>
 
                     <div class="form-group side-form">
@@ -98,20 +99,20 @@
                         @foreach ($tags as $tags)
                             <option value="{{ $tags->id }}">{{ $tags->name }}</option>
                         @endforeach
-                   
+
                 </select>
                </div>
-              
-            </div> 
+
+            </div>
             <div class="side-form">
-                
+
                 <div class="form-check form-switch d-flex align-items-center p-0">
                     <input class="form-check-input" type="checkbox" role="switch"
                     id="feature" name="scrapeSources"  value="1" style="margin-inline-start: 0;">
                     <label class="form-check-label" for="feature" style="margin-inline-start: 40px;">is Featured ?</label>
                 </div>
         </div>
-      
+
      <div class="col-sm-12 d-flex justify-content-end mt-4">
      <input type="submit" name="submit" class="btn btn-Create" value="@lang('Submit')"/>
      </div>
@@ -141,52 +142,53 @@
             placeholder: 'Write here',
             tabsize: 2,
             height: 500,
-            callbacks: {
-                onImageUpload: function(image) {
-                    uploadImage(image[0]);
-
-                }
-            }
+            // callbacks: {
+            //     onImageUpload: function(image) {
+            //         uploadImage(image[0]);
+            //
+            //     }
+            // }
         })});
 
-        function uploadImage(image) {
-            var data = new FormData();
-            data.append("image", image);
-            console.log('called successufly');
-            $.ajax({
-                url: "/my_flask_endpoint",
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: data,
-                type: "POST",
-                success: function(filename) {
-                    var image = $('<img>').attr('src', '/route/to/images/' + filename).addClass("img-fluid");
-                    $('#summernote').summernote("insertNode", image[0]);
-                },
-                error: function(data) {
-                    console.log(data);
-                }
-            });
-        }
+        // function uploadImage(image) {
+        //     var data = new FormData();
+        //     data.append("image", image);
+        //     console.log('called successufly');
+        //     $.ajax({
+        //         url: "/my_flask_endpoint",
+        //         cache: false,
+        //         contentType: false,
+        //         processData: false,
+        //         data: data,
+        //         type: "POST",
+        //         success: function(filename) {
+        //             var image = $('<img>').attr('src', '/route/to/images/' + filename).addClass("img-fluid");
+        //             $('#summernote').summernote("insertNode", image[0]);
+        //         },
+        //         error: function(data) {
+        //             console.log(data);
+        //         }
+        //     });
+        // }
 
-    </script>
-    <script type="text/javascript">
     $(function(){
         $(".xcheck").click(
             function (event) {
                 var x = $(this).is(':checked');
                 if(x==true){
                     $(this).parents(".form-check").find(".pdf").show();
-                    $(this).parents(".form-check").find(".textdesc").hide();
+                    $(".textdesc").hide();
                     $(this).parents(".form-check").find(".picture-container").hide();
+                    $(this).parents(".form-check").find(".pdfs").show();
+
+
                     // $(this).parents(".form-check").find(".form-group").hide();
                 }else {
-                    $(this).parents(".form-check").find(".textdesc").show();
+                    $(".textdesc").show();
                     $(this).parents(".form-check").find(".pdf").hide();
-
+                    $(this).parents(".form-check").find(".pdfs").hide();
+                    $(this).parents(".form-check").find(".picture-container").show();
                 }
-
             }
         )});
 </script>

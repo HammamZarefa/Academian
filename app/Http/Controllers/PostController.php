@@ -145,6 +145,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         \Validator::make($request->all(), [
             "title" => "required",
 //            "cover" => "required",
@@ -169,7 +170,7 @@ class PostController extends Controller
             $body =$request-> file('body');
             if ($body) {
                 $folder = public_path('images/blog/');
-                $filename = time() . '.' . $body->getClientOriginalName();
+                $filename = time().$body->getClientOriginalName();
                 if (!File::exists($folder)) {
                     File::makeDirectory($folder, 0775, true, true);
                 }

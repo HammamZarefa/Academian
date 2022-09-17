@@ -6,9 +6,9 @@
             {{--</a>--}}
             {{--@endif--}}
              @if($current_locale === 'ar')
-                <a style="padding: 0 3px;" href="{{route('language','en')}}"> <i class="fas fa-globe"></i> EN</a>
+                <a onclick="localStorage.setItem('locale', 'en');" style="padding: 0 3px;" href="{{route('language','en')}}"> <i class="fas fa-globe"></i> EN</a>
                 @else
-                <a style="padding: 0 3px;" href="{{route('language','ar')}}"><i class="fas fa-globe"> </i> AR</a>
+                <a onclick="localStorage.setItem('locale', 'ar');" style="padding: 0 3px;" href="{{route('language','ar')}}"><i class="fas fa-globe"> </i> AR</a>
                 @endif
         {{--@endforeach -->--}}
 </div>

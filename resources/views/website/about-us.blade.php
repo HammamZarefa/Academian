@@ -36,12 +36,12 @@ Blog -
                 </button>
             </div>
             <div class="col-sm-4 pic">
-                <img src="{{ asset('front/img/Home Page 2nd Image.jpg') }}" alt="">
+                <img src="{{ asset('front/img/Home_Page_2nd_Image.jpg') }}" alt="">
             </div>
          </div>
          <div class="row contain contain2">
          <div class="col-sm-4 pic">
-                <img src="{{ asset('front/img/About Us Page Image 2.jpg') }}" alt="">
+                <img src="{{ asset('front/img/About_Us_Page_Image2.jpg') }}" alt="">
             </div>
             <div class="col-sm-8 info">
                 <h3>@lang('Why You Should Consider Our Services?')</h3>
