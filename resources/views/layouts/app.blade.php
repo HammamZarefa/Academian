@@ -16,6 +16,7 @@
      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
      <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+       <link rel="icon" type="image/x-icon" href="{{ asset('front/img/Artboard-logo.webp') }}">
      <!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/authentication.css') }}"> -->
      @if(session()->get('locale')==='ar')
       <link rel="stylesheet" type="text/css" href="{{ asset('css/dash-ar.css') }}">
