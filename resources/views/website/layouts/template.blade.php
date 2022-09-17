@@ -26,6 +26,7 @@
     <!-- <link href="{{ asset('front/css/style.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('front/css/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/media-queries.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{ asset('front/img/Artboard-logo.webp') }}">
 {!! settings('website_header_script') !!}
 @include('website.google_analytics')
     <style id="loader_helper" type="text/css">
