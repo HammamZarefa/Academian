@@ -74,7 +74,7 @@
                             </div>
                             @if($post->body_type == 0)
                                 <div class="entry-content">
-                                    <p>
+                                    <p class="imget">
                                         {!! $post->body !!}
                                     </p>
                                 </div>

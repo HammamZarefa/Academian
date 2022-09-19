@@ -470,6 +470,7 @@ export default {
     // console.log('filteredServices:',this.filteredServices);
     window.onload = () => {
       this.form.service_model = this.filteredServices[0];
+      this.validateNumberOfWords();
     };
     // console.log("7/5/2022 11:30");
     // console.log(this.service_categories);

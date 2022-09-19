@@ -12,7 +12,7 @@
       <div class="invalid-feedback d-block" v-if="errors.title">{{ errors.title[0] }}</div>
     </div>
     <div class="form-group">
-      <label>{{ $t('Specific Instructions') }}  <span class="required">*</span></label>
+      <label>{{ $t('Specific Instructions') }}</label>
       <textarea
         class="form-control"
         v-model="form.instruction"

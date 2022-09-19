@@ -18,14 +18,14 @@
          <div class="col-sm-6 pic"
          data-aos="fade-down"
          data-aos-duration="1500">
-             <img src="{{ asset('front/img/Home_Page_1st_Image.jpg') }}" alt="">
+             <img src="{{ asset('front/img/Home_Page_1st_Image.webp') }}" alt="">
          </div>
      </div>
      <div class="row contain contain2">
             <div class="col-sm-4 pic"
             data-aos="fade-down"
          data-aos-duration="1500">
-                <img src="{{ asset('front/img/Home_Page_2nd_Image.jpg') }}" alt="">
+                <img src="{{ asset('front/img/Home_Page_2nd_Image.webp') }}" alt="">
             </div>
             <div class="col-sm-8 info">
                 <h3 data-aos="fade-up" data-aos-duration="1500">{!! homepage('section_2_title') !!}</h3>
