@@ -71,7 +71,7 @@
 
     </div>
 </div>
-<!-- Start Blog -->
+<!-- Start Gallery -->
 <div class="post" id="video-home-page" style="display:none">
     <div class="container">
     <div class="head">
@@ -103,5 +103,34 @@
 
     </div>
 </div>
-<!-- End Blog -->
+
+<div class="post">
+    <div class="container">
+    <div class="head">
+        <h2> @lang('Images') </h2>
+       <button class="main-button">
+       <a href="{{route('gallery')}}" class="btn">
+         @lang('See More')
+         <i class="fas fa-arrow-right"></i>
+        </a>
+       </button> 
+    </div>
+        <div class="swiper1">
+          <div class="swiper-wrapper">
+            <!-- ****** item ****** -->
+            @foreach ($videos as $video)
+            <div class="swiper-slide"> 
+            <div class="item">
+            <img src="{{ asset('front/img/Blog 1.jpg') }}" alt="" height="200">
+            </div>
+            </div>
+            @endforeach  
+          </div>
+          <!-- Add Scrollbar -->
+          <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+</div>
+<!-- End Gallery -->
 {{--<iframe width="900" height="506" src="https://www.youtube.com/embed/BVxYAIQLewA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}

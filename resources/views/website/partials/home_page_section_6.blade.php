@@ -9,10 +9,10 @@
             {!! homepage('section_3_title') !!}
         </h3>
         <div class="col-sm-5 con-im">
-            <img class="im1" src="{{ asset('front/img/Home_Page_3rd_Image.jpg') }}" alt=""
+            <img class="im1" src="{{ asset('front/img/Home_Page_3rd_Image.webp') }}" alt=""
             data-aos="fade-down"
         data-aos-duration="1500">
-            <img class="im2" src="{{ asset('front/img/Home_Page_3rd_Image-2.png') }}" alt=""
+            <img class="im2" src="{{ asset('front/img/Home_Page_3rd_Image-2.webp') }}" alt=""
             data-aos="fade-down"
         data-aos-duration="1500">
             <p class="p2"
