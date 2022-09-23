@@ -73,7 +73,7 @@ class HomeController extends Controller
             abort(404);
         }
 
-        return view('website.content-us')->with('content', $content);
+        return view('website.content')->with('content', $content);
     }
 
     function contact()

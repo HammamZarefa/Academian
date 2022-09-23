@@ -157,7 +157,7 @@ class OrderController extends Controller
             return redirect()->route('order_page');
         }
         $data = Order::dropdown();
-        $data['title'] = 'Get an instant quote';
+        $data['title'] = trans('Get an instant quote');
         return view('order.create', compact('data'));
     }
 
@@ -169,7 +169,7 @@ class OrderController extends Controller
     public function create(Request $request)
     {
         $data = Order::dropdown();
-        $data['title'] = 'Let\'s get started on your project!';
+        $data['title'] = trans('Let\'s get started on your project!');
 
         return view('order.create', compact('data'));
     }

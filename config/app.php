@@ -168,6 +168,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
@@ -181,6 +182,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\WalletServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class
 
     ],
 
@@ -235,6 +237,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Str' => Illuminate\Support\Str::class,
         'PriceType' => \App\Enums\PriceType::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];

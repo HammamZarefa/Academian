@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h2 class="title">@lang('Get in touch with us today to learn more.')</h2>
+                <h2 class="title">@lang('Get in touch with us today to learn more').</h2>
             </div>
             <div class="col-sm-6 con1"  data-aos="fade-right" data-aos-duration="1500">
                 <img src="{{ asset('front/img/Home_Page_Last_Image.jpg') }}" alt="">

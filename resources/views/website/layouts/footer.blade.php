@@ -23,7 +23,7 @@
            </div>
            @endforeach
             <div class="col-sm-4 pay">
-                <h4 class="footer_left">@lang('Pay With:')</h4>
+                <h4 class="footer_left">@lang('Pay With'):</h4>
                 <div class="pay-icon">
                     <a href=""><img src="{{ asset('front/img/cards/card-01.png') }}" alt="card"></a> 
                     <a href=""> <img src="{{ asset('front/img/cards/card-05.png') }}" alt="card"></a> 
@@ -43,8 +43,8 @@
                     <a href="https://www.instagram.com/academianuk" data-toggle="tooltip" class="tooltips" data-placement="bottom" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
                 </div>
             <div class="col-sm-4 Support">
-               <a href="">@lang('Customer Support')</a>
-               <a href="">@lang('Privacy Policy')</a>
+               <a href="{{route('terms_and_conditions')}}">@lang('Terms and Conditions')</a>
+               <a href="{{route('privacy_policy')}}">@lang('Privacy Policy')</a>
             </div>
         </div>
     </div>

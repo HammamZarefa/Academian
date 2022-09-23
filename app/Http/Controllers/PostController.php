@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
-
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 class PostController extends Controller
 {
     /**
@@ -451,6 +451,7 @@ class PostController extends Controller
                 $image_name = time() . $item . '.png';
                 $path = storage_path() . '/app/public/images/blog/' . $image_name;
                 file_put_contents($path, $imgeData);
+                ImageOptimizer::optimize($path);
                 $image_name = '/images/blog/' . $image_name;
                 $image->removeAttribute('src');
                 $image->setAttribute('src', asset('storage' . $image_name));

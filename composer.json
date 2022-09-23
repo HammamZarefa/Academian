@@ -9,12 +9,14 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "ext-json": "*",
         "artesaos/seotools": "^0.17.2",
         "braintree/braintree_php": "^5.0",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
+        "intervention/image": "^2.7",
         "jackiedo/dotenv-editor": "^1.1",
         "junaidnasir/larainvite": "^3.1",
         "laravel/framework": "^7.0",
@@ -25,12 +27,12 @@
         "paypal/paypal-checkout-sdk": "^1.0",
         "spatie/laravel-activitylog": "^3.14",
         "spatie/laravel-cookie-consent": "^2.12",
+        "spatie/laravel-image-optimizer": "^1.6",
         "spatie/laravel-permission": "^3.11",
         "spatie/laravel-translatable": "^4.6",
         "spatie/laravel-translation-loader": "^2.7",
         "stripe/stripe-php": "^7.37",
-        "yajra/laravel-datatables-oracle": "^9.9",
-      "ext-json": "*"
+        "yajra/laravel-datatables-oracle": "^9.9"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

@@ -142,9 +142,9 @@
           <root url="file://$MODULE_DIR$/vendor/braintree/braintree_php" />
           <root url="file://$MODULE_DIR$/vendor/brick/math" />
           <root url="file://$MODULE_DIR$/vendor/composer" />
-          <root url="file://$MODULE_DIR$/vendor/dnoegel/php-xdg-base-dir" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/cache" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/dbal" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/deprecations" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/event-manager" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
@@ -180,7 +180,6 @@
           <root url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
           <root url="file://$MODULE_DIR$/vendor/nunomaduro/collision" />
           <root url="file://$MODULE_DIR$/vendor/opis/closure" />
-          <root url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
           <root url="file://$MODULE_DIR$/vendor/paypal/paypal-checkout-sdk" />
           <root url="file://$MODULE_DIR$/vendor/paypal/paypalhttp" />
           <root url="file://$MODULE_DIR$/vendor/phar-io/manifest" />
@@ -205,7 +204,6 @@
           <root url="file://$MODULE_DIR$/vendor/ralouphie/getallheaders" />
           <root url="file://$MODULE_DIR$/vendor/ramsey/collection" />
           <root url="file://$MODULE_DIR$/vendor/ramsey/uuid" />
-          <root url="file://$MODULE_DIR$/vendor/scrivo/highlight.php" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/diff" />
@@ -232,7 +230,6 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />
           <root url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher-contracts" />
           <root url="file://$MODULE_DIR$/vendor/symfony/finder" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/http-client-contracts" />
           <root url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
           <root url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
           <root url="file://$MODULE_DIR$/vendor/symfony/mime" />
@@ -242,10 +239,10 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-idn" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-normalizer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php70" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php72" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php73" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php80" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php81" />
           <root url="file://$MODULE_DIR$/vendor/symfony/process" />
           <root url="file://$MODULE_DIR$/vendor/symfony/routing" />
           <root url="file://$MODULE_DIR$/vendor/symfony/service-contracts" />
@@ -266,9 +263,9 @@
           <root url="file://$MODULE_DIR$/vendor/braintree/braintree_php" />
           <root url="file://$MODULE_DIR$/vendor/brick/math" />
           <root url="file://$MODULE_DIR$/vendor/composer" />
-          <root url="file://$MODULE_DIR$/vendor/dnoegel/php-xdg-base-dir" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/cache" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/dbal" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/deprecations" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/event-manager" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
@@ -304,7 +301,6 @@
           <root url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
           <root url="file://$MODULE_DIR$/vendor/nunomaduro/collision" />
           <root url="file://$MODULE_DIR$/vendor/opis/closure" />
-          <root url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
           <root url="file://$MODULE_DIR$/vendor/paypal/paypal-checkout-sdk" />
           <root url="file://$MODULE_DIR$/vendor/paypal/paypalhttp" />
           <root url="file://$MODULE_DIR$/vendor/phar-io/manifest" />
@@ -329,7 +325,6 @@
           <root url="file://$MODULE_DIR$/vendor/ralouphie/getallheaders" />
           <root url="file://$MODULE_DIR$/vendor/ramsey/collection" />
           <root url="file://$MODULE_DIR$/vendor/ramsey/uuid" />
-          <root url="file://$MODULE_DIR$/vendor/scrivo/highlight.php" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/diff" />
@@ -356,7 +351,6 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />
           <root url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher-contracts" />
           <root url="file://$MODULE_DIR$/vendor/symfony/finder" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/http-client-contracts" />
           <root url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
           <root url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
           <root url="file://$MODULE_DIR$/vendor/symfony/mime" />
@@ -366,10 +360,10 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-idn" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-normalizer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
-          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php70" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php72" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php73" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php80" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php81" />
           <root url="file://$MODULE_DIR$/vendor/symfony/process" />
           <root url="file://$MODULE_DIR$/vendor/symfony/routing" />
           <root url="file://$MODULE_DIR$/vendor/symfony/service-contracts" />
@@ -383,18 +377,6 @@
           <root url="file://$MODULE_DIR$/vendor/voku/portable-ascii" />
           <root url="file://$MODULE_DIR$/vendor/webmozart/assert" />
           <root url="file://$MODULE_DIR$/vendor/yajra/laravel-datatables-oracle" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="PHARS">
-        <CLASSES>
-          <root url="phar://$MODULE_DIR$/vendor/paypal/paypal-checkout-sdk/composer.phar/" />
-          <root url="phar://$MODULE_DIR$/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
-        </CLASSES>
-        <SOURCES>
-          <root url="phar://$MODULE_DIR$/vendor/paypal/paypal-checkout-sdk/composer.phar/" />
-          <root url="phar://$MODULE_DIR$/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
         </SOURCES>
       </library>
     </orderEntry>
